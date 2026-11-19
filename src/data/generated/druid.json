@@ -1,0 +1,1969 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-18T18:47:49.317Z",
+ "trees": [
+  {
+   "key": "balance",
+   "icon": "spell_nature_starfall",
+   "name": {
+    "en": "Balance",
+    "fr": "Equilibre"
+   }
+  },
+  {
+   "key": "feral",
+   "icon": "ability_racial_bearform",
+   "name": {
+    "en": "Feral Combat",
+    "fr": "Combat farouche"
+   }
+  },
+  {
+   "key": "restoration",
+   "icon": "spell_nature_healingtouch",
+   "name": {
+    "en": "Restoration",
+    "fr": "Restauration"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "improvedWrath",
+   "wowheadId": 104923,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16814,
+    16814,
+    16814,
+    16814,
+    16814
+   ],
+   "icon": "spell_nature_abolishmagic",
+   "name": {
+    "en": "Improved Wrath",
+    "fr": "Colère améliorée"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cast time of your Wrath spell by 0.1 sec and its Mana cost by 10%.",
+     "Reduces the cast time of your Wrath spell by 0.2 sec and its Mana cost by 20%.",
+     "Reduces the cast time of your Wrath spell by 0.3 sec and its Mana cost by 30%.",
+     "Reduces the cast time of your Wrath spell by 0.4 sec and its Mana cost by 40%.",
+     "Reduces the cast time of your Wrath spell by 0.5 sec and its Mana cost by 50%."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de votre sort Colère de 0.1 s et son coût en mana de 10 %.",
+     "Réduit le temps d’incantation de votre sort Colère de 0.2 s et son coût en mana de 20 %.",
+     "Réduit le temps d’incantation de votre sort Colère de 0.3 s et son coût en mana de 30 %.",
+     "Réduit le temps d’incantation de votre sort Colère de 0.4 s et son coût en mana de 40 %.",
+     "Réduit le temps d’incantation de votre sort Colère de 0.5 s et son coût en mana de 50 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "genesis",
+   "wowheadId": 104924,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    1223081,
+    1223081,
+    1223081,
+    1223081,
+    1223081
+   ],
+   "icon": "spell_arcane_arcane03",
+   "name": {
+    "en": "Genesis",
+    "fr": "Genèse"
+   },
+   "desc": {
+    "en": [
+     "Increases the periodic damage and healing done by your spells and abilities by 2%.",
+     "Increases the periodic damage and healing done by your spells and abilities by 4%.",
+     "Increases the periodic damage and healing done by your spells and abilities by 6%.",
+     "Increases the periodic damage and healing done by your spells and abilities by 8%.",
+     "Increases the periodic damage and healing done by your spells and abilities by 10%."
+    ],
+    "fr": [
+     "Augmente de 2 % les dégâts et les soins périodiques produits par vos sorts et techniques.",
+     "Augmente de 4 % les dégâts et les soins périodiques produits par vos sorts et techniques.",
+     "Augmente de 6 % les dégâts et les soins périodiques produits par vos sorts et techniques.",
+     "Augmente de 8 % les dégâts et les soins périodiques produits par vos sorts et techniques.",
+     "Augmente de 10 % les dégâts et les soins périodiques produits par vos sorts et techniques."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "moonglow",
+   "wowheadId": 104925,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    16845,
+    16845,
+    16845
+   ],
+   "icon": "spell_nature_sentinal",
+   "name": {
+    "en": "Moonglow",
+    "fr": "Lueur de la lune"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of your damaging spells by 8%.",
+     "Reduces the Mana cost of your damaging spells by 17%.",
+     "Reduces the Mana cost of your damaging spells by 25%."
+    ],
+    "fr": [
+     "Réduit de 8 % le coût en mana de vos sorts de dégâts.",
+     "Réduit de 17 % le coût en mana de vos sorts de dégâts.",
+     "Réduit de 25 % le coût en mana de vos sorts de dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedMoonfire",
+   "wowheadId": 104931,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    16821,
+    16821
+   ],
+   "icon": "spell_nature_starfall",
+   "name": {
+    "en": "Improved Moonfire",
+    "fr": "Eclat lunaire amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage and critical strike chance of your Moonfire spell by 5%.",
+     "Increases the damage and critical strike chance of your Moonfire spell by 10%."
+    ],
+    "fr": [
+     "Augmente les points de dégâts et les chances de porter un coup critique avec votre sort Eclat lunaire de 5%.",
+     "Augmente les points de dégâts et les chances de porter un coup critique avec votre sort Eclat lunaire de 10%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturesMajesty",
+   "wowheadId": 104927,
+   "tree": 0,
+   "row": 1,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    1223082,
+    1223082
+   ],
+   "icon": "inv_staff_01",
+   "name": {
+    "en": "Nature's Majesty",
+    "fr": "Majesté de la nature"
+   },
+   "desc": {
+    "en": [
+     "Increases your critical strike chance with spells and melee attacks by 2%.",
+     "Increases your critical strike chance with spells and melee attacks by 4%."
+    ],
+    "fr": [
+     "Augmente les chances de coup critique de vos sorts et attaques de mêlée de 2 %.",
+     "Augmente les chances de coup critique de vos sorts et attaques de mêlée de 4 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturesReach",
+   "wowheadId": 104929,
+   "tree": 0,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    16819,
+    16819
+   ],
+   "icon": "spell_nature_naturetouchgrow",
+   "name": {
+    "en": "Nature's Reach",
+    "fr": "Allonge de la Nature"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your offensive Balance spells by 10% and improves your chance to hit by 2%.",
+     "Increases the range of your offensive Balance spells by 20% and improves your chance to hit by 4%."
+    ],
+    "fr": [
+     "Augmente de 10 % la portée de vos sorts d’Équilibre offensifs et améliore de 2 % vos chances de toucher.",
+     "Augmente de 20 % la portée de vos sorts d’Équilibre offensifs et améliore de 4 % vos chances de toucher."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedEntanglingRoots",
+   "wowheadId": 104926,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    16918,
+    16918,
+    16918
+   ],
+   "icon": "spell_nature_stranglevines",
+   "name": {
+    "en": "Improved Entangling Roots",
+    "fr": "Sarments améliorés"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Entangling Roots spell by 25%, and its victims can take up to 25% more damage without interrupting the effect.",
+     "Increases the damage done by your Entangling Roots spell by 50%, and its victims can take up to 50% more damage without interrupting the effect.",
+     "Increases the damage done by your Entangling Roots spell by 75%, and its victims can take up to 75% more damage without interrupting the effect."
+    ],
+    "fr": [
+     "Augmente les dégâts infligés par votre sort Sarments de 25 %. Sa victime peut subir 25 % de dégâts supplémentaires sans interrompre l’effet.",
+     "Augmente les dégâts infligés par votre sort Sarments de 50 %. Sa victime peut subir 50 % de dégâts supplémentaires sans interrompre l’effet.",
+     "Augmente les dégâts infligés par votre sort Sarments de 75 %. Sa victime peut subir 75 % de dégâts supplémentaires sans interrompre l’effet."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturesSplendor",
+   "wowheadId": 104928,
+   "tree": 0,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1223083
+   ],
+   "icon": "spell_nature_natureresistancetotem",
+   "name": {
+    "en": "Nature's Splendor",
+    "fr": "Splendeur de la nature"
+   },
+   "desc": {
+    "en": [
+     "Increases the duration of your Moonfire and Rejuvenation spells by 3 sec, your Regrowth spell by 6 sec, and your Insect Swarm spell by 2 sec."
+    ],
+    "fr": [
+     "Augmente la durée de vos sorts Éclat lunaire et Récupération de 3 s, celle de Rétablissement de 6 s et celle d’Essaim d’insectes de 2 s."
+    ]
+   },
+   "requires": [
+    {
+     "key": "naturesMajesty",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "insectSwarm",
+   "wowheadId": 104930,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    5570
+   ],
+   "icon": "spell_nature_insectswarm",
+   "name": {
+    "en": "Insect Swarm",
+    "fr": "Essaim d'insectes"
+   },
+   "desc": {
+    "en": [
+     "The enemy target is swarmed by insects, decreasing their chance to hit with attacks by 2% and causing 48 Nature damage over 12 sec."
+    ],
+    "fr": [
+     "La cible adverse est assaillie par des insectes. Ses chances de toucher avec les attaques sont réduites de 2 % et elle subit 48 points de dégâts de nature en 12 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "vengeance",
+   "wowheadId": 104932,
+   "tree": 0,
+   "row": 3,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16909,
+    16909,
+    16909,
+    16909,
+    16909
+   ],
+   "icon": "spell_nature_purge",
+   "name": {
+    "en": "Vengeance",
+    "fr": "Vengeance"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your Arcane and Nature spells by 20%.",
+     "Increases the critical strike damage bonus of your Arcane and Nature spells by 40%.",
+     "Increases the critical strike damage bonus of your Arcane and Nature spells by 60%.",
+     "Increases the critical strike damage bonus of your Arcane and Nature spells by 80%.",
+     "Increases the critical strike damage bonus of your Arcane and Nature spells by 100%."
+    ],
+    "fr": [
+     "Augmente de 20 % le bonus de dégâts des coups critiques de vos sorts des arcanes et de nature.",
+     "Augmente de 40 % le bonus de dégâts des coups critiques de vos sorts des arcanes et de nature.",
+     "Augmente de 60 % le bonus de dégâts des coups critiques de vos sorts des arcanes et de nature.",
+     "Augmente de 80 % le bonus de dégâts des coups critiques de vos sorts des arcanes et de nature.",
+     "Augmente de 100 % le bonus de dégâts des coups critiques de vos sorts des arcanes et de nature."
+    ]
+   },
+   "requires": [
+    {
+     "key": "improvedMoonfire",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "improvedStarfire",
+   "wowheadId": 104933,
+   "tree": 0,
+   "row": 3,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    16850,
+    16850,
+    16850,
+    16850,
+    16850
+   ],
+   "icon": "spell_arcane_starfire",
+   "name": {
+    "en": "Improved Starfire",
+    "fr": "Feu stellaire amélioré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cast time of Starfire by 0.1 sec and Starfire has a 3% chance to stun its target for 3 sec.",
+     "Reduces the cast time of Starfire by 0.2 sec and Starfire has a 6% chance to stun its target for 3 sec.",
+     "Reduces the cast time of Starfire by 0.3 sec and Starfire has a 9% chance to stun its target for 3 sec.",
+     "Reduces the cast time of Starfire by 0.4 sec and Starfire has a 12% chance to stun its target for 3 sec.",
+     "Reduces the cast time of Starfire by 0.5 sec and Starfire has a 15% chance to stun its target for 3 sec."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de Feu stellaire de 0.1 s. Feu stellaire a 3 % de chances d’étourdir la cible pendant 3 sec.",
+     "Réduit le temps d’incantation de Feu stellaire de 0.2 s. Feu stellaire a 6 % de chances d’étourdir la cible pendant 3 sec.",
+     "Réduit le temps d’incantation de Feu stellaire de 0.3 s. Feu stellaire a 9 % de chances d’étourdir la cible pendant 3 sec.",
+     "Réduit le temps d’incantation de Feu stellaire de 0.4 s. Feu stellaire a 12 % de chances d’étourdir la cible pendant 3 sec.",
+     "Réduit le temps d’incantation de Feu stellaire de 0.5 s. Feu stellaire a 15 % de chances d’étourdir la cible pendant 3 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "overgrowth",
+   "wowheadId": 110844,
+   "tree": 0,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    17245,
+    17245
+   ],
+   "icon": "inv_misc_herb_15",
+   "name": {
+    "en": "Overgrowth",
+    "fr": "Lacis"
+   },
+   "desc": {
+    "en": [
+     "Increases the maximum number of targets you may have affected by Entangling Roots by 1.",
+     "Increases the maximum number of targets you may have affected by Entangling Roots by 2."
+    ],
+    "fr": [
+     "Augmente de 1 le nombre maximum de cibles pouvant être affectées par Sarments.",
+     "Augmente de 2 le nombre maximum de cibles pouvant être affectées par Sarments."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturesGrace",
+   "wowheadId": 104934,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    16880
+   ],
+   "icon": "spell_nature_naturesblessing",
+   "name": {
+    "en": "Nature's Grace",
+    "fr": "Grâce de la nature"
+   },
+   "desc": {
+    "en": [
+     "All non-periodic spell criticals grace you with a blessing of nature, increasing your spellcasting speed and reducing your global cooldown by 10% for 3 sec."
+    ],
+    "fr": [
+     "Tous les coups critiques non périodiques des sorts vous confèrent une bénédiction de la nature, qui augmente votre vitesse d’incantation des sorts et réduit votre temps de recharge global de 10 % pendant 3 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "eclipse",
+   "wowheadId": 104935,
+   "tree": 0,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    408248,
+    408248,
+    408248
+   ],
+   "icon": "ability_druid_eclipse",
+   "name": {
+    "en": "Eclipse",
+    "fr": "Éclipse"
+   },
+   "desc": {
+    "en": [
+     "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.17 sec. Stores up to 4 charges. Lasts 15 sec.",
+     "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.33 sec. Stores up to 4 charges. Lasts 15 sec.",
+     "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.50 sec. Stores up to 4 charges. Lasts 15 sec."
+    ],
+    "fr": [
+     "Votre sort Colère réduit le temps d’incantation de vos 2 prochains sorts Feu stellaire de 0.17 s. Vous pouvez cumuler jusqu’à 4 charges. Dure 15 sec.",
+     "Votre sort Colère réduit le temps d’incantation de vos 2 prochains sorts Feu stellaire de 0.33 s. Vous pouvez cumuler jusqu’à 4 charges. Dure 15 sec.",
+     "Votre sort Colère réduit le temps d’incantation de vos 2 prochains sorts Feu stellaire de 0.50 s. Vous pouvez cumuler jusqu’à 4 charges. Dure 15 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "moonfury",
+   "wowheadId": 104936,
+   "tree": 0,
+   "row": 5,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16896,
+    16896,
+    16896,
+    16896,
+    16896
+   ],
+   "icon": "spell_nature_moonglow",
+   "name": {
+    "en": "Moonfury",
+    "fr": "Fureur lunaire"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Arcane and Nature spells by 2%.",
+     "Increases the damage done by your Arcane and Nature spells by 4%.",
+     "Increases the damage done by your Arcane and Nature spells by 6%.",
+     "Increases the damage done by your Arcane and Nature spells by 8%.",
+     "Increases the damage done by your Arcane and Nature spells by 10%."
+    ],
+    "fr": [
+     "Augmente les dégâts infligés par vos sorts des arcanes et de nature de 2 %.",
+     "Augmente les dégâts infligés par vos sorts des arcanes et de nature de 4 %.",
+     "Augmente les dégâts infligés par vos sorts des arcanes et de nature de 6 %.",
+     "Augmente les dégâts infligés par vos sorts des arcanes et de nature de 8 %.",
+     "Augmente les dégâts infligés par vos sorts des arcanes et de nature de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "moonkinForm",
+   "wowheadId": 104937,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    24858
+   ],
+   "icon": "spell_nature_forceofnature",
+   "name": {
+    "en": "Moonkin Form",
+    "fr": "Forme de sélénien"
+   },
+   "desc": {
+    "en": [
+     "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects."
+    ],
+    "fr": [
+     "Vous adoptez votre forme de sélénien, qui augmente de 100 % les chances de déclenchement d’Augure de clarté, de 360 % la contribution des objets à l’armure et de 3 % les chances de coup critique de tous les membres du groupe ou du raid à moins de 45 m. Cet effet vous protège des effets de métamorphose et empêche l’utilisation de sorts de soins.\n\nLa transformation vous libère des métamorphoses et des effets qui affectent le déplacement."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ferocity",
+   "wowheadId": 104938,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16934,
+    16934,
+    16934,
+    16934,
+    16934
+   ],
+   "icon": "ability_hunter_pet_hyena",
+   "name": {
+    "en": "Ferocity",
+    "fr": "Férocité"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by 1 Rage or Energy.",
+     "Reduces the cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by 2 Rage or Energy.",
+     "Reduces the cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by 3 Rage or Energy.",
+     "Reduces the cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by 4 Rage or Energy.",
+     "Reduces the cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by 5 Rage or Energy."
+    ],
+    "fr": [
+     "Réduit de 1 point de rage ou d’énergie le coût de vos techniques Mutiler, Morsure primordiale, Balayage, Griffe et Griffure.",
+     "Réduit de 2 points de rage ou d’énergie le coût de vos techniques Mutiler, Morsure primordiale, Balayage, Griffe et Griffure.",
+     "Réduit de 3 points de rage ou d’énergie le coût de vos techniques Mutiler, Morsure primordiale, Balayage, Griffe et Griffure.",
+     "Réduit de 4 points de rage ou d’énergie le coût de vos techniques Mutiler, Morsure primordiale, Balayage, Griffe et Griffure.",
+     "Réduit de 5 points de rage ou d’énergie le coût de vos techniques Mutiler, Morsure primordiale, Balayage, Griffe et Griffure."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "furor",
+   "wowheadId": 104939,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17056,
+    17056,
+    17056,
+    17056,
+    17056
+   ],
+   "icon": "spell_holy_blessingofstamina",
+   "name": {
+    "en": "Furor",
+    "fr": "Fureur"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 20% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form. Shapeshifting into Cat Form restores 20% of the Energy you had when last in Cat Form, plus 2 Energy per second spent outside Bear Form or Dire Bear Form, up to 20 Energy.",
+     "Gives you a 40% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form. Shapeshifting into Cat Form restores 40% of the Energy you had when last in Cat Form, plus 4 Energy per second spent outside Bear Form or Dire Bear Form, up to 40 Energy.",
+     "Gives you a 60% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form. Shapeshifting into Cat Form restores 60% of the Energy you had when last in Cat Form, plus 6 Energy per second spent outside Bear Form or Dire Bear Form, up to 60 Energy.",
+     "Gives you a 80% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form. Shapeshifting into Cat Form restores 80% of the Energy you had when last in Cat Form, plus 8 Energy per second spent outside Bear Form or Dire Bear Form, up to 80 Energy.",
+     "Gives you a 100% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form. Shapeshifting into Cat Form restores 100% of the Energy you had when last in Cat Form, plus 10 Energy per second spent outside Bear Form or Dire Bear Form, up to 100 Energy."
+    ],
+    "fr": [
+     "Vous confère 20 % de chances de gagner 10 points de rage lorsque vous adoptez la forme d’ours ou d’ours redoutable. Lorsque vous adoptez la forme de félin, vous regagnez 20 % de l’énergie que vous possédiez lors de votre dernière forme de félin, plus 2 points d’énergie pour chaque seconde que vous n’avez pas passée sous forme d’ours ou d’ours redoutable, jusqu’à un bonus maximum de 20 points d’énergie.",
+     "Vous confère 40 % de chances de gagner 10 points de rage lorsque vous adoptez la forme d’ours ou d’ours redoutable. Lorsque vous adoptez la forme de félin, vous regagnez 40 % de l’énergie que vous possédiez lors de votre dernière forme de félin, plus 4 points d’énergie pour chaque seconde que vous n’avez pas passée sous forme d’ours ou d’ours redoutable, jusqu’à un bonus maximum de 40 points d’énergie.",
+     "Vous confère 60 % de chances de gagner 10 points de rage lorsque vous adoptez la forme d’ours ou d’ours redoutable. Lorsque vous adoptez la forme de félin, vous regagnez 60 % de l’énergie que vous possédiez lors de votre dernière forme de félin, plus 6 points d’énergie pour chaque seconde que vous n’avez pas passée sous forme d’ours ou d’ours redoutable, jusqu’à un bonus maximum de 60 points d’énergie.",
+     "Vous confère 80 % de chances de gagner 10 points de rage lorsque vous adoptez la forme d’ours ou d’ours redoutable. Lorsque vous adoptez la forme de félin, vous regagnez 80 % de l’énergie que vous possédiez lors de votre dernière forme de félin, plus 8 points d’énergie pour chaque seconde que vous n’avez pas passée sous forme d’ours ou d’ours redoutable, jusqu’à un bonus maximum de 80 points d’énergie.",
+     "Vous confère 100 % de chances de gagner 10 points de rage lorsque vous adoptez la forme d’ours ou d’ours redoutable. Lorsque vous adoptez la forme de félin, vous regagnez 100 % de l’énergie que vous possédiez lors de votre dernière forme de félin, plus 10 points d’énergie pour chaque seconde que vous n’avez pas passée sous forme d’ours ou d’ours redoutable, jusqu’à un bonus maximum de 100 points d’énergie."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "feralSwiftness",
+   "wowheadId": 104943,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    17002,
+    17002
+   ],
+   "icon": "spell_nature_spiritwolf",
+   "name": {
+    "en": "Feral Swiftness",
+    "fr": "Célérité farouche"
+   },
+   "desc": {
+    "en": [
+     "Increases your movement speed while in Cat Form by 15%, and increases your chance to Dodge by 2%.",
+     "Increases your movement speed while in Cat Form by 30%, and increases your chance to Dodge by 4%."
+    ],
+    "fr": [
+     "Augmente de 15 % votre vitesse de déplacement et de 2 % vos chances d’esquiver sous votre forme de félin.",
+     "Augmente de 30 % votre vitesse de déplacement et de 4 % vos chances d’esquiver sous votre forme de félin."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "feralInstinct",
+   "wowheadId": 104940,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    16947,
+    16947,
+    16947
+   ],
+   "icon": "ability_ambush",
+   "name": {
+    "en": "Feral Instinct",
+    "fr": "Instinct farouche"
+   },
+   "desc": {
+    "en": [
+     "Increases damage done by your Swipe ability by 10% and reduces the chance enemies have to detect you while Prowling as if you were 1 levels higher.",
+     "Increases damage done by your Swipe ability by 20% and reduces the chance enemies have to detect you while Prowling as if you were 2 levels higher.",
+     "Increases damage done by your Swipe ability by 30% and reduces the chance enemies have to detect you while Prowling as if you were 3 levels higher."
+    ],
+    "fr": [
+     "Augmente de 10 % les dégâts infligés par votre technique Balayage et réduit les chances de vous faire détecter par vos ennemis lorsque vous rôdez, comme si vous aviez gagné 1 niveaux.",
+     "Augmente de 20 % les dégâts infligés par votre technique Balayage et réduit les chances de vous faire détecter par vos ennemis lorsque vous rôdez, comme si vous aviez gagné 2 niveaux.",
+     "Augmente de 30 % les dégâts infligés par votre technique Balayage et réduit les chances de vous faire détecter par vos ennemis lorsque vous rôdez, comme si vous aviez gagné 3 niveaux."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "brutalImpact",
+   "wowheadId": 104941,
+   "tree": 1,
+   "row": 1,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    16940,
+    16940
+   ],
+   "icon": "ability_druid_bash",
+   "name": {
+    "en": "Brutal Impact",
+    "fr": "Impact brutal"
+   },
+   "desc": {
+    "en": [
+     "Increases the stun duration of your Bash and Pounce abilities by 0.5 sec and reduces the cooldown of Bash by 15 sec.",
+     "Increases the stun duration of your Bash and Pounce abilities by 1 sec and reduces the cooldown of Bash by 30 sec."
+    ],
+    "fr": [
+     "Augmente la durée d’étourdissement de vos techniques Sonner et Traquenard de 0.5 s et réduit le temps de recharge de Sonner de 15 s.",
+     "Augmente la durée d’étourdissement de vos techniques Sonner et Traquenard de 1 s et réduit le temps de recharge de Sonner de 30 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "thickHide",
+   "wowheadId": 104942,
+   "tree": 1,
+   "row": 1,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    16929,
+    16929,
+    16929
+   ],
+   "icon": "inv_misc_pelt_bear_03",
+   "name": {
+    "en": "Thick Hide",
+    "fr": "Peau épaisse"
+   },
+   "desc": {
+    "en": [
+     "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 180 additional base Armor per level and another 0.67 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms.",
+     "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 180 additional base Armor per level and another 1.33 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms.",
+     "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 180 additional base Armor per level and another 2.00 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms."
+    ],
+    "fr": [
+     "Sous forme d’ours, de félin, d’ours redoutable ou de sélénien, vous bénéficiez d’un bonus d’armure de base de 180 par niveau, ainsi que d’un bonus d’armure de base supplémentaire de 0.67 pour chaque point de défense dépassant cinq fois votre niveau. Ce montant peut être augmenté par les multiplicateurs de ces formes.",
+     "Sous forme d’ours, de félin, d’ours redoutable ou de sélénien, vous bénéficiez d’un bonus d’armure de base de 180 par niveau, ainsi que d’un bonus d’armure de base supplémentaire de 1.33 pour chaque point de défense dépassant cinq fois votre niveau. Ce montant peut être augmenté par les multiplicateurs de ces formes.",
+     "Sous forme d’ours, de félin, d’ours redoutable ou de sélénien, vous bénéficiez d’un bonus d’armure de base de 180 par niveau, ainsi que d’un bonus d’armure de base supplémentaire de 2.00 pour chaque point de défense dépassant cinq fois votre niveau. Ce montant peut être augmenté par les multiplicateurs de ces formes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shreddingAttacks",
+   "wowheadId": 104945,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    16966,
+    16966,
+    16966
+   ],
+   "icon": "spell_shadow_vampiricaura",
+   "name": {
+    "en": "Shredding Attacks",
+    "fr": "Attaques lacérantes"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Energy cost of your Shred ability by 6 and reduces the Rage cost of your Lacerate ability by 1.",
+     "Reduces the Energy cost of your Shred ability by 12 and reduces the Rage cost of your Lacerate ability by 2.",
+     "Reduces the Energy cost of your Shred ability by 18 and reduces the Rage cost of your Lacerate ability by 3."
+    ],
+    "fr": [
+     "Réduit de 6 le coût en énergie de votre technique Lambeau et de 1 le coût en rage de votre technique Lacérer.",
+     "Réduit de 12 le coût en énergie de votre technique Lambeau et de 2 le coût en rage de votre technique Lacérer.",
+     "Réduit de 18 le coût en énergie de votre technique Lambeau et de 3 le coût en rage de votre technique Lacérer."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "savageFury",
+   "wowheadId": 104948,
+   "tree": 1,
+   "row": 2,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    16998,
+    16998
+   ],
+   "icon": "ability_druid_ravage",
+   "name": {
+    "en": "Savage Fury",
+    "fr": "Furie sauvage"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage caused by your Claw, Rake, Shred, Maul, and Swipe abilities by 5%.",
+     "Increases the damage caused by your Claw, Rake, Shred, Maul, and Swipe abilities by 10%."
+    ],
+    "fr": [
+     "Augmente de 5 % les dégâts infligés par vos techniques Griffe, Griffure, Lambeau, Mutiler et Balayage.",
+     "Augmente de 10 % les dégâts infligés par vos techniques Griffe, Griffure, Lambeau, Mutiler et Balayage."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "feralCharge",
+   "wowheadId": 104944,
+   "tree": 1,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1238122
+   ],
+   "icon": "ability_hunter_pet_bear",
+   "name": {
+    "en": "Feral Charge",
+    "fr": "Charge farouche"
+   },
+   "desc": {
+    "en": [
+     "Requires Bear Form, Dire Bear Form\nCharge an enemy, immobilizing them and interrupting any spell they are casting for 4 sec.\n\n\nFeral Charge (Cat)\n8 - 25 yd rangeInstant30 sec cooldownRequires Druid\nRequires level 1Requires Cat Form\nLeap behind an enemy."
+    ],
+    "fr": [
+     "Nécessite la forme d’ours ou la forme d’ours redoutable\nVous chargez un personnage adverse, stoppez son déplacement et interrompez le sort qu’il lançait pendant 4 sec.\n\n\nCharge farouche (félin)\nPortée de 8 - 25 m.Instantané30 s de rechargeRequires Druid\nRequires level 1Requiert Forme de félin\nBondit derrière une cible adverse."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sharpenedClaws",
+   "wowheadId": 104946,
+   "tree": 1,
+   "row": 2,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    16942,
+    16942
+   ],
+   "icon": "inv_misc_monsterclaw_04",
+   "name": {
+    "en": "Sharpened Claws",
+    "fr": "Griffes aiguisées"
+   },
+   "desc": {
+    "en": [
+     "Increases your critical strike chance while in Bear Form, Dire Bear Form, or Cat Form by 3%.",
+     "Increases your critical strike chance while in Bear Form, Dire Bear Form, or Cat Form by 6%."
+    ],
+    "fr": [
+     "Augmente de 3 % vos chances de coup critique lorsque vous êtes sous forme d’ours, d’ours redoutable ou de félin.",
+     "Augmente de 6 % vos chances de coup critique lorsque vous êtes sous forme d’ours, d’ours redoutable ou de félin."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "predatoryStrikes",
+   "wowheadId": 104952,
+   "tree": 1,
+   "row": 3,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    16972,
+    16972,
+    16972
+   ],
+   "icon": "ability_hunter_pet_cat",
+   "name": {
+    "en": "Predatory Strikes",
+    "fr": "Frappes de prédateur"
+   },
+   "desc": {
+    "en": [
+     "Increases your melee Attack Power in Cat Form, Bear Form, and Dire Bear Form by 50% of your level.",
+     "Increases your melee Attack Power in Cat Form, Bear Form, and Dire Bear Form by 100% of your level.",
+     "Increases your melee Attack Power in Cat Form, Bear Form, and Dire Bear Form by 150% of your level."
+    ],
+    "fr": [
+     "Sous forme de félin, d’ours ou d’ours redoutable, augmente votre puissance d’attaque en mêlée d’un montant correspondant à 50 % de votre niveau.",
+     "Sous forme de félin, d’ours ou d’ours redoutable, augmente votre puissance d’attaque en mêlée d’un montant correspondant à 100 % de votre niveau.",
+     "Sous forme de félin, d’ours ou d’ours redoutable, augmente votre puissance d’attaque en mêlée d’un montant correspondant à 150 % de votre niveau."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lacerate",
+   "wowheadId": 104949,
+   "tree": 1,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1328617
+   ],
+   "icon": "ability_druid_lacerate",
+   "name": {
+    "en": "Lacerate",
+    "fr": "Lacérer"
+   },
+   "desc": {
+    "en": [
+     "Lacerates the enemy target, making them bleed for 20 damage over 15 sec plus 10% weapon damage per existing application of Lacerate on the target. Causes a high amount of threat. This effect stacks up to 5 times on the same target."
+    ],
+    "fr": [
+     "Lacère la cible, ce qui la fait saigner et lui inflige 20 points de dégâts en 15 sec, plus 10 % des dégâts de l’arme par application existante de Lacérer sur la cible. Génère un niveau de menace très élevé. Cet effet se cumule jusqu’à 5 fois sur la même cible."
+    ]
+   },
+   "requires": [
+    {
+     "key": "savageFury",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "predatoryDiscipline",
+   "wowheadId": 104951,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1328613
+   ],
+   "icon": "spell_druid_savagery",
+   "name": {
+    "en": "Predatory Discipline",
+    "fr": "Discipline prédatrice"
+   },
+   "desc": {
+    "en": [
+     "Your Ferocious Bite ability no longer converts extra Energy into damage, but still deals extra damage based on your excess Energy."
+    ],
+    "fr": [
+     "Votre technique Morsure féroce ne convertit plus les points d’énergie supplémentaires en dégâts, mais elle inflige toujours des dégâts supplémentaires en fonction de votre énergie excédentaire."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "bloodFrenzy",
+   "wowheadId": 104947,
+   "tree": 1,
+   "row": 3,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    16958,
+    16958
+   ],
+   "icon": "ability_ghoulfrenzy",
+   "name": {
+    "en": "Blood Frenzy",
+    "fr": "Frénésie sanglante"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 50% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form. In addition, your non-periodic critical strikes from Cat Form abilities that generate Combo Points have a 50% chance to add an additional Combo Point.",
+     "Gives you a 100% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form. In addition, your non-periodic critical strikes from Cat Form abilities that generate Combo Points have a 100% chance to add an additional Combo Point."
+    ],
+    "fr": [
+     "Vous confère 50 % de chances de générer 5 points de rage supplémentaires chaque fois que vous réussissez un coup critique en forme d’ours ou d’ours redoutable. De plus, vos coups critiques non périodiques obtenus avec les techniques de la forme de félin ajoutant des points de combo ont 50 % de chances d’ajouter un point de combo supplémentaire.",
+     "Vous confère 100 % de chances de générer 5 points de rage supplémentaires chaque fois que vous réussissez un coup critique en forme d’ours ou d’ours redoutable. De plus, vos coups critiques non périodiques obtenus avec les techniques de la forme de félin ajoutant des points de combo ont 100 % de chances d’ajouter un point de combo supplémentaire."
+    ]
+   },
+   "requires": [
+    {
+     "key": "sharpenedClaws",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "leaderOfThePack",
+   "wowheadId": 104955,
+   "tree": 1,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    17007
+   ],
+   "icon": "spell_nature_unyeildingstamina",
+   "name": {
+    "en": "Leader of the Pack",
+    "fr": "Chef de la meute"
+   },
+   "desc": {
+    "en": [
+     "While in Cat Form, Bear Form, or Dire Bear Form, the Leader of the Pack increases the Critical Strike chance of all party or raid members within 45 yards by 3%."
+    ],
+    "fr": [
+     "Pendant qu’il est en forme de félin, d’ours ou d’ours redoutable, le Chef de la meute augmente de 3 % les chances de tous les membres du groupe ou du raid se trouvant à moins de 45 m d’obtenir un coup critique."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturalInstinct",
+   "wowheadId": 104950,
+   "tree": 1,
+   "row": 4,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    1223242,
+    1223242
+   ],
+   "icon": "ability_druid_predatoryinstincts",
+   "name": {
+    "en": "Natural Instinct",
+    "fr": "Instinct naturel"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your melee abilities by 10% and increases your spell healing by 12% of your Intellect.",
+     "Increases the critical strike damage bonus of your melee abilities by 20% and increases your spell healing by 25% of your Intellect."
+    ],
+    "fr": [
+     "Augmente le bonus aux dégâts critiques de vos techniques de mêlée de 10 %, et augmente les soins de vos sorts d’un montant égal à 12 % de votre Intelligence.",
+     "Augmente le bonus aux dégâts critiques de vos techniques de mêlée de 20 %, et augmente les soins de vos sorts d’un montant égal à 25 % de votre Intelligence."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "rendAndTear",
+   "wowheadId": 104953,
+   "tree": 1,
+   "row": 5,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    1223246,
+    1223246,
+    1223246,
+    1223246,
+    1223246
+   ],
+   "icon": "ability_druid_primalagression",
+   "name": {
+    "en": "Rend and Tear",
+    "fr": "Pourfendre et déchirer"
+   },
+   "desc": {
+    "en": [
+     "Increases damage done by your melee abilities on Bleeding targets by 3%.",
+     "Increases damage done by your melee abilities on Bleeding targets by 6%.",
+     "Increases damage done by your melee abilities on Bleeding targets by 9%.",
+     "Increases damage done by your melee abilities on Bleeding targets by 12%.",
+     "Increases damage done by your melee abilities on Bleeding targets by 15%."
+    ],
+    "fr": [
+     "Augmente les dégâts infligés par vos techniques de mêlée aux cibles qui saignent de 3 %.",
+     "Augmente les dégâts infligés par vos techniques de mêlée aux cibles qui saignent de 6 %.",
+     "Augmente les dégâts infligés par vos techniques de mêlée aux cibles qui saignent de 9 %.",
+     "Augmente les dégâts infligés par vos techniques de mêlée aux cibles qui saignent de 12 %.",
+     "Augmente les dégâts infligés par vos techniques de mêlée aux cibles qui saignent de 15 %."
+    ]
+   },
+   "requires": [
+    {
+     "key": "predatoryStrikes",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "naturalReaction",
+   "wowheadId": 104954,
+   "tree": 1,
+   "row": 5,
+   "col": 3,
+   "maxRank": 5,
+   "spellIds": [
+    417051,
+    417051,
+    417051,
+    417051,
+    417051
+   ],
+   "icon": "ability_bullrush",
+   "name": {
+    "en": "Natural Reaction",
+    "fr": "Réaction naturelle"
+   },
+   "desc": {
+    "en": [
+     "Increases your dodge chance by 1%, and gives you a 20% chance to gain 5 Rage each time you dodge.",
+     "Increases your dodge chance by 2%, and gives you a 40% chance to gain 5 Rage each time you dodge.",
+     "Increases your dodge chance by 3%, and gives you a 60% chance to gain 5 Rage each time you dodge.",
+     "Increases your dodge chance by 4%, and gives you a 80% chance to gain 5 Rage each time you dodge.",
+     "Increases your dodge chance by 5%, and gives you a 100% chance to gain 5 Rage each time you dodge."
+    ],
+    "fr": [
+     "Augmente vos chances d’esquiver de 1 % et vous confère 20 % de chances d’obtenir 5 points de rage chaque fois que vous esquivez.",
+     "Augmente vos chances d’esquiver de 2 % et vous confère 40 % de chances d’obtenir 5 points de rage chaque fois que vous esquivez.",
+     "Augmente vos chances d’esquiver de 3 % et vous confère 60 % de chances d’obtenir 5 points de rage chaque fois que vous esquivez.",
+     "Augmente vos chances d’esquiver de 4 % et vous confère 80 % de chances d’obtenir 5 points de rage chaque fois que vous esquivez.",
+     "Augmente vos chances d’esquiver de 5 % et vous confère 100 % de chances d’obtenir 5 points de rage chaque fois que vous esquivez."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "primalBite",
+   "wowheadId": 104956,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    407995
+   ],
+   "icon": "ability_racial_cannibalize",
+   "name": {
+    "en": "Primal Bite",
+    "fr": "Morsure primordiale"
+   },
+   "desc": {
+    "en": [
+     "Bite the target, dealing 100% normal damage plus 42 and generating a high amount of threat."
+    ],
+    "fr": [
+     "Vous mordez la cible, ce qui lui inflige 100 % des dégâts normaux et 42 points de dégâts supplémentaires tout en générant une quantité considérable de menace."
+    ]
+   },
+   "requires": [
+    {
+     "key": "leaderOfThePack",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "shiftingPower",
+   "wowheadId": 113563,
+   "tree": 1,
+   "row": 6,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1322605
+   ],
+   "icon": "spell_druid_displacement",
+   "name": {
+    "en": "Shifting Power",
+    "fr": "Puissance fluctuante"
+   },
+   "desc": {
+    "en": [
+     "Instantly convert 0 Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
+    ],
+    "fr": [
+     "Vous convertissez instantanément 0 points de mana en 40 points d’énergie. Le coût de Puissance fluctuante est réduit par les effets qui réduisent le coût de la transformation."
+    ]
+   },
+   "requires": [
+    {
+     "key": "predatoryDiscipline",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "naturesFocus",
+   "wowheadId": 104957,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    17063,
+    17063,
+    17063,
+    17063,
+    17063
+   ],
+   "icon": "spell_nature_healingwavegreater",
+   "name": {
+    "en": "Nature's Focus",
+    "fr": "Focalisation de la nature"
+   },
+   "desc": {
+    "en": [
+     "Gives your Arcane and Nature spells a 14% chance to not lose casting time when you take damage.",
+     "Gives your Arcane and Nature spells a 28% chance to not lose casting time when you take damage.",
+     "Gives your Arcane and Nature spells a 42% chance to not lose casting time when you take damage.",
+     "Gives your Arcane and Nature spells a 56% chance to not lose casting time when you take damage.",
+     "Gives your Arcane and Nature spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à vos sorts des arcanes et de nature 14 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts des arcanes et de nature 28 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts des arcanes et de nature 42 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts des arcanes et de nature 56 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts des arcanes et de nature 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "heartOfTheWild",
+   "wowheadId": 104958,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17003,
+    17003,
+    17003,
+    17003,
+    17003
+   ],
+   "icon": "spell_holy_blessingofagility",
+   "name": {
+    "en": "Heart of the Wild",
+    "fr": "Cœur de fauve"
+   },
+   "desc": {
+    "en": [
+     "Increases your Intellect by 2%. In addition, while in Bear Form or Dire Bear Form your Stamina is increased by 4% and while in Cat Form your Strength is increased by 2%.",
+     "Increases your Intellect by 4%. In addition, while in Bear Form or Dire Bear Form your Stamina is increased by 8% and while in Cat Form your Strength is increased by 4%.",
+     "Increases your Intellect by 6%. In addition, while in Bear Form or Dire Bear Form your Stamina is increased by 12% and while in Cat Form your Strength is increased by 6%.",
+     "Increases your Intellect by 8%. In addition, while in Bear Form or Dire Bear Form your Stamina is increased by 16% and while in Cat Form your Strength is increased by 8%.",
+     "Increases your Intellect by 10%. In addition, while in Bear Form or Dire Bear Form your Stamina is increased by 20% and while in Cat Form your Strength is increased by 10%."
+    ],
+    "fr": [
+     "Augmente votre Intelligence de 2 %. Sous forme d’ours ou d’ours redoutable, votre Endurance augmente de 4 %. Sous forme de félin, votre Force augmente de 2 %.",
+     "Augmente votre Intelligence de 4 %. Sous forme d’ours ou d’ours redoutable, votre Endurance augmente de 8 %. Sous forme de félin, votre Force augmente de 4 %.",
+     "Augmente votre Intelligence de 6 %. Sous forme d’ours ou d’ours redoutable, votre Endurance augmente de 12 %. Sous forme de félin, votre Force augmente de 6 %.",
+     "Augmente votre Intelligence de 8 %. Sous forme d’ours ou d’ours redoutable, votre Endurance augmente de 16 %. Sous forme de félin, votre Force augmente de 8 %.",
+     "Augmente votre Intelligence de 10 %. Sous forme d’ours ou d’ours redoutable, votre Endurance augmente de 20 %. Sous forme de félin, votre Force augmente de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturalist",
+   "wowheadId": 104922,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    17069,
+    17069,
+    17069,
+    17069,
+    17069
+   ],
+   "icon": "spell_nature_healingtouch",
+   "name": {
+    "en": "Naturalist",
+    "fr": "Naturaliste"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cast time of your Healing Touch and Wild Growth spells by 0.1 sec and increases all damage you deal by 2%.",
+     "Reduces the cast time of your Healing Touch and Wild Growth spells by 0.2 sec and increases all damage you deal by 4%.",
+     "Reduces the cast time of your Healing Touch and Wild Growth spells by 0.3 sec and increases all damage you deal by 6%.",
+     "Reduces the cast time of your Healing Touch and Wild Growth spells by 0.4 sec and increases all damage you deal by 8%.",
+     "Reduces the cast time of your Healing Touch and Wild Growth spells by 0.5 sec and increases all damage you deal by 10%."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de vos sorts Toucher guérisseur et Croissance sauvage de 0.1 s et augmente tous les dégâts que vous infligez de 2 %.",
+     "Réduit le temps d’incantation de vos sorts Toucher guérisseur et Croissance sauvage de 0.2 s et augmente tous les dégâts que vous infligez de 4 %.",
+     "Réduit le temps d’incantation de vos sorts Toucher guérisseur et Croissance sauvage de 0.3 s et augmente tous les dégâts que vous infligez de 6 %.",
+     "Réduit le temps d’incantation de vos sorts Toucher guérisseur et Croissance sauvage de 0.4 s et augmente tous les dégâts que vous infligez de 8 %.",
+     "Réduit le temps d’incantation de vos sorts Toucher guérisseur et Croissance sauvage de 0.5 s et augmente tous les dégâts que vous infligez de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "reflection",
+   "wowheadId": 104920,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    17106,
+    17106,
+    17106
+   ],
+   "icon": "spell_frost_windwalkon",
+   "name": {
+    "en": "Reflection",
+    "fr": "Renvoi"
+   },
+   "desc": {
+    "en": [
+     "Allows 17% of your Mana regeneration to continue while casting.",
+     "Allows 33% of your Mana regeneration to continue while casting.",
+     "Allows 50% of your Mana regeneration to continue while casting."
+    ],
+    "fr": [
+     "Vous confère 17% de votre vitesse de récupération du mana normale pendant l'incantation.",
+     "Vous confère 33% de votre vitesse de récupération du mana normale pendant l'incantation.",
+     "Vous confère 50% de votre vitesse de récupération du mana normale pendant l'incantation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturalShapeshifter",
+   "wowheadId": 104919,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    16833,
+    16833,
+    16833
+   ],
+   "icon": "spell_nature_wispsplode",
+   "name": {
+    "en": "Natural Shapeshifter",
+    "fr": "Changeforme naturel"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of all shapeshifting by 10%.",
+     "Reduces the mana cost of all shapeshifting by 20%.",
+     "Reduces the mana cost of all shapeshifting by 30%."
+    ],
+    "fr": [
+     "Réduit le coût en mana de tous les changements de forme de 10%.",
+     "Réduit le coût en mana de tous les changements de forme de 20%.",
+     "Réduit le coût en mana de tous les changements de forme de 30%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "subtlety",
+   "wowheadId": 104917,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    17118,
+    17118,
+    17118
+   ],
+   "icon": "ability_eyeoftheowl",
+   "name": {
+    "en": "Subtlety",
+    "fr": "Discrétion"
+   },
+   "desc": {
+    "en": [
+     "Reduces the threat generated by your Nature and Arcane spells by 10%.",
+     "Reduces the threat generated by your Nature and Arcane spells by 20%.",
+     "Reduces the threat generated by your Nature and Arcane spells by 30%."
+    ],
+    "fr": [
+     "Réduit de 10 % le niveau de menace généré par vos sorts de nature et des arcanes.",
+     "Réduit de 20 % le niveau de menace généré par vos sorts de nature et des arcanes.",
+     "Réduit de 30 % le niveau de menace généré par vos sorts de nature et des arcanes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "giftOfNature",
+   "wowheadId": 104916,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17104,
+    17104,
+    17104,
+    17104,
+    17104
+   ],
+   "icon": "spell_nature_protectionformnature",
+   "name": {
+    "en": "Gift of Nature",
+    "fr": "Don de la Nature"
+   },
+   "desc": {
+    "en": [
+     "Increases the effect of all your healing spells by 2%.",
+     "Increases the effect of all your healing spells by 4%.",
+     "Increases the effect of all your healing spells by 6%.",
+     "Increases the effect of all your healing spells by 8%.",
+     "Increases the effect of all your healing spells by 10%."
+    ],
+    "fr": [
+     "Augmente de 2 % l’effet de tous vos sorts de soins.",
+     "Augmente de 4 % l’effet de tous vos sorts de soins.",
+     "Augmente de 6 % l’effet de tous vos sorts de soins.",
+     "Augmente de 8 % l’effet de tous vos sorts de soins.",
+     "Augmente de 10 % l’effet de tous vos sorts de soins."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "bloom",
+   "wowheadId": 104918,
+   "tree": 2,
+   "row": 2,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    1328621
+   ],
+   "icon": "inv_misc_herb_felblossom",
+   "name": {
+    "en": "Bloom",
+    "fr": "Floraison"
+   },
+   "desc": {
+    "en": [
+     "When your Rejuvenation or Regrowth spell expires due to its duration, the target is instantly healed for an amount equal to 100% of your Spirit. If either spell expires due to being dispelled, the target is healed for 50% of your Spirit instead."
+    ],
+    "fr": [
+     "Quand vos sorts Récupération et Rétablissement prennent fin naturellement, la cible récupère instantanément un montant de points de vie égal à 100 % de votre Esprit. Si les sorts sont annulés, la cible récupère à la place un montant de points de vie égal à 50 % de votre Esprit."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "tranquilSpirit",
+   "wowheadId": 104915,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    24968,
+    24968,
+    24968,
+    24968,
+    24968
+   ],
+   "icon": "spell_holy_elunesgrace",
+   "name": {
+    "en": "Tranquil Spirit",
+    "fr": "Tranquillité de l'esprit"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of your Healing Touch and Tranquility spells by 2%.",
+     "Reduces the mana cost of your Healing Touch and Tranquility spells by 4%.",
+     "Reduces the mana cost of your Healing Touch and Tranquility spells by 6%.",
+     "Reduces the mana cost of your Healing Touch and Tranquility spells by 8%.",
+     "Reduces the mana cost of your Healing Touch and Tranquility spells by 10%."
+    ],
+    "fr": [
+     "Réduit le coût en mana de vos sorts Toucher guérisseur et Tranquillité de 2%.",
+     "Réduit le coût en mana de vos sorts Toucher guérisseur et Tranquillité de 4%.",
+     "Réduit le coût en mana de vos sorts Toucher guérisseur et Tranquillité de 6%.",
+     "Réduit le coût en mana de vos sorts Toucher guérisseur et Tranquillité de 8%.",
+     "Réduit le coût en mana de vos sorts Toucher guérisseur et Tranquillité de 10%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedRejuvenation",
+   "wowheadId": 104914,
+   "tree": 2,
+   "row": 3,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    17111,
+    17111,
+    17111
+   ],
+   "icon": "spell_nature_rejuvenation",
+   "name": {
+    "en": "Improved Rejuvenation",
+    "fr": "Récupération améliorée"
+   },
+   "desc": {
+    "en": [
+     "Increases the effect of your Rejuvenation spell by 5%.",
+     "Increases the effect of your Rejuvenation spell by 10%.",
+     "Increases the effect of your Rejuvenation spell by 15%."
+    ],
+    "fr": [
+     "Augmente les effets de votre sort Récupération de 5%.",
+     "Augmente les effets de votre sort Récupération de 10%.",
+     "Augmente les effets de votre sort Récupération de 15%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "swiftmend",
+   "wowheadId": 104912,
+   "tree": 2,
+   "row": 3,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    18562
+   ],
+   "icon": "inv_relics_idolofrejuvenation",
+   "name": {
+    "en": "Swiftmend",
+    "fr": "Prompte guérison"
+   },
+   "desc": {
+    "en": [
+     "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect."
+    ],
+    "fr": [
+     "Soigne instantanément une cible avec votre effet actif de Récupération ou de Rétablissement pour lui rendre un montant de points de vie équivalent à la durée totale de l’effet périodique."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturesSwiftness",
+   "wowheadId": 104921,
+   "tree": 2,
+   "row": 4,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    17116
+   ],
+   "icon": "spell_nature_ravenform",
+   "name": {
+    "en": "Nature's Swiftness",
+    "fr": "Rapidité de la nature"
+   },
+   "desc": {
+    "en": [
+     "When activated, your next Nature spell becomes an instant cast spell."
+    ],
+    "fr": [
+     "Lorsque cette technique est activée, votre prochain sort de Nature devient un sort instantané."
+    ]
+   },
+   "requires": [
+    {
+     "key": "naturalist",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "key": "livingSpirit",
+   "wowheadId": 104911,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    1309631,
+    1309631,
+    1309631
+   ],
+   "icon": "spell_nature_giftofthewaterspirit",
+   "name": {
+    "en": "Living Spirit",
+    "fr": "Esprit vif"
+   },
+   "desc": {
+    "en": [
+     "Increases your Spirit by 5%.",
+     "Increases your Spirit by 10%.",
+     "Increases your Spirit by 15%."
+    ],
+    "fr": [
+     "Augmente votre Esprit de 5 %.",
+     "Augmente votre Esprit de 10 %.",
+     "Augmente votre Esprit de 15 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedTranquility",
+   "wowheadId": 104909,
+   "tree": 2,
+   "row": 4,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    17123,
+    17123
+   ],
+   "icon": "spell_nature_tranquility",
+   "name": {
+    "en": "Improved Tranquility",
+    "fr": "Tranquillité améliorée"
+   },
+   "desc": {
+    "en": [
+     "Reduces threat caused by Tranquility by 50% and its cooldown by 30%.",
+     "Reduces threat caused by Tranquility by 100% and its cooldown by 60%."
+    ],
+    "fr": [
+     "Diminue le niveau de menace généré par Tranquillité de 50 % et réduit le temps de recharge de 30 %.",
+     "Diminue le niveau de menace généré par Tranquillité de 100 % et réduit le temps de recharge de 60 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedRegrowth",
+   "wowheadId": 104913,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17074,
+    17074,
+    17074,
+    17074,
+    17074
+   ],
+   "icon": "spell_nature_resistnature",
+   "name": {
+    "en": "Improved Regrowth",
+    "fr": "Rétablissement amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical effect chance of your Regrowth spell by 10%.",
+     "Increases the critical effect chance of your Regrowth spell by 20%.",
+     "Increases the critical effect chance of your Regrowth spell by 30%.",
+     "Increases the critical effect chance of your Regrowth spell by 40%.",
+     "Increases the critical effect chance of your Regrowth spell by 50%."
+    ],
+    "fr": [
+     "Augmente les chances d'obtenir un effet critique avec votre sort Rétablissement de 10%.",
+     "Augmente les chances d'obtenir un effet critique avec votre sort Rétablissement de 20%.",
+     "Augmente les chances d'obtenir un effet critique avec votre sort Rétablissement de 30%.",
+     "Augmente les chances d'obtenir un effet critique avec votre sort Rétablissement de 40%.",
+     "Augmente les chances d'obtenir un effet critique avec votre sort Rétablissement de 50%."
+    ]
+   },
+   "requires": [
+    {
+     "key": "improvedRejuvenation",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "wildGrowth",
+   "wowheadId": 104910,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    408120
+   ],
+   "icon": "ability_druid_flourish",
+   "name": {
+    "en": "Wild Growth",
+    "fr": "Croissance sauvage"
+   },
+   "desc": {
+    "en": [
+     "Heals the target and their party for 336 over 7 sec. Party members must be within 43.5 yards of target. The amount healed is applied quickly at first, and slows down as Wild Growth reaches its full duration."
+    ],
+    "fr": [
+     "Rend 336 points de vie en 7 sec à la cible et aux membres de son groupe se trouvant à moins de 43.5 m d’elle. La quantité de soins prodiguée est importante au début, puis diminue à mesure que Croissance sauvage atteint sa durée maximale."
+    ]
+   },
+   "requires": [
+    {
+     "key": "livingSpirit",
+     "qty": 3
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "melee": {
+   "id": 6603,
+   "name": {
+    "en": "Attack",
+    "fr": "Attaque"
+   },
+   "tooltip": {
+    "en": "Attack\nInstant",
+    "fr": "Attaque\nInstantanée"
+   },
+   "icon": "temp"
+  },
+  "wrath": {
+   "id": 9912,
+   "name": {
+    "en": "Wrath",
+    "fr": "Colère"
+   },
+   "tooltip": {
+    "en": "Wrath\nLevel 60120 Mana30 yd range2 sec castRequires DruidRequires level 54\nCauses 92 to 102 Nature damage to the target.",
+    "fr": "Colère\nNiveau 60Mana : 12030 m de portée2 s d'incantationRequiert DruideNiveau 54 requis\nInflige 92 à 102 points de dégâts de Nature à la cible."
+   },
+   "icon": "spell_nature_abolishmagic"
+  },
+  "starfire": {
+   "id": 25298,
+   "name": {
+    "en": "Starfire",
+    "fr": "Feu stellaire"
+   },
+   "tooltip": {
+    "en": "Starfire\nLevel 60340 Mana30 yd range3.5 sec castRequires DruidRequires level 60\nCauses 510 to 597 Arcane damage to the target.",
+    "fr": "Feu stellaire\nNiveau 60Mana : 34030 m de portée3.5 s d'incantationRequiert DruideNiveau 60 requis\nInflige 510 à 597 points de dégâts des Arcanes à la cible."
+   },
+   "icon": "spell_arcane_starfire"
+  },
+  "moonfire": {
+   "id": 9835,
+   "name": {
+    "en": "Moonfire",
+    "fr": "Eclat lunaire"
+   },
+   "tooltip": {
+    "en": "Moonfire\nLevel 60375 Mana30 yd rangeInstantRequires DruidRequires level 58\nBurns the enemy for 136 to 157 Arcane damage and then an additional 240 Arcane damage over 12 sec.",
+    "fr": "Eclat lunaire\nNiveau 60Mana : 37530 m de portéeInstantanéeRequiert DruideNiveau 58 requis\nBrûle l'ennemi et lui inflige 136 à 157 points de dégâts des Arcanes, puis 240 points de dégâts des Arcanes supplémentaires en 12 sec."
+   },
+   "icon": "spell_nature_starfall"
+  },
+  "insectSwarm": {
+   "id": 24977,
+   "name": {
+    "en": "Insect Swarm",
+    "fr": "Essaim d'insectes"
+   },
+   "tooltip": {
+    "en": "Insect Swarm160 Mana30 yd rangeInstantRequires DruidRequires level 60\nThe enemy target is swarmed by insects, decreasing their chance to hit with attacks by 2% and causing 186 Nature damage over 12 sec.",
+    "fr": "Essaim d'insectesMana : 16030 m de portéeInstantanéeRequiert DruideNiveau 60 requis\nLa cible adverse est assaillie par des insectes. Ses chances de toucher avec les attaques sont réduites de 2 % et elle subit 186 points de dégâts de nature en 12 sec."
+   },
+   "icon": "spell_nature_insectswarm"
+  },
+  "hurricane": {
+   "id": 17402,
+   "name": {
+    "en": "Hurricane",
+    "fr": "Ouragan"
+   },
+   "tooltip": {
+    "en": "Hurricane\nLevel 601495 Mana30 yd rangeChanneled (10 sec cast)Requires DruidRequires level 60\nCreates a violent storm in the target area causing 134 Nature damage to enemies every 1 sec, and increasing the time between attacks by 20%. Lasts 10 sec. Druid must channel to maintain the spell.",
+    "fr": "Ouragan\nNiveau 60Mana : 149530 m de portéeCanalisée (10 s d'incantation)Requiert DruideNiveau 60 requis\nCrée une violente tempête dans la zone ciblée, infligeant 134 points de dégâts de nature aux adversaires toutes les 1 s et augmentant de 20 % le temps entre leurs attaques. Dure 10 sec. Le personnage druide doit canaliser le sort pendant toute sa durée, sinon celui-ci s’interrompt."
+   },
+   "icon": "spell_nature_cyclone"
+  },
+  "healingTouch": {
+   "id": 25297,
+   "name": {
+    "en": "Healing Touch",
+    "fr": "Toucher guérisseur"
+   },
+   "tooltip": {
+    "en": "Healing Touch\nLevel 60840 Mana40 yd range3.5 sec castRequires DruidRequires level 60\nHeals a friendly target for 2175 to 2562.",
+    "fr": "Toucher guérisseur\nNiveau 60Mana : 84040 m de portée3.5 s d'incantationRequiert DruideNiveau 60 requis\nRend 2175 à 2562 points de vie à une cible alliée."
+   },
+   "icon": "spell_nature_healingtouch"
+  },
+  "regrowth": {
+   "id": 9858,
+   "name": {
+    "en": "Regrowth",
+    "fr": "Rétablissement"
+   },
+   "tooltip": {
+    "en": "Regrowth\nLevel 60525 Mana40 yd range2 sec castRequires DruidRequires level 60\nHeals a friendly target for 999 to 1111 and another 994 over 21 sec.",
+    "fr": "Rétablissement\nNiveau 60Mana : 52540 m de portée2 s d'incantationRequiert DruideNiveau 60 requis\nSoigne une cible amie pour 999 à 1111 puis pour 994 points supplémentaires pendant 21 sec."
+   },
+   "icon": "spell_nature_resistnature"
+  },
+  "rejuvenation": {
+   "id": 25299,
+   "name": {
+    "en": "Rejuvenation",
+    "fr": "Récupération"
+   },
+   "tooltip": {
+    "en": "Rejuvenation360 Mana40 yd rangeInstantRequires DruidRequires level 60\nHeals the target for 776 over 12 sec.",
+    "fr": "RécupérationMana : 36040 m de portéeInstantanéeRequiert DruideNiveau 60 requis\nRend 776 points de vie à la cible en 12 sec."
+   },
+   "icon": "spell_nature_rejuvenation"
+  },
+  "wildGrowth": {
+   "id": 1238215,
+   "name": {
+    "en": "Wild Growth",
+    "fr": "Croissance sauvage"
+   },
+   "tooltip": {
+    "en": "Wild Growth\nLevel 601050 Mana40 yd range3 sec cast6 sec cooldownRequires DruidRequires level 60\nHeals the target and their party for 769 over 7 sec. Party members must be within 43.5 yds of target. The amount healed is applied quickly at first, and slows down as Wild Growth reaches its full duration.",
+    "fr": "Croissance sauvage\nNiveau 60Mana : 105040 m de portée3 s d'incantation6 s de rechargeRequiert DruideNiveau 60 requis\nRend 769 points de vie en 7 sec à la cible et aux membres de son groupe se trouvant à moins de 43.5 m d’elle. La quantité de soins prodiguée est importante au début, puis diminue à mesure que Croissance sauvage atteint sa durée maximale."
+   },
+   "icon": "ability_druid_flourish"
+  },
+  "tranquility": {
+   "id": 9863,
+   "name": {
+    "en": "Tranquility",
+    "fr": "Tranquillité"
+   },
+   "tooltip": {
+    "en": "Tranquility\nLevel 60925 ManaChanneled (10 sec cast)5 min cooldownRequires DruidRequires level 60\nRegenerates all nearby party members within 20 yards for 291 every 2 sec for 10 sec. Druid must channel to maintain the spell.",
+    "fr": "Tranquillité\nNiveau 60Mana : 925Canalisée (10 s d'incantation)5 min de rechargeRequiert DruideNiveau 60 requis\nRégénère de 291 les points de vie des membres du groupe à moins de 20 m toutes les 2 s pendant 10 sec. Le personnage druide doit canaliser le sort pendant toute sa durée, sinon celui-ci s’interrompt."
+   },
+   "icon": "spell_nature_tranquility"
+  },
+  "innervate": {
+   "id": 29166,
+   "name": {
+    "en": "Innervate",
+    "fr": "Innervation"
+   },
+   "tooltip": {
+    "en": "Innervate5% of base mana30 yd rangeInstant6 min cooldownRequires DruidRequires level 40\nIncreases the target's Mana regeneration by 400% and allows 100% of the target's Mana regeneration to continue while casting. Lasts 20 sec.",
+    "fr": "Innervation5% de la mana de base30 m de portéeInstantanée6 min de rechargeRequiert DruideNiveau 40 requis\nAugmente la régénération du mana de la cible de 400% et permet à 100% de la régénération du mana de la cible de se poursuivre pendant les incantations. Dure 20 sec."
+   },
+   "icon": "spell_nature_lightning"
+  },
+  "claw": {
+   "id": 9850,
+   "name": {
+    "en": "Claw",
+    "fr": "Griffe"
+   },
+   "tooltip": {
+    "en": "Claw45 EnergyMelee RangeInstantRequires DruidRequires level 58\nRequires Cat FormClaw the enemy for 140% normal damage plus 115. Awards 1 combo point. (Proc chance: 40%)",
+    "fr": "GriffeEnergie : 45AllongeInstantanéeRequiert DruideNiveau 58 requis\nRequiert Forme de félinGriffe l’ennemi et lui inflige 140 % des dégâts normaux plus 115. Vous gagnez 1 point de combo. (Chance d'occurence :40%)"
+   },
+   "icon": "ability_druid_rake"
+  },
+  "shred": {
+   "id": 9830,
+   "name": {
+    "en": "Shred",
+    "fr": "Lambeau"
+   },
+   "tooltip": {
+    "en": "ShredRank 560 EnergyMelee RangeInstantRequires DruidRequires level 54\nRequires Cat FormShred the target, causing 200% damage plus 80 to the target. Must be behind the target. Awards 1 combo point.",
+    "fr": "LambeauRang : 5Energie : 60AllongeInstantanéeRequiert DruideNiveau 54 requis\nRequiert Forme de félinMet la cible en lambeaux et lui inflige 200 % de dégâts plus 80. Il faut se trouver derrière la cible. Vous gagnez 1 point de combo."
+   },
+   "icon": "spell_shadow_vampiricaura"
+  },
+  "rake": {
+   "id": 9904,
+   "name": {
+    "en": "Rake",
+    "fr": "Griffure"
+   },
+   "tooltip": {
+    "en": "RakeRank 440 EnergyMelee RangeInstantRequires DruidRequires level 54\nRequires Cat FormRake the target for 76 damage and an additional 126 damage over 9 sec. Awards 1 combo point.",
+    "fr": "GriffureRang : 4Energie : 40AllongeInstantanéeRequiert DruideNiveau 54 requis\nRequiert Forme de félinLacère la cible, lui infligeant 76 points de dégâts et 126 points de dégâts supplémentaires sur la durée en 9 sec. Vous gagnez 1 point de combo."
+   },
+   "icon": "ability_druid_disembowel"
+  },
+  "rip": {
+   "id": 9896,
+   "name": {
+    "en": "Rip",
+    "fr": "Déchirure"
+   },
+   "tooltip": {
+    "en": "Rip30 Energy / 1 to 5 Combo PointsMelee RangeInstantRequires DruidRequires level 60\nRequires Cat FormFinishing move that causes damage over time. Damage increases per combo point and by your Attack Power:\n 1 point : 305 damage over 12 sec.\n 2 points: 497 damage over 12 sec.\n 3 points: 688 damage over 12 sec.\n 4 points: 880 damage over 12 sec.\n 5 points: 1071 damage over 12 sec.",
+    "fr": "DéchirureEnergie : 30 / 1 à 5 Points de comboAllongeInstantanéeRequiert DruideNiveau 60 requis\nRequiert Forme de félinCoup de grâce qui inflige des dégâts sur la durée. Les dégâts augmentent avec le nombre de points de combo et votre puissance d’attaque :\n 1 point : 305 points de dégâts en 12 sec.\n 2 points : 497 points de dégâts en 12 sec.\n 3 points : 688 points de dégâts en 12 sec.\n 4 points : 880 points de dégâts en 12 sec.\n 5 points : 1071 points de dégâts en 12 sec."
+   },
+   "icon": "ability_ghoulfrenzy"
+  },
+  "ferociousBite": {
+   "id": 31018,
+   "name": {
+    "en": "Ferocious Bite",
+    "fr": "Morsure féroce"
+   },
+   "tooltip": {
+    "en": "Ferocious Bite35 Energy / 1 to 5 Combo PointsMelee RangeInstantRequires DruidRequires level 60\nRequires Cat FormFinishing move that causes damage per combo point and converts each extra point of energy into 3.3 additional damage. Damage is increased by your Attack Power.\n 1 point : 245-321 damage\n 2 points: 426-502 damage\n 3 points: 607-683 damage\n 4 points: 788-864 damage\n 5 points: 969-1045 damage",
+    "fr": "Morsure féroceEnergie : 35 / 1 à 5 Points de comboAllongeInstantanéeRequiert DruideNiveau 60 requis\nRequiert Forme de félinCoup de grâce qui inflige des dégâts en fonction du nombre de points de combo et convertit chaque point d’énergie supplémentaire en 3.3 points de dégâts. Les dégâts sont augmentés par votre puissance d’attaque :\n 1 point : 245-321 points de dégâts\n 2 points : 426-502 points de dégâts\n 3 points : 607-683 points de dégâts\n 4 points : 788-864 points de dégâts\n 5 points : 969-1045 points de dégâts"
+   },
+   "icon": "ability_druid_ferociousbite"
+  },
+  "maul": {
+   "id": 9881,
+   "name": {
+    "en": "Maul",
+    "fr": "Mutiler"
+   },
+   "tooltip": {
+    "en": "Maul15 RageMelee RangeNext MeleeRequires DruidRequires level 58\nRequires Bear Form, Dire Bear FormIncreases the druid's next attack by 128 damage.",
+    "fr": "MutilerRage : 15AllongeProchaine attaque en mêléeRequiert DruideNiveau 58 requis\nRequiert Forme d’ours, Forme d’ours redoutableAugmente de 128 points de dégâts la prochaine attaque du druide."
+   },
+   "icon": "ability_druid_maul"
+  },
+  "swipe": {
+   "id": 9908,
+   "name": {
+    "en": "Swipe",
+    "fr": "Balayage"
+   },
+   "tooltip": {
+    "en": "SwipeRank 520 RageMelee RangeInstantRequires DruidRequires level 54\nRequires Bear Form, Dire Bear FormSwipe 3 nearby enemies, inflicting 83 damage.",
+    "fr": "BalayageRang : 5Rage : 20AllongeInstantanéeRequiert DruideNiveau 54 requis\nRequiert Forme d’ours, Forme d’ours redoutableFrappe 3 ennemis proches et inflige 83 points de dégâts."
+   },
+   "icon": "inv_misc_monsterclaw_03"
+  },
+  "lacerate": {
+   "id": 1235827,
+   "name": {
+    "en": "Lacerate",
+    "fr": "Lacérer"
+   },
+   "tooltip": {
+    "en": "LacerateRank 515 RageMelee RangeInstantRequires DruidRequires level 58\nRequires Bear Form, Dire Bear FormLacerates the enemy target, making them bleed for 75 damage over 15 sec plus 10% weapon damage per existing application of Lacerate on the target. Causes a high amount of threat. This effect stacks up to 5 times on the same target.",
+    "fr": "LacérerRang : 5Rage : 15AllongeInstantanéeRequiert DruideNiveau 58 requis\nRequiert Forme d’ours, Forme d’ours redoutableLacère la cible, ce qui la fait saigner pour 75 points de dégâts en 15 sec plus 10 % des dégâts de l’arme par application existante de Lacérer sur la cible. Génère une quantité de menace élevée. Cet effet se cumule jusqu’à 5 fois sur la même cible."
+   },
+   "icon": "ability_druid_lacerate"
+  },
+  "primalBite": {
+   "id": 1238070,
+   "name": {
+    "en": "Primal Bite",
+    "fr": "Morsure primordiale"
+   },
+   "tooltip": {
+    "en": "Primal BiteRank 320 RageMelee RangeInstant6 sec cooldownRequires DruidRequires level 60\nRequires Bear Form, Dire Bear FormBite the target, dealing 100% normal damage plus 77 and generating a high amount of threat.",
+    "fr": "Morsure primordialeRang : 3Rage : 20AllongeInstantanée6 s de rechargeRequiert DruideNiveau 60 requis\nRequiert Forme d’ours, Forme d’ours redoutableVous mordez la cible, ce qui lui inflige 100 % des dégâts normaux et 77 points de dégâts supplémentaires tout en générant une quantité considérable de menace."
+   },
+   "icon": "ability_racial_cannibalize"
+  },
+  "catForm": {
+   "id": 768,
+   "name": {
+    "en": "Cat Form",
+    "fr": "Forme de félin"
+   },
+   "tooltip": {
+    "en": "Cat Form\n55% of base mana\nInstantRequires DruidRequires level 20\nShapeshift into Cat Form, increasing Attack Power by 12 plus Agility. Also protects the caster from Polymorph effects and allows the use of various cat abilities.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+    "fr": "Forme de félin\n55% de la mana de base\nInstantanéeRequiert DruideNiveau 20 requis\nVous adoptez votre forme de félin, qui augmente votre puissance d’attaque de 12 ainsi que votre Agilité. Cet effet vous protège aussi des effets de métamorphose et vous permet d’utiliser les techniques de félin.\n\nLa transformation vous libère des métamorphoses et des effets qui affectent le déplacement."
+   },
+   "icon": "ability_druid_catform"
+  },
+  "direBearForm": {
+   "id": 9634,
+   "name": {
+    "en": "Dire Bear Form",
+    "fr": "Forme d’ours redoutable"
+   },
+   "tooltip": {
+    "en": "Dire Bear Form\nLevel 60Rank 255% of base mana\nInstantRequires DruidRequires level 40\nShapeshift into Dire Bear Form, increasing Attack Power by 210, Armor contribution from items by 360%, and Health by 1560. Also protects the caster from Polymorph effects and allows the use of various bear abilities.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+    "fr": "Forme d’ours redoutable\nNiveau 60Rang : 255% de la mana de base\nInstantanéeRequiert DruideNiveau 40 requis\nVous adoptez votre forme d’ours redoutable, qui augmente votre puissance d’attaque de 210, le score d’armure de vos objets de 360 % et les points de vie de 1560. Cet effet vous protège des effets de métamorphose et vous permet d’utiliser les techniques de l’ours.\n\nLa transformation vous libère des métamorphoses et des effets qui affectent le déplacement."
+   },
+   "icon": "ability_racial_bearform"
+  },
+  "omenOfClarity": {
+   "id": 16864,
+   "name": {
+    "en": "Omen of Clarity",
+    "fr": "Augure de clarté"
+   },
+   "tooltip": {
+    "en": "Omen of ClarityRequires DruidRequires level 20\nYour spells and attacks have a chance to grant you Clearcasting, reducing the Mana, Rage, or Energy cost of your next damage or healing spell or offensive ability by 100%. Clearcasting is not consumed by Wrath or by spells or abilities that cost no resources. (10s cooldown)",
+    "fr": "Augure de clartéRequiert DruideNiveau 20 requis\nVos sorts et attaques ont une chance de vous octroyer Idées claires, qui réduit de 100 % le coût en mana, en rage ou en énergie de votre prochain sort de dégâts ou de soins, ou de votre prochaine technique offensive. L’état Idées claires n’est consommé ni par Colère ni par les sorts ou capacités qui ne coûtent aucune ressource. (10sec de recharge)"
+   },
+   "icon": "spell_nature_crystalball"
+  },
+  "faerieFire": {
+   "id": 9907,
+   "name": {
+    "en": "Faerie Fire",
+    "fr": "Lucioles"
+   },
+   "tooltip": {
+    "en": "Faerie Fire115 Mana30 yd rangeInstantRequires DruidRequires level 54\nDecrease the armor of the target by 505 for 40 sec. While affected, the target cannot stealth or turn invisible.",
+    "fr": "LuciolesMana : 11530 m de portéeInstantanéeRequiert DruideNiveau 54 requis\nRéduit l'Armure de la cible de 505 pendant 40 sec. Tant qu'elle est affectée, la cible ne peut pas se camoufler ni se rendre invisible."
+   },
+   "icon": "spell_nature_faeriefire"
+  }
+ }
+}

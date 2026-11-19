@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-server
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+.git
+.github
+.claude
+k8s

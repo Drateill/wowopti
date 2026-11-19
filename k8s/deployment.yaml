@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wowopti
+  labels:
+    app: wowopti
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: wowopti
+  template:
+    metadata:
+      labels:
+        app: wowopti
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+        - name: wowopti
+          image: ghcr.io/drateill/wowopti
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: BLIZZARD_REGION
+              value: eu
+          # Clés de l'API Blizzard : secret créé à la main sur le cluster (jamais dans Git).
+          # Sans lui, l'app fonctionne avec Wowhead seulement.
+          envFrom:
+            - secretRef:
+                name: wowopti-blizzard
+                optional: true
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 20m
+              memory: 64Mi
+            limits:
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]

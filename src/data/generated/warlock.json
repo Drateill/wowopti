@@ -1,0 +1,1812 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-16T19:17:07.292Z",
+ "trees": [
+  {
+   "key": "curses",
+   "icon": "spell_shadow_deathcoil",
+   "name": {
+    "en": "Affliction",
+    "fr": "Affliction"
+   }
+  },
+  {
+   "key": "summoning",
+   "icon": "spell_shadow_metamorphosis",
+   "name": {
+    "en": "Demonology",
+    "fr": "Démonologie"
+   }
+  },
+  {
+   "key": "destruction",
+   "icon": "spell_shadow_rainoffire",
+   "name": {
+    "en": "Destruction",
+    "fr": "Destruction"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "improvedLifeTap",
+   "wowheadId": 105921,
+   "tree": 0,
+   "row": 0,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    18182,
+    18182
+   ],
+   "icon": "spell_shadow_burningspirit",
+   "name": {
+    "en": "Improved Life Tap",
+    "fr": "Connexion améliorée"
+   },
+   "desc": {
+    "en": [
+     "Increases the amount of Mana awarded by your Life Tap spell by 10%.",
+     "Increases the amount of Mana awarded by your Life Tap spell by 20%."
+    ],
+    "fr": [
+     "Augmente de 10% le montant de points de mana gagné par votre sort Connexion.",
+     "Augmente de 20% le montant de points de mana gagné par votre sort Connexion."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "suppression",
+   "wowheadId": 105925,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    18174,
+    18174,
+    18174,
+    18174,
+    18174
+   ],
+   "icon": "spell_shadow_unsummonbuilding",
+   "name": {
+    "en": "Suppression",
+    "fr": "Suppression"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to hit by 1% and reduces all threat you generate by 4%.",
+     "Improves your chance to hit by 2% and reduces all threat you generate by 8%.",
+     "Improves your chance to hit by 3% and reduces all threat you generate by 12%.",
+     "Improves your chance to hit by 4% and reduces all threat you generate by 16%.",
+     "Improves your chance to hit by 5% and reduces all threat you generate by 20%."
+    ],
+    "fr": [
+     "Améliore de 1 % vos chances de toucher et réduit le niveau de menace que vous générez de 4 %.",
+     "Améliore de 2 % vos chances de toucher et réduit le niveau de menace que vous générez de 8 %.",
+     "Améliore de 3 % vos chances de toucher et réduit le niveau de menace que vous générez de 12 %.",
+     "Améliore de 4 % vos chances de toucher et réduit le niveau de menace que vous générez de 16 %.",
+     "Améliore de 5 % vos chances de toucher et réduit le niveau de menace que vous générez de 20 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedCorruption",
+   "wowheadId": 105924,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17810,
+    17810,
+    17810,
+    17810,
+    17810
+   ],
+   "icon": "spell_shadow_abominationexplosion",
+   "name": {
+    "en": "Improved Corruption",
+    "fr": "Corruption améliorée"
+   },
+   "desc": {
+    "en": [
+     "Reduces the casting time of your Corruption spell by 0.4 sec and increases the damage it deals by 2%.",
+     "Reduces the casting time of your Corruption spell by 0.8 sec and increases the damage it deals by 4%.",
+     "Reduces the casting time of your Corruption spell by 1.2 sec and increases the damage it deals by 6%.",
+     "Reduces the casting time of your Corruption spell by 1.6 sec and increases the damage it deals by 8%.",
+     "Reduces the casting time of your Corruption spell by 2 sec and increases the damage it deals by 10%."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de votre sort Corruption de 0.4 s et augmente les dégâts qu’il inflige de 2 %.",
+     "Réduit le temps d’incantation de votre sort Corruption de 0.8 s et augmente les dégâts qu’il inflige de 4 %.",
+     "Réduit le temps d’incantation de votre sort Corruption de 1.2 s et augmente les dégâts qu’il inflige de 6 %.",
+     "Réduit le temps d’incantation de votre sort Corruption de 1.6 s et augmente les dégâts qu’il inflige de 8 %.",
+     "Réduit le temps d’incantation de votre sort Corruption de 2 s et augmente les dégâts qu’il inflige de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "grimReach",
+   "wowheadId": 105923,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    18218,
+    18218
+   ],
+   "icon": "spell_shadow_callofbone",
+   "name": {
+    "en": "Grim Reach",
+    "fr": "Allonge sinistre"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your Affliction spells by 10%.",
+     "Increases the range of your Affliction spells by 20%."
+    ],
+    "fr": [
+     "Augmente la portée de vos sorts d'Affliction de 10%.",
+     "Augmente la portée de vos sorts d'Affliction de 20%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "soulHarvest",
+   "wowheadId": 105922,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    437032,
+    437032
+   ],
+   "icon": "inv_elemental_primal_shadow",
+   "name": {
+    "en": "Soul Harvest",
+    "fr": "Récolte d’âmes"
+   },
+   "desc": {
+    "en": [
+     "Killing a non-trivial target afflicted by your Drain Soul increases your Mana regeneration by 50% for 10 sec and allows 50% of normal Mana regeneration to continue while casting.",
+     "Killing a non-trivial target afflicted by your Drain Soul increases your Mana regeneration by 100% for 10 sec and allows 100% of normal Mana regeneration to continue while casting."
+    ],
+    "fr": [
+     "Le fait de tuer une cible non négligeable affectée par votre Drain d’âme augmente votre régénération de mana de 50 % pendant 10 sec et permet à 50 % de la régénération de mana normale de se poursuivre pendant les incantations.",
+     "Le fait de tuer une cible non négligeable affectée par votre Drain d’âme augmente votre régénération de mana de 100 % pendant 10 sec et permet à 100 % de la régénération de mana normale de se poursuivre pendant les incantations."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedDrains",
+   "wowheadId": 105920,
+   "tree": 0,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    403511,
+    403511,
+    403511
+   ],
+   "icon": "spell_shadow_haunting",
+   "name": {
+    "en": "Improved Drains",
+    "fr": "Drains améliorés"
+   },
+   "desc": {
+    "en": [
+     "Increases Health drained, damage done, or Mana drained by your Drain Life, Drain Soul, and Drain Mana spells by 7%.",
+     "Increases Health drained, damage done, or Mana drained by your Drain Life, Drain Soul, and Drain Mana spells by 13%.",
+     "Increases Health drained, damage done, or Mana drained by your Drain Life, Drain Soul, and Drain Mana spells by 20%."
+    ],
+    "fr": [
+     "Augmente les points de vie ou de mana drainés ou les dégâts infligés par vos sorts Drain de vie, Drain de mana et Drain d’âme de 7 %.",
+     "Augmente les points de vie ou de mana drainés ou les dégâts infligés par vos sorts Drain de vie, Drain de mana et Drain d’âme de 13 %.",
+     "Augmente les points de vie ou de mana drainés ou les dégâts infligés par vos sorts Drain de vie, Drain de mana et Drain d’âme de 20 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedBaneOfAgony",
+   "wowheadId": 105919,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    18827,
+    18827
+   ],
+   "icon": "spell_shadow_curseofsargeras",
+   "name": {
+    "en": "Improved Bane of Agony",
+    "fr": "Plaie d’agonie améliorée"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Bane of Agony by 5%.",
+     "Increases the damage done by your Bane of Agony by 10%."
+    ],
+    "fr": [
+     "Augmente de 5 % les dégâts infligés par votre sort Plaie d’agonie.",
+     "Augmente de 10 % les dégâts infligés par votre sort Plaie d’agonie."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "felConcentration",
+   "wowheadId": 105918,
+   "tree": 0,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    17783,
+    17783,
+    17783
+   ],
+   "icon": "spell_shadow_fingerofdeath",
+   "name": {
+    "en": "Fel Concentration",
+    "fr": "Concentration corrompue"
+   },
+   "desc": {
+    "en": [
+     "Gives your Drain Life, Drain Mana, Drain Soul, and Wrack spells a 23% chance to not lose casting time when you take damage.",
+     "Gives your Drain Life, Drain Mana, Drain Soul, and Wrack spells a 47% chance to not lose casting time when you take damage.",
+     "Gives your Drain Life, Drain Mana, Drain Soul, and Wrack spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à vos sorts Drain de vie, Drain de mana, Drain d’âme et Calvaire 23 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Drain de vie, Drain de mana, Drain d’âme et Calvaire 47 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Drain de vie, Drain de mana, Drain d’âme et Calvaire 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "amplifyCurse",
+   "wowheadId": 105916,
+   "tree": 0,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    18288
+   ],
+   "icon": "spell_shadow_contagion",
+   "name": {
+    "en": "Amplify Curse",
+    "fr": "Malédiction amplifiée"
+   },
+   "desc": {
+    "en": [
+     "Increases the effect of your next Curse of Weakness or Bane of Agony by 50%, or your next Curse of Exhaustion by 20%. Lasts 30 sec."
+    ],
+    "fr": [
+     "Augmente de 50 % l’effet de votre prochaine Malédiction de faiblesse ou Plaie d’agonie, ou de 20 % celui de votre prochaine Malédiction de fatigue. Dure 30 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "pandemic",
+   "wowheadId": 105917,
+   "tree": 0,
+   "row": 2,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    427712,
+    427712,
+    427712
+   ],
+   "icon": "spell_shadow_unstableaffliction_2",
+   "name": {
+    "en": "Pandemic",
+    "fr": "Pandémie"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your Corruption, Bane of Agony, Bane of Doom, Drain Soul, Drain Life, Siphon Life, and Wrack spells by 33%.",
+     "Increases the critical strike damage bonus of your Corruption, Bane of Agony, Bane of Doom, Drain Soul, Drain Life, Siphon Life, and Wrack spells by 67%.",
+     "Increases the critical strike damage bonus of your Corruption, Bane of Agony, Bane of Doom, Drain Soul, Drain Life, Siphon Life, and Wrack spells by 100%."
+    ],
+    "fr": [
+     "Augmente de 33 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts Corruption, Plaie d’agonie, Plaie funeste, Drain d’âme, Drain de vie, Siphon de vie et Calvaire.",
+     "Augmente de 67 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts Corruption, Plaie d’agonie, Plaie funeste, Drain d’âme, Drain de vie, Siphon de vie et Calvaire.",
+     "Augmente de 100 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts Corruption, Plaie d’agonie, Plaie funeste, Drain d’âme, Drain de vie, Siphon de vie et Calvaire."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "malevolence",
+   "wowheadId": 110876,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    1310949,
+    1310949,
+    1310949,
+    1310949,
+    1310949
+   ],
+   "icon": "spell_shadow_focusedpower",
+   "name": {
+    "en": "Malevolence",
+    "fr": "Malveillance"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical effect chance of your Shadow spells by 1%.",
+     "Increases the critical effect chance of your Shadow spells by 2%.",
+     "Increases the critical effect chance of your Shadow spells by 3%.",
+     "Increases the critical effect chance of your Shadow spells by 4%.",
+     "Increases the critical effect chance of your Shadow spells by 5%."
+    ],
+    "fr": [
+     "Augmente de 1 % les chances d’obtenir un effet critique avec vos sorts d’ombre.",
+     "Augmente de 2 % les chances d’obtenir un effet critique avec vos sorts d’ombre.",
+     "Augmente de 3 % les chances d’obtenir un effet critique avec vos sorts d’ombre.",
+     "Augmente de 4 % les chances d’obtenir un effet critique avec vos sorts d’ombre.",
+     "Augmente de 5 % les chances d’obtenir un effet critique avec vos sorts d’ombre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "nightfall",
+   "wowheadId": 105914,
+   "tree": 0,
+   "row": 3,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    18094,
+    18094
+   ],
+   "icon": "spell_shadow_twilight",
+   "name": {
+    "en": "Nightfall",
+    "fr": "Crépuscule"
+   },
+   "desc": {
+    "en": [
+     "Gives your Corruption, Drain Soul, Drain Life, and Wrack spells a 2% chance to cause you to enter a Shadow Trance after damaging the opponent. The Shadow Trance reduces the casting time of your next Shadow Bolt spell by 100%.",
+     "Gives your Corruption, Drain Soul, Drain Life, and Wrack spells a 4% chance to cause you to enter a Shadow Trance after damaging the opponent. The Shadow Trance reduces the casting time of your next Shadow Bolt spell by 100%."
+    ],
+    "fr": [
+     "Confère à vos sorts Corruption, Drain d’âme, Drain de vie et Calvaire 2 % de chances de vous plonger dans une Transe de l’ombre après avoir infligé des dégâts à votre adversaire. Cet état réduit le temps d’incantation de votre prochain sort Trait de l’ombre de 100 %.",
+     "Confère à vos sorts Corruption, Drain d’âme, Drain de vie et Calvaire 4 % de chances de vous plonger dans une Transe de l’ombre après avoir infligé des dégâts à votre adversaire. Cet état réduit le temps d’incantation de votre prochain sort Trait de l’ombre de 100 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "curseOfExhaustion",
+   "wowheadId": 105913,
+   "tree": 0,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    18223
+   ],
+   "icon": "spell_shadow_grimward",
+   "name": {
+    "en": "Curse of Exhaustion",
+    "fr": "Malédiction de fatigue"
+   },
+   "desc": {
+    "en": [
+     "Reduces the target's movement speed by 30% for 12 sec. Only one Curse per Warlock can be active on any one target."
+    ],
+    "fr": [
+     "Réduit la vitesse de la cible de 30% pendant 12 sec. La cible ne peut être victime que d'une malédiction par démoniste présent à la fois."
+    ]
+   },
+   "requires": [
+    {
+     "key": "amplifyCurse",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "siphonLife",
+   "wowheadId": 105912,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    18265
+   ],
+   "icon": "spell_shadow_requiem",
+   "name": {
+    "en": "Siphon Life",
+    "fr": "Siphon de vie"
+   },
+   "desc": {
+    "en": [
+     "Transfers 11 health from the target to the caster every 3 sec. Lasts 30 sec."
+    ],
+    "fr": [
+     "Transfère 11 points de vie de la cible vers le lanceur ou la lanceuse toutes les 3 s. Dure 30 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "soulSiphon",
+   "wowheadId": 105911,
+   "tree": 0,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    17804,
+    17804,
+    17804
+   ],
+   "icon": "spell_shadow_lifedrain02",
+   "name": {
+    "en": "Soul Siphon",
+    "fr": "Siphon d’âme"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 4% per each of your Corruption, Siphon Life, and Bane of Agony effects active on the target, up to a maximum increase of 12%.",
+     "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 8% per each of your Corruption, Siphon Life, and Bane of Agony effects active on the target, up to a maximum increase of 24%.",
+     "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 12% per each of your Corruption, Siphon Life, and Bane of Agony effects active on the target, up to a maximum increase of 36%."
+    ],
+    "fr": [
+     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 4 % pour chacun de vos autres effets d’Affliction actifs sur la cible, jusqu’à un bonus maximal de 12 %.",
+     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 8 % pour chacun de vos autres effets d’Affliction actifs sur la cible, jusqu’à un bonus maximal de 24 %.",
+     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 12 % pour chacun de vos autres effets d’Affliction actifs sur la cible, jusqu’à un bonus maximal de 36 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shadowMastery",
+   "wowheadId": 105910,
+   "tree": 0,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    18271,
+    18271,
+    18271,
+    18271,
+    18271
+   ],
+   "icon": "spell_shadow_shadetruesight",
+   "name": {
+    "en": "Shadow Mastery",
+    "fr": "Maîtrise de l'ombre"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage dealt or life drained by your Shadow spells by 2%.",
+     "Increases the damage dealt or life drained by your Shadow spells by 4%.",
+     "Increases the damage dealt or life drained by your Shadow spells by 6%.",
+     "Increases the damage dealt or life drained by your Shadow spells by 8%.",
+     "Increases the damage dealt or life drained by your Shadow spells by 10%."
+    ],
+    "fr": [
+     "Augmente de 2% les points de dégâts infligés ou les points de vie drainés par vos sorts d'Ombre.",
+     "Augmente de 4% les points de dégâts infligés ou les points de vie drainés par vos sorts d'Ombre.",
+     "Augmente de 6% les points de dégâts infligés ou les points de vie drainés par vos sorts d'Ombre.",
+     "Augmente de 8% les points de dégâts infligés ou les points de vie drainés par vos sorts d'Ombre.",
+     "Augmente de 10% les points de dégâts infligés ou les points de vie drainés par vos sorts d'Ombre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "wrack",
+   "wowheadId": 105909,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1316697
+   ],
+   "icon": "ability_deathknight_hemorrhagicfever",
+   "name": {
+    "en": "Wrack",
+    "fr": "Calvaire"
+   },
+   "desc": {
+    "en": [
+     "Tears the target apart from within for 6 sec, inflicting 60 Shadow damage every 1 sec. While channeling, your Siphon Life, Corruption, and Bane of Agony effects on the target deal their periodic damage 100% faster."
+    ],
+    "fr": [
+     "Déchire la cible de l’intérieur, ce qui lui inflige 60 points de dégâts d’ombre toutes les 1 s et augmente les dégâts qu’elle subit par vos autres effets de dégâts d’ombre de 100 % pendant 6 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "siphonLife",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "improvedHealthFunnel",
+   "wowheadId": 105905,
+   "tree": 1,
+   "row": 0,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    18703,
+    18703
+   ],
+   "icon": "spell_shadow_lifedrain",
+   "name": {
+    "en": "Improved Health Funnel",
+    "fr": "Captation de vie améliorée"
+   },
+   "desc": {
+    "en": [
+     "Increases the amount of health transferred by your Health Funnel spell by 20%, reduces its health cost by 15%, and reduces all threat your Health Funnel generates by 50%. Allows Health Funnel to be used regardless of your demon's health.",
+     "Increases the amount of health transferred by your Health Funnel spell by 40%, reduces its health cost by 30%, and reduces all threat your Health Funnel generates by 100%. Allows Health Funnel to be used regardless of your demon's health."
+    ],
+    "fr": [
+     "Augmente le nombre de points de vie transférés par votre sort Captation de vie de 20 %, réduit de 15 % son coût en points de vie et réduit de 50 % le niveau de menace qu’il génère. Vous pouvez utiliser Captation de vie quel que soit le nombre de points de vie de votre familier.",
+     "Augmente le nombre de points de vie transférés par votre sort Captation de vie de 40 %, réduit de 30 % son coût en points de vie et réduit de 100 % le niveau de menace qu’il génère. Vous pouvez utiliser Captation de vie quel que soit le nombre de points de vie de votre familier."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedImp",
+   "wowheadId": 105908,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    18694,
+    18694,
+    18694
+   ],
+   "icon": "spell_shadow_summonimp",
+   "name": {
+    "en": "Improved Imp",
+    "fr": "Diablotin amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage of your Imp's Firebolt spell by 10% and the effect of its Fire Shield spell by 10%.",
+     "Increases the damage of your Imp's Firebolt spell by 20% and the effect of its Fire Shield spell by 20%.",
+     "Increases the damage of your Imp's Firebolt spell by 30% and the effect of its Fire Shield spell by 30%."
+    ],
+    "fr": [
+     "Augmente les dégâts du sort Éclair de feu de votre diablotin de 10 % et l’effet de son Bouclier de feu de 10 %.",
+     "Augmente les dégâts du sort Éclair de feu de votre diablotin de 20 % et l’effet de son Bouclier de feu de 20 %.",
+     "Augmente les dégâts du sort Éclair de feu de votre diablotin de 30 % et l’effet de son Bouclier de feu de 30 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "demonicEmbrace",
+   "wowheadId": 105907,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    18697,
+    18697,
+    18697,
+    18697,
+    18697
+   ],
+   "icon": "spell_shadow_metamorphosis",
+   "name": {
+    "en": "Demonic Embrace",
+    "fr": "Baiser démoniaque"
+   },
+   "desc": {
+    "en": [
+     "Increases your total Stamina by 3%.",
+     "Increases your total Stamina by 6%.",
+     "Increases your total Stamina by 9%.",
+     "Increases your total Stamina by 12%.",
+     "Increases your total Stamina by 15%."
+    ],
+    "fr": [
+     "Augmente votre total d'Endurance de 3%.",
+     "Augmente votre total d'Endurance de 6%.",
+     "Augmente votre total d'Endurance de 9%.",
+     "Augmente votre total d'Endurance de 12%.",
+     "Augmente votre total d'Endurance de 15%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "unholyPower",
+   "wowheadId": 105906,
+   "tree": 1,
+   "row": 0,
+   "col": 3,
+   "maxRank": 5,
+   "spellIds": [
+    18769,
+    18769,
+    18769,
+    18769,
+    18769
+   ],
+   "icon": "spell_shadow_shadowworddominate",
+   "name": {
+    "en": "Unholy Power",
+    "fr": "Puissance impie"
+   },
+   "desc": {
+    "en": [
+     "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 2%.",
+     "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 4%.",
+     "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 6%.",
+     "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 8%.",
+     "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 10%."
+    ],
+    "fr": [
+     "Augmente de 2 % les dégâts infligés par vos familiers Diablotin, Marcheur du Vide, Succube, Incube et Chasseur corrompu.",
+     "Augmente de 4 % les dégâts infligés par vos familiers Diablotin, Marcheur du Vide, Succube, Incube et Chasseur corrompu.",
+     "Augmente de 6 % les dégâts infligés par vos familiers Diablotin, Marcheur du Vide, Succube, Incube et Chasseur corrompu.",
+     "Augmente de 8 % les dégâts infligés par vos familiers Diablotin, Marcheur du Vide, Succube, Incube et Chasseur corrompu.",
+     "Augmente de 10 % les dégâts infligés par vos familiers Diablotin, Marcheur du Vide, Succube, Incube et Chasseur corrompu."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "demonicAegis",
+   "wowheadId": 105902,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1235316,
+    1235316
+   ],
+   "icon": "spell_shadow_ragingscream",
+   "name": {
+    "en": "Demonic Aegis",
+    "fr": "Égide démoniaque"
+   },
+   "desc": {
+    "en": [
+     "Increases the effectiveness of your Demon Skin and Demon Armor spells by 15%.",
+     "Increases the effectiveness of your Demon Skin and Demon Armor spells by 30%."
+    ],
+    "fr": [
+     "Augmente de 15 % l’efficacité de vos sorts Peau de démon et Armure démoniaque.",
+     "Augmente de 30 % l’efficacité de vos sorts Peau de démon et Armure démoniaque."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedVoidwalker",
+   "wowheadId": 105904,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    18705,
+    18705,
+    18705
+   ],
+   "icon": "spell_shadow_summonvoidwalker",
+   "name": {
+    "en": "Improved Voidwalker",
+    "fr": "Marcheur du Vide amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 10%.",
+     "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 20%.",
+     "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 30%."
+    ],
+    "fr": [
+     "Augmente de 10 % l’efficacité des sorts Tourment, Consumer les ombres, Sacrifice et Souffrance de votre Marcheur du Vide.",
+     "Augmente de 20 % l’efficacité des sorts Tourment, Consumer les ombres, Sacrifice et Souffrance de votre Marcheur du Vide.",
+     "Augmente de 30 % l’efficacité des sorts Tourment, Consumer les ombres, Sacrifice et Souffrance de votre Marcheur du Vide."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "felVitality",
+   "wowheadId": 105903,
+   "tree": 1,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    18731,
+    18731,
+    18731
+   ],
+   "icon": "spell_shadow_demonictactics",
+   "name": {
+    "en": "Fel Vitality",
+    "fr": "Vitalité gangrenée"
+   },
+   "desc": {
+    "en": [
+     "Increases the maximum health and Mana of your Imp, Voidwalker, Succubus, Incubus, and Felhunter by 5%, and increases your maximum Mana by 5%.",
+     "Increases the maximum health and Mana of your Imp, Voidwalker, Succubus, Incubus, and Felhunter by 10%, and increases your maximum Mana by 10%.",
+     "Increases the maximum health and Mana of your Imp, Voidwalker, Succubus, Incubus, and Felhunter by 15%, and increases your maximum Mana by 15%."
+    ],
+    "fr": [
+     "Augmente de 5 % le maximum de points de vie et de mana de vos diablotins, marcheurs du Vide, succubes, incubes et chasseurs corrompus. De plus, augmente votre maximum de mana de 5 %.",
+     "Augmente de 10 % le maximum de points de vie et de mana de vos diablotins, marcheurs du Vide, succubes, incubes et chasseurs corrompus. De plus, augmente votre maximum de mana de 10 %.",
+     "Augmente de 15 % le maximum de points de vie et de mana de vos diablotins, marcheurs du Vide, succubes, incubes et chasseurs corrompus. De plus, augmente votre maximum de mana de 15 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "demonicEnergies",
+   "wowheadId": 105899,
+   "tree": 1,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    1225214,
+    1225214
+   ],
+   "icon": "spell_shadow_felmending",
+   "name": {
+    "en": "Demonic Energies",
+    "fr": "Énergie démoniaque"
+   },
+   "desc": {
+    "en": [
+     "You heal your pet for 8% of all spell damage you deal. When you gain Mana from Life Tap, your summoned demon gains 50% of the Mana you gain.",
+     "You heal your pet for 15% of all spell damage you deal. When you gain Mana from Life Tap, your summoned demon gains 100% of the Mana you gain."
+    ],
+    "fr": [
+     "Vous soignez votre familier d’un montant égal à 8 % de tous les dégâts des sorts que vous infligez. Lorsque vous obtenez du mana avec Connexion, votre démon invoqué reçoit 50 % du mana que vous récupérez.",
+     "Vous soignez votre familier d’un montant égal à 15 % de tous les dégâts des sorts que vous infligez. Lorsque vous obtenez du mana avec Connexion, votre démon invoqué reçoit 100 % du mana que vous récupérez."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedSayaad",
+   "wowheadId": 105901,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    18754,
+    18754,
+    18754
+   ],
+   "icon": "ability_warlock_randomizesuccubusincubus",
+   "name": {
+    "en": "Improved Sayaad",
+    "fr": "Sayaad amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the effect of your Succubus' and Incubus' Lash of Pain and Soothing Kiss spells by 10%, and increases the duration of your Succubus' and Incubus' Seduction and Lesser Invisibility spells by 10%.",
+     "Increases the effect of your Succubus' and Incubus' Lash of Pain and Soothing Kiss spells by 20%, and increases the duration of your Succubus' and Incubus' Seduction and Lesser Invisibility spells by 20%.",
+     "Increases the effect of your Succubus' and Incubus' Lash of Pain and Soothing Kiss spells by 30%, and increases the duration of your Succubus' and Incubus' Seduction and Lesser Invisibility spells by 30%."
+    ],
+    "fr": [
+     "Augmente de 10% les effets des techniques Fouet de la douleur et Baiser apaisant de votre succube et de votre incube. Augmente également la durée des techniques Séduction et Invisibilité inférieure de 10%.",
+     "Augmente de 20% les effets des techniques Fouet de la douleur et Baiser apaisant de votre succube et de votre incube. Augmente également la durée des techniques Séduction et Invisibilité inférieure de 20%.",
+     "Augmente de 30% les effets des techniques Fouet de la douleur et Baiser apaisant de votre succube et de votre incube. Augmente également la durée des techniques Séduction et Invisibilité inférieure de 30%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "demonicSacrifice",
+   "wowheadId": 105900,
+   "tree": 1,
+   "row": 2,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    18788
+   ],
+   "icon": "spell_shadow_psychicscream",
+   "name": {
+    "en": "Demonic Sacrifice",
+    "fr": "Sacrifice démoniaque"
+   },
+   "desc": {
+    "en": [
+     "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts 2 hrs. The effect is canceled if any Demon is summoned.\n\nImp: Increases your Shadow damage by 15%.\n\nVoidwalker: Restores 2% of your total Mana every 4 sec.\n\nSuccubus/Incubus: Increases your Fire damage by 15%.\n\nFelhunter: Restores 3% of your total Health every 4 sec."
+    ],
+    "fr": [
+     "À l’activation, sacrifie votre démon invoqué pour renforcer l’aspect opposé de votre pouvoir et vous confère un effet qui dure 2 heures. L’effet est annulé si un démon est invoqué.\n\nDiablotin : augmente vos dégâts d’ombre de 15 %.\n\nMarcheur du Vide : restaure 2 % de votre total de mana toutes les 4 s.\n\nSuccube/Incube : augmente vos dégâts de feu de 15 %.\n\nChasseur corrompu : restaure 3 % de votre total de points de vie toutes les 4 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "masterSummoner",
+   "wowheadId": 105898,
+   "tree": 1,
+   "row": 2,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    18709,
+    18709
+   ],
+   "icon": "spell_shadow_impphaseshift",
+   "name": {
+    "en": "Master Summoner",
+    "fr": "Maître invocateur"
+   },
+   "desc": {
+    "en": [
+     "Reduces the casting time of your Imp, Voidwalker, Succubus, Incubus, and Felhunter Summoning spells by 2 sec and the Mana cost by 20%.",
+     "Reduces the casting time of your Imp, Voidwalker, Succubus, Incubus, and Felhunter Summoning spells by 4 sec and the Mana cost by 40%."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de vos sorts d’invocations de diablotin, de succube, d’incube, de marcheur du Vide ou de chasseur corrompu de 2 s et leur coût en mana de 20%.",
+     "Réduit le temps d’incantation de vos sorts d’invocations de diablotin, de succube, d’incube, de marcheur du Vide ou de chasseur corrompu de 4 s et leur coût en mana de 40%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "decimation",
+   "wowheadId": 105897,
+   "tree": 1,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    440870,
+    440870
+   ],
+   "icon": "spell_fire_fireball02",
+   "name": {
+    "en": "Decimation",
+    "fr": "Décimation"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Soul Fire spell by 45%. When you cast Shadow Bolt or Searing Pain on an enemy below 35% health, they deal 3% increased damage, and for the next 10 sec your Soul Fire spell has its cast time reduced by 20% and costs no Soul Shards.",
+     "Reduces the cooldown of your Soul Fire spell by 90%. When you cast Shadow Bolt or Searing Pain on an enemy below 35% health, they deal 6% increased damage, and for the next 10 sec your Soul Fire spell has its cast time reduced by 40% and costs no Soul Shards."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de votre sort Feu de l’âme de 45 %. Lorsque vous lancez Trait de l’ombre ou Douleur brûlante sur un personnage adverse avec moins de 35 % de ses points de vie, ces sorts infligent 3 % de dégâts supplémentaires. De plus, pendant 10 sec, votre sort Feu de l’âme voit son temps d’incantation réduit de 20 %, et il ne coûte aucun éclat d’âme.",
+     "Réduit le temps de recharge de votre sort Feu de l’âme de 90 %. Lorsque vous lancez Trait de l’ombre ou Douleur brûlante sur un personnage adverse avec moins de 35 % de ses points de vie, ces sorts infligent 6 % de dégâts supplémentaires. De plus, pendant 10 sec, votre sort Feu de l’âme voit son temps d’incantation réduit de 40 %, et il ne coûte aucun éclat d’âme."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "felDomination",
+   "wowheadId": 105895,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    18708
+   ],
+   "icon": "spell_nature_removecurse",
+   "name": {
+    "en": "Fel Domination",
+    "fr": "Domination corrompue"
+   },
+   "desc": {
+    "en": [
+     "Your next Imp, Voidwalker, Succubus, Incubus, or Felhunter Summon spell has its casting time reduced by 6 sec and its Mana cost reduced by 50%."
+    ],
+    "fr": [
+     "Le temps d’incantation de votre prochain sort d’invocation de diablotin, de marcheur du Vide, de succube, d’incube ou de chasseur corrompu est réduit de 6 s, et son coût en mana est réduit de 50%."
+    ]
+   },
+   "requires": [
+    {
+     "key": "masterSummoner",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "demonicBrand",
+   "wowheadId": 105896,
+   "tree": 1,
+   "row": 3,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    1293695,
+    1293695,
+    1293695
+   ],
+   "icon": "ability_demonhunter_chaoticimprint_fire",
+   "name": {
+    "en": "Demonic Brand",
+    "fr": "Marque démoniaque"
+   },
+   "desc": {
+    "en": [
+     "Your Searing Pain generates 17% less threat and brands the target for 10 sec. Your pet's next 2 attacks against the target deal ((((60 - 26) * 1.5) + 14 + (0.078 * ((Shadow spell power)))) * (1 * 1 * 1)) to ((((60 - 26) * 1.5) + 17 + (0.078 * ((Shadow spell power)))) * (1 * 1 * 1)) Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat.",
+     "Your Searing Pain generates 33% less threat and brands the target for 10 sec. Your pet's next 4 attacks against the target deal ((((60 - 26) * 1.5) + 14 + (0.078 * ((Shadow spell power)))) * (1 * 1 * 1)) to ((((60 - 26) * 1.5) + 17 + (0.078 * ((Shadow spell power)))) * (1 * 1 * 1)) Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat.",
+     "Your Searing Pain generates 50% less threat and brands the target for 10 sec. Your pet's next 6 attacks against the target deal ((((60 - 26) * 1.5) + 14 + (0.078 * ((Shadow spell power)))) * (1 * 1 * 1)) to ((((60 - 26) * 1.5) + 17 + (0.078 * ((Shadow spell power)))) * (1 * 1 * 1)) Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat."
+    ],
+    "fr": [
+     "Votre sort Douleur brûlante génère 17 % de menace en moins et marque la cible pendant 10 sec. Les 2 prochaines attaques de votre familier contre la cible infligent entre ((((60 - 26) * 1.5) + 14 + (0.078 * ((Puissance des sorts de l'ombre)))) * (1 * 1 * 1)) et ((((60 - 26) * 1.5) + 17 + (0.078 * ((Puissance des sorts de l'ombre)))) * (1 * 1 * 1)) points de dégâts de feu ou d’ombre, selon votre familier. Si des dégâts d’ombre sont infligés, le niveau de menace généré est élevé.",
+     "Votre sort Douleur brûlante génère 33 % de menace en moins et marque la cible pendant 10 sec. Les 4 prochaines attaques de votre familier contre la cible infligent entre ((((60 - 26) * 1.5) + 14 + (0.078 * ((Puissance des sorts de l'ombre)))) * (1 * 1 * 1)) et ((((60 - 26) * 1.5) + 17 + (0.078 * ((Puissance des sorts de l'ombre)))) * (1 * 1 * 1)) points de dégâts de feu ou d’ombre, selon votre familier. Si des dégâts d’ombre sont infligés, le niveau de menace généré est élevé.",
+     "Votre sort Douleur brûlante génère 50 % de menace en moins et marque la cible pendant 10 sec. Les 6 prochaines attaques de votre familier contre la cible infligent entre ((((60 - 26) * 1.5) + 14 + (0.078 * ((Puissance des sorts de l'ombre)))) * (1 * 1 * 1)) et ((((60 - 26) * 1.5) + 17 + (0.078 * ((Puissance des sorts de l'ombre)))) * (1 * 1 * 1)) points de dégâts de feu ou d’ombre, selon votre familier. Si des dégâts d’ombre sont infligés, le niveau de menace généré est élevé."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedFelhunter",
+   "wowheadId": 105894,
+   "tree": 1,
+   "row": 4,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    1225217,
+    1225217,
+    1225217
+   ],
+   "icon": "spell_shadow_summonfelhunter",
+   "name": {
+    "en": "Improved Felhunter",
+    "fr": "Chasseur corrompu amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the Attack Power reduction of your Felhunter's Tainted Blood, the healing of its Devour Magic, and the detection level of its Paranoia by 10%, and reduces the cooldown of its Spell Lock by 2 sec.",
+     "Increases the Attack Power reduction of your Felhunter's Tainted Blood, the healing of its Devour Magic, and the detection level of its Paranoia by 20%, and reduces the cooldown of its Spell Lock by 4 sec.",
+     "Increases the Attack Power reduction of your Felhunter's Tainted Blood, the healing of its Devour Magic, and the detection level of its Paranoia by 30%, and reduces the cooldown of its Spell Lock by 6 sec."
+    ],
+    "fr": [
+     "Augmente de 10 % la réduction de puissance d’attaque infligée par la technique Corruption sanguine de votre chasseur corrompu, les soins de sa technique Dévorer la magie, et le niveau de détection de sa technique Paranoïa. De plus, réduit le temps de recharge de sa technique Verrou magique de 2 s.",
+     "Augmente de 20 % la réduction de puissance d’attaque infligée par la technique Corruption sanguine de votre chasseur corrompu, les soins de sa technique Dévorer la magie, et le niveau de détection de sa technique Paranoïa. De plus, réduit le temps de recharge de sa technique Verrou magique de 4 s.",
+     "Augmente de 30 % la réduction de puissance d’attaque infligée par la technique Corruption sanguine de votre chasseur corrompu, les soins de sa technique Dévorer la magie, et le niveau de détection de sa technique Paranoïa. De plus, réduit le temps de recharge de sa technique Verrou magique de 6 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "soulLink",
+   "wowheadId": 105892,
+   "tree": 1,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    19028
+   ],
+   "icon": "spell_shadow_gathershadows",
+   "name": {
+    "en": "Soul Link",
+    "fr": "Lien spirituel"
+   },
+   "desc": {
+    "en": [
+     "When active, 30% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, Incubus, or Felhunter Demon instead. In addition, both the Demon and the master will inflict 3% more damage. Lasts as long as the Demon is active."
+    ],
+    "fr": [
+     "À l’activation, 30 % de tous les dégâts subis par le personnage lanceur sont transférés à son démon Diablotin, Marcheur du Vide, Succube, Incube ou Chasseur corrompu. De plus, le démon et son maître infligent tous deux 3 % de dégâts supplémentaires. Dure tant que le démon est actif."
+    ]
+   },
+   "requires": [
+    {
+     "key": "demonicSacrifice",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "demonicKnowledge",
+   "wowheadId": 105893,
+   "tree": 1,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    412732,
+    412732,
+    412732
+   ],
+   "icon": "spell_shadow_improvedvampiricembrace",
+   "name": {
+    "en": "Demonic Knowledge",
+    "fr": "Connaissance démoniaque"
+   },
+   "desc": {
+    "en": [
+     "Increases your spell damage and your Demon pet's spell damage by up to 33% of your level while you have a summoned Demon pet active.",
+     "Increases your spell damage and your Demon pet's spell damage by up to 67% of your level while you have a summoned Demon pet active.",
+     "Increases your spell damage and your Demon pet's spell damage by up to 100% of your level while you have a summoned Demon pet active."
+    ],
+    "fr": [
+     "Augmente les dégâts de vos sorts et ceux des sorts de votre familier démon d’un montant pouvant atteindre 33 % de votre niveau tant que vous avez un familier démon invoqué actif.",
+     "Augmente les dégâts de vos sorts et ceux des sorts de votre familier démon d’un montant pouvant atteindre 67 % de votre niveau tant que vous avez un familier démon invoqué actif.",
+     "Augmente les dégâts de vos sorts et ceux des sorts de votre familier démon d’un montant pouvant atteindre 100 % de votre niveau tant que vous avez un familier démon invoqué actif."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "masterDemonologist",
+   "wowheadId": 105891,
+   "tree": 1,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    23785,
+    23785,
+    23785,
+    23785,
+    23785
+   ],
+   "icon": "spell_shadow_shadowpact",
+   "name": {
+    "en": "Master Demonologist",
+    "fr": "Maître démonologue"
+   },
+   "desc": {
+    "en": [
+     "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 2%.\n\nVoidwalker - Reduces Physical damage taken by 2%.\n\nSuccubus/Incubus - Increases Shadow damage done by 2%.\n\nFelhunter - Reduces Magic damage taken by 2%.",
+     "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 4%.\n\nVoidwalker - Reduces Physical damage taken by 4%.\n\nSuccubus/Incubus - Increases Shadow damage done by 4%.\n\nFelhunter - Reduces Magic damage taken by 4%.",
+     "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 6%.\n\nVoidwalker - Reduces Physical damage taken by 6%.\n\nSuccubus/Incubus - Increases Shadow damage done by 6%.\n\nFelhunter - Reduces Magic damage taken by 6%.",
+     "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 8%.\n\nVoidwalker - Reduces Physical damage taken by 8%.\n\nSuccubus/Incubus - Increases Shadow damage done by 8%.\n\nFelhunter - Reduces Magic damage taken by 8%.",
+     "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 10%.\n\nVoidwalker - Reduces Physical damage taken by 10%.\n\nSuccubus/Incubus - Increases Shadow damage done by 10%.\n\nFelhunter - Reduces Magic damage taken by 10%."
+    ],
+    "fr": [
+     "Fait bénéficier le personnage démoniste et le démon invoqué d’un effet aussi longtemps que le démon est actif.\n\nDiablotin : augmente les dégâts de feu infligés de 2 %.\n\nMarcheur du Vide : réduit les dégâts physiques subis de 2 %.\n\nSuccube/Incube : augmente les dégâts d’ombre infligés de 2 %.\n\nChasseur corrompu : réduit les dégâts magiques subis de 2 %.",
+     "Fait bénéficier le personnage démoniste et le démon invoqué d’un effet aussi longtemps que le démon est actif.\n\nDiablotin : augmente les dégâts de feu infligés de 4 %.\n\nMarcheur du Vide : réduit les dégâts physiques subis de 4 %.\n\nSuccube/Incube : augmente les dégâts d’ombre infligés de 4 %.\n\nChasseur corrompu : réduit les dégâts magiques subis de 4 %.",
+     "Fait bénéficier le personnage démoniste et le démon invoqué d’un effet aussi longtemps que le démon est actif.\n\nDiablotin : augmente les dégâts de feu infligés de 6 %.\n\nMarcheur du Vide : réduit les dégâts physiques subis de 6 %.\n\nSuccube/Incube : augmente les dégâts d’ombre infligés de 6 %.\n\nChasseur corrompu : réduit les dégâts magiques subis de 6 %.",
+     "Fait bénéficier le personnage démoniste et le démon invoqué d’un effet aussi longtemps que le démon est actif.\n\nDiablotin : augmente les dégâts de feu infligés de 8 %.\n\nMarcheur du Vide : réduit les dégâts physiques subis de 8 %.\n\nSuccube/Incube : augmente les dégâts d’ombre infligés de 8 %.\n\nChasseur corrompu : réduit les dégâts magiques subis de 8 %.",
+     "Fait bénéficier le personnage démoniste et le démon invoqué d’un effet aussi longtemps que le démon est actif.\n\nDiablotin : augmente les dégâts de feu infligés de 10 %.\n\nMarcheur du Vide : réduit les dégâts physiques subis de 10 %.\n\nSuccube/Incube : augmente les dégâts d’ombre infligés de 10 %.\n\nChasseur corrompu : réduit les dégâts magiques subis de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "demonicPact",
+   "wowheadId": 105890,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    425464
+   ],
+   "icon": "inv_ability_soulharvesterwarlock_demonicsoul",
+   "name": {
+    "en": "Demonic Pact",
+    "fr": "Pacte démoniaque"
+   },
+   "desc": {
+    "en": [
+     "Your Demonic Sacrifice effect is no longer cancelled by summoning a different Demon pet. Resummoning the sacrificed pet will still cancel the effect."
+    ],
+    "fr": [
+     "Votre effet de Sacrifice démoniaque ne s’annule plus lorsque vous invoquez un autre familier démon. L’effet sera toujours annulé si vous réinvoquez le familier sacrifié."
+    ]
+   },
+   "requires": [
+    {
+     "key": "soulLink",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "destructiveReach",
+   "wowheadId": 105881,
+   "tree": 2,
+   "row": 0,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    17917,
+    17917
+   ],
+   "icon": "spell_shadow_corpseexplode",
+   "name": {
+    "en": "Destructive Reach",
+    "fr": "Allonge de destruction"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your Destruction spells by 10%.",
+     "Increases the range of your Destruction spells by 20%."
+    ],
+    "fr": [
+     "Augmente de 10 % la portée de vos sorts de Destruction.",
+     "Augmente de 20 % la portée de vos sorts de Destruction."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedShadowBolt",
+   "wowheadId": 105889,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    17793,
+    17793,
+    17793,
+    17793,
+    17793
+   ],
+   "icon": "spell_shadow_shadowbolt",
+   "name": {
+    "en": "Improved Shadow Bolt",
+    "fr": "Trait de l'ombre amélioré"
+   },
+   "desc": {
+    "en": [
+     "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 4% for 12 sec.",
+     "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 8% for 12 sec.",
+     "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 12% for 12 sec.",
+     "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 16% for 12 sec.",
+     "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 20% for 12 sec."
+    ],
+    "fr": [
+     "Les coups critiques de votre Trait de l’ombre augmentent les dégâts d’ombre subis par la cible de vos attaques de 4 % pendant 12 sec.",
+     "Les coups critiques de votre Trait de l’ombre augmentent les dégâts d’ombre subis par la cible de vos attaques de 8 % pendant 12 sec.",
+     "Les coups critiques de votre Trait de l’ombre augmentent les dégâts d’ombre subis par la cible de vos attaques de 12 % pendant 12 sec.",
+     "Les coups critiques de votre Trait de l’ombre augmentent les dégâts d’ombre subis par la cible de vos attaques de 16 % pendant 12 sec.",
+     "Les coups critiques de votre Trait de l’ombre augmentent les dégâts d’ombre subis par la cible de vos attaques de 20 % pendant 12 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "bane",
+   "wowheadId": 105888,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17788,
+    17788,
+    17788,
+    17788,
+    17788
+   ],
+   "icon": "spell_shadow_deathpact",
+   "name": {
+    "en": "Bane",
+    "fr": "Fléau"
+   },
+   "desc": {
+    "en": [
+     "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.1 sec and your Soul Fire spell by 0.4 sec.",
+     "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.2 sec and your Soul Fire spell by 0.8 sec.",
+     "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.3 sec and your Soul Fire spell by 1.2 sec.",
+     "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.4 sec and your Soul Fire spell by 1.6 sec.",
+     "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.5 sec and your Soul Fire spell by 2 sec."
+    ],
+    "fr": [
+     "Réduit de 0.1 s le temps d’incantation de vos sorts Trait de l’ombre, Immolation et Incinérer, et de 0.4 s celui de votre sort Feu de l’âme.",
+     "Réduit de 0.2 s le temps d’incantation de vos sorts Trait de l’ombre, Immolation et Incinérer, et de 0.8 s celui de votre sort Feu de l’âme.",
+     "Réduit de 0.3 s le temps d’incantation de vos sorts Trait de l’ombre, Immolation et Incinérer, et de 1.2 s celui de votre sort Feu de l’âme.",
+     "Réduit de 0.4 s le temps d’incantation de vos sorts Trait de l’ombre, Immolation et Incinérer, et de 1.6 s celui de votre sort Feu de l’âme.",
+     "Réduit de 0.5 s le temps d’incantation de vos sorts Trait de l’ombre, Immolation et Incinérer, et de 2 s celui de votre sort Feu de l’âme."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "moltenSkin",
+   "wowheadId": 105885,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    1225220,
+    1225220,
+    1225220,
+    1225220,
+    1225220
+   ],
+   "icon": "ability_mage_moltenarmor",
+   "name": {
+    "en": "Molten Skin",
+    "fr": "Peau de la fournaise"
+   },
+   "desc": {
+    "en": [
+     "Reduces all damage taken by 2%.",
+     "Reduces all damage taken by 4%.",
+     "Reduces all damage taken by 6%.",
+     "Reduces all damage taken by 8%.",
+     "Reduces all damage taken by 10%."
+    ],
+    "fr": [
+     "Réduit tous les dégâts subis de 2 %.",
+     "Réduit tous les dégâts subis de 4 %.",
+     "Réduit tous les dégâts subis de 6 %.",
+     "Réduit tous les dégâts subis de 8 %.",
+     "Réduit tous les dégâts subis de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "cataclysm",
+   "wowheadId": 105887,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    17778,
+    17778,
+    17778
+   ],
+   "icon": "spell_fire_windsofwoe",
+   "name": {
+    "en": "Cataclysm",
+    "fr": "Cataclysme"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of your Destruction spells by 3%.",
+     "Reduces the Mana cost of your Destruction spells by 6%.",
+     "Reduces the Mana cost of your Destruction spells by 10%."
+    ],
+    "fr": [
+     "Réduit le coût en mana de vos sorts de Destruction de 3%.",
+     "Réduit le coût en mana de vos sorts de Destruction de 6%.",
+     "Réduit le coût en mana de vos sorts de Destruction de 10%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "aftermath",
+   "wowheadId": 105886,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    18119,
+    18119,
+    18119,
+    18119,
+    18119
+   ],
+   "icon": "spell_fire_fire",
+   "name": {
+    "en": "Aftermath",
+    "fr": "Conséquences"
+   },
+   "desc": {
+    "en": [
+     "Increases the initial damage of your Immolate spell by 10% and your Conflagrate spell has a 20% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+     "Increases the initial damage of your Immolate spell by 20% and your Conflagrate spell has a 40% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+     "Increases the initial damage of your Immolate spell by 30% and your Conflagrate spell has a 60% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+     "Increases the initial damage of your Immolate spell by 40% and your Conflagrate spell has a 80% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+     "Increases the initial damage of your Immolate spell by 50% and your Conflagrate spell has a 100% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec."
+    ],
+    "fr": [
+     "Augmente les dégâts initiaux infligés par votre Immolation de 10 % et votre Conflagration a 20 % de chances d’hébéter la cible, ce qui réduit sa vitesse de déplacement de 50 % pendant 5 sec.",
+     "Augmente les dégâts initiaux infligés par votre Immolation de 20 % et votre Conflagration a 40 % de chances d’hébéter la cible, ce qui réduit sa vitesse de déplacement de 50 % pendant 5 sec.",
+     "Augmente les dégâts initiaux infligés par votre Immolation de 30 % et votre Conflagration a 60 % de chances d’hébéter la cible, ce qui réduit sa vitesse de déplacement de 50 % pendant 5 sec.",
+     "Augmente les dégâts initiaux infligés par votre Immolation de 40 % et votre Conflagration a 80 % de chances d’hébéter la cible, ce qui réduit sa vitesse de déplacement de 50 % pendant 5 sec.",
+     "Augmente les dégâts initiaux infligés par votre Immolation de 50 % et votre Conflagration a 100 % de chances d’hébéter la cible, ce qui réduit sa vitesse de déplacement de 50 % pendant 5 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ruin",
+   "wowheadId": 105883,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    17959,
+    17959,
+    17959,
+    17959,
+    17959
+   ],
+   "icon": "spell_shadow_shadowwordpain",
+   "name": {
+    "en": "Ruin",
+    "fr": "Ruine"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your Destruction spells by 20%.",
+     "Increases the critical strike damage bonus of your Destruction spells by 40%.",
+     "Increases the critical strike damage bonus of your Destruction spells by 60%.",
+     "Increases the critical strike damage bonus of your Destruction spells by 80%.",
+     "Increases the critical strike damage bonus of your Destruction spells by 100%."
+    ],
+    "fr": [
+     "Augmente de 20% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Destruction.",
+     "Augmente de 40% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Destruction.",
+     "Augmente de 60% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Destruction.",
+     "Augmente de 80% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Destruction.",
+     "Augmente de 100% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Destruction."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shadowburn",
+   "wowheadId": 105884,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    17877
+   ],
+   "icon": "spell_shadow_scourgebuild",
+   "name": {
+    "en": "Shadowburn",
+    "fr": "Brûlure de l'ombre"
+   },
+   "desc": {
+    "en": [
+     "Instantly blasts the target for 65 to 74 Shadow damage. If a non-trivial target dies within 8 sec of being hit with Shadowburn, the caster gains a Soul Shard."
+    ],
+    "fr": [
+     "Frappe instantanément la cible et lui inflige 65 à 74 points de dégâts d’ombre. Si une cible non négligeable meurt dans les 8 sec après avoir été touchée par Brûlure de l’ombre, le lanceur ou la lanceuse gagne un éclat d’âme."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "intensity",
+   "wowheadId": 105882,
+   "tree": 2,
+   "row": 3,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    18135,
+    18135,
+    18135
+   ],
+   "icon": "spell_fire_lavaspawn",
+   "name": {
+    "en": "Intensity",
+    "fr": "Intensité"
+   },
+   "desc": {
+    "en": [
+     "Gives your Destruction spells a 23% chance to not lose casting time when you take damage.",
+     "Gives your Destruction spells a 47% chance to not lose casting time when you take damage.",
+     "Gives your Destruction spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à vos sorts Destruction 23 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Destruction 47 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Destruction 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "agonizingFlames",
+   "wowheadId": 105879,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    17927,
+    17927,
+    17927
+   ],
+   "icon": "spell_fire_soulburn",
+   "name": {
+    "en": "Agonizing Flames",
+    "fr": "Flammes déchirantes"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Searing Pain spell by 3% and the damage done by all your Destruction spells by 3%.",
+     "Increases the critical strike chance of your Searing Pain spell by 7% and the damage done by all your Destruction spells by 7%.",
+     "Increases the critical strike chance of your Searing Pain spell by 10% and the damage done by all your Destruction spells by 10%."
+    ],
+    "fr": [
+     "Augmente de 3 % les chances de coup critique de votre sort Douleur brûlante. De plus, augmente de 3 % les dégâts infligés par tous vos sorts de destruction.",
+     "Augmente de 7 % les chances de coup critique de votre sort Douleur brûlante. De plus, augmente de 7 % les dégâts infligés par tous vos sorts de destruction.",
+     "Augmente de 10 % les chances de coup critique de votre sort Douleur brûlante. De plus, augmente de 10 % les dégâts infligés par tous vos sorts de destruction."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "conflagrate",
+   "wowheadId": 105880,
+   "tree": 2,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1293817
+   ],
+   "icon": "spell_fire_fireball",
+   "name": {
+    "en": "Conflagrate",
+    "fr": "Conflagration"
+   },
+   "desc": {
+    "en": [
+     "Ignites a target that is already afflicted by your Immolate spell, dealing 88 to 111 Fire damage and consuming your Immolate effect."
+    ],
+    "fr": [
+     "Enflamme une cible qui est déjà affectée par votre sort Immolation, lui inflige 88 à 111 points de dégâts de feu et annule le sort Immolation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "pyroclasm",
+   "wowheadId": 105878,
+   "tree": 2,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    18073,
+    18073
+   ],
+   "icon": "spell_fire_volcano",
+   "name": {
+    "en": "Pyroclasm",
+    "fr": "Pyroclasme"
+   },
+   "desc": {
+    "en": [
+     "Gives your Soul Fire spell a 13% chance to Stun the target for 3 sec, and your Rain of Fire and Hellfire spells a 13% chance over their duration to Stun targets they damage for 3 sec.",
+     "Gives your Soul Fire spell a 26% chance to Stun the target for 3 sec, and your Rain of Fire and Hellfire spells a 26% chance over their duration to Stun targets they damage for 3 sec."
+    ],
+    "fr": [
+     "Confère à votre sort Feu de l’âme 13 % de chances d’étourdir la cible pendant 3 sec et à vos sorts Pluie de feu et Flammes infernales 13 % de chances d’étourdir les cibles touchées pendant 3 sec avant que leur effet prenne fin.",
+     "Confère à votre sort Feu de l’âme 26 % de chances d’étourdir la cible pendant 3 sec et à vos sorts Pluie de feu et Flammes infernales 26 % de chances d’étourdir les cibles touchées pendant 3 sec avant que leur effet prenne fin."
+    ]
+   },
+   "requires": [
+    {
+     "key": "intensity",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "baneOfHavoc",
+   "wowheadId": 105876,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1225228
+   ],
+   "icon": "ability_warlock_baneofhavoc",
+   "name": {
+    "en": "Bane of Havoc",
+    "fr": "Plaie de tumulte"
+   },
+   "desc": {
+    "en": [
+     "Afflicts the target for 5 min, causing 15% of all damage done by the Warlock to other targets to also be dealt to the cursed target. Bane of Havoc is limited to 1 target, and only one Bane per Warlock can be active on any one target."
+    ],
+    "fr": [
+     "Afflige la cible pendant 5 min. La cible maudite subit 15 % de tous les dégâts infligés par le personnage démoniste à d’autres cibles. Plaie de tumulte est limité à 1 cible, et une seule plaie par démoniste peut être active sur une même cible."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "fireAndBrimstone",
+   "wowheadId": 105877,
+   "tree": 2,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    412751,
+    412751,
+    412751
+   ],
+   "icon": "spell_fire_meteorstorm",
+   "name": {
+    "en": "Fire and Brimstone",
+    "fr": "Feu et soufre"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Conflagrate spell by 8%.",
+     "Increases the critical strike chance of your Conflagrate spell by 17%.",
+     "Increases the critical strike chance of your Conflagrate spell by 25%."
+    ],
+    "fr": [
+     "Augmente de 8 % les chances de coup critique de votre sort Conflagration.",
+     "Augmente de 17 % les chances de coup critique de votre sort Conflagration.",
+     "Augmente de 25 % les chances de coup critique de votre sort Conflagration."
+    ]
+   },
+   "requires": [
+    {
+     "key": "conflagrate",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "shadowAndFlame",
+   "wowheadId": 105875,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    426316,
+    426316,
+    426316,
+    426316,
+    426316
+   ],
+   "icon": "spell_fire_playingwithfire",
+   "name": {
+    "en": "Shadow and Flame",
+    "fr": "Ombre et flammes"
+   },
+   "desc": {
+    "en": [
+     "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 4% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 4% for 20 sec. In addition, Conflagrate has a 20% chance not to consume Immolate, and Shadowburn has a 20% chance to instantly refund a Soul Shard.",
+     "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 8% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 8% for 20 sec. In addition, Conflagrate has a 40% chance not to consume Immolate, and Shadowburn has a 40% chance to instantly refund a Soul Shard.",
+     "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 12% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 12% for 20 sec. In addition, Conflagrate has a 60% chance not to consume Immolate, and Shadowburn has a 60% chance to instantly refund a Soul Shard.",
+     "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 16% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 16% for 20 sec. In addition, Conflagrate has a 80% chance not to consume Immolate, and Shadowburn has a 80% chance to instantly refund a Soul Shard.",
+     "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 20% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 20% for 20 sec. In addition, Conflagrate has a 100% chance not to consume Immolate, and Shadowburn has a 100% chance to instantly refund a Soul Shard."
+    ],
+    "fr": [
+     "Le fait de toucher un personnage adverse avec Conflagration augmente tous les dégâts d’ombre de 4 % pendant 20 sec. Le fait de toucher un personnage adverse avec Brûlure de l’ombre augmente tous les dégâts de feu de 4 % pendant 20 sec. De plus, Conflagration a 20 % de chances de ne pas consommer Immolation, et Brûlure de l’ombre a 20 % de chances de rendre instantanément un éclat d’âme.",
+     "Le fait de toucher un personnage adverse avec Conflagration augmente tous les dégâts d’ombre de 8 % pendant 20 sec. Le fait de toucher un personnage adverse avec Brûlure de l’ombre augmente tous les dégâts de feu de 8 % pendant 20 sec. De plus, Conflagration a 40 % de chances de ne pas consommer Immolation, et Brûlure de l’ombre a 40 % de chances de rendre instantanément un éclat d’âme.",
+     "Le fait de toucher un personnage adverse avec Conflagration augmente tous les dégâts d’ombre de 12 % pendant 20 sec. Le fait de toucher un personnage adverse avec Brûlure de l’ombre augmente tous les dégâts de feu de 12 % pendant 20 sec. De plus, Conflagration a 60 % de chances de ne pas consommer Immolation, et Brûlure de l’ombre a 60 % de chances de rendre instantanément un éclat d’âme.",
+     "Le fait de toucher un personnage adverse avec Conflagration augmente tous les dégâts d’ombre de 16 % pendant 20 sec. Le fait de toucher un personnage adverse avec Brûlure de l’ombre augmente tous les dégâts de feu de 16 % pendant 20 sec. De plus, Conflagration a 80 % de chances de ne pas consommer Immolation, et Brûlure de l’ombre a 80 % de chances de rendre instantanément un éclat d’âme.",
+     "Le fait de toucher un personnage adverse avec Conflagration augmente tous les dégâts d’ombre de 20 % pendant 20 sec. Le fait de toucher un personnage adverse avec Brûlure de l’ombre augmente tous les dégâts de feu de 20 % pendant 20 sec. De plus, Conflagration a 100 % de chances de ne pas consommer Immolation, et Brûlure de l’ombre a 100 % de chances de rendre instantanément un éclat d’âme."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "incinerate",
+   "wowheadId": 105874,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    412758
+   ],
+   "icon": "spell_fire_burnout",
+   "name": {
+    "en": "Incinerate",
+    "fr": "Incinérer"
+   },
+   "desc": {
+    "en": [
+     "Deals 100 to 114 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate."
+    ],
+    "fr": [
+     "Inflige 100 à 114 points de dégâts de feu à votre cible et 25 % de dégâts supplémentaires si elle est affectée par Immolation."
+    ]
+   },
+   "requires": [
+    {
+     "key": "baneOfHavoc",
+     "qty": 1
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "shadowBolt": {
+   "id": 25307,
+   "name": {
+    "en": "Shadow Bolt",
+    "fr": "Trait de l'ombre"
+   },
+   "tooltip": {
+    "en": "Shadow Bolt\nLevel 60380 Mana30 yd range3 sec castRequires WarlockRequires level 60\nSends a shadowy bolt at the enemy, causing 263 to 292 Shadow damage.",
+    "fr": "Trait de l'ombre\nNiveau 60Mana : 38030 m de portée3 s d'incantationRequiert DémonisteNiveau 60 requis\nLance un éclair de l'ombre sur l'ennemi et lui inflige 263 à 292 points de dégâts d'Ombre."
+   },
+   "icon": "spell_shadow_shadowbolt"
+  },
+  "searingPain": {
+   "id": 17923,
+   "name": {
+    "en": "Searing Pain",
+    "fr": "Douleur brûlante"
+   },
+   "tooltip": {
+    "en": "Searing Pain\nLevel 60168 Mana30 yd range1.5 sec castRequires WarlockRequires level 58\nInflict searing pain on the enemy target, causing 112 to 130 Fire damage. Causes a high amount of threat.",
+    "fr": "Douleur brûlante\nNiveau 60Mana : 16830 m de portée1.5 s d'incantationRequiert DémonisteNiveau 58 requis\nInflige une douleur brûlante à la cible ennemie qui subit 112 à 130 points de dégâts de Feu. Génère un niveau élevé de menace."
+   },
+   "icon": "spell_fire_soulburn"
+  },
+  "immolate": {
+   "id": 25309,
+   "name": {
+    "en": "Immolate",
+    "fr": "Immolation"
+   },
+   "tooltip": {
+    "en": "Immolate\nLevel 60380 Mana30 yd range2 sec castRequires WarlockRequires level 60\nBurns the enemy for [169.5 * (((1)))] Fire damage and then an additional 275 Fire damage over 15 sec.",
+    "fr": "Immolation\nNiveau 60Mana : 38030 m de portée2 s d'incantationRequiert DémonisteNiveau 60 requis\nBrûle l’ennemi et lui inflige [169.5 * (((1)))] points de dégâts de feu, puis 275 points supplémentaires de dégâts de feu en 15 sec."
+   },
+   "icon": "spell_fire_immolation"
+  },
+  "conflagrate": {
+   "id": 18932,
+   "name": {
+    "en": "Conflagrate",
+    "fr": "Conflagration"
+   },
+   "tooltip": {
+    "en": "Conflagrate\nLevel 60255 Mana30 yd rangeInstant10 sec cooldownRequires WarlockRequires level 60\nIgnites a target that is already afflicted by your Immolate spell, dealing 259 to 321 Fire damage and consuming your Immolate effect.",
+    "fr": "Conflagration\nNiveau 60Mana : 25530 m de portéeInstantanée10 s de rechargeRequiert DémonisteNiveau 60 requis\nEnflamme une cible qui est déjà affectée par votre sort Immolation, lui inflige 259 à 321 points de dégâts de feu et annule le sort Immolation."
+   },
+   "icon": "spell_fire_fireball"
+  },
+  "incinerate": {
+   "id": 1293813,
+   "name": {
+    "en": "Incinerate",
+    "fr": "Incinérer"
+   },
+   "tooltip": {
+    "en": "Incinerate\nLevel 60325 Mana30 yd range2.5 sec castRequires WarlockRequires level 60\nDeals 213 to 246 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate.",
+    "fr": "Incinérer\nNiveau 60Mana : 32530 m de portée2.5 s d'incantationRequiert DémonisteNiveau 60 requis\nInflige 213 à 246 points de dégâts de feu à votre cible et 25 % de dégâts supplémentaires si la cible est affectée par Immolation."
+   },
+   "icon": "spell_fire_burnout"
+  },
+  "shadowburn": {
+   "id": 18871,
+   "name": {
+    "en": "Shadowburn",
+    "fr": "Brûlure de l'ombre"
+   },
+   "tooltip": {
+    "en": "Shadowburn\nLevel 60365 Mana30 yd rangeInstant15 sec cooldownRequires WarlockRequires level 56\nReagents:\nSoul ShardInstantly blasts the target for 262 to 291 Shadow damage. If the target dies within 8 sec of Shadowburn, and yields experience or honor, the caster gains a Soul Shard.",
+    "fr": "Brûlure de l'ombre\nNiveau 60Mana : 36530 m de portéeInstantanée15 s de rechargeRequiert DémonisteNiveau 56 requis\nComposants:\nFragment d'âmeFrappe instantanément la cible et lui inflige 262 à 291 points de dégâts d'Ombre. Si la cible meurt dans les 8 sec sous l'effet du sort Brûlure de l'ombre et rapporte de l'expérience ou de l'honneur, le lanceur gagne un Fragment d'âme."
+   },
+   "icon": "spell_shadow_scourgebuild"
+  },
+  "soulFire": {
+   "id": 17924,
+   "name": {
+    "en": "Soul Fire",
+    "fr": "Feu de l'âme"
+   },
+   "tooltip": {
+    "en": "Soul Fire\nLevel 60335 Mana30 yd range6 sec cast1 min cooldownRequires WarlockRequires level 56\nReagents:\nSoul ShardBurn the enemy's soul, causing 394 to 491 Fire damage.",
+    "fr": "Feu de l'âme\nNiveau 60Mana : 33530 m de portée6 s d'incantation1 min de rechargeRequiert DémonisteNiveau 56 requis\nComposants:\nFragment d'âmeBrûle l'âme de l'ennemi et lui inflige 394 à 491 points de dégâts de Feu."
+   },
+   "icon": "spell_fire_fireball02"
+  },
+  "corruption": {
+   "id": 25311,
+   "name": {
+    "en": "Corruption",
+    "fr": "Corruption"
+   },
+   "tooltip": {
+    "en": "Corruption340 Mana30 yd range2 sec castRequires WarlockRequires level 60\nCorrupts the target, causing 438 Shadow damage over 18 sec.",
+    "fr": "CorruptionMana : 34030 m de portée2 s d'incantationRequiert DémonisteNiveau 60 requis\nCorrompt la cible et lui inflige 438 points de dégâts d'Ombre en 18 sec."
+   },
+   "icon": "spell_shadow_abominationexplosion"
+  },
+  "baneOfAgony": {
+   "id": 11713,
+   "name": {
+    "en": "Bane of Agony",
+    "fr": "Plaie d’agonie"
+   },
+   "tooltip": {
+    "en": "Bane of Agony215 Mana30 yd rangeInstantRequires WarlockRequires level 58\nAfflicts the target with agony, causing 552 Shadow damage over 24 sec. This damage is dealt slowly at first, and builds up as the Bane reaches its full duration. Only one Bane per Warlock can be active on any one target.",
+    "fr": "Plaie d’agonieMana : 21530 m de portéeInstantanéeRequiert DémonisteNiveau 58 requis\nAfflige la cible d’une plaie d’agonie qui lui inflige 552 points de dégâts d’ombre en 24 sec. Les dégâts sont progressifs et sont plus importants avec le temps. La cible ne peut être victime que d’une plaie par démoniste à la fois."
+   },
+   "icon": "spell_shadow_curseofsargeras"
+  },
+  "baneOfDoom": {
+   "id": 603,
+   "name": {
+    "en": "Bane of Doom",
+    "fr": "Plaie funeste"
+   },
+   "tooltip": {
+    "en": "Bane of Doom300 Mana30 yd rangeInstant1 min cooldownRequires WarlockRequires level 60\nAfflicts the target with impending doom, causing 1742 Shadow damage after 1 min. If the target dies from this damage, there is a chance that a Doomguard will be summoned. Cannot be cast on players. Only one Bane per Warlock can be active on any one target.",
+    "fr": "Plaie funesteMana : 30030 m de portéeInstantanée1 min de rechargeRequiert DémonisteNiveau 60 requis\nMaudit la cible et lui inflige 1742 points de dégâts d’ombre au bout de 1 min. Si cette attaque tue la cible, vous avez une chance d’invoquer un garde funeste. Ne peut pas être utilisé contre des personnages-joueurs. La cible ne peut être victime que d’une plaie par démoniste à la fois."
+   },
+   "icon": "spell_shadow_auraofdarkness"
+  },
+  "siphonLife": {
+   "id": 18881,
+   "name": {
+    "en": "Siphon Life",
+    "fr": "Siphon de vie"
+   },
+   "tooltip": {
+    "en": "Siphon Life365 Mana30 yd rangeInstantRequires WarlockRequires level 58\nTransfers 41 health from the target to the caster every 3 sec. Lasts 30 sec.",
+    "fr": "Siphon de vieMana : 36530 m de portéeInstantanéeRequiert DémonisteNiveau 58 requis\nTransfère 41 points de vie de la cible vers le lanceur ou la lanceuse toutes les 3 s. Dure 30 sec."
+   },
+   "icon": "spell_shadow_requiem"
+  },
+  "lifeTap": {
+   "id": 11689,
+   "name": {
+    "en": "Life Tap",
+    "fr": "Connexion"
+   },
+   "tooltip": {
+    "en": "Life Tap\nLevel 60InstantRequires WarlockRequires level 56\nConverts [(430 + Spirit) * (1)] Health into [(430 + Spirit) * (1)] Mana for you. Spirit increases the amount converted.",
+    "fr": "Connexion\nNiveau 60InstantanéeRequiert DémonisteNiveau 56 requis\nConvertit [(430 + Esprit) * (1)] point de vie en [(430 + Esprit) * (1)] point de mana. La puissance de l’esprit augmente le montant rendu."
+   },
+   "icon": "spell_shadow_burningspirit"
+  },
+  "wrack": {
+   "id": 1316697,
+   "name": {
+    "en": "Wrack",
+    "fr": "Calvaire"
+   },
+   "tooltip": {
+    "en": "Wrack\nLevel 60Talent200 Mana30 yd rangeChanneled (6 sec cast)Requires WarlockRequires level 40\nTears the target apart from within for 6 sec, inflicting 60 Shadow damage every 1 sec. While channeling, your Siphon Life, Corruption, and Bane of Agony effects on the target deal their periodic damage 100% faster.",
+    "fr": "Calvaire\nNiveau 60TalentMana : 20030 m de portéeCanalisée (6 s d'incantation)Requiert DémonisteNiveau 40 requis\nDéchire la cible de l’intérieur, ce qui lui inflige 60 points de dégâts d’ombre toutes les 1 s et augmente les dégâts qu’elle subit par vos autres effets de dégâts d’ombre de 100 % pendant 6 sec."
+   },
+   "icon": "ability_deathknight_hemorrhagicfever"
+  }
+ }
+}

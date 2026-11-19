@@ -1,0 +1,22 @@
+# Application ArgoCD (à appliquer une fois : kubectl apply -f k8s/argocd-application.yaml).
+# Elle n'est pas dans kustomization.yaml : ArgoCD ne se gère pas lui-même ici.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wowopti
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Drateill/wowopti.git
+    targetRevision: HEAD
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wowopti
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

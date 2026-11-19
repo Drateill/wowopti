@@ -1,0 +1,1829 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-18T15:52:49.590Z",
+ "trees": [
+  {
+   "key": "holy",
+   "icon": "spell_holy_holybolt",
+   "name": {
+    "en": "Holy",
+    "fr": "Sacré"
+   }
+  },
+  {
+   "key": "protection",
+   "icon": "spell_holy_devotionaura",
+   "name": {
+    "en": "Protection",
+    "fr": "Protection"
+   }
+  },
+  {
+   "key": "retribution",
+   "icon": "spell_holy_auraoflight",
+   "name": {
+    "en": "Retribution",
+    "fr": "Vindicte"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "spiritualFocus",
+   "wowheadId": 105335,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    20205,
+    20205,
+    20205,
+    20205,
+    20205
+   ],
+   "icon": "spell_arcane_blink",
+   "name": {
+    "en": "Spiritual Focus",
+    "fr": "Focalisation spirituelle"
+   },
+   "desc": {
+    "en": [
+     "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 14% chance to not lose casting time when you take damage.",
+     "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 28% chance to not lose casting time when you take damage.",
+     "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 42% chance to not lose casting time when you take damage.",
+     "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 56% chance to not lose casting time when you take damage.",
+     "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à vos sorts Éclair lumineux, Lumière sacrée et Vigile de lumière 14 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Éclair lumineux, Lumière sacrée et Vigile de lumière 28 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Éclair lumineux, Lumière sacrée et Vigile de lumière 42 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Éclair lumineux, Lumière sacrée et Vigile de lumière 56 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Éclair lumineux, Lumière sacrée et Vigile de lumière 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "divineStrength",
+   "wowheadId": 113630,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    20262,
+    20262,
+    20262,
+    20262,
+    20262
+   ],
+   "icon": "ability_golemthunderclap",
+   "name": {
+    "en": "Divine Strength",
+    "fr": "Force divine"
+   },
+   "desc": {
+    "en": [
+     "Increases your Strength by 2%.",
+     "Increases your Strength by 4%.",
+     "Increases your Strength by 6%.",
+     "Increases your Strength by 8%.",
+     "Increases your Strength by 10%."
+    ],
+    "fr": [
+     "Augmente votre Force de 2%.",
+     "Augmente votre Force de 4%.",
+     "Augmente votre Force de 6%.",
+     "Augmente votre Force de 8%.",
+     "Augmente votre Force de 10%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "healingLight",
+   "wowheadId": 105333,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    20237,
+    20237,
+    20237
+   ],
+   "icon": "spell_holy_holybolt",
+   "name": {
+    "en": "Healing Light",
+    "fr": "Lumière guérisseuse"
+   },
+   "desc": {
+    "en": [
+     "Increases the amount healed by your Holy Light, Flash of Light, and Holy Shock spells by 4%.",
+     "Increases the amount healed by your Holy Light, Flash of Light, and Holy Shock spells by 8%.",
+     "Increases the amount healed by your Holy Light, Flash of Light, and Holy Shock spells by 12%."
+    ],
+    "fr": [
+     "Augmente de 4 % le nombre de points de vie rendus par vos sorts Lumière sacrée, Éclair lumineux et Horion sacré.",
+     "Augmente de 8 % le nombre de points de vie rendus par vos sorts Lumière sacrée, Éclair lumineux et Horion sacré.",
+     "Augmente de 12 % le nombre de points de vie rendus par vos sorts Lumière sacrée, Éclair lumineux et Horion sacré."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "reverence",
+   "wowheadId": 110871,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    1310899,
+    1310899
+   ],
+   "icon": "spell_holy_divineillumination",
+   "name": {
+    "en": "Reverence",
+    "fr": "Révérence"
+   },
+   "desc": {
+    "en": [
+     "Allows 15% of your Mana regeneration to continue while casting.",
+     "Allows 30% of your Mana regeneration to continue while casting."
+    ],
+    "fr": [
+     "Vous confère 15 % de votre vitesse normale de récupération du mana pendant l’incantation.",
+     "Vous confère 30 % de votre vitesse normale de récupération du mana pendant l’incantation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedSeals",
+   "wowheadId": 105334,
+   "tree": 0,
+   "row": 1,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    20224,
+    20224,
+    20224,
+    20224,
+    20224
+   ],
+   "icon": "ability_thunderbolt",
+   "name": {
+    "en": "Improved Seals",
+    "fr": "Sceaux améliorés"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Seals and Judgements by 3%.",
+     "Increases the damage done by your Seals and Judgements by 6%.",
+     "Increases the damage done by your Seals and Judgements by 9%.",
+     "Increases the damage done by your Seals and Judgements by 12%.",
+     "Increases the damage done by your Seals and Judgements by 15%."
+    ],
+    "fr": [
+     "Augmente de 3 % les dégâts infligés par vos sceaux et jugements.",
+     "Augmente de 6 % les dégâts infligés par vos sceaux et jugements.",
+     "Augmente de 9 % les dégâts infligés par vos sceaux et jugements.",
+     "Augmente de 12 % les dégâts infligés par vos sceaux et jugements.",
+     "Augmente de 15 % les dégâts infligés par vos sceaux et jugements."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "purifyingPower",
+   "wowheadId": 105327,
+   "tree": 0,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    429144,
+    429144
+   ],
+   "icon": "spell_holy_purifyingpower",
+   "name": {
+    "en": "Purifying Power",
+    "fr": "Puissance purifiante"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of your Cleanse and Purify spells by 10% and reduces the cooldown of your Exorcism and Holy Wrath spells by 17%.",
+     "Reduces the mana cost of your Cleanse and Purify spells by 20% and reduces the cooldown of your Exorcism and Holy Wrath spells by 33%."
+    ],
+    "fr": [
+     "Réduit de 10 % le coût en mana de vos sorts Épuration et Purification, et de 17 % le temps de recharge de vos sorts Exorcisme et Colère divine.",
+     "Réduit de 20 % le coût en mana de vos sorts Épuration et Purification, et de 33 % le temps de recharge de vos sorts Exorcisme et Colère divine."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "divineFavor",
+   "wowheadId": 105325,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    20216
+   ],
+   "icon": "spell_holy_heal",
+   "name": {
+    "en": "Divine Favor",
+    "fr": "Faveur divine"
+   },
+   "desc": {
+    "en": [
+     "When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance."
+    ],
+    "fr": [
+     "Une fois activé, confère 100% de chances à votre prochain sort Eclair lumineux, Lumière sacrée ou Horion sacré d'avoir un effet critique."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "illumination",
+   "wowheadId": 105329,
+   "tree": 0,
+   "row": 2,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    20210,
+    20210,
+    20210,
+    20210,
+    20210
+   ],
+   "icon": "spell_holy_greaterheal",
+   "name": {
+    "en": "Illumination",
+    "fr": "Illumination"
+   },
+   "desc": {
+    "en": [
+     "After getting a critical effect from your Flash of Light, Holy Light, Light's Vigil, or Holy Shock heal spell you have a 20% chance to gain Mana equal to 50% of the base cost of the spell.",
+     "After getting a critical effect from your Flash of Light, Holy Light, Light's Vigil, or Holy Shock heal spell you have a 40% chance to gain Mana equal to 50% of the base cost of the spell.",
+     "After getting a critical effect from your Flash of Light, Holy Light, Light's Vigil, or Holy Shock heal spell you have a 60% chance to gain Mana equal to 50% of the base cost of the spell.",
+     "After getting a critical effect from your Flash of Light, Holy Light, Light's Vigil, or Holy Shock heal spell you have a 80% chance to gain Mana equal to 50% of the base cost of the spell.",
+     "After getting a critical effect from your Flash of Light, Holy Light, Light's Vigil, or Holy Shock heal spell you have a 100% chance to gain Mana equal to 50% of the base cost of the spell."
+    ],
+    "fr": [
+     "Lorsque vous obtenez un effet critique avec Éclair lumineux, Lumière sacrée, Vigile de Lumière ou le sort de soins Horion sacré, vous avez 20 % de chances de recevoir un montant de mana égal à 50 % du coût de base du sort.",
+     "Lorsque vous obtenez un effet critique avec Éclair lumineux, Lumière sacrée, Vigile de Lumière ou le sort de soins Horion sacré, vous avez 40 % de chances de recevoir un montant de mana égal à 50 % du coût de base du sort.",
+     "Lorsque vous obtenez un effet critique avec Éclair lumineux, Lumière sacrée, Vigile de Lumière ou le sort de soins Horion sacré, vous avez 60 % de chances de recevoir un montant de mana égal à 50 % du coût de base du sort.",
+     "Lorsque vous obtenez un effet critique avec Éclair lumineux, Lumière sacrée, Vigile de Lumière ou le sort de soins Horion sacré, vous avez 80 % de chances de recevoir un montant de mana égal à 50 % du coût de base du sort.",
+     "Lorsque vous obtenez un effet critique avec Éclair lumineux, Lumière sacrée, Vigile de Lumière ou le sort de soins Horion sacré, vous avez 100 % de chances de recevoir un montant de mana égal à 50 % du coût de base du sort."
+    ]
+   },
+   "requires": [
+    {
+     "key": "reverence",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "holyConduit",
+   "wowheadId": 105704,
+   "tree": 0,
+   "row": 2,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    1237268,
+    1237268
+   ],
+   "icon": "spell_holy_devineaegis",
+   "name": {
+    "en": "Holy Conduit",
+    "fr": "Conduit sacré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of your Consecration, Holy Wrath, Exorcism, and Hammer of Wrath spells by 20%.",
+     "Reduces the mana cost of your Consecration, Holy Wrath, Exorcism, and Hammer of Wrath spells by 40%."
+    ],
+    "fr": [
+     "Réduit de 20 % le coût en mana de vos sorts Consécration, Colère divine, Exorcisme et Marteau de courroux.",
+     "Réduit de 40 % le coût en mana de vos sorts Consécration, Colère divine, Exorcisme et Marteau de courroux."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "divinePrecision",
+   "wowheadId": 105324,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1310904,
+    1310904
+   ],
+   "icon": "spell_holy_mindsooth",
+   "name": {
+    "en": "Divine Precision",
+    "fr": "Précision divine"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to hit with Holy spells by 4%, and reduces the duration of Silence effects on you by 10%.",
+     "Improves your chance to hit with Holy spells by 8%, and reduces the duration of Silence effects on you by 20%."
+    ],
+    "fr": [
+     "Améliore de 4 % vos chances de toucher avec les sorts du sacré et réduit de 10 % la durée des effets de silence qui vous sont infligés.",
+     "Améliore de 8 % vos chances de toucher avec les sorts du sacré et réduit de 20 % la durée des effets de silence qui vous sont infligés."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "infusionOfLight",
+   "wowheadId": 110873,
+   "tree": 0,
+   "row": 3,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    426065,
+    426065
+   ],
+   "icon": "ability_paladin_infusionoflight",
+   "name": {
+    "en": "Infusion of Light",
+    "fr": "Imprégnation de lumière"
+   },
+   "desc": {
+    "en": [
+     "Your Holy Shock and Flash of Light critical hits reduce the cast time of your next Holy Light cast within 15 sec by 0.5 sec.",
+     "Your Holy Shock and Flash of Light critical hits reduce the cast time of your next Holy Light cast within 15 sec by 1.0 sec."
+    ],
+    "fr": [
+     "Les coups critiques de Horion sacré et Éclair lumineux réduisent de 0.5 s le temps d’incantation de votre prochain sort Lumière sacrée lancé dans les 15 sec.",
+     "Les coups critiques de Horion sacré et Éclair lumineux réduisent de 1.0 s le temps d’incantation de votre prochain sort Lumière sacrée lancé dans les 15 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "oathOfLight",
+   "wowheadId": 105330,
+   "tree": 0,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1328548
+   ],
+   "icon": "spell_holy_greaterblessingoflight",
+   "name": {
+    "en": "Oath of Light",
+    "fr": "Serment de lumière"
+   },
+   "desc": {
+    "en": [
+     "Swear an Oath to protect target ally for 5 min, increasing the healing of your Holy Light on them by up to 0, your Flash of Light by up to 0, and your Holy Shock by up to 0. Only one Oath of Light may be sworn by the Paladin at any one time."
+    ],
+    "fr": [
+     "Vous jurez de protéger une cible alliée pendant 5 min, ce qui augmente les soins qui lui sont procurés par votre sort Lumière sacrée de 0 points maximum, par votre sort Éclair lumineux de 0 points maximum et par votre sort Horion sacré de 0 points maximum. Un seul serment de lumière peut être prononcé par le paladin ou la paladine à la fois."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "consecratedGround",
+   "wowheadId": 110872,
+   "tree": 0,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1310905,
+    1310905
+   ],
+   "icon": "spell_holy_innerfire",
+   "name": {
+    "en": "Consecrated Ground",
+    "fr": "Terre consacrée"
+   },
+   "desc": {
+    "en": [
+     "Gives your Holy spells 5% increased damage against the first 4 enemies that enter your Consecration.",
+     "Gives your Holy spells 10% increased damage against the first 4 enemies that enter your Consecration."
+    ],
+    "fr": [
+     "Augmente les dégâts de vos sorts du sacré de 5 % contre les 4 premiers adversaires qui entrent dans la zone d’effet de votre Consécration.",
+     "Augmente les dégâts de vos sorts du sacré de 10 % contre les 4 premiers adversaires qui entrent dans la zone d’effet de votre Consécration."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "holyShock",
+   "wowheadId": 105323,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1311606
+   ],
+   "icon": "spell_holy_searinglight",
+   "name": {
+    "en": "Holy Shock",
+    "fr": "Horion sacré"
+   },
+   "desc": {
+    "en": [
+     "Blasts the target with Holy energy, causing 129 to 139 Holy damage to an enemy, or 110 to 118 healing to an ally."
+    ],
+    "fr": [
+     "L’énergie sacrée frappe la cible et inflige 129 à 139 points de dégâts du sacré à un adversaire, ou rend 110 à 118 points de vie à un personnage allié."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "boundlessLight",
+   "wowheadId": 113631,
+   "tree": 0,
+   "row": 4,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    1328550,
+    1328550
+   ],
+   "icon": "ability_paladin_sacredcleansing",
+   "name": {
+    "en": "Boundless Light",
+    "fr": "Lumière illimitée"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Holy Shock spell by 15% when cast on allies not affected by your Oath of Light.",
+     "Increases the critical strike chance of your Holy Shock spell by 30% when cast on allies not affected by your Oath of Light."
+    ],
+    "fr": [
+     "Augmente de 15 % les chances de coup critique de votre sort Horion sacré lorsqu’il est lancé sur des cibles alliées qui ne bénéficient pas de votre Serment de lumière.",
+     "Augmente de 30 % les chances de coup critique de votre sort Horion sacré lorsqu’il est lancé sur des cibles alliées qui ne bénéficient pas de votre Serment de lumière."
+    ]
+   },
+   "requires": [
+    {
+     "key": "holyShock",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "holyPower",
+   "wowheadId": 105321,
+   "tree": 0,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    5923,
+    5923,
+    5923,
+    5923,
+    5923
+   ],
+   "icon": "spell_holy_power",
+   "name": {
+    "en": "Holy Power",
+    "fr": "Puissance sacrée"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike healing bonus of your Holy spells by 10%.",
+     "Increases the critical strike healing bonus of your Holy spells by 20%.",
+     "Increases the critical strike healing bonus of your Holy spells by 30%.",
+     "Increases the critical strike healing bonus of your Holy spells by 40%.",
+     "Increases the critical strike healing bonus of your Holy spells by 50%."
+    ],
+    "fr": [
+     "Augmente de 10 % le bonus des soins critiques de vos sorts du sacré.",
+     "Augmente de 20 % le bonus des soins critiques de vos sorts du sacré.",
+     "Augmente de 30 % le bonus des soins critiques de vos sorts du sacré.",
+     "Augmente de 40 % le bonus des soins critiques de vos sorts du sacré.",
+     "Augmente de 50 % le bonus des soins critiques de vos sorts du sacré."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lightsVigil",
+   "wowheadId": 105320,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1310911
+   ],
+   "icon": "ability_paladin_judgementofthepure",
+   "name": {
+    "en": "Light's Vigil",
+    "fr": "Vigile de Lumière"
+   },
+   "desc": {
+    "en": [
+     "Applies Light's Vigil to a friendly target for 30 sec. The caster's next Holy Shock on the target incurs no cooldown and heals the target and their party for 326 to 344. Only one Vigil per Paladin may be active in each party."
+    ],
+    "fr": [
+     "Applique Vigile de Lumière à une cible alliée pendant 30 sec. Le prochain Horion sacré du lanceur ou de la lanceuse sur la cible ne déclenche pas de temps de recharge et soigne la cible et son groupe à hauteur de 326 à 344 points de vie. Une seule occurrence de Vigile de Lumière peut être active par paladin ou paladine et par groupe."
+    ]
+   },
+   "requires": [
+    {
+     "key": "holyShock",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "divineIntellect",
+   "wowheadId": 105332,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    20257,
+    20257,
+    20257,
+    20257,
+    20257
+   ],
+   "icon": "spell_nature_sleep",
+   "name": {
+    "en": "Divine Intellect",
+    "fr": "Intelligence divine"
+   },
+   "desc": {
+    "en": [
+     "Increases your total Intellect by 2%.",
+     "Increases your total Intellect by 4%.",
+     "Increases your total Intellect by 6%.",
+     "Increases your total Intellect by 8%.",
+     "Increases your total Intellect by 10%."
+    ],
+    "fr": [
+     "Augmente votre total d'Intelligence de 2%.",
+     "Augmente votre total d'Intelligence de 4%.",
+     "Augmente votre total d'Intelligence de 6%.",
+     "Augmente votre total d'Intelligence de 8%.",
+     "Augmente votre total d'Intelligence de 10%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "redoubt",
+   "wowheadId": 105626,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    20127,
+    20127,
+    20127,
+    20127,
+    20127
+   ],
+   "icon": "ability_defend",
+   "name": {
+    "en": "Redoubt",
+    "fr": "Redoute"
+   },
+   "desc": {
+    "en": [
+     "Damaging melee attacks against you have a 10% chance to increase your chance to block by 6%. Lasts 10 sec or 5 blocks.",
+     "Damaging melee attacks against you have a 10% chance to increase your chance to block by 12%. Lasts 10 sec or 5 blocks.",
+     "Damaging melee attacks against you have a 10% chance to increase your chance to block by 18%. Lasts 10 sec or 5 blocks.",
+     "Damaging melee attacks against you have a 10% chance to increase your chance to block by 24%. Lasts 10 sec or 5 blocks.",
+     "Damaging melee attacks against you have a 10% chance to increase your chance to block by 30%. Lasts 10 sec or 5 blocks."
+    ],
+    "fr": [
+     "Les attaques en mêlée qui vous infligent des dégâts ont 10 % de chances d’augmenter vos chances de blocage de 6 %. Dure 10 sec ou bloque 5 attaques.",
+     "Les attaques en mêlée qui vous infligent des dégâts ont 10 % de chances d’augmenter vos chances de blocage de 12 %. Dure 10 sec ou bloque 5 attaques.",
+     "Les attaques en mêlée qui vous infligent des dégâts ont 10 % de chances d’augmenter vos chances de blocage de 18 %. Dure 10 sec ou bloque 5 attaques.",
+     "Les attaques en mêlée qui vous infligent des dégâts ont 10 % de chances d’augmenter vos chances de blocage de 24 %. Dure 10 sec ou bloque 5 attaques.",
+     "Les attaques en mêlée qui vous infligent des dégâts ont 10 % de chances d’augmenter vos chances de blocage de 30 %. Dure 10 sec ou bloque 5 attaques."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "precision",
+   "wowheadId": 105638,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    20189,
+    20189,
+    20189
+   ],
+   "icon": "ability_rogue_ambush",
+   "name": {
+    "en": "Precision",
+    "fr": "Précision"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to hit by 1%.",
+     "Improves your chance to hit by 2%.",
+     "Improves your chance to hit by 3%."
+    ],
+    "fr": [
+     "Améliore vos chances de toucher de 1 %.",
+     "Améliore vos chances de toucher de 2 %.",
+     "Améliore vos chances de toucher de 3 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "guardiansFavor",
+   "wowheadId": 105637,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    20174,
+    20174
+   ],
+   "icon": "spell_holy_sealofprotection",
+   "name": {
+    "en": "Guardian's Favor",
+    "fr": "Faveur du Gardien"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Blessing of Protection by 1 min and increases the duration of your Blessing of Freedom by 3 sec.",
+     "Reduces the cooldown of your Blessing of Protection by 2 min and increases the duration of your Blessing of Freedom by 6 sec."
+    ],
+    "fr": [
+     "Réduit de 1 min le temps de recharge de votre sort Bénédiction de protection et augmente la durée de votre sort Bénédiction de liberté de 3 s.",
+     "Réduit de 2 min le temps de recharge de votre sort Bénédiction de protection et augmente la durée de votre sort Bénédiction de liberté de 6 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sacredDuty",
+   "wowheadId": 105632,
+   "tree": 1,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    1224697,
+    1224697
+   ],
+   "icon": "spell_holy_divineintervention",
+   "name": {
+    "en": "Sacred Duty",
+    "fr": "Devoir sacré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Divine Shield, Divine Protection, and Templar's Bulwark spells by 30 sec, and reduces the duration of Forbearance by 5 sec.",
+     "Reduces the cooldown of your Divine Shield, Divine Protection, and Templar's Bulwark spells by 60 sec, and reduces the duration of Forbearance by 10 sec."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de vos techniques Bouclier divin, Protection divine et Rempart de templier de 30 s et réduit la durée de Longanimité de 5 s.",
+     "Réduit le temps de recharge de vos techniques Bouclier divin, Protection divine et Rempart de templier de 60 s et réduit la durée de Longanimité de 10 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "templarsBulwark",
+   "wowheadId": 105625,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    1311015
+   ],
+   "icon": "ability_paladin_shieldofthetemplar",
+   "name": {
+    "en": "Templar's Bulwark",
+    "fr": "Rempart de templier"
+   },
+   "desc": {
+    "en": [
+     "When activated, this ability grants you an absorb shield equal to 100% of your maximum health for 8 sec. Applies Forbearance for 1 min. Cannot be cast while Forbearance is active."
+    ],
+    "fr": [
+     "Lorsqu’elle est active, cette technique vous confère un bouclier qui absorbe des dégâts équivalant à 100 % de votre maximum de points de vie pendant 8 sec. Applique Longanimité pendant 1 min. Elle ne peut pas être lancée tant que Longanimité est active."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedHammerOfJustice",
+   "wowheadId": 105633,
+   "tree": 1,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    20487,
+    20487,
+    20487
+   ],
+   "icon": "spell_holy_sealofmight",
+   "name": {
+    "en": "Improved Hammer of Justice",
+    "fr": "Marteau de la justice amélioré"
+   },
+   "desc": {
+    "en": [
+     "Decreases the cooldown of your Hammer of Justice spell by 5 sec.",
+     "Decreases the cooldown of your Hammer of Justice spell by 10 sec.",
+     "Decreases the cooldown of your Hammer of Justice spell by 15 sec."
+    ],
+    "fr": [
+     "Diminue le temps de recharge de votre sort Marteau de la justice de 5 sec.",
+     "Diminue le temps de recharge de votre sort Marteau de la justice de 10 sec.",
+     "Diminue le temps de recharge de votre sort Marteau de la justice de 15 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shieldSpecialization",
+   "wowheadId": 110874,
+   "tree": 1,
+   "row": 2,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    20150,
+    20150
+   ],
+   "icon": "inv_shield_06",
+   "name": {
+    "en": "Shield Specialization",
+    "fr": "Spécialisation Bouclier"
+   },
+   "desc": {
+    "en": [
+     "Increases the amount of damage absorbed by your shield by 15%, and gives your blocks a 50% chance to restore 4% of your maximum Mana. May only occur once every 3 sec.",
+     "Increases the amount of damage absorbed by your shield by 30%, and gives your blocks a 100% chance to restore 4% of your maximum Mana. May only occur once every 3 sec."
+    ],
+    "fr": [
+     "Augmente le nombre de points de dégâts absorbés par votre bouclier de 15 %. De plus, vos blocages ont 50 % de chances de restaurer 4 % de votre maximum de mana. Ne peut se produire plus d’une fois toutes les 3 s.",
+     "Augmente le nombre de points de dégâts absorbés par votre bouclier de 30 %. De plus, vos blocages ont 100 % de chances de restaurer 4 % de votre maximum de mana. Ne peut se produire plus d’une fois toutes les 3 s."
+    ]
+   },
+   "requires": [
+    {
+     "key": "redoubt",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "key": "toughness",
+   "wowheadId": 105630,
+   "tree": 1,
+   "row": 2,
+   "col": 3,
+   "maxRank": 5,
+   "spellIds": [
+    20143,
+    20143,
+    20143,
+    20143,
+    20143
+   ],
+   "icon": "spell_holy_devotion",
+   "name": {
+    "en": "Toughness",
+    "fr": "Résistance"
+   },
+   "desc": {
+    "en": [
+     "Increases your armor value from items by 2%.",
+     "Increases your armor value from items by 4%.",
+     "Increases your armor value from items by 6%.",
+     "Increases your armor value from items by 8%.",
+     "Increases your armor value from items by 10%."
+    ],
+    "fr": [
+     "Augmente le score d'armure des objets de 2%.",
+     "Augmente le score d'armure des objets de 4%.",
+     "Augmente le score d'armure des objets de 6%.",
+     "Augmente le score d'armure des objets de 8%.",
+     "Augmente le score d'armure des objets de 10%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "swiftJudgement",
+   "wowheadId": 110878,
+   "tree": 1,
+   "row": 3,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    1310994
+   ],
+   "icon": "ability_paladin_judgementred",
+   "name": {
+    "en": "Swift Judgement",
+    "fr": "Jugement rapide"
+   },
+   "desc": {
+    "en": [
+     "Unleash the energy of a Seal spell upon an enemy. Does not consume the Seal. Refer to individual Seals for Judgement effect. Does not share a cooldown with your Judgement ability."
+    ],
+    "fr": [
+     "Libère l’énergie d’un sort de sceau sur un personnage adverse. Ne consomme pas le sceau. Reportez-vous au sort de sceau concerné pour connaître l’effet du jugement. Ne partage pas de temps de recharge avec votre technique Jugement."
+    ]
+   },
+   "requires": [
+    {
+     "key": "templarsBulwark",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "improvedRighteousFury",
+   "wowheadId": 105634,
+   "tree": 1,
+   "row": 3,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    20468,
+    20468,
+    20468
+   ],
+   "icon": "spell_holy_sealoffury",
+   "name": {
+    "en": "Improved Righteous Fury",
+    "fr": "Fureur vertueuse améliorée"
+   },
+   "desc": {
+    "en": [
+     "While Righteous Fury is active, all damage taken is reduced by 3%.",
+     "While Righteous Fury is active, all damage taken is reduced by 6%.",
+     "While Righteous Fury is active, all damage taken is reduced by 9%."
+    ],
+    "fr": [
+     "Tant que Fureur vertueuse est active, tous les dégâts subis sont réduits de 3 %.",
+     "Tant que Fureur vertueuse est active, tous les dégâts subis sont réduits de 6 %.",
+     "Tant que Fureur vertueuse est active, tous les dégâts subis sont réduits de 9 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "anticipation",
+   "wowheadId": 105636,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    20096,
+    20096,
+    20096,
+    20096,
+    20096
+   ],
+   "icon": "spell_magic_lesserinvisibilty",
+   "name": {
+    "en": "Anticipation",
+    "fr": "Anticipation"
+   },
+   "desc": {
+    "en": [
+     "Increases your Defense Skill by 4.",
+     "Increases your Defense Skill by 8.",
+     "Increases your Defense Skill by 12.",
+     "Increases your Defense Skill by 16.",
+     "Increases your Defense Skill by 20."
+    ],
+    "fr": [
+     "Augmente votre défense de 4.",
+     "Augmente votre défense de 8.",
+     "Augmente votre défense de 12.",
+     "Augmente votre défense de 16.",
+     "Augmente votre défense de 20."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "stoicism",
+   "wowheadId": 105639,
+   "tree": 1,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1328546,
+    1328546
+   ],
+   "icon": "spell_holy_stoicism",
+   "name": {
+    "en": "Stoicism",
+    "fr": "Stoïcisme"
+   },
+   "desc": {
+    "en": [
+     "Reduces the duration of Stun and Charm effects on you by 10%.",
+     "Reduces the duration of Stun and Charm effects on you by 20%."
+    ],
+    "fr": [
+     "Réduit de 10 % la durée des effets d’étourdissement et de charme qui vous sont infligés.",
+     "Réduit de 20 % la durée des effets d’étourdissement et de charme qui vous sont infligés."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "holyShield",
+   "wowheadId": 105628,
+   "tree": 1,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    20925
+   ],
+   "icon": "spell_holy_blessingofprotection",
+   "name": {
+    "en": "Holy Shield",
+    "fr": "Bouclier sacré"
+   },
+   "desc": {
+    "en": [
+     "Increases chance to block by 30% for 10 sec, and deals 75 Holy damage for each attack blocked while active. Damage caused by Holy Shield causes 20% additional threat. Each block expends a charge. 4 charges."
+    ],
+    "fr": [
+     "Augmente les chances de bloquer de 30 % pendant 10 sec et inflige 75 points de dégâts du sacré pour chaque attaque bloquée pendant que l’effet est actif. Les dégâts infligés par Bouclier sacré augmentent le niveau de menace de 20 %. Chaque blocage consomme une charge. 4 charges."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "reckoning",
+   "wowheadId": 105627,
+   "tree": 1,
+   "row": 4,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    20177,
+    20177,
+    20177,
+    20177,
+    20177
+   ],
+   "icon": "spell_holy_blessingofstrength",
+   "name": {
+    "en": "Reckoning",
+    "fr": "Rétribution"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 8% chance after Blocking and a 20% chance after receiving a non-periodic critical strike to gain an extra attack. Stores up to 4 extra attacks. Cannot occur from Blocks more than once every 1.5 sec.",
+     "Gives you a 16% chance after Blocking and a 40% chance after receiving a non-periodic critical strike to gain an extra attack. Stores up to 4 extra attacks. Cannot occur from Blocks more than once every 1.5 sec.",
+     "Gives you a 24% chance after Blocking and a 60% chance after receiving a non-periodic critical strike to gain an extra attack. Stores up to 4 extra attacks. Cannot occur from Blocks more than once every 1.5 sec.",
+     "Gives you a 32% chance after Blocking and a 80% chance after receiving a non-periodic critical strike to gain an extra attack. Stores up to 4 extra attacks. Cannot occur from Blocks more than once every 1.5 sec.",
+     "Gives you a 40% chance after Blocking and a 100% chance after receiving a non-periodic critical strike to gain an extra attack. Stores up to 4 extra attacks. Cannot occur from Blocks more than once every 1.5 sec."
+    ],
+    "fr": [
+     "Vous confère 8 % de chances après un blocage et 20 % de chance lorsque vous êtes victime d’un coup critique non périodique de bénéficier d’une attaque supplémentaire. Vous pouvez engranger jusqu’à 4 attaques supplémentaires de cette manière. Le bonus donnant suite à un blocage ne peut pas être conféré plus d’une fois toutes les 1.5 s.",
+     "Vous confère 16 % de chances après un blocage et 40 % de chance lorsque vous êtes victime d’un coup critique non périodique de bénéficier d’une attaque supplémentaire. Vous pouvez engranger jusqu’à 4 attaques supplémentaires de cette manière. Le bonus donnant suite à un blocage ne peut pas être conféré plus d’une fois toutes les 1.5 s.",
+     "Vous confère 24 % de chances après un blocage et 60 % de chance lorsque vous êtes victime d’un coup critique non périodique de bénéficier d’une attaque supplémentaire. Vous pouvez engranger jusqu’à 4 attaques supplémentaires de cette manière. Le bonus donnant suite à un blocage ne peut pas être conféré plus d’une fois toutes les 1.5 s.",
+     "Vous confère 32 % de chances après un blocage et 80 % de chance lorsque vous êtes victime d’un coup critique non périodique de bénéficier d’une attaque supplémentaire. Vous pouvez engranger jusqu’à 4 attaques supplémentaires de cette manière. Le bonus donnant suite à un blocage ne peut pas être conféré plus d’une fois toutes les 1.5 s.",
+     "Vous confère 40 % de chances après un blocage et 100 % de chance lorsque vous êtes victime d’un coup critique non périodique de bénéficier d’une attaque supplémentaire. Vous pouvez engranger jusqu’à 4 attaques supplémentaires de cette manière. Le bonus donnant suite à un blocage ne peut pas être conféré plus d’une fois toutes les 1.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ironCreed",
+   "wowheadId": 110879,
+   "tree": 1,
+   "row": 5,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    1311034,
+    1311034,
+    1311034
+   ],
+   "icon": "spell_holy_improvedresistanceauras",
+   "name": {
+    "en": "Iron Creed",
+    "fr": "Credo de fer"
+   },
+   "desc": {
+    "en": [
+     "Increases the threat generated by your Holy Strike ability by 10%. While Righteous Fury is active, Holy Strike also reduces your damage taken by 2% for 6 sec.",
+     "Increases the threat generated by your Holy Strike ability by 20%. While Righteous Fury is active, Holy Strike also reduces your damage taken by 4% for 6 sec.",
+     "Increases the threat generated by your Holy Strike ability by 30%. While Righteous Fury is active, Holy Strike also reduces your damage taken by 6% for 6 sec."
+    ],
+    "fr": [
+     "Augmente le niveau de menace généré par votre technique Frappe sacrée de 10 %. Tant que Fureur vertueuse est active, Frappe sacrée réduit également les dégâts que vous subissez de 2 % pendant 6 sec.",
+     "Augmente le niveau de menace généré par votre technique Frappe sacrée de 20 %. Tant que Fureur vertueuse est active, Frappe sacrée réduit également les dégâts que vous subissez de 4 % pendant 6 sec.",
+     "Augmente le niveau de menace généré par votre technique Frappe sacrée de 30 %. Tant que Fureur vertueuse est active, Frappe sacrée réduit également les dégâts que vous subissez de 6 % pendant 6 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shieldsworn",
+   "wowheadId": 110875,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1328544
+   ],
+   "icon": "spell_holy_greaterblessingofsanctuary",
+   "name": {
+    "en": "Shieldsworn",
+    "fr": "Serment du bouclier"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Holy Strike ability by 4 sec. Additionally, Holy Strike now strikes with your shield, triggering your active Holy Shield and Shield Specialization talents without consuming their charges or triggering their cooldowns, and allowing you to Block spells for 6 sec."
+    ],
+    "fr": [
+     "Réduit de 4 s le temps de recharge de votre technique Frappe sacrée. Frappe sacrée touche désormais avec votre bouclier, ce qui vous permet de bloquer les sorts pendant 6 sec et de déclencher vos talents Bouclier sacré et Spécialisation Bouclier actifs sans consommer leurs charges ni déclencher leurs temps de recharge."
+    ]
+   },
+   "requires": [
+    {
+     "key": "holyShield",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "deflection",
+   "wowheadId": 105707,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    20060,
+    20060,
+    20060,
+    20060,
+    20060
+   ],
+   "icon": "ability_parry",
+   "name": {
+    "en": "Deflection",
+    "fr": "Déviation"
+   },
+   "desc": {
+    "en": [
+     "Increases your Parry chance by 1%.",
+     "Increases your Parry chance by 2%.",
+     "Increases your Parry chance by 3%.",
+     "Increases your Parry chance by 4%.",
+     "Increases your Parry chance by 5%."
+    ],
+    "fr": [
+     "Augmente vos chances de Parer de 1%.",
+     "Augmente vos chances de Parer de 2%.",
+     "Augmente vos chances de Parer de 3%.",
+     "Augmente vos chances de Parer de 4%.",
+     "Augmente vos chances de Parer de 5%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "benediction",
+   "wowheadId": 105706,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    20101,
+    20101,
+    20101,
+    20101,
+    20101
+   ],
+   "icon": "spell_frost_windwalkon",
+   "name": {
+    "en": "Benediction",
+    "fr": "Bénédiction"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of all instant cast spells and abilities by 2%.",
+     "Reduces the Mana cost of all instant cast spells and abilities by 4%.",
+     "Reduces the Mana cost of all instant cast spells and abilities by 6%.",
+     "Reduces the Mana cost of all instant cast spells and abilities by 8%.",
+     "Reduces the Mana cost of all instant cast spells and abilities by 10%."
+    ],
+    "fr": [
+     "Réduit le coût en mana de tous les sorts et techniques instantanés de 2 %.",
+     "Réduit le coût en mana de tous les sorts et techniques instantanés de 4 %.",
+     "Réduit le coût en mana de tous les sorts et techniques instantanés de 6 %.",
+     "Réduit le coût en mana de tous les sorts et techniques instantanés de 8 %.",
+     "Réduit le coût en mana de tous les sorts et techniques instantanés de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedJudgement",
+   "wowheadId": 105705,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    25956,
+    25956
+   ],
+   "icon": "spell_holy_righteousfury",
+   "name": {
+    "en": "Improved Judgement",
+    "fr": "Jugement amélioré"
+   },
+   "desc": {
+    "en": [
+     "Decreases the cooldown of your Judgement ability by 1 sec.",
+     "Decreases the cooldown of your Judgement ability by 2 sec."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de votre technique Jugement de 1 s.",
+     "Réduit le temps de recharge de votre technique Jugement de 2 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "conviction",
+   "wowheadId": 105703,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    20117,
+    20117,
+    20117
+   ],
+   "icon": "spell_holy_retributionaura",
+   "name": {
+    "en": "Conviction",
+    "fr": "Conviction"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to get a critical strike with all spells and attacks by 2%.",
+     "Improves your chance to get a critical strike with all spells and attacks by 4%.",
+     "Improves your chance to get a critical strike with all spells and attacks by 6%."
+    ],
+    "fr": [
+     "Améliore vos chances de coup critique des sorts et attaques de 2 %.",
+     "Améliore vos chances de coup critique des sorts et attaques de 4 %.",
+     "Améliore vos chances de coup critique des sorts et attaques de 6 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sanctifiedJudgement",
+   "wowheadId": 105701,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    1311074,
+    1311074,
+    1311074
+   ],
+   "icon": "ability_paladin_judgementblue",
+   "name": {
+    "en": "Sanctified Judgement",
+    "fr": "Jugement sanctifié"
+   },
+   "desc": {
+    "en": [
+     "Gives your Judgement ability a 33% chance to return 20% of the Mana cost of the judged seal.",
+     "Gives your Judgement ability a 66% chance to return 40% of the Mana cost of the judged seal.",
+     "Gives your Judgement ability a 100% chance to return 60% of the Mana cost of the judged seal."
+    ],
+    "fr": [
+     "Confère à votre technique Jugement 33 % de chances de récupérer 20 % du coût en mana du sceau jugé.",
+     "Confère à votre technique Jugement 66 % de chances de récupérer 40 % du coût en mana du sceau jugé.",
+     "Confère à votre technique Jugement 100 % de chances de récupérer 60 % du coût en mana du sceau jugé."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "vindication",
+   "wowheadId": 105702,
+   "tree": 2,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    9452,
+    9452,
+    9452
+   ],
+   "icon": "spell_holy_vindication",
+   "name": {
+    "en": "Vindication",
+    "fr": "Justification"
+   },
+   "desc": {
+    "en": [
+     "Gives your damaging melee attacks a chance to reduce the target's Attack Power by (1 /- 3 * 6) for 30 sec.",
+     "Gives your damaging melee attacks a chance to reduce the target's Attack Power by (2 /- 3 * 6) for 30 sec.",
+     "Gives your damaging melee attacks a chance to reduce the target's Attack Power by (3 /- 3 * 6) for 30 sec."
+    ],
+    "fr": [
+     "Confère à vos attaques en mêlée qui infligent des dégâts une chance de réduire la puissance d’attaque de la cible de (1 /- 3 * 6) pendant 30 sec.",
+     "Confère à vos attaques en mêlée qui infligent des dégâts une chance de réduire la puissance d’attaque de la cible de (2 /- 3 * 6) pendant 30 sec.",
+     "Confère à vos attaques en mêlée qui infligent des dégâts une chance de réduire la puissance d’attaque de la cible de (3 /- 3 * 6) pendant 30 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "unyieldingFaith",
+   "wowheadId": 105331,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    9453,
+    9453
+   ],
+   "icon": "spell_holy_unyieldingfaith",
+   "name": {
+    "en": "Unyielding Faith",
+    "fr": "Foi inflexible"
+   },
+   "desc": {
+    "en": [
+     "Reduces the duration of Fear and Disorient effects on you by 15%.",
+     "Reduces the duration of Fear and Disorient effects on you by 30%."
+    ],
+    "fr": [
+     "Réduit de 15 % la durée de tous les effets de peur et de désorientation.",
+     "Réduit de 30 % la durée de tous les effets de peur et de désorientation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sealOfCommand",
+   "wowheadId": 105696,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    20375
+   ],
+   "icon": "ability_warrior_innerrage",
+   "name": {
+    "en": "Seal of Command",
+    "fr": "Sceau d'autorité"
+   },
+   "desc": {
+    "en": [
+     "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 69 to 73 Holy damage, 138 to 146 if the target is stunned or incapacitated."
+    ],
+    "fr": [
+     "Confère au personnage paladin une chance d’infliger des dégâts du sacré supplémentaires d’un montant égal à 70 % des dégâts normaux de l’arme. Le personnage paladin ne peut avoir qu’un seul sceau actif à la fois. Dure 30 sec.\n\nLibérez l’énergie de ce sceau pour juger un personnage adverse, lui infligeant instantanément 69 à 73 points de dégâts du sacré ou 138 à 146 points de dégâts du sacré si la cible est étourdie ou stupéfiée."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "pursuitOfJustice",
+   "wowheadId": 105699,
+   "tree": 2,
+   "row": 2,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    26022,
+    26022
+   ],
+   "icon": "spell_holy_persuitofjustice",
+   "name": {
+    "en": "Pursuit of Justice",
+    "fr": "Poursuite de la justice"
+   },
+   "desc": {
+    "en": [
+     "Increases movement speed and mounted movement speed by 8%. This does not stack with other movement speed increasing effects.",
+     "Increases movement speed and mounted movement speed by 15%. This does not stack with other movement speed increasing effects."
+    ],
+    "fr": [
+     "Augmente votre vitesse de déplacement et la vitesse de déplacement de votre monture de 8 %. Ne se cumule pas avec les autres effets qui augmentent la vitesse de déplacement.",
+     "Augmente votre vitesse de déplacement et la vitesse de déplacement de votre monture de 15 %. Ne se cumule pas avec les autres effets qui augmentent la vitesse de déplacement."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "eyeForAnEye",
+   "wowheadId": 105698,
+   "tree": 2,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    9799,
+    9799
+   ],
+   "icon": "spell_holy_eyeforaneye",
+   "name": {
+    "en": "Eye for an Eye",
+    "fr": "Oeil pour oeil"
+   },
+   "desc": {
+    "en": [
+     "All critical strikes against you cause 5% of the damage taken to the attacker as well. The damage caused by Eye for an Eye will not exceed 50% of the Paladin's total health.",
+     "All critical strikes against you cause 10% of the damage taken to the attacker as well. The damage caused by Eye for an Eye will not exceed 50% of the Paladin's total health."
+    ],
+    "fr": [
+     "Tous les coups critiques contre vous infligent également 5 % des dégâts que vous subissez au personnage attaquant. Les points de dégâts causés par Œil pour oeil ne peuvent excéder 50 % du total des points de vie du personnage paladin.",
+     "Tous les coups critiques contre vous infligent également 10 % des dégâts que vous subissez au personnage attaquant. Les points de dégâts causés par Œil pour oeil ne peuvent excéder 50 % du total des points de vie du personnage paladin."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sacredArbiter",
+   "wowheadId": 105700,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1311087
+   ],
+   "icon": "inv_sword_08",
+   "name": {
+    "en": "Sacred Arbiter",
+    "fr": "Sentence sacrée"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage of your Holy Strike ability by 20% and causes it to refresh all Judgement effects on the target."
+    ],
+    "fr": [
+     "Augmente les dégâts infligés par votre technique Frappe sacrée de 20 % et réinitialise tous les effets de Jugement qui affectent la cible."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "twohandedWeaponSpecialization",
+   "wowheadId": 105697,
+   "tree": 2,
+   "row": 3,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    20111,
+    20111,
+    20111
+   ],
+   "icon": "inv_hammer_04",
+   "name": {
+    "en": "Two-Handed Weapon Specialization",
+    "fr": "Spécialisation Arme 2M"
+   },
+   "desc": {
+    "en": [
+     "Increases the Physical and Holy damage you deal by 2%, and reduces all threat you generate by 7% while a two-handed melee weapon is equipped.",
+     "Increases the Physical and Holy damage you deal by 4%, and reduces all threat you generate by 14% while a two-handed melee weapon is equipped.",
+     "Increases the Physical and Holy damage you deal by 6%, and reduces all threat you generate by 20% while a two-handed melee weapon is equipped."
+    ],
+    "fr": [
+     "Augmente vos dégâts physiques et du sacré de 2 % et réduit le niveau de menace que vous générez de 7 % quand une arme de mêlée à deux mains est équipée.",
+     "Augmente vos dégâts physiques et du sacré de 4 % et réduit le niveau de menace que vous générez de 14 % quand une arme de mêlée à deux mains est équipée.",
+     "Augmente vos dégâts physiques et du sacré de 6 % et réduit le niveau de menace que vous générez de 20 % quand une arme de mêlée à deux mains est équipée."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "turnEvil",
+   "wowheadId": 113629,
+   "tree": 2,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1328370,
+    1328370
+   ],
+   "icon": "spell_holy_turnundead",
+   "name": {
+    "en": "Turn Evil",
+    "fr": "Renvoi du mal"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cast time of your Turn Undead spell by 0.5 sec, its cooldown by 5 sec, and allows it to affect Demons.",
+     "Reduces the cast time of your Turn Undead spell by 1.0 sec, its cooldown by 10 sec, and allows it to affect Demons."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de votre sort Renvoi des morts-vivants de 0.5 s et son temps de recharge de 5 s tout en lui permettant d’affecter les démons.",
+     "Réduit le temps d’incantation de votre sort Renvoi des morts-vivants de 1.0 s et son temps de recharge de 10 s tout en lui permettant d’affecter les démons."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "repentance",
+   "wowheadId": 105694,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    20066
+   ],
+   "icon": "spell_holy_prayerofhealing",
+   "name": {
+    "en": "Repentance",
+    "fr": "Repentir"
+   },
+   "desc": {
+    "en": [
+     "Puts the enemy target in a state of meditation, incapacitating them for up to 6 sec. Any damage caused will awaken the target. Only works against Humanoids."
+    ],
+    "fr": [
+     "Plonge la cible adverse dans une transe méditative qui la stupéfie pendant 6 sec au maximum. Si la cible subit des dégâts, elle se réveille. Ne fonctionne que sur les humanoïdes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "vengeance",
+   "wowheadId": 105693,
+   "tree": 2,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    20049,
+    20049,
+    20049
+   ],
+   "icon": "ability_racial_avatar",
+   "name": {
+    "en": "Vengeance",
+    "fr": "Vengeance"
+   },
+   "desc": {
+    "en": [
+     "Increases your Physical and Holy damage dealt by 1% for 30 sec after landing a non-periodic critical strike. Stacks up to 5 times.",
+     "Increases your Physical and Holy damage dealt by 2% for 30 sec after landing a non-periodic critical strike. Stacks up to 5 times.",
+     "Increases your Physical and Holy damage dealt by 3% for 30 sec after landing a non-periodic critical strike. Stacks up to 5 times."
+    ],
+    "fr": [
+     "Augmente les dégâts physiques et du sacré que vous infligez de 1 % pendant 30 sec lorsque vous infligez un coup critique non périodique. Cumulable jusqu’à 5 fois.",
+     "Augmente les dégâts physiques et du sacré que vous infligez de 2 % pendant 30 sec lorsque vous infligez un coup critique non périodique. Cumulable jusqu’à 5 fois.",
+     "Augmente les dégâts physiques et du sacré que vous infligez de 3 % pendant 30 sec lorsque vous infligez un coup critique non périodique. Cumulable jusqu’à 5 fois."
+    ]
+   },
+   "requires": [
+    {
+     "key": "sealOfCommand",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "championOfTheLight",
+   "wowheadId": 110882,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    1311084,
+    1311084,
+    1311084,
+    1311084,
+    1311084
+   ],
+   "icon": "ability_paladin_enlightenedjudgements",
+   "name": {
+    "en": "Champion of the Light",
+    "fr": "Champion de la lumière"
+   },
+   "desc": {
+    "en": [
+     "Increases your spell damage by up to 12% of your Intellect, and reduces the cast time of your Hammer of Wrath by 0.2 sec.",
+     "Increases your spell damage by up to 24% of your Intellect, and reduces the cast time of your Hammer of Wrath by 0.4 sec.",
+     "Increases your spell damage by up to 36% of your Intellect, and reduces the cast time of your Hammer of Wrath by 0.6 sec.",
+     "Increases your spell damage by up to 48% of your Intellect, and reduces the cast time of your Hammer of Wrath by 0.8 sec.",
+     "Increases your spell damage by up to 60% of your Intellect, and reduces the cast time of your Hammer of Wrath by 1.0 sec."
+    ],
+    "fr": [
+     "Augmente les dégâts de vos sorts d’un montant pouvant atteindre 12 % de votre Intelligence et réduit le temps d’incantation de Marteau de courroux de 0.2 s.",
+     "Augmente les dégâts de vos sorts d’un montant pouvant atteindre 24 % de votre Intelligence et réduit le temps d’incantation de Marteau de courroux de 0.4 s.",
+     "Augmente les dégâts de vos sorts d’un montant pouvant atteindre 36 % de votre Intelligence et réduit le temps d’incantation de Marteau de courroux de 0.6 s.",
+     "Augmente les dégâts de vos sorts d’un montant pouvant atteindre 48 % de votre Intelligence et réduit le temps d’incantation de Marteau de courroux de 0.8 s.",
+     "Augmente les dégâts de vos sorts d’un montant pouvant atteindre 60 % de votre Intelligence et réduit le temps d’incantation de Marteau de courroux de 1.0 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "unsealedWrath",
+   "wowheadId": 105692,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1310735
+   ],
+   "icon": "spell_holy_blessedresillience",
+   "name": {
+    "en": "Unsealed Wrath",
+    "fr": "Courroux descellé"
+   },
+   "desc": {
+    "en": [
+     "Your melee attacks store a copy of your active Seal for 15 sec, stacking up to 3 times. Landing an attack with a different Seal consumes all stacks, giving the stored Seal its normal chance to activate once per stack."
+    ],
+    "fr": [
+     "Vos attaques en mêlée enregistrent une copie de votre sceau actif pendant 15 sec, cumulable jusqu’à 3 fois. Quand vous infligez une attaque avec un sceau différent, tous les cumuls sont consommés et chacun d’entre eux accorde au sceau enregistré ses chances normales d’activation."
+    ]
+   },
+   "requires": [
+    {
+     "key": "repentance",
+     "qty": 1
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "melee": {
+   "id": 6603,
+   "name": {
+    "en": "Attack",
+    "fr": "Attaque"
+   },
+   "tooltip": {
+    "en": "Attack\nInstant",
+    "fr": "Attaque\nInstantanée"
+   },
+   "icon": "temp"
+  },
+  "holyStrike": {
+   "id": 10333,
+   "name": {
+    "en": "Holy Strike",
+    "fr": "Frappe sacrée"
+   },
+   "tooltip": {
+    "en": "Holy Strike\nLevel 6020 ManaMelee RangeInstant10 sec cooldownRequires PaladinRequires level 60\nRequires Melee WeaponAn instant strike that causes 50% weapon damage plus an additional 97 to 121 as Holy damage.",
+    "fr": "Frappe sacrée\nNiveau 60Mana : 20AllongeInstantanée10 s de rechargeRequiert PaladinNiveau 60 requis\nRequiert Arme de mêléeUne attaque instantanée qui inflige 50 % des dégâts de l’arme et 97 à 121 points de dégâts du sacré supplémentaires."
+   },
+   "icon": "classicon_paladin"
+  },
+  "judgement": {
+   "id": 20271,
+   "name": {
+    "en": "Judgement",
+    "fr": "Jugement"
+   },
+   "tooltip": {
+    "en": "Judgement6% of base mana10 yd rangeInstant10 sec cooldownRequires PaladinRequires level 4\nUnleash the energy of a Seal spell upon an enemy. Does not consume the Seal. Refer to individual Seals for Judgement effect.",
+    "fr": "Jugement6% de la mana de base10 m de portéeInstantanée10 s de rechargeRequiert PaladinNiveau 4 requis\nLibère l’énergie d’un sort de sceau sur un personnage adverse. Ne consomme pas le sceau. Reportez-vous au sort de sceau concerné pour connaître l’effet du jugement."
+   },
+   "icon": "spell_holy_righteousfury"
+  },
+  "sealOfCommand": {
+   "id": 20920,
+   "name": {
+    "en": "Seal of Command",
+    "fr": "Sceau d'autorité"
+   },
+   "tooltip": {
+    "en": "Seal of Command\nLevel 60210 Mana\nInstantRequires PaladinRequires level 60\nGives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 194 to 211 Holy damage, 388 to 422 if the target is stunned or incapacitated. (1s cooldown)",
+    "fr": "Sceau d'autorité\nNiveau 60Mana : 210\nInstantanéeRequiert PaladinNiveau 60 requis\nConfère au paladin une chance d'infliger un nombre de points de dégâts du Sacré supplémentaires équivalent à 70% des dégâts normaux de l'arme. Un seul Sceau peut être actif sur le paladin à la fois. Dure 30 sec.\n\nLibérez l'énergie de ce Sceau pour juger un ennemi et lui infliger instantanément 194 à 211 points de dégâts du Sacré, ou 388 à 422 si la cible est étourdie ou stupéfiée. (1sec de recharge)"
+   },
+   "icon": "ability_warrior_innerrage"
+  },
+  "sealOfTheCrusader": {
+   "id": 20308,
+   "name": {
+    "en": "Seal of the Crusader",
+    "fr": "Sceau du Croisé"
+   },
+   "tooltip": {
+    "en": "Seal of the Crusader\nLevel 60160 Mana\nInstantRequires PaladinRequires level 52\nFills the Paladin with the spirit of a crusader for 30 sec, granting 325 melee attack power. The Paladin also attacks 40% faster, but deals less damage with each attack. Only one Seal can be active on the Paladin at any one time.\n\nUnleashing this Seal's energy will judge an enemy for 40 sec, increasing Holy damage taken by up to 161. Your melee strikes will refresh the spell's duration. Only one Judgement per Paladin can be active at any one time.",
+    "fr": "Sceau du Croisé\nNiveau 60Mana : 160\nInstantanéeRequiert PaladinNiveau 52 requis\nInvestit le paladin de l'esprit d'un croisé pendant 30 sec. Augmente la puissance d'attaque en mêlée de 325. La vitesse d'attaque est augmentée de 40% mais il inflige moins de dégâts. Un seul Sceau peut être actif sur le paladin à la fois.\n\nLibérez l'énergie de ce Sceau pour juger un ennemi pendant 40 sec et augmenter les points de dégâts du Sacré qu'il subit de 161 au maximum. Vos coups en mêlée réinitialisent la durée du sort. Un seul Jugement par paladin peut être actif à la fois."
+   },
+   "icon": "spell_holy_holysmite"
+  },
+  "sealOfRighteousness": {
+   "id": 20293,
+   "name": {
+    "en": "Seal of Righteousness",
+    "fr": "Sceau de piété"
+   },
+   "tooltip": {
+    "en": "Seal of Righteousness\nLevel 60200 Mana\nInstantRequires PaladinRequires level 58\nFills the Paladin with holy spirit for 30 sec, granting each melee attack an additional [(2068 / 87 + (0.0765 * Spell Power))] to [(2068 / 25 + (0.12 * Spell Power))] Holy damage. Slower weapons cause more Holy damage per swing. Only one Seal can be active on the Paladin at any one time.\n\nUnleashing this Seal's energy will cause 187 to 203 Holy damage to an enemy.",
+    "fr": "Sceau de piété\nNiveau 60Mana : 200\nInstantanéeRequiert PaladinNiveau 58 requis\nUn esprit saint imprègne le personnage paladin pendant 30 sec. Chaque attaque en mêlée inflige entre [(2068 / 87 + (0.0765 * Puissance des sorts))] et [(2068 / 25 + (0.12 * Puissance des sorts))] points de dégâts du sacré supplémentaires. Les armes plus lentes infligent plus de dégâts du sacré à chaque coup. Le personnage paladin ne peut avoir qu’un seul sceau actif à la fois.\n\nLibérez l’énergie de ce sceau pour infliger 187 à 203 points de dégâts du sacré à un personnage adverse."
+   },
+   "icon": "ability_thunderbolt"
+  },
+  "sealOfFury": {
+   "id": 20423,
+   "name": {
+    "en": "Seal of Fury",
+    "fr": "Sceau de fureur"
+   },
+   "tooltip": {
+    "en": "Seal of Fury\nLevel 60200 Mana\nInstantRequires PaladinRequires level 58\nFills the Paladin with divine fury for 30 sec, causing melee attacks to deal an additional 35 Holy damage. While a shield is equipped, each attack also grants an absorb shield equal to 50% of the Holy damage dealt. Only one Seal can be active on the Paladin at any one time.\n\nUnleashing this Seal's energy inflicts 168 to 182 Holy damage to an enemy and taunts the target to attack you for 3 sec.",
+    "fr": "Sceau de fureur\nNiveau 60Mana : 200\nInstantanéeRequiert PaladinNiveau 58 requis\nImprègne le paladin ou la paladine de fureur divine pendant 30 sec. Chaque attaque de mêlée a une chance d’infliger 35 points de dégâts du sacré supplémentaires. Quand un bouclier est équipé, chaque attaque octroie un bouclier qui absorbe un montant de dégâts égal à 50 % des dégâts du sacré infligés. Un seul sceau peut être actif sur le paladin ou la paladine à la fois.\n\nLibérez l’énergie de ce sceau pour infliger 168 à 182 points de dégâts du sacré à un adversaire et pour provoquer la cible afin qu’elle vous attaque pendant 3 sec."
+   },
+   "icon": "spell_holy_retributionaura"
+  },
+  "consecration": {
+   "id": 20924,
+   "name": {
+    "en": "Consecration",
+    "fr": "Consécration"
+   },
+   "tooltip": {
+    "en": "Consecration\n565 ManaInstant8 sec cooldownRequires PaladinRequires level 60\nConsecrates the land beneath the Paladin, doing 96 Holy damage over 8 sec to enemies who enter the area. The first 4 enemies who enter the area will take an additional 216 damage over 8 sec.",
+    "fr": "Consécration\nMana : 565Instantanée8 s de rechargeRequiert PaladinNiveau 60 requis\nConsacre le sol autour qui se trouve autour du paladin ou de la paladine et inflige 96 points de dégâts du sacré en 8 sec aux adversaires qui entrent dans la zone. Les 4 premiers adversaires à y pénétrer subissent 216 points de dégâts supplémentaires en 8 sec."
+   },
+   "icon": "spell_holy_innerfire"
+  },
+  "exorcism": {
+   "id": 10314,
+   "name": {
+    "en": "Exorcism",
+    "fr": "Exorcisme"
+   },
+   "tooltip": {
+    "en": "Exorcism\nLevel 60345 Mana30 yd rangeInstant15 sec cooldownRequires PaladinRequires level 60\nCauses 491 to 545 Holy damage to an Undead or Demon target.",
+    "fr": "Exorcisme\nNiveau 60Mana : 34530 m de portéeInstantanée15 s de rechargeRequiert PaladinNiveau 60 requis\nInflige 491 à 545 points de dégâts du sacré à un mort-vivant ou un démon."
+   },
+   "icon": "spell_holy_excorcism_02"
+  },
+  "hammerOfWrath": {
+   "id": 24239,
+   "name": {
+    "en": "Hammer of Wrath",
+    "fr": "Marteau de courroux"
+   },
+   "tooltip": {
+    "en": "Hammer of Wrath\nLevel 60425 Mana30 yd range1 sec cast6 sec cooldownRequires PaladinRequires level 60\nHurls a hammer that strikes an enemy for 489 to 538 Holy damage. Only usable on enemies that have 20% or less health.",
+    "fr": "Marteau de courroux\nNiveau 60Mana : 42530 m de portée1 s d'incantation6 s de rechargeRequiert PaladinNiveau 60 requis\nProjette un marteau qui inflige 489 à 538 points de dégâts du Sacré à sa cible. Utilisable seulement sur les ennemis qui n'ont que 20% ou moins de leurs points de vie."
+   },
+   "icon": "ability_thunderclap"
+  },
+  "holyLight": {
+   "id": 25292,
+   "name": {
+    "en": "Holy Light",
+    "fr": "Lumière sacrée"
+   },
+   "tooltip": {
+    "en": "Holy Light\nLevel 60660 Mana40 yd range2.5 sec castRequires PaladinRequires level 60\nHeals a friendly target for 1524 to 1694.",
+    "fr": "Lumière sacrée\nNiveau 60Mana : 66040 m de portée2.5 s d'incantationRequiert PaladinNiveau 60 requis\nRend 1524 à 1694 points de vie à une cible alliée."
+   },
+   "icon": "spell_holy_holybolt"
+  },
+  "flashOfLight": {
+   "id": 19943,
+   "name": {
+    "en": "Flash of Light",
+    "fr": "Eclair lumineux"
+   },
+   "tooltip": {
+    "en": "Flash of Light\nLevel 60140 Mana40 yd range1.5 sec castRequires PaladinRequires level 58\nHeals a friendly target for 299 to 333.",
+    "fr": "Eclair lumineux\nNiveau 60Mana : 14040 m de portée1.5 s d'incantationRequiert PaladinNiveau 58 requis\nRend 299 à 333 points de vie à une cible alliée."
+   },
+   "icon": "spell_holy_flashheal"
+  },
+  "holyShock": {
+   "id": 20930,
+   "name": {
+    "en": "Holy Shock",
+    "fr": "Horion sacré"
+   },
+   "tooltip": {
+    "en": "Holy Shock325 Mana20 - 40 yd rangeInstant10 sec cooldownRequires PaladinRequires level 56\nBlasts the target with Holy energy, causing 334 to 362 Holy damage to an enemy, or 307 to 333 healing to an ally.",
+    "fr": "Horion sacréMana : 32520 - 40 m de portéeInstantanée10 s de rechargeRequiert PaladinNiveau 56 requis\nL'énergie sacrée frappe la cible et inflige 334 à 362 points de dégâts du Sacré à un ennemi, ou bien rend à un allié 307 à 333 points de vie."
+   },
+   "icon": "spell_holy_searinglight"
+  },
+  "lightsVigil": {
+   "id": 1311595,
+   "name": {
+    "en": "Light's Vigil",
+    "fr": "Vigile de Lumière"
+   },
+   "tooltip": {
+    "en": "Light's Vigil\nLevel 601340 Mana40 yd range1.5 sec cast6 sec cooldownRequires PaladinRequires level 60\nApplies Light's Vigil to a friendly target for 30 sec. The caster's next Holy Shock on the target incurs no cooldown and heals the target and their party for 700 to 740. Only one Vigil per Paladin may be active in each party.",
+    "fr": "Vigile de Lumière\nNiveau 60Mana : 134040 m de portée1.5 s d'incantation6 s de rechargeRequiert PaladinNiveau 60 requis\nApplique Vigile de Lumière à une cible alliée pendant 30 sec. Le prochain Horion sacré du lanceur ou de la lanceuse sur la cible ne déclenche pas de temps de recharge et soigne la cible et son groupe à hauteur de 700 à 740 points de vie. Une seule occurrence de Vigile de Lumière peut être active par paladin ou paladine et par groupe."
+   },
+   "icon": "ability_paladin_judgementofthepure"
+  },
+  "holyShield": {
+   "id": 1239570,
+   "name": {
+    "en": "Holy Shield",
+    "fr": "Bouclier sacré"
+   },
+   "tooltip": {
+    "en": "Holy Shield\n240 ManaInstant10 sec cooldownRequires PaladinRequires level 60\nIncreases chance to block by 30% for 10 sec, and deals 221 Holy damage for each attack blocked while active. Damage caused by Holy Shield causes 20% additional threat. Each block expends a charge. 4 charges.",
+    "fr": "Bouclier sacré\nMana : 240Instantanée10 s de rechargeRequiert PaladinNiveau 60 requis\nAugmente les chances de bloquer de 30 % pendant 10 sec et inflige 221 points de dégâts du sacré pour chaque attaque bloquée pendant que l’effet est actif. Les dégâts infligés par Bouclier sacré augmentent le niveau de menace de 20 %. Chaque blocage consomme une charge. 4 charges."
+   },
+   "icon": "spell_holy_blessingofprotection"
+  },
+  "righteousFury": {
+   "id": 25780,
+   "name": {
+    "en": "Righteous Fury",
+    "fr": "Fureur vertueuse"
+   },
+   "tooltip": {
+    "en": "Righteous Fury\n30% of base mana\nInstantRequires PaladinRequires level 10\nIncreases all threat generated by 33%, and all threat generated by your Holy attacks by an additional 90%. Lasts 30 min.",
+    "fr": "Fureur vertueuse\n30% de la mana de base\nInstantanéeRequiert PaladinNiveau 10 requis\nAugmente le niveau de menace généré de 33 % et celui généré par vos attaques du sacré de 90 % supplémentaires. Dure 30 min."
+   },
+   "icon": "spell_holy_sealoffury"
+  },
+  "divineFavor": {
+   "id": 20216,
+   "name": {
+    "en": "Divine Favor",
+    "fr": "Faveur divine"
+   },
+   "tooltip": {
+    "en": "Divine FavorTalent4% of base manaInstant2 min cooldownRequires PaladinWhen activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.",
+    "fr": "Faveur divineTalent4% de la mana de baseInstantanée2 min de rechargeRequiert PaladinUne fois activé, confère 100% de chances à votre prochain sort Eclair lumineux, Lumière sacrée ou Horion sacré d'avoir un effet critique."
+   },
+   "icon": "spell_holy_heal"
+  },
+  "reckoning": {
+   "id": 20178,
+   "name": {
+    "en": "Reckoning",
+    "fr": "Rétribution"
+   },
+   "tooltip": {
+    "en": "Reckoning\nInstantGrants extra attacks after blocking.",
+    "fr": "Rétribution\nInstantanéeConfère des attaques supplémentaires après un blocage."
+   },
+   "icon": "spell_holy_blessingofstrength"
+  }
+ }
+}

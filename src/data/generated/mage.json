@@ -1,0 +1,1856 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-19T14:19:34.517Z",
+ "trees": [
+  {
+   "key": "arcane",
+   "icon": "spell_holy_magicalsentry",
+   "name": {
+    "en": "Arcane",
+    "fr": "Arcane"
+   }
+  },
+  {
+   "key": "fire",
+   "icon": "spell_fire_firebolt02",
+   "name": {
+    "en": "Fire",
+    "fr": "Feu"
+   }
+  },
+  {
+   "key": "frost",
+   "icon": "spell_frost_frostbolt02",
+   "name": {
+    "en": "Frost",
+    "fr": "Givre"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "wandSpecialization",
+   "wowheadId": 105815,
+   "tree": 0,
+   "row": 0,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    6057,
+    6057
+   ],
+   "icon": "inv_wand_01",
+   "name": {
+    "en": "Wand Specialization",
+    "fr": "Spécialisation Baguette"
+   },
+   "desc": {
+    "en": [
+     "Increases your damage with Wands by 13%.",
+     "Increases your damage with Wands by 25%."
+    ],
+    "fr": [
+     "Augmente de 13% les points de dégâts que vous infligez avec une Baguette.",
+     "Augmente de 25% les points de dégâts que vous infligez avec une Baguette."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedChanneling",
+   "wowheadId": 105813,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    11237,
+    11237,
+    11237,
+    11237,
+    11237
+   ],
+   "icon": "spell_nature_starfall",
+   "name": {
+    "en": "Improved Channeling",
+    "fr": "Canalisation améliorée"
+   },
+   "desc": {
+    "en": [
+     "Gives your Arcane Missiles spell a 20% chance and your Arcane Blast and Arcane Wrath spells a 14% chance to not lose casting time when you take damage.",
+     "Gives your Arcane Missiles spell a 40% chance and your Arcane Blast and Arcane Wrath spells a 28% chance to not lose casting time when you take damage.",
+     "Gives your Arcane Missiles spell a 60% chance and your Arcane Blast and Arcane Wrath spells a 42% chance to not lose casting time when you take damage.",
+     "Gives your Arcane Missiles spell a 80% chance and your Arcane Blast and Arcane Wrath spells a 56% chance to not lose casting time when you take damage.",
+     "Gives your Arcane Missiles spell a 100% chance and your Arcane Blast and Arcane Wrath spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à votre sort Projectiles des arcanes 20 % de chances et à vos sorts Déflagration des arcanes et Colère des arcanes 14 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à votre sort Projectiles des arcanes 40 % de chances et à vos sorts Déflagration des arcanes et Colère des arcanes 28 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à votre sort Projectiles des arcanes 60 % de chances et à vos sorts Déflagration des arcanes et Colère des arcanes 42 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à votre sort Projectiles des arcanes 80 % de chances et à vos sorts Déflagration des arcanes et Colère des arcanes 56 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à votre sort Projectiles des arcanes 100 % de chances et à vos sorts Déflagration des arcanes et Colère des arcanes 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneResilience",
+   "wowheadId": 105802,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    28574,
+    28574,
+    28574
+   ],
+   "icon": "spell_arcane_arcaneresilience",
+   "name": {
+    "en": "Arcane Resilience",
+    "fr": "Résistance des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Increases your Armor by an amount equal to 25% of your Intellect.",
+     "Increases your Armor by an amount equal to 50% of your Intellect.",
+     "Increases your Armor by an amount equal to 75% of your Intellect."
+    ],
+    "fr": [
+     "Augmente votre armure d’un montant égal à 25 % de votre Intelligence.",
+     "Augmente votre armure d’un montant égal à 50 % de votre Intelligence.",
+     "Augmente votre armure d’un montant égal à 75 % de votre Intelligence."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneSubtlety",
+   "wowheadId": 105812,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    11210,
+    11210
+   ],
+   "icon": "spell_holy_dispelmagic",
+   "name": {
+    "en": "Arcane Subtlety",
+    "fr": "Subtilité des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Reduces your target's resistance to all your spells by 8 and reduces the threat caused by your Arcane spells by 15%.",
+     "Reduces your target's resistance to all your spells by 15 and reduces the threat caused by your Arcane spells by 30%."
+    ],
+    "fr": [
+     "Réduit de 8 la résistance de votre cible à tous les types de magie, et diminue de 15% la menace générée par vos sorts d'Arcanes.",
+     "Réduit de 15 la résistance de votre cible à tous les types de magie, et diminue de 30% la menace générée par vos sorts d'Arcanes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "magicAbsorption",
+   "wowheadId": 105811,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    29441,
+    29441
+   ],
+   "icon": "spell_nature_astralrecalgroup",
+   "name": {
+    "en": "Magic Absorption",
+    "fr": "Absorption de magie"
+   },
+   "desc": {
+    "en": [
+     "Increases all your resistances by 5 and causes all spells you fully resist to restore 1% of your total mana. Cannot trigger more often than 1 time per sec.",
+     "Increases all your resistances by 10 and causes all spells you fully resist to restore 2% of your total mana. Cannot trigger more often than 1 time per sec."
+    ],
+    "fr": [
+     "Augmente toutes les résistances de 5. Tous les sorts auxquels vous résistez entièrement restaurent 1 % de votre total de mana. Cet effet ne peut pas se déclencher plus d’une fois par seconde.",
+     "Augmente toutes les résistances de 10. Tous les sorts auxquels vous résistez entièrement restaurent 2 % de votre total de mana. Cet effet ne peut pas se déclencher plus d’une fois par seconde."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneConcentration",
+   "wowheadId": 105810,
+   "tree": 0,
+   "row": 1,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    11213,
+    11213,
+    11213,
+    11213,
+    11213
+   ],
+   "icon": "spell_shadow_manaburn",
+   "name": {
+    "en": "Arcane Concentration",
+    "fr": "Concentration des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 2% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+     "Gives you a 4% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+     "Gives you a 6% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+     "Gives you a 8% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+     "Gives you a 10% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%."
+    ],
+    "fr": [
+     "Vous confère 2 % de chances d’entrer dans un état d’Idées claires après qu’un sort de dégâts a touché une cible. L’état d’Idées claires réduit de 100 % le coût en mana de votre prochain sort de dégâts.",
+     "Vous confère 4 % de chances d’entrer dans un état d’Idées claires après qu’un sort de dégâts a touché une cible. L’état d’Idées claires réduit de 100 % le coût en mana de votre prochain sort de dégâts.",
+     "Vous confère 6 % de chances d’entrer dans un état d’Idées claires après qu’un sort de dégâts a touché une cible. L’état d’Idées claires réduit de 100 % le coût en mana de votre prochain sort de dégâts.",
+     "Vous confère 8 % de chances d’entrer dans un état d’Idées claires après qu’un sort de dégâts a touché une cible. L’état d’Idées claires réduit de 100 % le coût en mana de votre prochain sort de dégâts.",
+     "Vous confère 10 % de chances d’entrer dans un état d’Idées claires après qu’un sort de dégâts a touché une cible. L’état d’Idées claires réduit de 100 % le coût en mana de votre prochain sort de dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "missileBarrage",
+   "wowheadId": 105809,
+   "tree": 0,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    400588,
+    400588
+   ],
+   "icon": "ability_mage_missilebarrage",
+   "name": {
+    "en": "Missile Barrage",
+    "fr": "Barrage de projectiles"
+   },
+   "desc": {
+    "en": [
+     "Gives your Arcane Blast spell a 20% chance, and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a 10% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec.",
+     "Gives your Arcane Blast spell a 40% chance, and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a 20% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec."
+    ],
+    "fr": [
+     "Confère à votre sort Déflagration des arcanes 20 % de chances, et à vos sorts Colère des arcanes, Boule de feu, Éclair de givre et Éclair de givrefeu 10 % de chances de réduire de 50 % la durée de canalisation de votre prochain sort Projectiles des arcanes, de réduire son coût en mana de 100 % et de faire tirer des projectiles toutes les 0.5 s.",
+     "Confère à votre sort Déflagration des arcanes 40 % de chances, et à vos sorts Colère des arcanes, Boule de feu, Éclair de givre et Éclair de givrefeu 20 % de chances de réduire de 50 % la durée de canalisation de votre prochain sort Projectiles des arcanes, de réduire son coût en mana de 100 % et de faire tirer des projectiles toutes les 0.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneGeometry",
+   "wowheadId": 105808,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    11247,
+    11247
+   ],
+   "icon": "inv_ability_mage_radiantspark",
+   "name": {
+    "en": "Arcane Geometry",
+    "fr": "Géométrie des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your Arcane spells by 3 yards.",
+     "Increases the range of your Arcane spells by 6 yards."
+    ],
+    "fr": [
+     "Augmente la portée de vos sorts des Arcanes de 3 m.",
+     "Augmente la portée de vos sorts des Arcanes de 6 m."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneImpact",
+   "wowheadId": 105807,
+   "tree": 0,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    11242,
+    11242,
+    11242
+   ],
+   "icon": "spell_nature_wispsplode",
+   "name": {
+    "en": "Arcane Impact",
+    "fr": "Impact des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Arcane spells by 2%.",
+     "Increases the critical strike chance of your Arcane spells by 4%.",
+     "Increases the critical strike chance of your Arcane spells by 6%."
+    ],
+    "fr": [
+     "Augmente de 2 % les chances de coup critique de vos sorts des arcanes.",
+     "Augmente de 4 % les chances de coup critique de vos sorts des arcanes.",
+     "Augmente de 6 % les chances de coup critique de vos sorts des arcanes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneBlast",
+   "wowheadId": 105806,
+   "tree": 0,
+   "row": 2,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    400574
+   ],
+   "icon": "spell_arcane_blast",
+   "name": {
+    "en": "Arcane Blast",
+    "fr": "Déflagration des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Blasts the target with energy, dealing 34 to 38 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+    ],
+    "fr": [
+     "Frappe la cible avec de l’énergie et lui inflige 34 à 38 points de dégâts des arcanes. Chaque fois que vous lancez Déflagration des arcanes, vous gagnez un montant de dégâts des sorts égal à 12 % de votre Intelligence, mais le coût en mana de Déflagration des arcanes augmente de 100 %. Effet cumulable jusqu’à 4 fois. Dure 18 sec à partir de la première application."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneShielding",
+   "wowheadId": 105805,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    11252,
+    11252
+   ],
+   "icon": "spell_shadow_detectlesserinvisibility",
+   "name": {
+    "en": "Arcane Shielding",
+    "fr": "Sauvegarde des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Decreases the Mana lost per point of damage taken when your Mana Shield spell is active by 17% and increases the resistances granted by your Mage Armor spell by 25%.",
+     "Decreases the Mana lost per point of damage taken when your Mana Shield spell is active by 33% and increases the resistances granted by your Mage Armor spell by 50%."
+    ],
+    "fr": [
+     "Réduit de 17 % le mana perdu par point de dégâts subi lorsque votre sort Bouclier de mana est actif et augmente de 25 % les résistances conférées par votre sort Armure du mage.",
+     "Réduit de 33 % le mana perdu par point de dégâts subi lorsque votre sort Bouclier de mana est actif et augmente de 50 % les résistances conférées par votre sort Armure du mage."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedCounterspell",
+   "wowheadId": 105804,
+   "tree": 0,
+   "row": 3,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    11255,
+    11255
+   ],
+   "icon": "spell_frost_iceshock",
+   "name": {
+    "en": "Improved Counterspell",
+    "fr": "Contresort amélioré"
+   },
+   "desc": {
+    "en": [
+     "Your Counterspell also Silences the target for 2 sec.",
+     "Your Counterspell also Silences the target for 4 sec."
+    ],
+    "fr": [
+     "Votre Contresort réduit également la cible au silence pendant 2 s.",
+     "Votre Contresort réduit également la cible au silence pendant 4 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneMeditation",
+   "wowheadId": 105803,
+   "tree": 0,
+   "row": 3,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    18462,
+    18462,
+    18462
+   ],
+   "icon": "spell_shadow_siphonmana",
+   "name": {
+    "en": "Arcane Meditation",
+    "fr": "Méditation des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Allows 17% of your Mana regeneration to continue while casting.",
+     "Allows 33% of your Mana regeneration to continue while casting.",
+     "Allows 50% of your Mana regeneration to continue while casting."
+    ],
+    "fr": [
+     "Vous confère 17% de votre vitesse de récupération du mana normale pendant l'incantation.",
+     "Vous confère 33% de votre vitesse de récupération du mana normale pendant l'incantation.",
+     "Vous confère 50% de votre vitesse de récupération du mana normale pendant l'incantation."
+    ]
+   },
+   "requires": [
+    {
+     "key": "arcaneConcentration",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "key": "arcaneWrath",
+   "wowheadId": 113627,
+   "tree": 0,
+   "row": 3,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    1326079
+   ],
+   "icon": "ability_mage_netherwindpresence",
+   "name": {
+    "en": "Arcane Wrath",
+    "fr": "Colère des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Launches a projectile of pure Arcane energy at the enemy target, causing 122 to 146 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+    ],
+    "fr": [
+     "Lance sur la cible adverse un projectile d’énergie arcanique pure qui inflige 122 à 146 points de dégâts des arcanes. Ce sort gagne un montant supplémentaire de dégâts des sorts égal à 5 % de votre maximum de mana."
+    ]
+   },
+   "requires": [
+    {
+     "key": "arcaneBlast",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "presenceOfMind",
+   "wowheadId": 105801,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    12043
+   ],
+   "icon": "spell_nature_enchantarmor",
+   "name": {
+    "en": "Presence of Mind",
+    "fr": "Présence spirituelle"
+   },
+   "desc": {
+    "en": [
+     "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell."
+    ],
+    "fr": [
+     "Lorsque cette technique est activée, votre prochain sort de mage dont le temps d'incantation est inférieur à 10 sec. devient un sort instantané."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneMind",
+   "wowheadId": 105800,
+   "tree": 0,
+   "row": 4,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    11232,
+    11232,
+    11232,
+    11232,
+    11232
+   ],
+   "icon": "spell_shadow_charm",
+   "name": {
+    "en": "Arcane Mind",
+    "fr": "Esprit des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Increases your Intellect by 2% and increases the critical strike damage bonus of your Arcane spells by 20%.",
+     "Increases your Intellect by 4% and increases the critical strike damage bonus of your Arcane spells by 40%.",
+     "Increases your Intellect by 6% and increases the critical strike damage bonus of your Arcane spells by 60%.",
+     "Increases your Intellect by 8% and increases the critical strike damage bonus of your Arcane spells by 80%.",
+     "Increases your Intellect by 10% and increases the critical strike damage bonus of your Arcane spells by 100%."
+    ],
+    "fr": [
+     "Augmente de 2 % votre intelligence et de 20 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts des arcanes.",
+     "Augmente de 4 % votre intelligence et de 40 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts des arcanes.",
+     "Augmente de 6 % votre intelligence et de 60 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts des arcanes.",
+     "Augmente de 8 % votre intelligence et de 80 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts des arcanes.",
+     "Augmente de 10 % votre intelligence et de 100 % les points de dégâts supplémentaires infligés par les coups critiques de vos sorts des arcanes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcaneInstability",
+   "wowheadId": 105799,
+   "tree": 0,
+   "row": 5,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    15058,
+    15058,
+    15058
+   ],
+   "icon": "spell_shadow_teleport",
+   "name": {
+    "en": "Arcane Instability",
+    "fr": "Instabilité des arcanes"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your spells by 1% and your critical strike chance by 1%.",
+     "Increases the damage done by your spells by 2% and your critical strike chance by 2%.",
+     "Increases the damage done by your spells by 3% and your critical strike chance by 3%."
+    ],
+    "fr": [
+     "Augmente les dégâts infligés par vos sorts de 1 % et vos chances de coup critique de 1 %.",
+     "Augmente les dégâts infligés par vos sorts de 2 % et vos chances de coup critique de 2 %.",
+     "Augmente les dégâts infligés par vos sorts de 3 % et vos chances de coup critique de 3 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcanePower",
+   "wowheadId": 105798,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    12042
+   ],
+   "icon": "spell_nature_lightning",
+   "name": {
+    "en": "Arcane Power",
+    "fr": "Pouvoir des arcanes"
+   },
+   "desc": {
+    "en": [
+     "For the next 15 sec, your spells deal 30% more damage while costing 30% more mana to cast."
+    ],
+    "fr": [
+     "Pendant 15 sec, vos sorts infligent 30 % de points de dégâts supplémentaires et ils vous coûtent 30 % de points de mana supplémentaires."
+    ]
+   },
+   "requires": [
+    {
+     "key": "presenceOfMind",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "incineration",
+   "wowheadId": 105796,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    18459,
+    18459,
+    18459,
+    18459,
+    18459
+   ],
+   "icon": "spell_fire_flameshock",
+   "name": {
+    "en": "Incineration",
+    "fr": "Incinération"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 2%.",
+     "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 4%.",
+     "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 6%.",
+     "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 8%.",
+     "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 10%."
+    ],
+    "fr": [
+     "Augmente de 2 % les chances de coup critique de vos sorts Trait de feu, Javelot de glace, Déflagration des arcanes et Brûlure.",
+     "Augmente de 4 % les chances de coup critique de vos sorts Trait de feu, Javelot de glace, Déflagration des arcanes et Brûlure.",
+     "Augmente de 6 % les chances de coup critique de vos sorts Trait de feu, Javelot de glace, Déflagration des arcanes et Brûlure.",
+     "Augmente de 8 % les chances de coup critique de vos sorts Trait de feu, Javelot de glace, Déflagration des arcanes et Brûlure.",
+     "Augmente de 10 % les chances de coup critique de vos sorts Trait de feu, Javelot de glace, Déflagration des arcanes et Brûlure."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "accelerant",
+   "wowheadId": 105795,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    11069,
+    11069,
+    11069,
+    11069,
+    11069
+   ],
+   "icon": "spell_fire_flamebolt",
+   "name": {
+    "en": "Accelerant",
+    "fr": "Empressement"
+   },
+   "desc": {
+    "en": [
+     "Reduces the casting time of your Fireball, Frostfire Bolt, and Arcane Wrath spells by 0.1 sec.",
+     "Reduces the casting time of your Fireball, Frostfire Bolt, and Arcane Wrath spells by 0.2 sec.",
+     "Reduces the casting time of your Fireball, Frostfire Bolt, and Arcane Wrath spells by 0.3 sec.",
+     "Reduces the casting time of your Fireball, Frostfire Bolt, and Arcane Wrath spells by 0.4 sec.",
+     "Reduces the casting time of your Fireball, Frostfire Bolt, and Arcane Wrath spells by 0.5 sec."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de vos sorts Boule de feu, Éclair de givrefeu et Colère des arcanes de 0.1 s.",
+     "Réduit le temps d’incantation de vos sorts Boule de feu, Éclair de givrefeu et Colère des arcanes de 0.2 s.",
+     "Réduit le temps d’incantation de vos sorts Boule de feu, Éclair de givrefeu et Colère des arcanes de 0.3 s.",
+     "Réduit le temps d’incantation de vos sorts Boule de feu, Éclair de givrefeu et Colère des arcanes de 0.4 s.",
+     "Réduit le temps d’incantation de vos sorts Boule de feu, Éclair de givrefeu et Colère des arcanes de 0.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ignite",
+   "wowheadId": 105794,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    11119,
+    11119,
+    11119,
+    11119,
+    11119
+   ],
+   "icon": "spell_fire_incinerate",
+   "name": {
+    "en": "Ignite",
+    "fr": "Enflammer"
+   },
+   "desc": {
+    "en": [
+     "Your critical strikes from Fire damage spells cause the target to burn for an additional 8% of your spell's damage over 4 sec.",
+     "Your critical strikes from Fire damage spells cause the target to burn for an additional 16% of your spell's damage over 4 sec.",
+     "Your critical strikes from Fire damage spells cause the target to burn for an additional 24% of your spell's damage over 4 sec.",
+     "Your critical strikes from Fire damage spells cause the target to burn for an additional 32% of your spell's damage over 4 sec.",
+     "Your critical strikes from Fire damage spells cause the target to burn for an additional 40% of your spell's damage over 4 sec."
+    ],
+    "fr": [
+     "Les coups critiques de vos sorts de feu embrasent la cible pendant 4 sec, lui infligeant un montant de dégâts supplémentaires égal à 8 % des dégâts de votre sort.",
+     "Les coups critiques de vos sorts de feu embrasent la cible pendant 4 sec, lui infligeant un montant de dégâts supplémentaires égal à 16 % des dégâts de votre sort.",
+     "Les coups critiques de vos sorts de feu embrasent la cible pendant 4 sec, lui infligeant un montant de dégâts supplémentaires égal à 24 % des dégâts de votre sort.",
+     "Les coups critiques de vos sorts de feu embrasent la cible pendant 4 sec, lui infligeant un montant de dégâts supplémentaires égal à 32 % des dégâts de votre sort.",
+     "Les coups critiques de vos sorts de feu embrasent la cible pendant 4 sec, lui infligeant un montant de dégâts supplémentaires égal à 40 % des dégâts de votre sort."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "flameThrowing",
+   "wowheadId": 105793,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    11100,
+    11100
+   ],
+   "icon": "spell_fire_flare",
+   "name": {
+    "en": "Flame Throwing",
+    "fr": "Jet de flammes"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your Fire spells by 3 yards.",
+     "Increases the range of your Fire spells by 6 yards."
+    ],
+    "fr": [
+     "Augmente la portée de vos sorts de Feu de 3 mètres.",
+     "Augmente la portée de vos sorts de Feu de 6 mètres."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "impact",
+   "wowheadId": 105792,
+   "tree": 1,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    11103,
+    11103,
+    11103
+   ],
+   "icon": "spell_fire_meteorstorm",
+   "name": {
+    "en": "Impact",
+    "fr": "Impact"
+   },
+   "desc": {
+    "en": [
+     "Gives your Fire spells a 3% chance to stun the target for 2 sec.",
+     "Gives your Fire spells a 7% chance to stun the target for 2 sec.",
+     "Gives your Fire spells a 10% chance to stun the target for 2 sec."
+    ],
+    "fr": [
+     "Confère 3 % de chances à vos sorts de Feu d’étourdir vos cibles pendant 2 sec.",
+     "Confère 7 % de chances à vos sorts de Feu d’étourdir vos cibles pendant 2 sec.",
+     "Confère 10 % de chances à vos sorts de Feu d’étourdir vos cibles pendant 2 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "burningSoul",
+   "wowheadId": 105789,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    11083,
+    11083,
+    11083
+   ],
+   "icon": "spell_fire_fire",
+   "name": {
+    "en": "Burning Soul",
+    "fr": "Ame ardente"
+   },
+   "desc": {
+    "en": [
+     "Gives your Fire spells a 23% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 10%.",
+     "Gives your Fire spells a 47% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 20%.",
+     "Gives your Fire spells a 70% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 30%."
+    ],
+    "fr": [
+     "Vos sorts de Feu gagnent 23% de chances de ne pas être retardés lorsque vous subissez des dégâts pendant l'incantation, et la menace qu'ils génèrent est réduite de 10%.",
+     "Vos sorts de Feu gagnent 47% de chances de ne pas être retardés lorsque vous subissez des dégâts pendant l'incantation, et la menace qu'ils génèrent est réduite de 20%.",
+     "Vos sorts de Feu gagnent 70% de chances de ne pas être retardés lorsque vous subissez des dégâts pendant l'incantation, et la menace qu'ils génèrent est réduite de 30%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedFlamestrike",
+   "wowheadId": 105791,
+   "tree": 1,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    11108,
+    11108,
+    11108
+   ],
+   "icon": "spell_fire_selfdestruct",
+   "name": {
+    "en": "Improved Flamestrike",
+    "fr": "Choc de flammes amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Flamestrike spell by 5%.",
+     "Increases the critical strike chance of your Flamestrike spell by 10%.",
+     "Increases the critical strike chance of your Flamestrike spell by 15%."
+    ],
+    "fr": [
+     "Augmente de 5% vos chances de réaliser un coup critique avec votre sort Choc de flammes.",
+     "Augmente de 10% vos chances de réaliser un coup critique avec votre sort Choc de flammes.",
+     "Augmente de 15% vos chances de réaliser un coup critique avec votre sort Choc de flammes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "pyroblast",
+   "wowheadId": 105790,
+   "tree": 1,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    11366
+   ],
+   "icon": "spell_fire_fireball02",
+   "name": {
+    "en": "Pyroblast",
+    "fr": "Explosion pyrotechnique"
+   },
+   "desc": {
+    "en": [
+     "Hurls an immense fiery boulder that causes 101 to 131 Fire damage and an additional 44 Fire damage over 12 sec."
+    ],
+    "fr": [
+     "Lance un immense rocher enflammé qui inflige 101 à 131 points de dégâts de Feu et 44 points de dégâts de Feu supplémentaires en 12 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedFireBlast",
+   "wowheadId": 105797,
+   "tree": 1,
+   "row": 2,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    11078,
+    11078
+   ],
+   "icon": "spell_fire_lavaspawn",
+   "name": {
+    "en": "Improved Fire Blast",
+    "fr": "Trait de feu amélioré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Fire Blast spell by 1 sec and increases its range by 8 yards.",
+     "Reduces the cooldown of your Fire Blast spell by 2 sec and increases its range by 15 yards."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de votre sort Trait de feu de 1 s et augmente sa portée de 8 m.",
+     "Réduit le temps de recharge de votre sort Trait de feu de 2 s et augmente sa portée de 15 m."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedScorch",
+   "wowheadId": 105788,
+   "tree": 1,
+   "row": 3,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    11095,
+    11095,
+    11095
+   ],
+   "icon": "spell_fire_soulburn",
+   "name": {
+    "en": "Improved Scorch",
+    "fr": "Brûlure améliorée"
+   },
+   "desc": {
+    "en": [
+     "Your Scorch spell has a 33% chance to cause your target to be vulnerable to Fire damage. This vulnerability increases all Fire damage you deal to your target by 3% and lasts 30 sec, stacking up to 5 times.",
+     "Your Scorch spell has a 67% chance to cause your target to be vulnerable to Fire damage. This vulnerability increases all Fire damage you deal to your target by 3% and lasts 30 sec, stacking up to 5 times.",
+     "Your Scorch spell has a 100% chance to cause your target to be vulnerable to Fire damage. This vulnerability increases all Fire damage you deal to your target by 3% and lasts 30 sec, stacking up to 5 times."
+    ],
+    "fr": [
+     "Votre sort Brûlure a 33 % de chances de rendre votre cible vulnérable aux dégâts de feu. Cette vulnérabilité augmente tous les dégâts de feu que vous infligez à votre cible de 3 % et dure 30 sec. Cumulable jusqu’à 5 fois.",
+     "Votre sort Brûlure a 67 % de chances de rendre votre cible vulnérable aux dégâts de feu. Cette vulnérabilité augmente tous les dégâts de feu que vous infligez à votre cible de 3 % et dure 30 sec. Cumulable jusqu’à 5 fois.",
+     "Votre sort Brûlure a 100 % de chances de rendre votre cible vulnérable aux dégâts de feu. Cette vulnérabilité augmente tous les dégâts de feu que vous infligez à votre cible de 3 % et dure 30 sec. Cumulable jusqu’à 5 fois."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedFireWard",
+   "wowheadId": 105787,
+   "tree": 1,
+   "row": 3,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    11094,
+    11094
+   ],
+   "icon": "spell_fire_firearmor",
+   "name": {
+    "en": "Improved Fire Ward",
+    "fr": "Gardien de feu amélioré"
+   },
+   "desc": {
+    "en": [
+     "Causes your Fire Ward to have a 10% chance to reflect Fire spells while active.",
+     "Causes your Fire Ward to have a 20% chance to reflect Fire spells while active."
+    ],
+    "fr": [
+     "Confère à votre Gardien de feu 10% de chances de renvoyer les sorts de Feu tant qu'il est actif.",
+     "Confère à votre Gardien de feu 20% de chances de renvoyer les sorts de Feu tant qu'il est actif."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "heatingUp",
+   "wowheadId": 105786,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    400624
+   ],
+   "icon": "spell_fire_firebolt",
+   "name": {
+    "en": "Heating Up",
+    "fr": "Réchauffement"
+   },
+   "desc": {
+    "en": [
+     "Non-periodic critical strikes with Fireball, Frostfire Bolt, Fire Blast, and Scorch reduce the cast time of your next Pyroblast cast within 20 sec by 25%, stacking up to 3 times. Fire Blast grants an additional stack every time it deals damage."
+    ],
+    "fr": [
+     "Les coups critiques non périodiques obtenus avec Boule de feu, Éclair de givrefeu, Trait de feu et Brûlure réduisent de 25 % le temps d’incantation de votre prochaine explosion pyrotechnique lancée dans les 20 sec. Cet effet est cumulable jusqu’à 3 fois. Trait de feu confère un cumul supplémentaire chaque fois que ce sort inflige des dégâts."
+    ]
+   },
+   "requires": [
+    {
+     "key": "pyroblast",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "masterOfElements",
+   "wowheadId": 105785,
+   "tree": 1,
+   "row": 3,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    29074,
+    29074,
+    29074
+   ],
+   "icon": "spell_fire_masterofelements",
+   "name": {
+    "en": "Master of Elements",
+    "fr": "Maître des éléments"
+   },
+   "desc": {
+    "en": [
+     "Your Fire and Frost critical strikes will refund 10% of their base mana cost.",
+     "Your Fire and Frost critical strikes will refund 20% of their base mana cost.",
+     "Your Fire and Frost critical strikes will refund 30% of their base mana cost."
+    ],
+    "fr": [
+     "Vos coups critiques de feu et de givre vous rendent 10 % du coût en mana de base de ces sorts.",
+     "Vos coups critiques de feu et de givre vous rendent 20 % du coût en mana de base de ces sorts.",
+     "Vos coups critiques de feu et de givre vous rendent 30 % du coût en mana de base de ces sorts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "criticalMass",
+   "wowheadId": 105784,
+   "tree": 1,
+   "row": 4,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    11115,
+    11115,
+    11115
+   ],
+   "icon": "spell_nature_wispheal",
+   "name": {
+    "en": "Critical Mass",
+    "fr": "Masse critique"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Fire spells by 2%.",
+     "Increases the critical strike chance of your Fire spells by 4%.",
+     "Increases the critical strike chance of your Fire spells by 6%."
+    ],
+    "fr": [
+     "Augmente de 2% vos chances d'infliger un coup critique avec vos sorts de Feu.",
+     "Augmente de 4% vos chances d'infliger un coup critique avec vos sorts de Feu.",
+     "Augmente de 6% vos chances d'infliger un coup critique avec vos sorts de Feu."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "blastWave",
+   "wowheadId": 105783,
+   "tree": 1,
+   "row": 4,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    11113
+   ],
+   "icon": "spell_holy_excorcism_02",
+   "name": {
+    "en": "Blast Wave",
+    "fr": "Vague explosive"
+   },
+   "desc": {
+    "en": [
+     "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 184 Fire damage, and Dazing them for 50% reduced movement speed for 6 sec."
+    ],
+    "fr": [
+     "Une vague de flammes se propage autour du personnage lanceur, infligeant 154 à 184 points de dégâts de feu aux personnages adverses pris dans l’explosion et les hébétant pendant 6 sec, ce qui réduit leur vitesse de déplacement de 50 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "firePower",
+   "wowheadId": 105782,
+   "tree": 1,
+   "row": 5,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    11124,
+    11124,
+    11124
+   ],
+   "icon": "spell_fire_immolation",
+   "name": {
+    "en": "Fire Power",
+    "fr": "Puissance du feu"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Fire spells by 1% per your Fire effects on the target, up to a maximum increase of 4%. Effects which mix multiple schools of magic do not qualify.",
+     "Increases the damage done by your Fire spells by 2% per your Fire effects on the target, up to a maximum increase of 8%. Effects which mix multiple schools of magic do not qualify.",
+     "Increases the damage done by your Fire spells by 3% per your Fire effects on the target, up to a maximum increase of 12%. Effects which mix multiple schools of magic do not qualify."
+    ],
+    "fr": [
+     "Augmente de 1 % les dégâts de vos sorts de feu pour chacun de vos effets de feu actifs sur la cible, jusqu’à un maximum de 4 %. Les effets combinant plusieurs écoles de magie ne sont pas pris en compte.",
+     "Augmente de 2 % les dégâts de vos sorts de feu pour chacun de vos effets de feu actifs sur la cible, jusqu’à un maximum de 8 %. Les effets combinant plusieurs écoles de magie ne sont pas pris en compte.",
+     "Augmente de 3 % les dégâts de vos sorts de feu pour chacun de vos effets de feu actifs sur la cible, jusqu’à un maximum de 12 %. Les effets combinant plusieurs écoles de magie ne sont pas pris en compte."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "combustion",
+   "wowheadId": 105781,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    11129
+   ],
+   "icon": "spell_fire_sealoffire",
+   "name": {
+    "en": "Combustion",
+    "fr": "Combustion"
+   },
+   "desc": {
+    "en": [
+     "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 non-periodic critical strikes with Fire spells."
+    ],
+    "fr": [
+     "Lorsqu’il est activé, ce sort augmente de 10 % les chances de coup critique chaque fois que vous touchez une cible avec un sort de feu. L’effet dure jusqu’à ce que vous ayez infligé 3 coups critiques non périodiques avec des sorts de feu."
+    ]
+   },
+   "requires": [
+    {
+     "key": "criticalMass",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "frostWarding",
+   "wowheadId": 105780,
+   "tree": 2,
+   "row": 0,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    11189,
+    11189
+   ],
+   "icon": "spell_frost_frostward",
+   "name": {
+    "en": "Frost Warding",
+    "fr": "Protection contre le Givre"
+   },
+   "desc": {
+    "en": [
+     "Increases the Armor and resistances granted by your Frost Armor and Ice Armor spells by 15%, gives your Frost Ward a 10% chance to negate the warded damage spell, and increases the amount absorbed by your Ice Barrier and Frost Ward by 10%.",
+     "Increases the Armor and resistances granted by your Frost Armor and Ice Armor spells by 30%, gives your Frost Ward a 20% chance to negate the warded damage spell, and increases the amount absorbed by your Ice Barrier and Frost Ward by 20%."
+    ],
+    "fr": [
+     "Augmente de 15 % l’armure et les résistances conférées par vos sorts Armure de givre et Armure de glace, et augmente les dégâts absorbés par vos sorts Barrière de glace et Gardien de givre de 10 %. Votre Gardien de givre a également 10 % de chances d’annuler le sort dont il a absorbé les dégâts.",
+     "Augmente de 30 % l’armure et les résistances conférées par vos sorts Armure de givre et Armure de glace, et augmente les dégâts absorbés par vos sorts Barrière de glace et Gardien de givre de 20 %. Votre Gardien de givre a également 20 % de chances d’annuler le sort dont il a absorbé les dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedFrostbolt",
+   "wowheadId": 105779,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    11070,
+    11070,
+    11070,
+    11070,
+    11070
+   ],
+   "icon": "spell_frost_frostbolt02",
+   "name": {
+    "en": "Improved Frostbolt",
+    "fr": "Eclair de givre amélioré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the casting time of your Frostbolt spell by 0.1 sec.",
+     "Reduces the casting time of your Frostbolt spell by 0.2 sec.",
+     "Reduces the casting time of your Frostbolt spell by 0.3 sec.",
+     "Reduces the casting time of your Frostbolt spell by 0.4 sec.",
+     "Reduces the casting time of your Frostbolt spell by 0.5 sec."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de votre sort Éclair de givre de 0.1 s.",
+     "Réduit le temps d’incantation de votre sort Éclair de givre de 0.2 s.",
+     "Réduit le temps d’incantation de votre sort Éclair de givre de 0.3 s.",
+     "Réduit le temps d’incantation de votre sort Éclair de givre de 0.4 s.",
+     "Réduit le temps d’incantation de votre sort Éclair de givre de 0.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "precision",
+   "wowheadId": 105778,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    29438,
+    29438,
+    29438
+   ],
+   "icon": "spell_ice_magicdamage",
+   "name": {
+    "en": "Precision",
+    "fr": "Précision"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to hit with all spells by 2%.",
+     "Improves your chance to hit with all spells by 4%.",
+     "Improves your chance to hit with all spells by 6%."
+    ],
+    "fr": [
+     "Augmente de 2 % les chances de toucher avec tous les sorts.",
+     "Augmente de 4 % les chances de toucher avec tous les sorts.",
+     "Augmente de 6 % les chances de toucher avec tous les sorts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "iceShards",
+   "wowheadId": 105777,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    11207,
+    11207,
+    11207,
+    11207,
+    11207
+   ],
+   "icon": "spell_frost_iceshard",
+   "name": {
+    "en": "Ice Shards",
+    "fr": "Eclats de glace"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your Frost spells by 20%.",
+     "Increases the critical strike damage bonus of your Frost spells by 40%.",
+     "Increases the critical strike damage bonus of your Frost spells by 60%.",
+     "Increases the critical strike damage bonus of your Frost spells by 80%.",
+     "Increases the critical strike damage bonus of your Frost spells by 100%."
+    ],
+    "fr": [
+     "Augmente de 20% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Givre.",
+     "Augmente de 40% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Givre.",
+     "Augmente de 60% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Givre.",
+     "Augmente de 80% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Givre.",
+     "Augmente de 100% les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de Givre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "frostbite",
+   "wowheadId": 105774,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    11071,
+    11071,
+    11071
+   ],
+   "icon": "spell_frost_frostarmor",
+   "name": {
+    "en": "Frostbite",
+    "fr": "Morsure de givre"
+   },
+   "desc": {
+    "en": [
+     "Gives your Chill effects a 5% chance to Freeze the target for 5 sec.",
+     "Gives your Chill effects a 10% chance to Freeze the target for 5 sec.",
+     "Gives your Chill effects a 15% chance to Freeze the target for 5 sec."
+    ],
+    "fr": [
+     "Confère 5 % de chances à vos effets d’engourdissement de geler la cible pendant 5 sec.",
+     "Confère 10 % de chances à vos effets d’engourdissement de geler la cible pendant 5 sec.",
+     "Confère 15 % de chances à vos effets d’engourdissement de geler la cible pendant 5 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedFrostNova",
+   "wowheadId": 105775,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    11165,
+    11165
+   ],
+   "icon": "spell_frost_freezingbreath",
+   "name": {
+    "en": "Improved Frost Nova",
+    "fr": "Nova de givre améliorée"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Frost Nova spell by 2 sec.",
+     "Reduces the cooldown of your Frost Nova spell by 4 sec."
+    ],
+    "fr": [
+     "Réduit le temps de recharge du sort Nova de givre de 2 secondes.",
+     "Réduit le temps de recharge du sort Nova de givre de 4 secondes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "permafrost",
+   "wowheadId": 105776,
+   "tree": 2,
+   "row": 1,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    11175,
+    11175,
+    11175
+   ],
+   "icon": "spell_frost_wisp",
+   "name": {
+    "en": "Permafrost",
+    "fr": "Gel prolongé"
+   },
+   "desc": {
+    "en": [
+     "Increases the duration of your Chill effects by 11% and reduces the target's speed by an additional 3%.",
+     "Increases the duration of your Chill effects by 22% and reduces the target's speed by an additional 7%.",
+     "Increases the duration of your Chill effects by 33% and reduces the target's speed by an additional 10%."
+    ],
+    "fr": [
+     "Augmente de 11 % la durée de vos effets d’engourdissement et réduit la vitesse de la cible de 3 % supplémentaires.",
+     "Augmente de 22 % la durée de vos effets d’engourdissement et réduit la vitesse de la cible de 7 % supplémentaires.",
+     "Augmente de 33 % la durée de vos effets d’engourdissement et réduit la vitesse de la cible de 10 % supplémentaires."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "frostChanneling",
+   "wowheadId": 105772,
+   "tree": 2,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    11160,
+    11160,
+    11160
+   ],
+   "icon": "spell_frost_stun",
+   "name": {
+    "en": "Frost Channeling",
+    "fr": "Canalisation du givre"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of your Frost spells by 5% and reduces the threat caused by your Frost spells by 10%.",
+     "Reduces the mana cost of your Frost spells by 10% and reduces the threat caused by your Frost spells by 20%.",
+     "Reduces the mana cost of your Frost spells by 15% and reduces the threat caused by your Frost spells by 30%."
+    ],
+    "fr": [
+     "Réduit de 5% le coût en mana de vos sorts de Givre, et réduit de 10% la menace qu'ils génèrent.",
+     "Réduit de 10% le coût en mana de vos sorts de Givre, et réduit de 20% la menace qu'ils génèrent.",
+     "Réduit de 15% le coût en mana de vos sorts de Givre, et réduit de 30% la menace qu'ils génèrent."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedBlizzard",
+   "wowheadId": 105771,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    11185,
+    11185,
+    11185
+   ],
+   "icon": "spell_frost_icestorm",
+   "name": {
+    "en": "Improved Blizzard",
+    "fr": "Blizzard amélioré"
+   },
+   "desc": {
+    "en": [
+     "Adds a Chill effect to your Blizzard spell. This effect lowers the target's movement speed by 15% for 1.5 sec.",
+     "Adds a Chill effect to your Blizzard spell. This effect lowers the target's movement speed by 25% for 1.5 sec.",
+     "Adds a Chill effect to your Blizzard spell. This effect lowers the target's movement speed by 40% for 1.5 sec."
+    ],
+    "fr": [
+     "Ajoute un effet d’engourdissement à votre sort Blizzard. Il réduit la vitesse de déplacement de la cible de 15 % pendant 1.5 s.",
+     "Ajoute un effet d’engourdissement à votre sort Blizzard. Il réduit la vitesse de déplacement de la cible de 25 % pendant 1.5 s.",
+     "Ajoute un effet d’engourdissement à votre sort Blizzard. Il réduit la vitesse de déplacement de la cible de 40 % pendant 1.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "iceLance",
+   "wowheadId": 105767,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1312002
+   ],
+   "icon": "spell_frost_frostblast",
+   "name": {
+    "en": "Ice Lance",
+    "fr": "Javelot de glace"
+   },
+   "desc": {
+    "en": [
+     "Deals 28 to 32 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets."
+    ],
+    "fr": [
+     "Inflige 28 à 32 points de dégâts de givre à une cible ennemie. Inflige 300 % de dégâts de givre supplémentaires aux cibles gelées."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "arcticReach",
+   "wowheadId": 105770,
+   "tree": 2,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    16757,
+    16757
+   ],
+   "icon": "spell_shadow_darkritual",
+   "name": {
+    "en": "Arctic Reach",
+    "fr": "Allonge arctique"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your Frostbolt, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 10%.",
+     "Increases the range of your Frostbolt, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 20%."
+    ],
+    "fr": [
+     "Increases the range of your Frostbolt, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 10%.",
+     "Increases the range of your Frostbolt, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 20%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "iceBlock",
+   "wowheadId": 105769,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    11958
+   ],
+   "icon": "spell_frost_frost",
+   "name": {
+    "en": "Ice Block",
+    "fr": "Bloc de glace"
+   },
+   "desc": {
+    "en": [
+     "You become encased in a block of ice, protecting you from all physical attacks and spells for 10 sec, but during that time you cannot attack, move, or cast spells."
+    ],
+    "fr": [
+     "Vous enveloppe dans un bloc de glace qui vous protège des attaques physiques et des sorts pendant 10 sec. En contrepartie, vous ne pouvez pas attaquer, vous déplacer ni lancer de sorts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shatter",
+   "wowheadId": 105768,
+   "tree": 2,
+   "row": 3,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    11170,
+    11170,
+    11170
+   ],
+   "icon": "spell_frost_frostshock",
+   "name": {
+    "en": "Shatter",
+    "fr": "Fracasser"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of all your spells against Frozen targets by 17%.",
+     "Increases the critical strike chance of all your spells against Frozen targets by 33%.",
+     "Increases the critical strike chance of all your spells against Frozen targets by 50%."
+    ],
+    "fr": [
+     "Augmente de 17 % les chances de coup critique de tous vos sorts contre les cibles gelées.",
+     "Augmente de 33 % les chances de coup critique de tous vos sorts contre les cibles gelées.",
+     "Augmente de 50 % les chances de coup critique de tous vos sorts contre les cibles gelées."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedConeOfCold",
+   "wowheadId": 105765,
+   "tree": 2,
+   "row": 4,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    11190,
+    11190,
+    11190
+   ],
+   "icon": "spell_frost_glacier",
+   "name": {
+    "en": "Improved Cone of Cold",
+    "fr": "Cône de froid amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage dealt by your Cone of Cold spell by 12%.",
+     "Increases the damage dealt by your Cone of Cold spell by 23%.",
+     "Increases the damage dealt by your Cone of Cold spell by 35%."
+    ],
+    "fr": [
+     "Augmente de 12% les points de dégâts infligés par votre sort Cône de froid.",
+     "Augmente de 23% les points de dégâts infligés par votre sort Cône de froid.",
+     "Augmente de 35% les points de dégâts infligés par votre sort Cône de froid."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "coldSnap",
+   "wowheadId": 105766,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    12472
+   ],
+   "icon": "spell_frost_wizardmark",
+   "name": {
+    "en": "Cold Snap",
+    "fr": "Morsure du froid"
+   },
+   "desc": {
+    "en": [
+     "Finishes the remaining cooldown on all your other Frost spells."
+    ],
+    "fr": [
+     "Réinitialise les temps de recharge restants de tous vos autres sorts de givre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "fingersOfFrost",
+   "wowheadId": 105764,
+   "tree": 2,
+   "row": 4,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    400647,
+    400647
+   ],
+   "icon": "ability_mage_wintersgrasp",
+   "name": {
+    "en": "Fingers of Frost",
+    "fr": "Doigts de givre"
+   },
+   "desc": {
+    "en": [
+     "Gives your Chill effects a 15% chance to grant you the Fingers of Frost effect, which treats your next 1 spell cast as if the target were Frozen. Lasts 15 sec.",
+     "Gives your Chill effects a 15% chance to grant you the Fingers of Frost effect, which treats your next 2 spells cast as if the target were Frozen. Lasts 15 sec."
+    ],
+    "fr": [
+     "Donne à vos effets d’engourdissement 15 % de chances de déclencher l’effet Doigts de givre, qui permet à 1 prochain sort d’agir comme si la cible était gelée. Dure 15 sec.",
+     "Donne à vos effets d’engourdissement 15 % de chances de déclencher l’effet Doigts de givre, qui permet à 2 prochains sorts d’agir comme si la cible était gelée. Dure 15 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "iceLance",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "wintersChill",
+   "wowheadId": 105763,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    11180,
+    11180,
+    11180,
+    11180,
+    11180
+   ],
+   "icon": "spell_frost_chillingblast",
+   "name": {
+    "en": "Winter's Chill",
+    "fr": "Froid hivernal"
+   },
+   "desc": {
+    "en": [
+     "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 20% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times.",
+     "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 40% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times.",
+     "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 60% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times.",
+     "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 80% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times.",
+     "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 100% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times."
+    ],
+    "fr": [
+     "Confère à vos sorts Éclair de givre et Javelot de glace renforcé par Doigts de givre 20 % de chances d’appliquer l’effet Froid de l’hiver, qui augmente les dégâts infligés à la cible par votre prochain sort Cône de froid de 20 % ainsi que de 7 % de vos dégâts des sorts. Cumulable jusqu’à 5 fois.",
+     "Confère à vos sorts Éclair de givre et Javelot de glace renforcé par Doigts de givre 40 % de chances d’appliquer l’effet Froid de l’hiver, qui augmente les dégâts infligés à la cible par votre prochain sort Cône de froid de 20 % ainsi que de 7 % de vos dégâts des sorts. Cumulable jusqu’à 5 fois.",
+     "Confère à vos sorts Éclair de givre et Javelot de glace renforcé par Doigts de givre 60 % de chances d’appliquer l’effet Froid de l’hiver, qui augmente les dégâts infligés à la cible par votre prochain sort Cône de froid de 20 % ainsi que de 7 % de vos dégâts des sorts. Cumulable jusqu’à 5 fois.",
+     "Confère à vos sorts Éclair de givre et Javelot de glace renforcé par Doigts de givre 80 % de chances d’appliquer l’effet Froid de l’hiver, qui augmente les dégâts infligés à la cible par votre prochain sort Cône de froid de 20 % ainsi que de 7 % de vos dégâts des sorts. Cumulable jusqu’à 5 fois.",
+     "Confère à vos sorts Éclair de givre et Javelot de glace renforcé par Doigts de givre 100 % de chances d’appliquer l’effet Froid de l’hiver, qui augmente les dégâts infligés à la cible par votre prochain sort Cône de froid de 20 % ainsi que de 7 % de vos dégâts des sorts. Cumulable jusqu’à 5 fois."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "iceBarrier",
+   "wowheadId": 105762,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    11426
+   ],
+   "icon": "spell_ice_lament",
+   "name": {
+    "en": "Ice Barrier",
+    "fr": "Barrière de glace"
+   },
+   "desc": {
+    "en": [
+     "Shield yourself, absorbing [448 + (Frost spell power * 0.1) * (1)] damage and increasing your Frost damage by 15% for 1 min. While shielded, your Frost damage is increased by an additional 5% and you do not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Vous protège à l’aide d’un bouclier qui absorbe [448 + (Puissance des sorts de givre * 0.1) * (1)] point de dégâts et augmente vos dégâts de givre de 15 % pendant 1 min. Tant que le bouclier est actif, vos dégâts de givre augmentent de 5 % supplémentaires, et vos incantations ne sont plus interrompues lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": [
+    {
+     "key": "coldSnap",
+     "qty": 1
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "frostbolt": {
+   "id": 25304,
+   "name": {
+    "en": "Frostbolt",
+    "fr": "Eclair de givre"
+   },
+   "tooltip": {
+    "en": "Frostbolt\nLevel 60290 Mana30 yd range3 sec castRequires MageRequires level 60\nLaunches a bolt of frost at the enemy, causing (470.043 * 1) to (505.557 * 1) Frost damage and slowing movement speed by 40% for 9 sec.",
+    "fr": "Eclair de givre\nNiveau 60Mana : 29030 m de portée3 s d'incantationRequiert MageNiveau 60 requis\nLance un éclair de givre sur l’ennemi, inflige de (470.043 * 1) à (505.557 * 1) points de dégâts de givre et réduit sa vitesse de déplacement de 40 % pendant 9 sec."
+   },
+   "icon": "spell_frost_frostbolt02"
+  },
+  "iceLance": {
+   "id": 1240047,
+   "name": {
+    "en": "Ice Lance",
+    "fr": "Javelot de glace"
+   },
+   "tooltip": {
+    "en": "Ice Lance\nLevel 60160 Mana30 yd rangeInstant8 sec cooldownRequires MageRequires level 56\nDeals 140 to 164 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets.",
+    "fr": "Javelot de glace\nNiveau 60Mana : 16030 m de portéeInstantanée8 s de rechargeRequiert MageNiveau 56 requis\nInflige 140 à 164 points de dégâts de givre à une cible ennemie. Inflige 300 % de dégâts de givre supplémentaires aux cibles gelées."
+   },
+   "icon": "spell_frost_frostblast"
+  },
+  "iceBarrier": {
+   "id": 13033,
+   "name": {
+    "en": "Ice Barrier",
+    "fr": "Barrière de glace"
+   },
+   "tooltip": {
+    "en": "Ice Barrier\nLevel 60480 ManaInstant30 sec cooldownRequires MageRequires level 58\nShield yourself, absorbing [835 + (Frost spell power * 0.1) * (1)] damage and increasing your Frost damage by 15% for 1 min. While shielded, your Frost damage is increased by an additional 5% and you do not lose casting time when you take damage.",
+    "fr": "Barrière de glace\nNiveau 60Mana : 480Instantanée30 s de rechargeRequiert MageNiveau 58 requis\nVous protège à l’aide d’un bouclier qui absorbe [835 + (Puissance des sorts de givre * 0.1) * (1)] point de dégâts et augmente vos dégâts de givre de 15 % pendant 1 min. Tant que le bouclier est actif, vos dégâts de givre augmentent de 5 % supplémentaires, et vos incantations ne sont plus interrompues lorsque vous subissez des dégâts."
+   },
+   "icon": "spell_ice_lament"
+  },
+  "fireBlast": {
+   "id": 10199,
+   "name": {
+    "en": "Fire Blast",
+    "fr": "Trait de feu"
+   },
+   "tooltip": {
+    "en": "Fire Blast\nLevel 60340 Mana20 yd rangeInstant8 sec cooldownRequires MageRequires level 54\nBlasts the enemy for 417 to 489 Fire damage.",
+    "fr": "Trait de feu\nNiveau 60Mana : 34020 m de portéeInstantanée8 s de rechargeRequiert MageNiveau 54 requis\nFrappe l'ennemi et lui inflige 417 à 489 points de dégâts de Feu."
+   },
+   "icon": "spell_fire_fireball"
+  },
+  "fireball": {
+   "id": 10151,
+   "name": {
+    "en": "Fireball",
+    "fr": "Boule de feu"
+   },
+   "tooltip": {
+    "en": "Fireball\nLevel 60395 Mana35 yd range3.5 sec castRequires MageRequires level 60\nHurls a fiery ball that causes 409 to 517 Fire damage and an additional 56 Fire damage over 8 sec.",
+    "fr": "Boule de feu\nNiveau 60Mana : 39535 m de portée3.5 s d'incantationRequiert MageNiveau 60 requis\nProjette une boule ardente qui inflige 409 à 517 points de dégâts de Feu et 56 points de dégâts de Feu supplémentaires en 8 sec."
+   },
+   "icon": "spell_fire_flamebolt"
+  },
+  "frostfireBolt": {
+   "id": 1237313,
+   "name": {
+    "en": "Frostfire Bolt",
+    "fr": "Éclair de givrefeu"
+   },
+   "tooltip": {
+    "en": "Frostfire Bolt\nLevel 60370 Mana35 yd range3 sec castRequires MageRequires level 60\nLaunches a bolt of frostfire at the enemy, causing 286 to 331 Frostfire damage, slowing movement speed by 40% and causing an additional 57 Frostfire damage over 9 sec. This spell will be checked against the lower of the target's Frost and Fire resists and counts as both Frost and Fire damage.",
+    "fr": "Éclair de givrefeu\nNiveau 60Mana : 37035 m de portée3 s d'incantationRequiert MageNiveau 60 requis\nLance un éclair de givrefeu sur l’adversaire, ce qui lui inflige 286 à 331 points de dégâts de givrefeu, réduit sa vitesse de déplacement de 40 % et lui inflige 57 points de dégâts de givrefeu supplémentaires en 9 sec. Ce sort comptera contre la plus basse des résistances (au feu ou au givre) de la cible et compte à la fois comme des dégâts de feu et de givre."
+   },
+   "icon": "ability_mage_frostfirebolt"
+  },
+  "pyroblast": {
+   "id": 18809,
+   "name": {
+    "en": "Pyroblast",
+    "fr": "Explosion pyrotechnique"
+   },
+   "tooltip": {
+    "en": "Pyroblast\nLevel 60440 Mana35 yd range6 sec castRequires MageRequires level 60\nHurls an immense fiery boulder that causes 547 to 674 Fire damage and an additional 212 Fire damage over 12 sec.",
+    "fr": "Explosion pyrotechnique\nNiveau 60Mana : 44035 m de portée6 s d'incantationRequiert MageNiveau 60 requis\nLance un immense rocher enflammé qui inflige 547 à 674 points de dégâts de Feu et 212 dégâts de Feu supplémentaires en 12 sec."
+   },
+   "icon": "spell_fire_fireball02"
+  },
+  "scorch": {
+   "id": 10207,
+   "name": {
+    "en": "Scorch",
+    "fr": "Brûlure"
+   },
+   "tooltip": {
+    "en": "Scorch\nLevel 60150 Mana30 yd range1.5 sec castRequires MageRequires level 58\nScorch the enemy for 170 to 200 Fire damage.",
+    "fr": "Brûlure\nNiveau 60Mana : 15030 m de portée1.5 s d'incantationRequiert MageNiveau 58 requis\nBrûle l'ennemi et lui inflige 170 à 200 points de dégâts de Feu."
+   },
+   "icon": "spell_fire_soulburn"
+  },
+  "arcaneMissiles": {
+   "id": 10212,
+   "name": {
+    "en": "Arcane Missiles",
+    "fr": "Projectiles des arcanes"
+   },
+   "tooltip": {
+    "en": "Arcane Missiles\nLevel 60595 Mana30 yd rangeChanneled (5 sec cast)Requires MageRequires level 56\nLaunches Arcane Missiles at the enemy, causing 175 Arcane damage each second for 5 sec.",
+    "fr": "Projectiles des arcanes\nNiveau 60Mana : 59530 m de portéeCanalisée (5 s d'incantation)Requiert MageNiveau 56 requis\nLance des projectiles des arcanes sur l'ennemi et inflige 175 points de dégâts des Arcanes toutes les secondes pendant 5 sec."
+   },
+   "icon": "spell_nature_starfall"
+  },
+  "arcaneWrath": {
+   "id": 1326082,
+   "name": {
+    "en": "Arcane Wrath",
+    "fr": "Colère des arcanes"
+   },
+   "tooltip": {
+    "en": "Arcane Wrath\nLevel 60395 Mana30 yd range3.5 sec cast6 sec cooldownRequires MageRequires level 60\nLaunches a projectile of pure Arcane energy at the enemy target, causing 439 to 529 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana.",
+    "fr": "Colère des arcanes\nNiveau 60Mana : 39530 m de portée3.5 s d'incantation6 s de rechargeRequiert MageNiveau 60 requis\nLance sur la cible adverse un projectile d’énergie arcanique pure qui inflige 439 à 529 points de dégâts des arcanes. Ce sort gagne un montant supplémentaire de dégâts des sorts égal à 5 % de votre maximum de mana."
+   },
+   "icon": "ability_mage_netherwindpresence"
+  },
+  "arcaneBlast": {
+   "id": 1239700,
+   "name": {
+    "en": "Arcane Blast",
+    "fr": "Déflagration des arcanes"
+   },
+   "tooltip": {
+    "en": "Arcane Blast\nLevel 6015% of base mana30 yd range1.5 sec castRequires MageRequires level 60\nBlasts the target with energy, dealing 231 to 267 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application.",
+    "fr": "Déflagration des arcanes\nNiveau 6015% de la mana de base30 m de portée1.5 s d'incantationRequiert MageNiveau 60 requis\nFrappe la cible avec de l’énergie et lui inflige 231 à 267 points de dégâts des arcanes. Chaque fois que vous lancez Déflagration des arcanes, vous gagnez un montant de dégâts des sorts égal à 12 % de votre Intelligence, mais le coût en mana de Déflagration des arcanes augmente de 100 %. Effet cumulable jusqu’à 4 fois. Dure 18 sec à partir de la première application."
+   },
+   "icon": "spell_arcane_blast"
+  },
+  "combustion": {
+   "id": 11129,
+   "name": {
+    "en": "Combustion",
+    "fr": "Combustion"
+   },
+   "tooltip": {
+    "en": "CombustionTalentInstant3 min cooldownRequires MageRequires level 40\nWhen activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 non-periodic critical strikes with Fire spells.",
+    "fr": "CombustionTalentInstantanée3 min de rechargeRequiert MageNiveau 40 requis\nLorsqu’il est activé, ce sort augmente de 10 % les chances de coup critique chaque fois que vous touchez une cible avec un sort de feu. L’effet dure jusqu’à ce que vous ayez infligé 3 coups critiques non périodiques avec des sorts de feu."
+   },
+   "icon": "spell_fire_sealoffire"
+  },
+  "arcanePower": {
+   "id": 12042,
+   "name": {
+    "en": "Arcane Power",
+    "fr": "Pouvoir des arcanes"
+   },
+   "tooltip": {
+    "en": "Arcane PowerTalentInstant3 min cooldownRequires MageRequires level 1\nFor the next 15 sec, your spells deal 30% more damage while costing 30% more mana to cast.",
+    "fr": "Pouvoir des arcanesTalentInstantanée3 min de rechargeRequiert MageNiveau 1 requis\nPendant 15 sec, vos sorts infligent 30 % de points de dégâts supplémentaires et ils vous coûtent 30 % de points de mana supplémentaires."
+   },
+   "icon": "spell_nature_lightning"
+  },
+  "presenceOfMind": {
+   "id": 12043,
+   "name": {
+    "en": "Presence of Mind",
+    "fr": "Présence spirituelle"
+   },
+   "tooltip": {
+    "en": "Presence of MindTalentInstant3 min cooldownRequires MageRequires level 1\nWhen activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.",
+    "fr": "Présence spirituelleTalentInstantanée3 min de rechargeRequiert MageNiveau 1 requis\nLorsque cette technique est activée, votre prochain sort de mage dont le temps d'incantation est inférieur à 10 sec. devient un sort instantané."
+   },
+   "icon": "spell_nature_enchantarmor"
+  },
+  "evocation": {
+   "id": 12051,
+   "name": {
+    "en": "Evocation",
+    "fr": "Evocation"
+   },
+   "tooltip": {
+    "en": "EvocationChanneled (8 sec cast)8 min cooldownRequires MageRequires level 20\nWhile channeling this spell, your mana regeneration is active and increased by 1500%. Lasts 8 sec.",
+    "fr": "EvocationCanalisée (8 s d'incantation)8 min de rechargeRequiert MageNiveau 20 requis\nLorsque vous canalisez ce sort, votre régénération de points de mana est active et augmente de 1500%. Dure 8 sec."
+   },
+   "icon": "spell_nature_purge"
+  },
+  "mageArmor": {
+   "id": 22783,
+   "name": {
+    "en": "Mage Armor",
+    "fr": "Armure du mage"
+   },
+   "tooltip": {
+    "en": "Mage Armor\n490 Mana\nInstantRequires MageRequires level 58\nIncreases your resistance to all magic by 15 and allows 50% of your mana regeneration to continue while casting. Only one type of Armor spell can be active on the Mage at any time. Lasts 30 min.",
+    "fr": "Armure du mage\nMana : 490\nInstantanéeRequiert MageNiveau 58 requis\nAugmente de 15 votre résistance à toutes les écoles de magie et permet à votre mana de continuer à se régénérer, à 50% de la vitesse de récupération normale, pendant l'incantation de sorts. Vous ne pouvez bénéficier que d’un seul type de sort d’armure à la fois. Dure 30 min."
+   },
+   "icon": "spell_magearmor"
+  },
+  "coldSnap": {
+   "id": 12472,
+   "name": {
+    "en": "Cold Snap",
+    "fr": "Morsure du froid"
+   },
+   "tooltip": {
+    "en": "Cold SnapTalentInstant10 min cooldownRequires MageRequires level 1\nFinishes the remaining cooldown on all your other Frost spells.",
+    "fr": "Morsure du froidTalentInstantanée10 min de rechargeRequiert MageNiveau 1 requis\nRéinitialise les temps de recharge restants de tous vos autres sorts de givre."
+   },
+   "icon": "spell_frost_wizardmark"
+  }
+ }
+}
