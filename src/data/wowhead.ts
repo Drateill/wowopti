@@ -1,4 +1,5 @@
 import { addEquipEffects, parseWeaponText } from './effects';
+import { rateLimitError } from './rateLimit';
 import { parseSetFromTooltip, type ItemSet } from './setBonus';
 import { emptyStats, type Lang, type Localized, type Stats, type WeaponInfo } from './types';
 
@@ -32,6 +33,7 @@ type RawResult = { type: number; id: number; name: string; icon?: string; qualit
 async function rawSearch(query: string, lang: Lang): Promise<RawResult[]> {
   const path = `/wowhead/forever${lang === 'fr' ? '/fr' : ''}/search/suggestions-template?q=${encodeURIComponent(query)}`;
   const res = await fetch(path);
+  if (res.status === 429) throw await rateLimitError(res);
   if (!res.ok) throw new Error(`Wowhead : ${res.status}`);
   return ((await res.json()) as { results: RawResult[] }).results ?? [];
 }

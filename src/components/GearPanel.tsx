@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 
 import { NotInBlizzardApi, blizzardStatus, fetchItemBlizzard, searchItemsBlizzard, type BlizzardStatus } from '../data/blizzard';
 import { ENCHANTS, buffVisible } from '../data/buffs';
 import { fetchCharacter } from '../data/character';
+import { RateLimitedError } from '../data/rateLimit';
 import { applyCharacter } from '../state/importCharacter';
 import { emptyStats, type Stats } from '../data/types';
 import {
@@ -17,6 +18,15 @@ import {
   FAMILIES, SLOTS, buildConfig, computeGear, gearStats, slotFamily, useStore, type ActiveSet, type AppState, type Item, type SlotId,
 } from '../state/store';
 import { Icon, Progress, StatsEditor, useStatSummary } from './ui';
+
+/** Message d'erreur des recherches et imports : limite de requêtes (avec le délai) ou erreur brute. */
+function apiErrorText(t: ReturnType<typeof useI18n>['t'], err: unknown): string {
+  if (err instanceof RateLimitedError) {
+    const key = err.scope === 'import' ? 'rateLimitImport' : err.scope === 'global' ? 'rateLimitGlobal' : 'rateLimitRequests';
+    return t(key, { s: err.retryAfter });
+  }
+  return t('searchError', { e: String((err as Error).message ?? err) });
+}
 
 function ItemName({ item }: { item: Item }) {
   const { L, lang } = useI18n();
@@ -165,6 +175,7 @@ export function GearPanel() {
 function ItemSearch() {
   const { state, set } = useStore();
   const { t, lang } = useI18n();
+  const errorText = (err: unknown) => apiErrorText(t, err);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<ItemSearchResult[] | null>(null);
   const [busy, setBusy] = useState(false);
@@ -277,7 +288,7 @@ function ItemSearch() {
       setResults(r);
       if (!r.length) setMessage(t('noResults'));
     } catch (err) {
-      setMessage(t('searchError', { e: String((err as Error).message ?? err) }));
+      setMessage(errorText(err));
     } finally {
       setBusy(false);
     }
@@ -335,7 +346,7 @@ function ItemSearch() {
       store(item, andEquip);
       setAdded((s) => new Set(s).add(id));
     } catch (err) {
-      setMessage(t('searchError', { e: String((err as Error).message ?? err) }));
+      setMessage(errorText(err));
     } finally {
       setBusy(false);
     }
@@ -612,6 +623,7 @@ const IMPORTED = '__imported__';
 function CharacterImport() {
   const { state, set, cls } = useStore();
   const { t, L } = useI18n();
+  const errorText = (err: unknown) => apiErrorText(t, err);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState<BlizzardStatus | null>(null);
@@ -646,7 +658,7 @@ function CharacterImport() {
       setReport({ ok: true, lines });
     } catch (err) {
       const msg = String((err as Error).message ?? err);
-      setReport({ ok: false, lines: [/404|Not Found/i.test(msg) ? t('charNotFound') : t('searchError', { e: msg })] });
+      setReport({ ok: false, lines: [/404|Not Found/i.test(msg) ? t('charNotFound') : errorText(err)] });
     } finally {
       setBusy(false);
     }

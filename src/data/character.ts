@@ -1,6 +1,7 @@
 import { ENCHANTS, parseEnchantText, type EnchantRef } from './buffs';
 import { api, iconName, localized, parseBlizzardItem, type BlizzardItem, type BlizzardWeapon, type LocalizedValue } from './blizzard';
 import type { ClassModule } from './classes';
+import { RateLimitedError } from './rateLimit';
 import type { Localized, Stats, WeaponInfo } from './types';
 import { fetchItem } from './wowhead';
 
@@ -111,7 +112,11 @@ export async function fetchCharacter(input: string, cls: ClassModule): Promise<I
   const [profile, equipment, specs] = await Promise.all([
     api<Profile>(base),
     api<{ equipped_items?: EquippedItem[] }>(`${base}/equipment`),
-    api<Specializations>(`${base}/specializations`).catch(() => ({}) as Specializations),
+    // Talents illisibles : l'import continue sans eux, sauf si c'est la limite de requêtes.
+    api<Specializations>(`${base}/specializations`).catch((e) => {
+      if (e instanceof RateLimitedError) throw e;
+      return {} as Specializations;
+    }),
   ]);
 
   const items = await Promise.all(

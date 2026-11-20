@@ -1,5 +1,6 @@
 import { emptyStats, type Lang, type Localized, type Stats, type WeaponInfo } from './types';
 import type { ItemSet } from './setBonus';
+import { rateLimitError } from './rateLimit';
 import { addEquipEffects, type ItemSearchResult } from './wowhead';
 
 // Client de l'API officielle Blizzard, via le proxy local /blizzard (voir server/blizzard.ts).
@@ -60,6 +61,7 @@ const STAT_TYPES: Record<string, [keyof Stats, number]> = {
 
 export async function api<T>(path: string, params: Record<string, string> = {}): Promise<T> {
   const res = await fetch(`/blizzard/api${path}?${new URLSearchParams(params)}`);
+  if (res.status === 429) throw await rateLimitError(res);
   if (!res.ok) {
     const body = (await res.json().catch(() => ({}))) as { error?: string; detail?: string };
     throw new Error(body.error ?? body.detail ?? `Blizzard : ${res.status}`);

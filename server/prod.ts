@@ -7,6 +7,7 @@ import { stat } from 'node:fs/promises';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { extname, join, normalize, resolve } from 'node:path';
 import { createBlizzardHandler } from './blizzard';
+import { ResponseCache, TokenBuckets, clientIp, rateLimited } from './guard';
 
 const PORT = Number(process.env.PORT ?? 8080);
 const ROOT = resolve(process.env.STATIC_DIR ?? 'dist');
@@ -31,6 +32,9 @@ const TYPES: Record<string, string> = {
 
 /** Seule la recherche d'objets est relayée vers Wowhead. */
 const WOWHEAD_ALLOWED = /^\/forever(\/fr)?\/search\/suggestions-template$/;
+// 120 recherches par minute et par IP, résultats gardés 10 min.
+const wowheadLimit = new TokenBuckets(120, 2);
+const wowheadCache = new ResponseCache(2000);
 
 async function wowhead(req: IncomingMessage, res: ServerResponse, path: string) {
   const url = new URL(path, 'https://www.wowhead.com');
@@ -38,13 +42,26 @@ async function wowhead(req: IncomingMessage, res: ServerResponse, path: string) 
     res.writeHead(403, { 'Content-Type': 'application/json' });
     return res.end('{"error":"Chemin non autorisé"}');
   }
+  const key = url.pathname + '?' + url.searchParams.toString().toLowerCase();
+  if (!wowheadCache.get(key)) {
+    const wait = wowheadLimit.take(clientIp(req));
+    if (wait) {
+      const r = rateLimited(wait, 'requests');
+      res.writeHead(r.status, r.headers);
+      return res.end(r.body);
+    }
+  }
   try {
-    const upstream = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (theorycraft tool)' } });
-    res.writeHead(upstream.status, {
-      'Content-Type': upstream.headers.get('content-type') ?? 'application/json',
-      'Cache-Control': 'public, max-age=600',
-    });
-    res.end(Buffer.from(await upstream.arrayBuffer()));
+    const { value, hit } = await wowheadCache.fetch(
+      key,
+      async () => {
+        const upstream = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (theorycraft tool)' } });
+        return { status: upstream.status, body: await upstream.text(), contentType: upstream.headers.get('content-type') ?? 'application/json' };
+      },
+      (r) => (r.status === 200 ? 600_000 : 0),
+    );
+    res.writeHead(value.status, { 'Content-Type': value.contentType, 'Cache-Control': 'public, max-age=600', 'X-Cache': hit ? 'HIT' : 'MISS' });
+    res.end(value.body);
   } catch (e) {
     res.writeHead(502, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ error: (e as Error).message }));
