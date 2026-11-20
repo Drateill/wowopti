@@ -1,0 +1,1853 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-20T12:46:34.988Z",
+ "trees": [
+  {
+   "key": "elemental",
+   "icon": "spell_nature_lightning",
+   "name": {
+    "en": "Elemental Combat",
+    "fr": "Combat élémentaire"
+   }
+  },
+  {
+   "key": "enhancement",
+   "icon": "spell_nature_lightningshield",
+   "name": {
+    "en": "Enhancement",
+    "fr": "Amélioration"
+   }
+  },
+  {
+   "key": "restoration",
+   "icon": "spell_nature_magicimmunity",
+   "name": {
+    "en": "Restoration",
+    "fr": "Restauration"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "convection",
+   "wowheadId": 104773,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16039,
+    16039,
+    16039,
+    16039,
+    16039
+   ],
+   "icon": "spell_nature_wispsplode",
+   "name": {
+    "en": "Convection",
+    "fr": "Convection"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 2%.",
+     "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 4%.",
+     "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 6%.",
+     "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 8%.",
+     "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 10%."
+    ],
+    "fr": [
+     "Réduit de 2 % le coût en mana de vos sorts Horion, Éclair et Chaîne d’éclairs.",
+     "Réduit de 4 % le coût en mana de vos sorts Horion, Éclair et Chaîne d’éclairs.",
+     "Réduit de 6 % le coût en mana de vos sorts Horion, Éclair et Chaîne d’éclairs.",
+     "Réduit de 8 % le coût en mana de vos sorts Horion, Éclair et Chaîne d’éclairs.",
+     "Réduit de 10 % le coût en mana de vos sorts Horion, Éclair et Chaîne d’éclairs."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "concussion",
+   "wowheadId": 104772,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    16035,
+    16035,
+    16035,
+    16035,
+    16035
+   ],
+   "icon": "spell_nature_earthshock",
+   "name": {
+    "en": "Concussion",
+    "fr": "Commotion"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 1%.",
+     "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 2%.",
+     "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 3%.",
+     "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 4%.",
+     "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 5%."
+    ],
+    "fr": [
+     "Augmente de 1 % les dégâts infligés par vos sorts Éclair, Chaîne d’éclairs et Horion de terre.",
+     "Augmente de 2 % les dégâts infligés par vos sorts Éclair, Chaîne d’éclairs et Horion de terre.",
+     "Augmente de 3 % les dégâts infligés par vos sorts Éclair, Chaîne d’éclairs et Horion de terre.",
+     "Augmente de 4 % les dégâts infligés par vos sorts Éclair, Chaîne d’éclairs et Horion de terre.",
+     "Augmente de 5 % les dégâts infligés par vos sorts Éclair, Chaîne d’éclairs et Horion de terre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elementalDevastation",
+   "wowheadId": 104769,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    30160,
+    30160,
+    30160
+   ],
+   "icon": "spell_fire_elementaldevastation",
+   "name": {
+    "en": "Elemental Devastation",
+    "fr": "Dévastation élémentaire"
+   },
+   "desc": {
+    "en": [
+     "Your Critical Strikes with direct damage spells increase your chance to get a Critical Strike with melee attacks by 3% for 10 sec.",
+     "Your Critical Strikes with direct damage spells increase your chance to get a Critical Strike with melee attacks by 6% for 10 sec.",
+     "Your Critical Strikes with direct damage spells increase your chance to get a Critical Strike with melee attacks by 9% for 10 sec."
+    ],
+    "fr": [
+     "Les coups critiques infligés avec vos sorts de dégâts directs augmentent vos chances d’infliger un coup critique avec vos attaques en mêlée de 3 % pendant 10 sec.",
+     "Les coups critiques infligés avec vos sorts de dégâts directs augmentent vos chances d’infliger un coup critique avec vos attaques en mêlée de 6 % pendant 10 sec.",
+     "Les coups critiques infligés avec vos sorts de dégâts directs augmentent vos chances d’infliger un coup critique avec vos attaques en mêlée de 9 % pendant 10 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "reverberation",
+   "wowheadId": 104767,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16040,
+    16040,
+    16040,
+    16040,
+    16040
+   ],
+   "icon": "spell_frost_frostward",
+   "name": {
+    "en": "Reverberation",
+    "fr": "Réverbération"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Shock spells by 0.2 sec.",
+     "Reduces the cooldown of your Shock spells by 0.4 sec.",
+     "Reduces the cooldown of your Shock spells by 0.6 sec.",
+     "Reduces the cooldown of your Shock spells by 0.8 sec.",
+     "Reduces the cooldown of your Shock spells by 1.0 sec."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de vos sorts Horion de 0.2 s.",
+     "Réduit le temps de recharge de vos sorts Horion de 0.4 s.",
+     "Réduit le temps de recharge de vos sorts Horion de 0.6 s.",
+     "Réduit le temps de recharge de vos sorts Horion de 0.8 s.",
+     "Réduit le temps de recharge de vos sorts Horion de 1.0 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elementalAlacrity",
+   "wowheadId": 104771,
+   "tree": 0,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    16578,
+    16578,
+    16578
+   ],
+   "icon": "spell_lightning_lightningbolt01",
+   "name": {
+    "en": "Elemental Alacrity",
+    "fr": "Empressement élémentaire"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by 0.17 sec.",
+     "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by 0.33 sec.",
+     "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by 0.50 sec."
+    ],
+    "fr": [
+     "Réduit de 0.17 s le temps d’incantation de vos sorts Éclair et Chaîne d’éclairs.",
+     "Réduit de 0.33 s le temps d’incantation de vos sorts Éclair et Chaîne d’éclairs.",
+     "Réduit de 0.50 s le temps d’incantation de vos sorts Éclair et Chaîne d’éclairs."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "callOfFlame",
+   "wowheadId": 104770,
+   "tree": 0,
+   "row": 1,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    16038,
+    16038,
+    16038
+   ],
+   "icon": "spell_fire_immolation",
+   "name": {
+    "en": "Call of Flame",
+    "fr": "Appel des flammes"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Fire Totems and by your Flame Shock and Fire Nova spells by 5%, as well as increases the duration of your Flame Shock spell by 3 sec.",
+     "Increases the damage done by your Fire Totems and by your Flame Shock and Fire Nova spells by 10%, as well as increases the duration of your Flame Shock spell by 6 sec.",
+     "Increases the damage done by your Fire Totems and by your Flame Shock and Fire Nova spells by 15%, as well as increases the duration of your Flame Shock spell by 9 sec."
+    ],
+    "fr": [
+     "Augmente de 5 % les dégâts infligés par vos totems de feu et vos sorts Horion de flammes et Nova de feu. Augmente également la durée de votre horion de flammes de 3 s.",
+     "Augmente de 10 % les dégâts infligés par vos totems de feu et vos sorts Horion de flammes et Nova de feu. Augmente également la durée de votre horion de flammes de 6 s.",
+     "Augmente de 15 % les dégâts infligés par vos totems de feu et vos sorts Horion de flammes et Nova de feu. Augmente également la durée de votre horion de flammes de 9 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elementalFocus",
+   "wowheadId": 104768,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    16164
+   ],
+   "icon": "spell_shadow_manaburn",
+   "name": {
+    "en": "Elemental Focus",
+    "fr": "Focalisation élémentaire"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 10% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%."
+    ],
+    "fr": [
+     "Vous confère 10 % de chances d’entrer dans un état d’Idées claires après avoir lancé un sort infligeant des dégâts de feu, de givre ou de nature. L’état d’Idées claires réduit de 100 % le coût en mana de votre prochain sort de dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elementalWarding",
+   "wowheadId": 104765,
+   "tree": 0,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    28996,
+    28996,
+    28996
+   ],
+   "icon": "spell_nature_spiritarmor",
+   "name": {
+    "en": "Elemental Warding",
+    "fr": "Protection contre les éléments"
+   },
+   "desc": {
+    "en": [
+     "Reduces damage taken from Fire, Frost, and Nature effects by 3%.",
+     "Reduces damage taken from Fire, Frost, and Nature effects by 7%.",
+     "Reduces damage taken from Fire, Frost, and Nature effects by 10%."
+    ],
+    "fr": [
+     "Réduit de 3 % les dégâts subis des effets de feu, de givre et de nature.",
+     "Réduit de 7 % les dégâts subis des effets de feu, de givre et de nature.",
+     "Réduit de 10 % les dégâts subis des effets de feu, de givre et de nature."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "trialByFire",
+   "wowheadId": 104764,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    16086,
+    16086
+   ],
+   "icon": "spell_fire_sealoffire",
+   "name": {
+    "en": "Trial by Fire",
+    "fr": "Épreuve du feu"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Fire Nova spell by 10% and reduces its cooldown by 2 sec, and increases the duration of your Magma Totem by 10 sec.",
+     "Increases the damage done by your Fire Nova spell by 20% and reduces its cooldown by 4 sec, and increases the duration of your Magma Totem by 20 sec."
+    ],
+    "fr": [
+     "Augmente de 10 % les dégâts infligés par votre nova de feu et réduit son temps de recharge de 2 s. Augmente également la durée de votre totem de magma de 10 s.",
+     "Augmente de 20 % les dégâts infligés par votre nova de feu et réduit son temps de recharge de 4 s. Augmente également la durée de votre totem de magma de 20 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "eyeOfTheStorm",
+   "wowheadId": 104763,
+   "tree": 0,
+   "row": 3,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    29062,
+    29062,
+    29062
+   ],
+   "icon": "spell_nature_eyeofthestorm",
+   "name": {
+    "en": "Eye of the Storm",
+    "fr": "Oeil du cyclone"
+   },
+   "desc": {
+    "en": [
+     "Gives your Lightning Bolt and Chain Lightning spells a 23% chance to not lose casting time when you take damage.",
+     "Gives your Lightning Bolt and Chain Lightning spells a 47% chance to not lose casting time when you take damage.",
+     "Gives your Lightning Bolt and Chain Lightning spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à vos sorts Éclair et Chaîne d’éclairs 23 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Éclair et Chaîne d’éclairs 47 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts Éclair et Chaîne d’éclairs 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "earthbound",
+   "wowheadId": 104762,
+   "tree": 0,
+   "row": 3,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    1222988
+   ],
+   "icon": "spell_nature_stranglevines",
+   "name": {
+    "en": "Earthbound",
+    "fr": "Lien terrestre"
+   },
+   "desc": {
+    "en": [
+     "Your Earthbind Totem Immobilizes nearby targets for 5 sec when cast."
+    ],
+    "fr": [
+     "Votre totem de lien terrestre immobilise les cibles proches pendant 5 sec lorsqu’il est lancé."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elementalReach",
+   "wowheadId": 104761,
+   "tree": 0,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    28999,
+    28999
+   ],
+   "icon": "spell_nature_stormreach",
+   "name": {
+    "en": "Elemental Reach",
+    "fr": "Allonge élémentaire"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your Lightning Bolt, Chain Lightning, and Fire Nova spells by 3 yards.",
+     "Increases the range of your Lightning Bolt, Chain Lightning, and Fire Nova spells by 6 yards."
+    ],
+    "fr": [
+     "Augmente de 3 m la portée de vos sorts Éclair, Chaîne d’éclairs et Nova de feu.",
+     "Augmente de 6 m la portée de vos sorts Éclair, Chaîne d’éclairs et Nova de feu."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "callOfThunder",
+   "wowheadId": 104760,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    16120
+   ],
+   "icon": "spell_nature_callstorm",
+   "name": {
+    "en": "Call of Thunder",
+    "fr": "Appel de la foudre"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by 5%."
+    ],
+    "fr": [
+     "Augmente de 5 % les chances de coup critique de vos sorts Éclair et Chaîne d’éclairs."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lightningOverload",
+   "wowheadId": 104759,
+   "tree": 0,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    408438,
+    408438,
+    408438
+   ],
+   "icon": "spell_nature_lightningoverload",
+   "name": {
+    "en": "Lightning Overload",
+    "fr": "Surcharge de foudre"
+   },
+   "desc": {
+    "en": [
+     "Gives your Lightning Bolt and Chain Lightning spells a 10% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat.",
+     "Gives your Lightning Bolt and Chain Lightning spells a 20% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat.",
+     "Gives your Lightning Bolt and Chain Lightning spells a 30% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat."
+    ],
+    "fr": [
+     "Confère à vos sorts Éclair et Chaîne d’éclairs 10 % de chances de lancer un second sort similaire sur la même cible sans coût supplémentaire, infligeant la moitié des dégâts et ne générant aucun niveau de menace.",
+     "Confère à vos sorts Éclair et Chaîne d’éclairs 20 % de chances de lancer un second sort similaire sur la même cible sans coût supplémentaire, infligeant la moitié des dégâts et ne générant aucun niveau de menace.",
+     "Confère à vos sorts Éclair et Chaîne d’éclairs 30 % de chances de lancer un second sort similaire sur la même cible sans coût supplémentaire, infligeant la moitié des dégâts et ne générant aucun niveau de menace."
+    ]
+   },
+   "requires": [
+    {
+     "key": "elementalAlacrity",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "elementalFury",
+   "wowheadId": 104766,
+   "tree": 0,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    16089,
+    16089,
+    16089,
+    16089,
+    16089
+   ],
+   "icon": "spell_fire_volcano",
+   "name": {
+    "en": "Elemental Fury",
+    "fr": "Fureur élémentaire"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 20%.",
+     "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 40%.",
+     "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 60%.",
+     "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 80%.",
+     "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 100%."
+    ],
+    "fr": [
+     "Augmente de 20 % le bonus de dégâts des coups critiques de votre totem incendiaire et de votre totem de magma, ainsi que les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de feu, de givre et de nature.",
+     "Augmente de 40 % le bonus de dégâts des coups critiques de votre totem incendiaire et de votre totem de magma, ainsi que les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de feu, de givre et de nature.",
+     "Augmente de 60 % le bonus de dégâts des coups critiques de votre totem incendiaire et de votre totem de magma, ainsi que les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de feu, de givre et de nature.",
+     "Augmente de 80 % le bonus de dégâts des coups critiques de votre totem incendiaire et de votre totem de magma, ainsi que les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de feu, de givre et de nature.",
+     "Augmente de 100 % le bonus de dégâts des coups critiques de votre totem incendiaire et de votre totem de magma, ainsi que les points de dégâts supplémentaires infligés par les coups critiques de vos sorts de feu, de givre et de nature."
+    ]
+   },
+   "requires": [
+    {
+     "key": "lightningOverload",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "lightningMastery",
+   "wowheadId": 104758,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    16166
+   ],
+   "icon": "spell_nature_unrelentingstorm",
+   "name": {
+    "en": "Lightning Mastery",
+    "fr": "Maîtrise de la foudre"
+   },
+   "desc": {
+    "en": [
+     "Gain mastery over Lightning, reducing the cast time of your Lightning Bolt spell by 0.5 sec, and removing the cooldown from your Chain Lightning spell. Lasts 15 sec."
+    ],
+    "fr": [
+     "Vous maîtrisez la foudre, ce qui réduit le temps d’incantation d’Éclair de 0.5 s et supprime le temps de recharge de Chaîne d’éclairs. Dure 15 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "callOfThunder",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "earthsGrasp",
+   "wowheadId": 104757,
+   "tree": 1,
+   "row": 0,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    16043,
+    16043
+   ],
+   "icon": "spell_nature_stoneclawtotem",
+   "name": {
+    "en": "Earth's Grasp",
+    "fr": "Emprise de la terre"
+   },
+   "desc": {
+    "en": [
+     "Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%.",
+     "Increases the health of your Stoneclaw Totem by 50% and the radius of your Earthbind Totem by 20%."
+    ],
+    "fr": [
+     "Augmente de 25 % les points de vie de votre totem de griffes de pierre et de 10 % le rayon d’action de votre totem de lien terrestre.",
+     "Augmente de 50 % les points de vie de votre totem de griffes de pierre et de 20 % le rayon d’action de votre totem de lien terrestre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "thunderingStrikes",
+   "wowheadId": 104753,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16255,
+    16255,
+    16255,
+    16255,
+    16255
+   ],
+   "icon": "ability_thunderbolt",
+   "name": {
+    "en": "Thundering Strikes",
+    "fr": "Frappe foudroyante"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to get a critical strike with all spells and attacks by 1%.",
+     "Improves your chance to get a critical strike with all spells and attacks by 2%.",
+     "Improves your chance to get a critical strike with all spells and attacks by 3%.",
+     "Improves your chance to get a critical strike with all spells and attacks by 4%.",
+     "Improves your chance to get a critical strike with all spells and attacks by 5%."
+    ],
+    "fr": [
+     "Améliore vos chances de coup critique des sorts et attaques de 1 %.",
+     "Améliore vos chances de coup critique des sorts et attaques de 2 %.",
+     "Améliore vos chances de coup critique des sorts et attaques de 3 %.",
+     "Améliore vos chances de coup critique des sorts et attaques de 4 %.",
+     "Améliore vos chances de coup critique des sorts et attaques de 5 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ancestralKnowledge",
+   "wowheadId": 104756,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    17485,
+    17485,
+    17485,
+    17485,
+    17485
+   ],
+   "icon": "spell_shadow_grimward",
+   "name": {
+    "en": "Ancestral Knowledge",
+    "fr": "Connaissance ancestrale"
+   },
+   "desc": {
+    "en": [
+     "Increases your Intellect by 2%.",
+     "Increases your Intellect by 4%.",
+     "Increases your Intellect by 6%.",
+     "Increases your Intellect by 8%.",
+     "Increases your Intellect by 10%."
+    ],
+    "fr": [
+     "Augmente votre intelligence de 2 %.",
+     "Augmente votre intelligence de 4 %.",
+     "Augmente votre intelligence de 6 %.",
+     "Augmente votre intelligence de 8 %.",
+     "Augmente votre intelligence de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "guardianTotems",
+   "wowheadId": 104754,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    16258,
+    16258
+   ],
+   "icon": "spell_nature_stoneskintotem",
+   "name": {
+    "en": "Guardian Totems",
+    "fr": "Totems gardiens"
+   },
+   "desc": {
+    "en": [
+     "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 10% and reduces the cooldown of your Grounding Totem by 1 sec.",
+     "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 20% and reduces the cooldown of your Grounding Totem by 2 sec."
+    ],
+    "fr": [
+     "Augmente de 10 % la quantité de dégâts réduits par votre totem de peau de pierre et votre totem Mur de vent. Réduit le temps de recharge de votre totem de glèbe de 1 s.",
+     "Augmente de 20 % la quantité de dégâts réduits par votre totem de peau de pierre et votre totem Mur de vent. Réduit le temps de recharge de votre totem de glèbe de 2 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "mentalDexterity",
+   "wowheadId": 104755,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    415140,
+    415140,
+    415140
+   ],
+   "icon": "spell_nature_mentalquickness",
+   "name": {
+    "en": "Mental Dexterity",
+    "fr": "Dextérité mentale"
+   },
+   "desc": {
+    "en": [
+     "Increases your Attack Power by an amount equal to 33% of your Intellect.",
+     "Increases your Attack Power by an amount equal to 66% of your Intellect.",
+     "Increases your Attack Power by an amount equal to 100% of your Intellect."
+    ],
+    "fr": [
+     "Augmente votre puissance d’attaque d’un montant égal à 33 % de votre intelligence.",
+     "Augmente votre puissance d’attaque d’un montant égal à 66 % de votre intelligence.",
+     "Augmente votre puissance d’attaque d’un montant égal à 100 % de votre intelligence."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedLightningShield",
+   "wowheadId": 104751,
+   "tree": 1,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    16261,
+    16261,
+    16261
+   ],
+   "icon": "spell_nature_lightningshield",
+   "name": {
+    "en": "Improved Lightning Shield",
+    "fr": "Bouclier de foudre amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Lightning Shield orbs by 5%.",
+     "Increases the damage done by your Lightning Shield orbs by 10%.",
+     "Increases the damage done by your Lightning Shield orbs by 15%."
+    ],
+    "fr": [
+     "Augmente de 5 % les dégâts infligés par les orbes de votre bouclier de foudre.",
+     "Augmente de 10 % les dégâts infligés par les orbes de votre bouclier de foudre.",
+     "Augmente de 15 % les dégâts infligés par les orbes de votre bouclier de foudre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elementalWeapons",
+   "wowheadId": 104750,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    16266,
+    16266,
+    16266
+   ],
+   "icon": "spell_fire_flametounge",
+   "name": {
+    "en": "Elemental Weapons",
+    "fr": "Armes élémentaires"
+   },
+   "desc": {
+    "en": [
+     "Increases the melee attack power bonus of your Rockbiter Weapon by 7%, your Windfury Weapon effect by 13% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 5%.",
+     "Increases the melee attack power bonus of your Rockbiter Weapon by 13%, your Windfury Weapon effect by 27% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 10%.",
+     "Increases the melee attack power bonus of your Rockbiter Weapon by 20%, your Windfury Weapon effect by 40% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 15%."
+    ],
+    "fr": [
+     "Augmente de 7 % le bonus à la puissance d’attaque en mêlée de votre arme Croque-roc, de 13 % l’effet de votre arme Furie-des-vents et de 5 % les dégâts infligés par votre arme Langue de feu et votre arme de givre.",
+     "Augmente de 13 % le bonus à la puissance d’attaque en mêlée de votre arme Croque-roc, de 27 % l’effet de votre arme Furie-des-vents et de 10 % les dégâts infligés par votre arme Langue de feu et votre arme de givre.",
+     "Augmente de 20 % le bonus à la puissance d’attaque en mêlée de votre arme Croque-roc, de 40 % l’effet de votre arme Furie-des-vents et de 15 % les dégâts infligés par votre arme Langue de feu et votre arme de givre."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "shamanisticFocus",
+   "wowheadId": 104749,
+   "tree": 1,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    1223030
+   ],
+   "icon": "spell_nature_elementalabsorption",
+   "name": {
+    "en": "Shamanistic Focus",
+    "fr": "Focalisation chamanique"
+   },
+   "desc": {
+    "en": [
+     "Reduces the mana cost of your Shock and Lightning Shield spells by 45%."
+    ],
+    "fr": [
+     "Réduit le coût en mana de vos sorts Horion et Bouclier de foudre de 45 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "anticipation",
+   "wowheadId": 104748,
+   "tree": 1,
+   "row": 2,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    16254,
+    16254,
+    16254
+   ],
+   "icon": "spell_nature_mirrorimage",
+   "name": {
+    "en": "Anticipation",
+    "fr": "Anticipation"
+   },
+   "desc": {
+    "en": [
+     "Increases your chance to dodge by an additional 2%.",
+     "Increases your chance to dodge by an additional 4%.",
+     "Increases your chance to dodge by an additional 6%."
+    ],
+    "fr": [
+     "Augmente vos chances d’esquiver de 2 % supplémentaires.",
+     "Augmente vos chances d’esquiver de 4 % supplémentaires.",
+     "Augmente vos chances d’esquiver de 6 % supplémentaires."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "toughness",
+   "wowheadId": 104746,
+   "tree": 1,
+   "row": 3,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    16252,
+    16252,
+    16252,
+    16252,
+    16252
+   ],
+   "icon": "spell_holy_devotion",
+   "name": {
+    "en": "Toughness",
+    "fr": "Résistance"
+   },
+   "desc": {
+    "en": [
+     "Increases your Stamina by 2%.",
+     "Increases your Stamina by 4%.",
+     "Increases your Stamina by 6%.",
+     "Increases your Stamina by 8%.",
+     "Increases your Stamina by 10%."
+    ],
+    "fr": [
+     "Augmente votre endurance de 2 %.",
+     "Augmente votre endurance de 4 %.",
+     "Augmente votre endurance de 6 %.",
+     "Augmente votre endurance de 8 %.",
+     "Augmente votre endurance de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "flurry",
+   "wowheadId": 104747,
+   "tree": 1,
+   "row": 3,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16256,
+    16256,
+    16256,
+    16256,
+    16256
+   ],
+   "icon": "ability_ghoulfrenzy",
+   "name": {
+    "en": "Flurry",
+    "fr": "Rafale"
+   },
+   "desc": {
+    "en": [
+     "Increases your attack speed by 6% for your next 3 swings after dealing a melee critical strike.",
+     "Increases your attack speed by 12% for your next 3 swings after dealing a melee critical strike.",
+     "Increases your attack speed by 18% for your next 3 swings after dealing a melee critical strike.",
+     "Increases your attack speed by 24% for your next 3 swings after dealing a melee critical strike.",
+     "Increases your attack speed by 30% for your next 3 swings after dealing a melee critical strike."
+    ],
+    "fr": [
+     "Augmente votre vitesse d’attaque de 6 % pour vos 3 prochaines attaques après avoir infligé un coup critique en mêlée.",
+     "Augmente votre vitesse d’attaque de 12 % pour vos 3 prochaines attaques après avoir infligé un coup critique en mêlée.",
+     "Augmente votre vitesse d’attaque de 18 % pour vos 3 prochaines attaques après avoir infligé un coup critique en mêlée.",
+     "Augmente votre vitesse d’attaque de 24 % pour vos 3 prochaines attaques après avoir infligé un coup critique en mêlée.",
+     "Augmente votre vitesse d’attaque de 30 % pour vos 3 prochaines attaques après avoir infligé un coup critique en mêlée."
+    ]
+   },
+   "requires": [
+    {
+     "key": "mentalDexterity",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "stormstrike",
+   "wowheadId": 104743,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    17364
+   ],
+   "icon": "ability_shaman_stormstrike",
+   "name": {
+    "en": "Stormstrike",
+    "fr": "Courroux naturel"
+   },
+   "desc": {
+    "en": [
+     "Instantly strike for 100% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+    ],
+    "fr": [
+     "Inflige instantanément 100 % des dégâts de l’arme et augmente de 20 % les dégâts que vous infligez à la cible avec votre prochain sort Éclair, Chaîne d’éclairs ou Horion de terre pendant 12 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedGhostWolf",
+   "wowheadId": 104752,
+   "tree": 1,
+   "row": 3,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    16262,
+    16262
+   ],
+   "icon": "spell_nature_spiritwolf",
+   "name": {
+    "en": "Improved Ghost Wolf",
+    "fr": "Loup fantôme amélioré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cast time of your Ghost Wolf spell by 1.0 sec, and Ghost Wolf may be used indoors.",
+     "Reduces the cast time of your Ghost Wolf spell by 3.0 sec, and Ghost Wolf may be used indoors."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de votre sort Loup fantôme de 1.0 s. De plus, Loup fantôme peut être utilisé en intérieur.",
+     "Réduit le temps d’incantation de votre sort Loup fantôme de 3.0 s. De plus, Loup fantôme peut être utilisé en intérieur."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "spiritWeapons",
+   "wowheadId": 104745,
+   "tree": 1,
+   "row": 4,
+   "col": 0,
+   "maxRank": 1,
+   "spellIds": [
+    16268
+   ],
+   "icon": "ability_parry",
+   "name": {
+    "en": "Spirit Weapons",
+    "fr": "Armes spirituelles"
+   },
+   "desc": {
+    "en": [
+     "Gives a chance to parry enemy melee attacks, reduces all threat generated by your attacks by 30% while Rockbiter Weapon is not active, and increases all threat generated by 30% while Rockbiter Weapon is active."
+    ],
+    "fr": [
+     "Donne une chance de parer les attaques en mêlée des adversaires, réduit la menace générée par vos attaques de 30 % tant que l’arme Croque-roc est inactive, et augmente le niveau de menace généré de 30 % quand Arme Croque-roc est active."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "mentalQuickness",
+   "wowheadId": 104744,
+   "tree": 1,
+   "row": 4,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    30812,
+    30812
+   ],
+   "icon": "spell_nature_sleep",
+   "name": {
+    "en": "Mental Quickness",
+    "fr": "Rapidité mentale"
+   },
+   "desc": {
+    "en": [
+     "Increases your spell damage and healing by up to 15% of your Intellect.",
+     "Increases your spell damage and healing by up to 30% of your Intellect."
+    ],
+    "fr": [
+     "Augmente les dégâts et les soins de vos sorts d’un montant pouvant atteindre 15 % de votre intelligence.",
+     "Augmente les dégâts et les soins de vos sorts d’un montant pouvant atteindre 30 % de votre intelligence."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedStormstrike",
+   "wowheadId": 104742,
+   "tree": 1,
+   "row": 4,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    1223031,
+    1223031
+   ],
+   "icon": "spell_shaman_improvedstormstrike",
+   "name": {
+    "en": "Improved Stormstrike",
+    "fr": "Frappe-tempête amélioré"
+   },
+   "desc": {
+    "en": [
+     "When you Stormstrike, you have a 50% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 50% chance to reset each time you Dodge or Parry.",
+     "When you Stormstrike, you have a 100% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 100% chance to reset each time you Dodge or Parry."
+    ],
+    "fr": [
+     "Lorsque vous utilisez Frappe-tempête, vous avez 50 % de chances d’augmenter votre régénération de mana de 50 % pendant 15 sec lorsque vous lancez des sorts, et le temps de recharge de Frappe-tempête a 50 % de chances d’être réinitialisé chaque fois que vous esquivez ou parez.",
+     "Lorsque vous utilisez Frappe-tempête, vous avez 100 % de chances d’augmenter votre régénération de mana de 50 % pendant 15 sec lorsque vous lancez des sorts, et le temps de recharge de Frappe-tempête a 100 % de chances d’être réinitialisé chaque fois que vous esquivez ou parez."
+    ]
+   },
+   "requires": [
+    {
+     "key": "stormstrike",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "maelstromWeapon",
+   "wowheadId": 104741,
+   "tree": 1,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    408498,
+    408498,
+    408498,
+    408498,
+    408498
+   ],
+   "icon": "spell_shaman_maelstromweapon",
+   "name": {
+    "en": "Maelstrom Weapon",
+    "fr": "Arme du Maelström"
+   },
+   "desc": {
+    "en": [
+     "When you deal damage with a melee attack, you have a ((Mainhand weapon min base speed * 6 / 60) * 100)% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.",
+     "When you deal damage with a melee attack, you have a ((Mainhand weapon min base speed * 7 / 60) * 100)% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.",
+     "When you deal damage with a melee attack, you have a ((Mainhand weapon min base speed * 8 / 60) * 100)% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.",
+     "When you deal damage with a melee attack, you have a ((Mainhand weapon min base speed * 9 / 60) * 100)% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.",
+     "When you deal damage with a melee attack, you have a ((Mainhand weapon min base speed * 10 / 60) * 100)% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec."
+    ],
+    "fr": [
+     "Quand vous infligez des dégâts avec une attaque en mêlée, vous avez (([Mainhand weapon min base speed] * 6 / 60) * 100) % de chances (selon la vitesse de l’arme) de réduire de 20 % le temps d’incantation et le coût en mana de votre prochain sort Éclair. Cumulable jusqu’à 5 fois. Dure 30 sec.",
+     "Quand vous infligez des dégâts avec une attaque en mêlée, vous avez (([Mainhand weapon min base speed] * 7 / 60) * 100) % de chances (selon la vitesse de l’arme) de réduire de 20 % le temps d’incantation et le coût en mana de votre prochain sort Éclair. Cumulable jusqu’à 5 fois. Dure 30 sec.",
+     "Quand vous infligez des dégâts avec une attaque en mêlée, vous avez (([Mainhand weapon min base speed] * 8 / 60) * 100) % de chances (selon la vitesse de l’arme) de réduire de 20 % le temps d’incantation et le coût en mana de votre prochain sort Éclair. Cumulable jusqu’à 5 fois. Dure 30 sec.",
+     "Quand vous infligez des dégâts avec une attaque en mêlée, vous avez (([Mainhand weapon min base speed] * 9 / 60) * 100) % de chances (selon la vitesse de l’arme) de réduire de 20 % le temps d’incantation et le coût en mana de votre prochain sort Éclair. Cumulable jusqu’à 5 fois. Dure 30 sec.",
+     "Quand vous infligez des dégâts avec une attaque en mêlée, vous avez (([Mainhand weapon min base speed] * 10 / 60) * 100) % de chances (selon la vitesse de l’arme) de réduire de 20 % le temps d’incantation et le coût en mana de votre prochain sort Éclair. Cumulable jusqu’à 5 fois. Dure 30 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "rageOfTheFarseer",
+   "wowheadId": 104740,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    425336
+   ],
+   "icon": "spell_nature_bloodlust",
+   "name": {
+    "en": "Rage of the Farseer",
+    "fr": "Rage long-voyante"
+   },
+   "desc": {
+    "en": [
+     "Increases your attack speed by 30% for 25 sec."
+    ],
+    "fr": [
+     "Augmente votre vitesse d’attaque de 30 % pendant 25 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "mentalQuickness",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "improvedHealingWave",
+   "wowheadId": 104739,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16182,
+    16182,
+    16182,
+    16182,
+    16182
+   ],
+   "icon": "spell_nature_magicimmunity",
+   "name": {
+    "en": "Improved Healing Wave",
+    "fr": "Vague de soins améliorée"
+   },
+   "desc": {
+    "en": [
+     "Reduces the casting time of your Healing Wave spell by 0.1 sec.",
+     "Reduces the casting time of your Healing Wave spell by 0.2 sec.",
+     "Reduces the casting time of your Healing Wave spell by 0.3 sec.",
+     "Reduces the casting time of your Healing Wave spell by 0.4 sec.",
+     "Reduces the casting time of your Healing Wave spell by 0.5 sec."
+    ],
+    "fr": [
+     "Réduit le temps d’incantation de votre sort Vague de soins de 0.1 s.",
+     "Réduit le temps d’incantation de votre sort Vague de soins de 0.2 s.",
+     "Réduit le temps d’incantation de votre sort Vague de soins de 0.3 s.",
+     "Réduit le temps d’incantation de votre sort Vague de soins de 0.4 s.",
+     "Réduit le temps d’incantation de votre sort Vague de soins de 0.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "tidalFocus",
+   "wowheadId": 104729,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    16179,
+    16179,
+    16179,
+    16179,
+    16179
+   ],
+   "icon": "spell_frost_manarecharge",
+   "name": {
+    "en": "Tidal Focus",
+    "fr": "Focalisation des flots"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of your healing spells by 1% and improves your chance to hit by 1%.",
+     "Reduces the Mana cost of your healing spells by 2% and improves your chance to hit by 2%.",
+     "Reduces the Mana cost of your healing spells by 3% and improves your chance to hit by 3%.",
+     "Reduces the Mana cost of your healing spells by 4% and improves your chance to hit by 4%.",
+     "Reduces the Mana cost of your healing spells by 5% and improves your chance to hit by 5%."
+    ],
+    "fr": [
+     "Réduit de 1 % le coût en mana de vos sorts de soins et améliore de 1 % vos chances de toucher.",
+     "Réduit de 2 % le coût en mana de vos sorts de soins et améliore de 2 % vos chances de toucher.",
+     "Réduit de 3 % le coût en mana de vos sorts de soins et améliore de 3 % vos chances de toucher.",
+     "Réduit de 4 % le coût en mana de vos sorts de soins et améliore de 4 % vos chances de toucher.",
+     "Réduit de 5 % le coût en mana de vos sorts de soins et améliore de 5 % vos chances de toucher."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "mindfulness",
+   "wowheadId": 104734,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    1223033,
+    1223033,
+    1223033
+   ],
+   "icon": "spell_nature_sleep",
+   "name": {
+    "en": "Mindfulness",
+    "fr": "Pleine conscience"
+   },
+   "desc": {
+    "en": [
+     "Allows 17% of your Mana regeneration to continue while casting.",
+     "Allows 33% of your Mana regeneration to continue while casting.",
+     "Allows 50% of your Mana regeneration to continue while casting."
+    ],
+    "fr": [
+     "Vous confère 17 % de votre vitesse normale de récupération du mana pendant l’incantation.",
+     "Vous confère 33 % de votre vitesse normale de récupération du mana pendant l’incantation.",
+     "Vous confère 50 % de votre vitesse normale de récupération du mana pendant l’incantation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturalGrace",
+   "wowheadId": 104736,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    29187,
+    29187,
+    29187
+   ],
+   "icon": "spell_nature_healingtouch",
+   "name": {
+    "en": "Natural Grace",
+    "fr": "Grâce naturelle"
+   },
+   "desc": {
+    "en": [
+     "Reduces the threat generated by your spells by 5%.",
+     "Reduces the threat generated by your spells by 10%.",
+     "Reduces the threat generated by your spells by 15%."
+    ],
+    "fr": [
+     "Diminue le niveau de menace généré par vos sorts de 5 %.",
+     "Diminue le niveau de menace généré par vos sorts de 10 %.",
+     "Diminue le niveau de menace généré par vos sorts de 15 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "totemicFocus",
+   "wowheadId": 104735,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    16173,
+    16173,
+    16173,
+    16173,
+    16173
+   ],
+   "icon": "spell_nature_moonglow",
+   "name": {
+    "en": "Totemic Focus",
+    "fr": "Focalisation totémique"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of your totems and any spells that summon or move them by 5%.",
+     "Reduces the Mana cost of your totems and any spells that summon or move them by 10%.",
+     "Reduces the Mana cost of your totems and any spells that summon or move them by 15%.",
+     "Reduces the Mana cost of your totems and any spells that summon or move them by 20%.",
+     "Reduces the Mana cost of your totems and any spells that summon or move them by 25%."
+    ],
+    "fr": [
+     "Réduit de 5 % le coût en mana de vos totems et des sorts qui permettent de les invoquer ou de les déplacer.",
+     "Réduit de 10 % le coût en mana de vos totems et des sorts qui permettent de les invoquer ou de les déplacer.",
+     "Réduit de 15 % le coût en mana de vos totems et des sorts qui permettent de les invoquer ou de les déplacer.",
+     "Réduit de 20 % le coût en mana de vos totems et des sorts qui permettent de les invoquer ou de les déplacer.",
+     "Réduit de 25 % le coût en mana de vos totems et des sorts qui permettent de les invoquer ou de les déplacer."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedReincarnation",
+   "wowheadId": 104737,
+   "tree": 2,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    16184,
+    16184
+   ],
+   "icon": "spell_nature_reincarnation",
+   "name": {
+    "en": "Improved Reincarnation",
+    "fr": "Réincarnation améliorée"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Reincarnation spell by 10 min, increases your maximum health by 2%, and increases the amount of health and Mana you reincarnate with by an additional 10%.",
+     "Reduces the cooldown of your Reincarnation spell by 20 min, increases your maximum health by 4%, and increases the amount of health and Mana you reincarnate with by an additional 20%."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de votre sort Réincarnation de 10 min, augmente de 2 % votre maximum de points de vie et augmente les points de vie et de mana dont vous disposez quand vous vous réincarnez de 10 %supplémentaires.",
+     "Réduit le temps de recharge de votre sort Réincarnation de 20 min, augmente de 4 % votre maximum de points de vie et augmente les points de vie et de mana dont vous disposez quand vous vous réincarnez de 20 %supplémentaires."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ancestralHealing",
+   "wowheadId": 104731,
+   "tree": 2,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    16176,
+    16176,
+    16176
+   ],
+   "icon": "spell_nature_undyingstrength",
+   "name": {
+    "en": "Ancestral Healing",
+    "fr": "Guérison des anciens"
+   },
+   "desc": {
+    "en": [
+     "Increases your target's armor value by 8% for 15 sec after getting a critical effect from one of your healing spells.",
+     "Increases your target's armor value by 17% for 15 sec after getting a critical effect from one of your healing spells.",
+     "Increases your target's armor value by 25% for 15 sec after getting a critical effect from one of your healing spells."
+    ],
+    "fr": [
+     "Augmente de 8 % la valeur d’armure de votre cible pendant 15 sec après qu’elle a subi un effet critique de l’un de vos sorts de soins.",
+     "Augmente de 17 % la valeur d’armure de votre cible pendant 15 sec après qu’elle a subi un effet critique de l’un de vos sorts de soins.",
+     "Augmente de 25 % la valeur d’armure de votre cible pendant 15 sec après qu’elle a subi un effet critique de l’un de vos sorts de soins."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "healingFocus",
+   "wowheadId": 104733,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    16181,
+    16181,
+    16181
+   ],
+   "icon": "spell_nature_healingwavelesser",
+   "name": {
+    "en": "Healing Focus",
+    "fr": "Focalisation des soins"
+   },
+   "desc": {
+    "en": [
+     "Gives your healing spells a 23% chance to not lose casting time when you take damage.",
+     "Gives your healing spells a 47% chance to not lose casting time when you take damage.",
+     "Gives your healing spells a 70% chance to not lose casting time when you take damage."
+    ],
+    "fr": [
+     "Confère à vos sorts de soins 23 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts de soins 47 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts.",
+     "Confère à vos sorts de soins 70 % de chances de ne pas voir leur incantation interrompue lorsque vous subissez des dégâts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "waterShield",
+   "wowheadId": 104732,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    408510
+   ],
+   "icon": "ability_shaman_watershield",
+   "name": {
+    "en": "Water Shield",
+    "fr": "Bouclier d’eau"
+   },
+   "desc": {
+    "en": [
+     "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds. Lasts 10 min.\n\nOnly one Elemental Shield can be active on the Shaman at any one time."
+    ],
+    "fr": [
+     "Le lanceur ou la lanceuse s’entoure de 3 globes d’eau. Si une attaque en mêlée, une attaque à distance ou un sort l’endommage, ou si l’un de ses sorts obtient un effet critique, un globe d’eau est dépensé pour restaurer 2 % de son maximum de mana. Un seul globe peut s’activer toutes les quelques secondes. Dure 10 min.\n\nUn seul bouclier élémentaire peut être actif à la fois."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "tidalMastery",
+   "wowheadId": 104738,
+   "tree": 2,
+   "row": 3,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    16194,
+    16194,
+    16194,
+    16194,
+    16194
+   ],
+   "icon": "spell_nature_tranquility",
+   "name": {
+    "en": "Tidal Mastery",
+    "fr": "Maîtrise des flots"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical effect chance of your healing spells by 1%.",
+     "Increases the critical effect chance of your healing spells by 2%.",
+     "Increases the critical effect chance of your healing spells by 3%.",
+     "Increases the critical effect chance of your healing spells by 4%.",
+     "Increases the critical effect chance of your healing spells by 5%."
+    ],
+    "fr": [
+     "Augmente de 1 % les chances d’effet critique de vos sorts de soins.",
+     "Augmente de 2 % les chances d’effet critique de vos sorts de soins.",
+     "Augmente de 3 % les chances d’effet critique de vos sorts de soins.",
+     "Augmente de 4 % les chances d’effet critique de vos sorts de soins.",
+     "Augmente de 5 % les chances d’effet critique de vos sorts de soins."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "restorativeTotems",
+   "wowheadId": 104730,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    16187,
+    16187,
+    16187,
+    16187,
+    16187
+   ],
+   "icon": "spell_nature_manaregentotem",
+   "name": {
+    "en": "Restorative Totems",
+    "fr": "Totems de restauration"
+   },
+   "desc": {
+    "en": [
+     "Increases the effect of your Mana Spring Totem by 5% and increases the effect of your Healing Stream Totem by 10%.",
+     "Increases the effect of your Mana Spring Totem by 10% and increases the effect of your Healing Stream Totem by 20%.",
+     "Increases the effect of your Mana Spring Totem by 15% and increases the effect of your Healing Stream Totem by 30%.",
+     "Increases the effect of your Mana Spring Totem by 20% and increases the effect of your Healing Stream Totem by 40%.",
+     "Increases the effect of your Mana Spring Totem by 25% and increases the effect of your Healing Stream Totem by 50%."
+    ],
+    "fr": [
+     "Augmente de 5 % les effets de votre totem Fontaine de mana et de 10 % celui de votre totem guérisseur.",
+     "Augmente de 10 % les effets de votre totem Fontaine de mana et de 20 % celui de votre totem guérisseur.",
+     "Augmente de 15 % les effets de votre totem Fontaine de mana et de 30 % celui de votre totem guérisseur.",
+     "Augmente de 20 % les effets de votre totem Fontaine de mana et de 40 % celui de votre totem guérisseur.",
+     "Augmente de 25 % les effets de votre totem Fontaine de mana et de 50 % celui de votre totem guérisseur."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "manaTideTotem",
+   "wowheadId": 104728,
+   "tree": 2,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    16190
+   ],
+   "icon": "spell_frost_summonwaterelemental",
+   "name": {
+    "en": "Mana Tide Totem",
+    "fr": "Totem de Vague de mana"
+   },
+   "desc": {
+    "en": [
+     "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 88 mana every 3 seconds to group members within 30 yards."
+    ],
+    "fr": [
+     "Invoque un Totem de Vague de mana aux pieds du lanceur de sorts ; le Totem dispose de 5 points de vie. Agit pendant 12 s. Il rend 88 points de mana toutes les 3 secondes, à tous les membres du groupe qui se trouvent dans une zone de 30 mètres."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "healingWay",
+   "wowheadId": 104727,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    29206,
+    29206,
+    29206
+   ],
+   "icon": "spell_nature_healingway",
+   "name": {
+    "en": "Healing Way",
+    "fr": "Flots de soins"
+   },
+   "desc": {
+    "en": [
+     "Increases the amount healed by your Healing Wave spell by 8%.",
+     "Increases the amount healed by your Healing Wave spell by 17%.",
+     "Increases the amount healed by your Healing Wave spell by 25%."
+    ],
+    "fr": [
+     "Augmente le montant de points de vie rendus par votre Vague de soins de 8 %.",
+     "Augmente le montant de points de vie rendus par votre Vague de soins de 17 %.",
+     "Augmente le montant de points de vie rendus par votre Vague de soins de 25 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "naturesSwiftness",
+   "wowheadId": 104726,
+   "tree": 2,
+   "row": 4,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    16188
+   ],
+   "icon": "spell_nature_ravenform",
+   "name": {
+    "en": "Nature's Swiftness",
+    "fr": "Rapidité de la nature"
+   },
+   "desc": {
+    "en": [
+     "When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell."
+    ],
+    "fr": [
+     "Activé, votre prochain sort de Nature dont le temps d'incantation est inférieur à 10 secondes devient un sort instantané."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "purification",
+   "wowheadId": 104725,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    16178,
+    16178,
+    16178,
+    16178,
+    16178
+   ],
+   "icon": "spell_frost_wizardmark",
+   "name": {
+    "en": "Purification",
+    "fr": "Purification"
+   },
+   "desc": {
+    "en": [
+     "Increases the effectiveness of your healing spells by 2%.",
+     "Increases the effectiveness of your healing spells by 4%.",
+     "Increases the effectiveness of your healing spells by 6%.",
+     "Increases the effectiveness of your healing spells by 8%.",
+     "Increases the effectiveness of your healing spells by 10%."
+    ],
+    "fr": [
+     "Augmente de 2 % l’efficacité de vos sorts de soins.",
+     "Augmente de 4 % l’efficacité de vos sorts de soins.",
+     "Augmente de 6 % l’efficacité de vos sorts de soins.",
+     "Augmente de 8 % l’efficacité de vos sorts de soins.",
+     "Augmente de 10 % l’efficacité de vos sorts de soins."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "riptide",
+   "wowheadId": 104724,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    408521
+   ],
+   "icon": "spell_nature_riptide",
+   "name": {
+    "en": "Riptide",
+    "fr": "Remous"
+   },
+   "desc": {
+    "en": [
+     "Heals a friendly target for 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%."
+    ],
+    "fr": [
+     "Rend 445 points de vie à une cible alliée en 15 sec, et augmente l’efficacité de votre sort Salve de guérison de 25 % lorsqu’il est lancé directement sur cette cible."
+    ]
+   },
+   "requires": [
+    {
+     "key": "healingWay",
+     "qty": 3
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "melee": {
+   "id": 6603,
+   "name": {
+    "en": "Attack",
+    "fr": "Attaque"
+   },
+   "tooltip": {
+    "en": "Attack\nInstant",
+    "fr": "Attaque\nInstantanée"
+   },
+   "icon": "temp"
+  },
+  "lightningBolt": {
+   "id": 15208,
+   "name": {
+    "en": "Lightning Bolt",
+    "fr": "Eclair"
+   },
+   "tooltip": {
+    "en": "Lightning Bolt\nLevel 60220 Mana30 yd range2.5 sec castRequires ShamanRequires level 56\nCasts a bolt of lightning at the target for 344 to 383 Nature damage.",
+    "fr": "Eclair\nNiveau 60Mana : 22030 m de portée2.5 s d'incantationRequiert ChamanNiveau 56 requis\nLance un éclair de foudre sur la cible et lui inflige 344 à 383 points de dégâts de Nature."
+   },
+   "icon": "spell_nature_lightning"
+  },
+  "chainLightning": {
+   "id": 10605,
+   "name": {
+    "en": "Chain Lightning",
+    "fr": "Chaîne d'éclairs"
+   },
+   "tooltip": {
+    "en": "Chain Lightning\nLevel 60495 Mana30 yd range2.5 sec cast6 sec cooldownRequires ShamanRequires level 56\nHurls a lightning bolt at the enemy, dealing 498 to 555 Nature damage and then jumping to additional nearby enemies. Each jump reduces the damage by 30%. Affects 3 total targets.",
+    "fr": "Chaîne d'éclairs\nNiveau 60Mana : 49530 m de portée2.5 s d'incantation6 s de rechargeRequiert ChamanNiveau 56 requis\nLance un éclair sur un adversaire qui inflige 498 à 555 points de dégâts de nature et rebondit ensuite sur les adversaires proches. Chaque rebond inflige 30 % de points de dégâts en moins. Le sort frappe 3 cibles au total."
+   },
+   "icon": "spell_nature_chainlightning"
+  },
+  "earthShock": {
+   "id": 10414,
+   "name": {
+    "en": "Earth Shock",
+    "fr": "Horion de terre"
+   },
+   "tooltip": {
+    "en": "Earth Shock\nLevel 60450 Mana20 yd rangeInstant6 sec cooldownRequires ShamanRequires level 60\nInstantly shocks the target with concussive force, causing 534 to 562 Nature damage. It also interrupts spellcasting and prevents any spell in that school from being cast for 2 sec. Causes a high amount of threat.",
+    "fr": "Horion de terre\nNiveau 60Mana : 45020 m de portéeInstantanée6 s de rechargeRequiert ChamanNiveau 60 requis\nFrappe instantanément la cible avec force et inflige 534 à 562 points de dégâts de Nature. Interrompt les incantations de sorts et interdit l'utilisation de sorts de cette école de magie pendant 2 sec. Génère un niveau élevé de menace."
+   },
+   "icon": "spell_nature_earthshock"
+  },
+  "flameShock": {
+   "id": 29228,
+   "name": {
+    "en": "Flame Shock",
+    "fr": "Horion de flammes"
+   },
+   "tooltip": {
+    "en": "Flame Shock\nLevel 60410 Mana20 yd rangeInstant6 sec cooldownRequires ShamanRequires level 60\nInstantly sears the target with fire, causing 319 Fire damage immediately and 320 Fire damage over 12 sec.",
+    "fr": "Horion de flammes\nNiveau 60Mana : 41020 m de portéeInstantanée6 s de rechargeRequiert ChamanNiveau 60 requis\nEnflamme instantanément la cible et lui inflige 319 points de dégâts de Feu immédiatement, puis 320 points de dégâts de Feu en 12 sec."
+   },
+   "icon": "spell_fire_flameshock"
+  },
+  "frostShock": {
+   "id": 10473,
+   "name": {
+    "en": "Frost Shock",
+    "fr": "Horion de givre"
+   },
+   "tooltip": {
+    "en": "Frost Shock\nLevel 60430 Mana20 yd rangeInstant6 sec cooldownRequires ShamanRequires level 58\nInstantly shocks the target with frost, causing 501 to 529 Frost damage and slowing movement speed by 50%. Lasts 8 sec.",
+    "fr": "Horion de givre\nNiveau 60Mana : 43020 m de portéeInstantanée6 s de rechargeRequiert ChamanNiveau 58 requis\nLa cible est frappée instantanément par le givre. Elle subit 501 à 529 points de dégâts de Givre et sa vitesse de déplacement est réduite de 50%. Dure 8 sec."
+   },
+   "icon": "spell_frost_frostshock"
+  },
+  "stormstrike": {
+   "id": 17364,
+   "name": {
+    "en": "Stormstrike",
+    "fr": "Courroux naturel"
+   },
+   "tooltip": {
+    "en": "StormstrikeTalent8% of base manaMelee RangeInstant8 sec cooldownRequires ShamanRequires level 40\nInstantly strike for 100% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
+    "fr": "Courroux naturelTalent8% de la mana de baseAllongeInstantanée8 s de rechargeRequiert ChamanNiveau 40 requis\nInflige instantanément 100 % des dégâts de l’arme et augmente de 20 % les dégâts que vous infligez à la cible avec votre prochain sort Éclair, Chaîne d’éclairs ou Horion de terre pendant 12 sec."
+   },
+   "icon": "ability_shaman_stormstrike"
+  },
+  "windfuryWeapon": {
+   "id": 16362,
+   "name": {
+    "en": "Windfury Weapon",
+    "fr": "Arme Furie-des-vents"
+   },
+   "tooltip": {
+    "en": "Windfury Weapon\nLevel 60165 Mana\nInstantRequires ShamanRequires level 60\nRequires Melee WeaponImbue the Shaman's weapon with wind. Each hit has a 20% chance of granting you 2 extra attacks with 433 extra melee attack power. Lasts for 60 minutes.",
+    "fr": "Arme Furie-des-vents\nNiveau 60Mana : 165\nInstantanéeRequiert ChamanNiveau 60 requis\nRequiert Arme de mêléeImprègne votre arme de la puissance des vents. Chaque coup a 20 % de chances de vous octroyer 2 attaques supplémentaires avec un bonus de 433 à la puissance d’attaque en mêlée. Dure 60 minutes."
+   },
+   "icon": "spell_nature_cyclone"
+  },
+  "flametongueWeapon": {
+   "id": 16342,
+   "name": {
+    "en": "Flametongue Weapon",
+    "fr": "Arme Langue de feu"
+   },
+   "tooltip": {
+    "en": "Flametongue Weapon\nLevel 60155 Mana\nInstantRequires ShamanRequires level 56\nRequires Melee WeaponImbue the Shaman's weapon with fire. Each hit causes (3122 / 77 - 1 + 0) to (3122 / 25 + 0) additional Fire damage, based on the speed of the weapon. Slower weapons cause more fire damage per swing. Lasts for 60 minutes.",
+    "fr": "Arme Langue de feu\nNiveau 60Mana : 155\nInstantanéeRequiert ChamanNiveau 56 requis\nRequiert Arme de mêléeImprègne de feu l’arme du chaman ou de la chamane. Chaque coup inflige de (3122 / 77 - 1 + 0) à (3122 / 25 + 0) points de dégâts de feu supplémentaires, en fonction de la vitesse de l’arme. Les armes plus lentes infligent plus de dégâts de feu à chaque coup. Dure 60 minutes."
+   },
+   "icon": "spell_fire_flametounge"
+  },
+  "rockbiterWeapon": {
+   "id": 16316,
+   "name": {
+    "en": "Rockbiter Weapon",
+    "fr": "Arme Croque-roc"
+   },
+   "tooltip": {
+    "en": "Rockbiter Weapon\nLevel 60150 Mana\nInstantRequires ShamanRequires level 54\nRequires Melee WeaponImbue the Shaman's weapon, increasing melee attack power by 686 and allowing melee attacks to cause additional threat when using that weapon. Lasts for 60 minutes.",
+    "fr": "Arme Croque-roc\nNiveau 60Mana : 150\nInstantanéeRequiert ChamanNiveau 54 requis\nRequiert Arme de mêléeImprègne l’arme du chaman. Augmente sa puissance d’attaque en mêlée de 686 et le niveau de menace généré par ses attaques lorsqu’il utilise cette arme. Dure 60 minutes."
+   },
+   "icon": "spell_nature_rockbiter"
+  },
+  "healingWave": {
+   "id": 25357,
+   "name": {
+    "en": "Healing Wave",
+    "fr": "Vague de soins"
+   },
+   "tooltip": {
+    "en": "Healing Wave\nLevel 60620 Mana40 yd range3 sec castRequires ShamanRequires level 60\nHeals a friendly target for 1535 to 1750.",
+    "fr": "Vague de soins\nNiveau 60Mana : 62040 m de portée3 s d'incantationRequiert ChamanNiveau 60 requis\nRend 1535 à 1750 points de vie à une cible alliée."
+   },
+   "icon": "spell_nature_magicimmunity"
+  },
+  "lesserHealingWave": {
+   "id": 10468,
+   "name": {
+    "en": "Lesser Healing Wave",
+    "fr": "Vague de soins inférieurs"
+   },
+   "tooltip": {
+    "en": "Lesser Healing Wave\nLevel 60380 Mana40 yd range1.5 sec castRequires ShamanRequires level 60\nHeals a friendly target for 796 to 886.",
+    "fr": "Vague de soins inférieurs\nNiveau 60Mana : 38040 m de portée1.5 s d'incantationRequiert ChamanNiveau 60 requis\nRend 796 à 886 points de vie à une cible alliée."
+   },
+   "icon": "spell_nature_healingwavelesser"
+  },
+  "chainHeal": {
+   "id": 10623,
+   "name": {
+    "en": "Chain Heal",
+    "fr": "Salve de guérison"
+   },
+   "tooltip": {
+    "en": "Chain Heal\nLevel 60405 Mana40 yd range2.5 sec castRequires ShamanRequires level 54\nHeals the friendly target for 474 to 539, then jumps to heal additional nearby targets. If cast on a party member, the heal will only jump to other party members. Each jump is 50% as effective as the previous target. Heals 3 total targets.",
+    "fr": "Salve de guérison\nNiveau 60Mana : 40540 m de portée2.5 s d'incantationRequiert ChamanNiveau 54 requis\nRend 474 à 539 points de vie à la cible alliée, puis soigne d’autres personnages alliés proches. Si le sort est jeté sur un membre du groupe, il ne soignera que des membres du groupe. Chaque nouveau soin a pour effet 50 % du soin précédent. Soigne 3 cibles au total."
+   },
+   "icon": "spell_nature_healingwavegreater"
+  },
+  "lightningShield": {
+   "id": 10432,
+   "name": {
+    "en": "Lightning Shield",
+    "fr": "Bouclier de foudre"
+   },
+   "tooltip": {
+    "en": "Lightning Shield\n370 Mana\nInstantRequires ShamanRequires level 56\nThe caster is surrounded by 3 balls of lightning. When a spell, melee or ranged attack hits the caster, the attacker will be struck for 178 Nature damage. This expends one lightning ball. Only one ball will fire every few seconds. Lasts 10 min. (3.5s cooldown)",
+    "fr": "Bouclier de foudre\nMana : 370\nInstantanéeRequiert ChamanNiveau 56 requis\nLe lanceur est entouré de 3 boules de foudre. S'il est touché par une attaque en mêlée ou à distance ou par un sort, une boule s'interpose et explose pour infliger à l'attaquant 178 points de dégâts de Nature. Une seule boule peut exploser toutes les quelques secondes. Dure 10 min. (3.5sec de recharge)"
+   },
+   "icon": "spell_nature_lightningshield"
+  },
+  "manaSpringTotem": {
+   "id": 10497,
+   "name": {
+    "en": "Mana Spring Totem",
+    "fr": "Totem Fontaine de mana"
+   },
+   "tooltip": {
+    "en": "Mana Spring Totem\n100 Mana\nInstantRequires ShamanRequires level 56\nTools:\nWater TotemSummons a Mana Spring Totem with 5 health at the feet of the caster for 5 min that restores 10 mana every 2 seconds to group members within 30 yards.",
+    "fr": "Totem Fontaine de mana\nMana : 100\nInstantanéeRequiert ChamanNiveau 56 requis\nOutils:\nTotem d’eauInvoque un Totem Fontaine de mana aux pieds du lanceur de sorts ; le Totem dispose de 5 points de vie. Agit pendant 5 min. Il rend 10 points de mana toutes les 2 secondes à tous les membres du groupe qui se trouvent dans une zone de 30 mètres."
+   },
+   "icon": "spell_nature_manaregentotem"
+  },
+  "searingTotem": {
+   "id": 10438,
+   "name": {
+    "en": "Searing Totem",
+    "fr": "Totem incendiaire"
+   },
+   "tooltip": {
+    "en": "Searing Totem\n170 Mana\nInstantRequires ShamanRequires level 60\nTools:\nFire TotemSummons a Searing Totem with 5 health at your feet for 55 sec that repeatedly attacks an enemy within 20 yards for 40 to 54 Fire damage.",
+    "fr": "Totem incendiaire\nMana : 170\nInstantanéeRequiert ChamanNiveau 60 requis\nOutils:\nTotem de feuInvoque à vos pieds un Totem incendiaire qui dispose de 5 points de vie. Il reste 55 sec et attaque tous les ennemis qui se trouvent dans un rayon de 20 mètres et inflige 40 à 54 points de dégâts de Feu."
+   },
+   "icon": "spell_fire_searingtotem"
+  },
+  "lightningMastery": {
+   "id": 16166,
+   "name": {
+    "en": "Lightning Mastery",
+    "fr": "Maîtrise de la foudre"
+   },
+   "tooltip": {
+    "en": "Lightning MasteryTalentInstant3 min cooldownRequires ShamanRequires level 1\nGain mastery over Lightning, reducing the cast time of your Lightning Bolt spell by 0.5 sec, and removing the cooldown from your Chain Lightning spell. Lasts 15 sec.",
+    "fr": "Maîtrise de la foudreTalentInstantanée3 min de rechargeRequiert ChamanNiveau 1 requis\nVous maîtrisez la foudre, ce qui réduit le temps d’incantation d’Éclair de 0.5 s et supprime le temps de recharge de Chaîne d’éclairs. Dure 15 sec."
+   },
+   "icon": "spell_nature_unrelentingstorm"
+  },
+  "naturesSwiftness": {
+   "id": 16188,
+   "name": {
+    "en": "Nature's Swiftness",
+    "fr": "Rapidité de la nature"
+   },
+   "tooltip": {
+    "en": "Nature's SwiftnessTalentInstant3 min cooldownRequires ShamanRequires level 1\nWhen activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell.",
+    "fr": "Rapidité de la natureTalentInstantanée3 min de rechargeRequiert ChamanNiveau 1 requis\nActivé, votre prochain sort de Nature dont le temps d'incantation est inférieur à 10 secondes devient un sort instantané."
+   },
+   "icon": "spell_nature_ravenform"
+  },
+  "windfuryTotem": {
+   "id": 10614,
+   "name": {
+    "en": "Windfury Totem",
+    "fr": "Totem Furie-des-vents"
+   },
+   "tooltip": {
+    "en": "Windfury Totem\n250 Mana\nInstantRequires ShamanRequires level 52\nTools:\nAir TotemSummons a Windfury Totem with 5 health at the feet of the caster. The totem enhances the melee attacks of all party or raid members within 30 yards. Each main hand hit has a 20% chance of granting the attacker 1 extra attack with (246 * 1) extra melee attack power. Lasts 5 min.",
+    "fr": "Totem Furie-des-vents\nMana : 250\nInstantanéeRequiert ChamanNiveau 52 requis\nOutils:\nTotem d’airInvoque un totem Furie-des-vents aux pieds du personnage lanceur. Le totem dispose de 5 points de vie et améliore les attaques en mêlée des membres du groupe ou du raid à moins de 30 m. Chaque coup porté par l’arme tenue en main droite a 20 % de chances d’octroyer au personnage attaquant une attaque supplémentaire avec une puissance d’attaque en mêlée accrue de (246 * 1). Dure 5 min."
+   },
+   "icon": "spell_nature_windfury"
+  },
+  "manaTideTotem": {
+   "id": 17359,
+   "name": {
+    "en": "Mana Tide Totem",
+    "fr": "Totem de Vague de mana"
+   },
+   "tooltip": {
+    "en": "Mana Tide Totem\n30 ManaInstant5 min cooldownRequires ShamanRequires level 48\nTools:\nWater TotemSummons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 197 mana every 3 seconds to group members within 30 yards.",
+    "fr": "Totem de Vague de mana\nMana : 30Instantanée5 min de rechargeRequiert ChamanNiveau 48 requis\nOutils:\nTotem d’eauInvoque un Totem de Vague de mana aux pieds du lanceur de sorts ; le Totem dispose de 5 points de vie. Agit pendant 12 s. Il rend 197 points de mana toutes les 3 secondes, à tous les membres du groupe qui se trouvent dans une zone de 30 mètres."
+   },
+   "icon": "spell_frost_summonwaterelemental"
+  }
+ }
+}

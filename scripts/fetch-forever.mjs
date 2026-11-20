@@ -81,6 +81,43 @@ const CLASSES = {
       holyNova: 15431, penance: 1316995, prayerOfMending: 1240827, shadowWordDeath: 1309636,
     },
   },
+  rogue: {
+    trees: [
+      { wid: 182, key: 'assassination', skill: 253 },
+      { wid: 181, key: 'combat', skill: 38 },
+      { wid: 183, key: 'subtlety', skill: 39 },
+    ],
+    spells: {
+      melee: 6603, sinisterStrike: 11294, backstab: 25300, eviscerate: 31016, sliceAndDice: 6774, rupture: 11275,
+      ambush: 11269, garrote: 11290, bladeFlurry: 13877, adrenalineRush: 13750, coldBlood: 14177, exposeArmor: 11198,
+      instantPoison: 11338, deadlyPoison: 25349,
+    },
+  },
+  warrior: {
+    trees: [
+      { wid: 161, key: 'arms', skill: 26 },
+      { wid: 164, key: 'fury', skill: 256 },
+      { wid: 163, key: 'protection', skill: 257 },
+    ],
+    spells: {
+      melee: 6603, heroicStrike: 25286, mortalStrike: 21553, bloodthirst: 23894, whirlwind: 1680, execute: 20662, slam: 11605,
+      overpower: 11585, cleave: 20569, battleShout: 25289, revenge: 25288, shieldSlam: 23925, sunderArmor: 11597, rend: 11574,
+      deathWish: 12328, recklessness: 1719, sweepingStrikes: 12292, bloodrage: 2687, shieldBlock: 2565,
+    },
+  },
+  shaman: {
+    trees: [
+      { wid: 261, key: 'elemental', skill: 375 },
+      { wid: 263, key: 'enhancement', skill: 373 },
+      { wid: 262, key: 'restoration', skill: 374 },
+    ],
+    spells: {
+      melee: 6603, lightningBolt: 15208, chainLightning: 10605, earthShock: 10414, flameShock: 29228, frostShock: 10473,
+      stormstrike: 17364, windfuryWeapon: 16362, flametongueWeapon: 16342, rockbiterWeapon: 16316, healingWave: 25357,
+      lesserHealingWave: 10468, chainHeal: 10623, lightningShield: 10432, manaSpringTotem: 10497, searingTotem: 10438,
+      lightningMastery: 16166, naturesSwiftness: 16188, windfuryTotem: 10614, manaTideTotem: 17359,
+    },
+  },
 };
 
 const get = async (url) => {

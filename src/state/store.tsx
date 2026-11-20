@@ -1,9 +1,12 @@
 import { createContext, useContext, useEffect, useMemo, useReducer, useState, type ReactNode } from 'react';
 import { BUFF_BY_ID, buffVisible, enchantMods, enchantStats, type EnchantRef } from '../data/buffs';
-import { CLASS_BY_ID, DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS, DEFAULT_HUNTER_OPTIONS, type ClassId, type ClassModule } from '../data/classes';
+import { CLASS_BY_ID, DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS, DEFAULT_HUNTER_OPTIONS, DEFAULT_ROGUE_OPTIONS, DEFAULT_SHAMAN_OPTIONS, DEFAULT_WARRIOR_OPTIONS, type ClassId, type ClassModule } from '../data/classes';
 import type { MageOptions, MageRules, MageSpec } from '../data/mage/data';
 import type { PriestOptions, PriestRules, PriestSpec } from '../data/priest/data';
 import type { HunterOptions, HunterRules, HunterSpec } from '../data/hunter/data';
+import type { RogueOptions, RogueRules, RogueSpec } from '../data/rogue/data';
+import type { ShamanOptions, ShamanRules, ShamanSpec } from '../data/shaman/data';
+import type { WarriorOptions, WarriorRules, WarriorSpec } from '../data/warrior/data';
 import type { DruidOptions, DruidRules, DruidSpec } from '../data/druid/data';
 import type { PaladinOptions, PaladinRules, PaladinSpec } from '../data/paladin/data';
 import { parseSetBonus, type ItemSet } from '../data/setBonus';
@@ -12,6 +15,9 @@ import type { DruidSimConfig } from '../engine/druidSim';
 import type { MageSimConfig } from '../engine/mageSim';
 import type { PriestSimConfig } from '../engine/priestSim';
 import type { HunterSimConfig } from '../engine/hunterSim';
+import type { RogueSimConfig } from '../engine/rogueSim';
+import type { ShamanSimConfig } from '../engine/shamanSim';
+import type { WarriorSimConfig } from '../engine/warriorSim';
 import type { PaladinSimConfig } from '../engine/paladinSim';
 import type { StatWeight } from '../engine/simTypes';
 import { pointsInTree, type TalentPoints } from '../engine/talents';
@@ -62,10 +68,16 @@ export interface ProfileData {
   pri: PriestOptions;
   /** Chasseur : familier, tirs, corps à corps de Survie. */
   hun: HunterOptions;
+  /** Voleur : techniques, poisons, temps forts. */
+  rog: RogueOptions;
+  /** Guerrier : rotation, rage, Protection. */
+  war: WarriorOptions;
+  /** Chaman : sorts, arme, soins. */
+  sha: ShamanOptions;
   fightLength: number;
 }
 
-export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'fightLength'];
+export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'rog', 'war', 'sha', 'fightLength'];
 
 export interface Profile {
   id: string;
@@ -139,6 +151,42 @@ export function hunterPreset(spec: string, base: HunterOptions = DEFAULT_HUNTER_
   return { ...base, pet: true };
 }
 
+/** Options de voleur adaptées à la spécialisation (technique de base, type d'arme, Rupture). */
+export function roguePreset(spec: string, base: RogueOptions = DEFAULT_ROGUE_OPTIONS): RogueOptions {
+  if (spec === 'assassination') return { ...base, builder: 'mutilate', weaponType: 'dagger', rupture: false };
+  if (spec === 'subtlety') return { ...base, builder: 'hemorrhage', weaponType: 'dagger', rupture: true };
+  return { ...base, builder: 'sinisterStrike', weaponType: 'sword', rupture: false };
+}
+
+/** Options de guerrier adaptées à la spécialisation. */
+export function warriorPreset(spec: string, base: WarriorOptions = DEFAULT_WARRIOR_OPTIONS): WarriorOptions {
+  if (spec === 'arms') return { ...base, rend: true, slam: true, heroicStrikeRage: 60 };
+  if (spec === 'prot') return { ...base, shield: true, heroicStrikeRage: 40 };
+  return { ...base, rend: false, heroicStrikeRage: 50 };
+}
+
+/** Options de chaman adaptées à la spécialisation. */
+export function shamanPreset(spec: string, base: ShamanOptions = DEFAULT_SHAMAN_OPTIONS): ShamanOptions {
+  if (spec === 'enhancement') return { ...base, shock: 'earthShock', searingTotem: true, chainLightning: false };
+  if (spec === 'elemental') return { ...base, shock: 'flameShock', chainLightning: false };
+  return base;
+}
+
+/** Toutes les options de classe ramenées aux réglages de la spécialisation choisie. */
+export function specPresets(spec: string, state: AppState): Partial<AppState> {
+  return {
+    pal: paladinPreset(spec, state.pal),
+    dru: druidPreset(spec, state.dru),
+    mage: magePreset(spec, state.mage),
+    pri: priestPreset(spec, state.pri),
+    hun: hunterPreset(spec, state.hun),
+    rog: roguePreset(spec, state.rog),
+    war: warriorPreset(spec, state.war),
+    sha: shamanPreset(spec, state.sha),
+    ...warlockPreset(spec, state.rotation, state.buffs),
+  };
+}
+
 const BASE_ROTATION: RotationOptions = { bane: 'agony', corruption: true, immolate: true, siphonLife: true, conflagrate: false, wrack: false, filler: 'shadowBolt', petAttacks: true };
 const BASE_BUFFS: RaidBuffs = { shadowDamagePct: 0, fireDamagePct: 0, sacrificed: 'none', activePet: 'imp', raidIsbUptime: 0 };
 
@@ -163,6 +211,9 @@ export function defaultState(classId: ClassId): AppState {
     mage: magePreset(spec.id),
     pri: priestPreset(spec.id),
     hun: hunterPreset(spec.id),
+    rog: roguePreset(spec.id),
+    war: warriorPreset(spec.id),
+    sha: shamanPreset(spec.id),
     fightLength: 180,
     iterations: 2000,
     rules: cls.defaultRules,
@@ -207,6 +258,9 @@ export function migrate(parsed: Partial<Omit<AppState, 'version'>> & { version?:
     mage: { ...base.mage, ...d.mage },
     pri: { ...base.pri, ...d.pri },
     hun: { ...base.hun, ...d.hun },
+    rog: { ...base.rog, ...d.rog },
+    war: { ...base.war, ...d.war },
+    sha: { ...base.sha, ...d.sha },
   });
   return {
     ...base,
@@ -291,11 +345,12 @@ type GearInput = Pick<AppState, 'items' | 'equipped' | 'extraStats' | 'enchants'
  * Tout ce que le personnage porte et consomme : objets, bonus d'ensemble, enchantements,
  * consommables, buffs et débuffs. Renvoie les stats, les effets de sort et l'arme portée.
  */
-export function computeGear(state: GearInput): { stats: Stats; mods: SimModifiers; sets: ActiveSet[]; weapon: WeaponInfo | null; rangedWeapon: WeaponInfo | null; shield: boolean } {
+export function computeGear(state: GearInput): { stats: Stats; mods: SimModifiers; sets: ActiveSet[]; weapon: WeaponInfo | null; rangedWeapon: WeaponInfo | null; offHandWeapon: WeaponInfo | null; shield: boolean } {
   let stats = addStats(emptyStats(), state.extraStats);
   let mods = emptyMods();
   let weapon: WeaponInfo | null = null;
   let rangedWeapon: WeaponInfo | null = null;
+  let offHandWeapon: WeaponInfo | null = null;
   let shield = false;
   const sets = new Map<number, { set: ItemSet; ids: Set<string> }>();
   for (const [slot, id] of Object.entries(state.equipped)) {
@@ -304,6 +359,7 @@ export function computeGear(state: GearInput): { stats: Stats; mods: SimModifier
     stats = addStats(stats, item.stats);
     if (slot === 'mainHand' && item.weapon) weapon = item.weapon;
     if (slot === 'ranged' && item.weapon) rangedWeapon = item.weapon;
+    if (slot === 'offHand' && item.weapon) offHandWeapon = item.weapon;
     if (slot === 'offHand' && (item.stats.blockValue ?? 0) > 0) shield = true;
     if (item.set) {
       const entry = sets.get(item.set.id) ?? { set: item.set, ids: new Set<string>() };
@@ -336,20 +392,32 @@ export function computeGear(state: GearInput): { stats: Stats; mods: SimModifier
     if (buff.stats) stats = addStats(stats, buff.stats);
     if (buff.mods) mods = mergeMods(mods, buff.mods);
   }
-  return { stats, mods, sets: active, weapon, rangedWeapon, shield };
+  return { stats, mods, sets: active, weapon, rangedWeapon, offHandWeapon, shield };
 }
 
 /** Total des stats (objets, sets, enchantements, consommables, bonus divers). */
 export const gearStats = (state: GearInput): Stats => computeGear(state).stats;
 
-export type AnySimConfig = (SimConfig & { classId?: 'warlock' }) | PaladinSimConfig | DruidSimConfig | MageSimConfig | PriestSimConfig | HunterSimConfig;
+export type AnySimConfig = (SimConfig & { classId?: 'warlock' }) | PaladinSimConfig | DruidSimConfig | MageSimConfig | PriestSimConfig | HunterSimConfig | RogueSimConfig | WarriorSimConfig | ShamanSimConfig;
 
 type ConfigOverrides = Partial<Pick<SimConfig, 'iterations' | 'seed' | 'fightLength'>>;
 
 /** Configuration de simulation de la classe de l'état. */
 export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): AnySimConfig {
-  const { stats, mods, weapon, rangedWeapon, shield } = computeGear(state);
+  const { stats, mods, weapon, rangedWeapon, offHandWeapon, shield } = computeGear(state);
   const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345 };
+  // Main gauche : l'arme portée ; si aucune main n'est équipée, le simulateur prend ses armes par défaut.
+  const offHand = offHandWeapon ?? (state.equipped.offHand || state.equipped.mainHand ? null : undefined);
+  if (state.classId === 'rogue') {
+    return { ...common, classId: 'rogue', spec: state.spec as RogueSpec, rules: state.rules as unknown as RogueRules, options: state.rog, weapon, offHand, ...overrides };
+  }
+  if (state.classId === 'warrior') {
+    const options = { ...state.war, shield: state.war.shield && (shield || !state.equipped.offHand) };
+    return { ...common, classId: 'warrior', spec: state.spec as WarriorSpec, rules: state.rules as unknown as WarriorRules, options, weapon, offHand, ...overrides };
+  }
+  if (state.classId === 'shaman') {
+    return { ...common, classId: 'shaman', spec: state.spec as ShamanSpec, rules: state.rules as unknown as ShamanRules, options: state.sha, weapon, ...overrides };
+  }
   if (state.classId === 'hunter') {
     return { ...common, classId: 'hunter', spec: state.spec as HunterSpec, rules: state.rules as unknown as HunterRules, options: state.hun, weapon: rangedWeapon, meleeWeapon: weapon, ...overrides };
   }

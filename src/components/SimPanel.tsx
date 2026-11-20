@@ -4,6 +4,9 @@ import type { DruidOptions } from '../data/druid/data';
 import type { MageOptions } from '../data/mage/data';
 import type { PriestHealFiller, PriestOptions } from '../data/priest/data';
 import type { HunterOptions } from '../data/hunter/data';
+import type { RogueBuilder, RogueOptions, RogueWeaponType } from '../data/rogue/data';
+import type { ShamanHealFiller, ShamanOptions, ShamanShock } from '../data/shaman/data';
+import type { WarriorOptions, WarriorWeaponType } from '../data/warrior/data';
 import type { PaladinOptions, PaladinSeal } from '../data/paladin/data';
 import { runSim } from '../engine/simClient';
 import type { SimResult } from '../engine/simTypes';
@@ -62,7 +65,7 @@ export function SimPanel() {
           <NumberField label={t('duration')} value={state.fightLength} min={10} onChange={(v) => set({ fightLength: Math.max(10, v), weights: null })} />
           <NumberField label={t('iterations')} value={state.iterations} min={50} step={100} onChange={(v) => set({ iterations: Math.max(50, Math.min(50000, v)), weights: null })} />
         </div>
-        {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : cls.id === 'hunter' ? <HunterOptionsPanel /> : <WarlockOptions />}
+        {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : cls.id === 'hunter' ? <HunterOptionsPanel /> : cls.id === 'rogue' ? <RogueOptionsPanel /> : cls.id === 'warrior' ? <WarriorOptionsPanel /> : cls.id === 'shaman' ? <ShamanOptionsPanel /> : <WarlockOptions />}
         <p className="small muted">{t('buffsElsewhere')}</p>
         <button className="btn" onClick={run} disabled={running}>{running ? t('simulating') : t('runSim')}</button>
         {error && <p className="bad small">{error}</p>}
@@ -360,6 +363,197 @@ function PriestOptionsPanel() {
       )}
       {common}
       <p className="small muted">{t(state.spec === 'disc' ? 'priDiscNote' : 'priHolyNote')}</p>
+    </>
+  );
+}
+
+function RogueOptionsPanel() {
+  const { state, set, cls } = useStore();
+  const { t, L } = useI18n();
+  const o = state.rog;
+  const setO = (patch: Partial<RogueOptions>) => set({ rog: { ...o, ...patch }, weights: null });
+  const has = (k: string) => rank(state.talents, k) > 0;
+  const gear = computeGear(state);
+  const box = (key: keyof RogueOptions, label: React.ReactNode, ok = true) => (
+    <label className={`check ${ok ? '' : 'muted'}`}>
+      <input type="checkbox" disabled={!ok} checked={!!o[key] && ok} onChange={(e) => setO({ [key]: e.target.checked })} />
+      {label} {!ok && t('talentRequired')}
+    </label>
+  );
+  const builders: RogueBuilder[] = ['sinisterStrike', 'backstab', 'mutilate', 'hemorrhage'];
+  const types: RogueWeaponType[] = ['dagger', 'sword', 'mace', 'fist'];
+  return (
+    <>
+      <h3>{t('rotation')}</h3>
+      <div className="row">
+        <label className="field">
+          {t('rogBuilder')}
+          <select value={o.builder} onChange={(e) => setO({ builder: e.target.value as RogueBuilder })}>
+            {builders.map((id) => (
+              <option key={id} value={id} disabled={(id === 'mutilate' || id === 'hemorrhage') && !has(id)}>{L(cls.data.spellMeta[id]?.name)}</option>
+            ))}
+          </select>
+        </label>
+        <label className="field">
+          {t('rogWeaponType')}
+          <select value={o.weaponType} onChange={(e) => setO({ weaponType: e.target.value as RogueWeaponType })}>
+            {types.map((id) => (
+              <option key={id} value={id}>{t(`weapon_${id}` as TKey)}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <NumberField label={t('rogFinisherCp')} value={o.finisherCp} min={1} max={5} onChange={(v) => setO({ finisherCp: Math.max(1, Math.min(5, v)) })} />
+      {box('sliceAndDice', <SpellName id="sliceAndDice" />)}
+      {box('rupture', <SpellName id="rupture" />)}
+      {box('shank', <SpellName id="shank" />)}
+      {box('coldBlood', <SpellName id="coldBlood" />, has('coldBlood'))}
+      {box('bladeFlurry', <SpellName id="bladeFlurry" />, has('bladeFlurry'))}
+      {box('adrenalineRush', <SpellName id="adrenalineRush" />, has('adrenalineRush'))}
+      {box('instantPoison', <SpellName id="instantPoison" />)}
+      {box('deadlyPoison', <SpellName id="deadlyPoison" />)}
+      {!gear.weapon && <p className="small warn">{t('rogNoWeapon')}</p>}
+      {gear.weapon && !gear.offHandWeapon && <p className="small warn">{t('rogNoOffHand')}</p>}
+      <p className="small muted">{t(`rogNote_${state.spec}` as TKey)}</p>
+    </>
+  );
+}
+
+function WarriorOptionsPanel() {
+  const { state, set } = useStore();
+  const { t } = useI18n();
+  const o = state.war;
+  const setO = (patch: Partial<WarriorOptions>) => set({ war: { ...o, ...patch }, weights: null });
+  const has = (k: string) => rank(state.talents, k) > 0;
+  const gear = computeGear(state);
+  const box = (key: keyof WarriorOptions, label: React.ReactNode, ok = true) => (
+    <label className={`check ${ok ? '' : 'muted'}`}>
+      <input type="checkbox" disabled={!ok} checked={!!o[key] && ok} onChange={(e) => setO({ [key]: e.target.checked })} />
+      {label} {!ok && t('talentRequired')}
+    </label>
+  );
+  const types: WarriorWeaponType[] = ['axe', 'sword', 'mace'];
+  const spec = state.spec;
+  return (
+    <>
+      <h3>{t('rotation')}</h3>
+      <div className="row">
+        <label className="field">
+          {t('rogWeaponType')}
+          <select value={o.weaponType} onChange={(e) => setO({ weaponType: e.target.value as WarriorWeaponType })}>
+            {types.map((id) => (
+              <option key={id} value={id}>{t(`weapon_${id}` as TKey)}</option>
+            ))}
+          </select>
+        </label>
+        <NumberField label={t('warHsRage')} value={o.heroicStrikeRage} min={0} max={100} step={5} onChange={(v) => setO({ heroicStrikeRage: Math.max(0, Math.min(100, v)) })} />
+      </div>
+      {box('heroicStrike', <SpellName id="heroicStrike" />)}
+      {spec === 'prot' ? (
+        <>
+          {box('shield', t('warShield'))}
+          {box('revenge', <SpellName id="revenge" />)}
+          {box('sunderArmor', <SpellName id="sunderArmor" />)}
+        </>
+      ) : (
+        <>
+          {spec === 'arms' && box('slam', <SpellName id="slam" />)}
+          {spec === 'arms' && box('overpower', <SpellName id="overpower" />)}
+          {spec === 'arms' && box('rend', <SpellName id="rend" />)}
+          {spec === 'fury' && box('whirlwind', <SpellName id="whirlwind" />)}
+          {box('execute', <SpellName id="execute" />)}
+          {box('deathWish', <SpellName id="deathWish" />, has('deathWish'))}
+          {spec === 'fury' && box('recklessness', <SpellName id="recklessness" />)}
+          {spec === 'fury' && box('berserkerRage', <SpellName id="berserkerRage" />, has('improvedBerserkerRage'))}
+        </>
+      )}
+      {box('recklessSwings', <SpellName id="recklessSwings" />, has('recklessSwings'))}
+      {box('bloodrage', <SpellName id="bloodrage" />)}
+      {!gear.weapon && <p className="small warn">{t('warNoWeapon')}</p>}
+      {spec === 'fury' && gear.weapon && !gear.offHandWeapon && <p className="small warn">{t('warNoOffHand')}</p>}
+      <p className="small muted">{t(`warNote_${spec}` as TKey)}</p>
+    </>
+  );
+}
+
+function ShamanOptionsPanel() {
+  const { state, set, cls } = useStore();
+  const { t, L } = useI18n();
+  const o = state.sha;
+  const setO = (patch: Partial<ShamanOptions>) => set({ sha: { ...o, ...patch }, weights: null });
+  const has = (k: string) => rank(state.talents, k) > 0;
+  const gear = computeGear(state);
+  const box = (key: keyof ShamanOptions, label: React.ReactNode, ok = true) => (
+    <label className={`check ${ok ? '' : 'muted'}`}>
+      <input type="checkbox" disabled={!ok} checked={!!o[key] && ok} onChange={(e) => setO({ [key]: e.target.checked })} />
+      {label} {!ok && t('talentRequired')}
+    </label>
+  );
+  const spec = state.spec;
+  if (spec === 'resto') {
+    const fillers: ShamanHealFiller[] = ['chainHeal', 'healingWave', 'lesserHealingWave'];
+    return (
+      <>
+        <h3>{t('palHealing')}</h3>
+        <div className="row">
+          <NumberField label={t('palActivity')} value={o.activityPct} min={5} max={100} step={5} onChange={(v) => setO({ activityPct: Math.max(5, Math.min(100, v)) })} />
+          <NumberField label={t('palOverheal')} value={o.overhealPct} min={0} max={90} step={5} onChange={(v) => setO({ overhealPct: Math.max(0, Math.min(90, v)) })} />
+        </div>
+        <label className="field">
+          {t('filler')}
+          <select value={o.healFiller} onChange={(e) => setO({ healFiller: e.target.value as ShamanHealFiller })}>
+            {fillers.map((id) => (
+              <option key={id} value={id}>{L(cls.data.spellMeta[id]?.name)}</option>
+            ))}
+          </select>
+        </label>
+        {o.healFiller === 'chainHeal' && (
+          <NumberField label={t('shaChainTargets')} value={o.chainHealTargets} min={1} max={3} onChange={(v) => setO({ chainHealTargets: Math.max(1, Math.min(3, v)) })} />
+        )}
+        {box('riptide', <SpellName id="riptide" />, has('riptide'))}
+        {box('naturesSwiftness', <SpellName id="naturesSwiftness" />, has('naturesSwiftness'))}
+        {box('manaTide', <SpellName id="manaTideTotem" />, has('manaTideTotem'))}
+        {box('waterShield', <SpellName id="waterShield" />, has('waterShield'))}
+        {box('manaPotions', t('palManaPotions'))}
+        <p className="small muted">{t('shaNote_resto')}</p>
+      </>
+    );
+  }
+  const shocks: ShamanShock[] = ['earthShock', 'flameShock', 'frostShock', 'none'];
+  return (
+    <>
+      <h3>{t('rotation')}</h3>
+      <label className="field">
+        {t('shaShock')}
+        <select value={o.shock} onChange={(e) => setO({ shock: e.target.value as ShamanShock })}>
+          {shocks.map((id) => (
+            <option key={id} value={id}>{id === 'none' ? t('hunNone') : L(cls.data.spellMeta[id]?.name)}</option>
+          ))}
+        </select>
+      </label>
+      {spec === 'enhancement' ? (
+        <>
+          <label className="field">
+            {t('shaImbue')}
+            <select value={o.imbue} onChange={(e) => setO({ imbue: e.target.value as ShamanOptions['imbue'] })}>
+              <option value="windfury">{L(cls.data.spellMeta.windfuryWeapon?.name)}</option>
+              <option value="rockbiter">{L(cls.data.spellMeta.rockbiterWeapon?.name)}</option>
+            </select>
+          </label>
+          {box('stormstrike', <SpellName id="stormstrike" />, has('stormstrike'))}
+          {box('maelstromBolt', t('shaMaelstrom'), has('maelstromWeapon'))}
+          {box('rageOfTheFarseer', <SpellName id="rageOfTheFarseer" />, has('rageOfTheFarseer'))}
+          {!gear.weapon && <p className="small warn">{t('shaNoWeapon')}</p>}
+        </>
+      ) : (
+        <>
+          {box('chainLightning', <SpellName id="chainLightning" />)}
+          {box('lightningMastery', <SpellName id="lightningMastery" />, has('lightningMastery'))}
+        </>
+      )}
+      {box('searingTotem', <SpellName id="searingTotem" />)}
+      {box('manaPotions', t('palManaPotions'))}
+      <p className="small muted">{t(`shaNote_${spec}` as TKey)}</p>
     </>
   );
 }

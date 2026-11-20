@@ -2,13 +2,16 @@ import { DEFAULT_DRUID_OPTIONS, DRUID_DATA, DRUID_DEFAULT_TALENTS, DRUID_RULE_FI
 import { DEFAULT_MAGE_OPTIONS, MAGE_DATA, MAGE_DEFAULT_TALENTS, MAGE_RULE_FIELDS, MAGE_RULES, MAGE_SPELLS } from './mage/data';
 import { DEFAULT_HUNTER_OPTIONS, HUNTER_DATA, HUNTER_DEFAULT_TALENTS, HUNTER_RULE_FIELDS, HUNTER_RULES, HUNTER_SPELLS } from './hunter/data';
 import { DEFAULT_PRIEST_OPTIONS, PRIEST_DATA, PRIEST_DEFAULT_TALENTS, PRIEST_RULE_FIELDS, PRIEST_RULES, PRIEST_SPELLS } from './priest/data';
+import { DEFAULT_ROGUE_OPTIONS, ROGUE_DATA, ROGUE_DEFAULT_TALENTS, ROGUE_RULE_FIELDS, ROGUE_RULES, ROGUE_SPELLS } from './rogue/data';
+import { DEFAULT_SHAMAN_OPTIONS, SHAMAN_DATA, SHAMAN_DEFAULT_TALENTS, SHAMAN_RULE_FIELDS, SHAMAN_RULES, SHAMAN_SPELLS } from './shaman/data';
+import { DEFAULT_WARRIOR_OPTIONS, WARRIOR_DATA, WARRIOR_DEFAULT_TALENTS, WARRIOR_RULE_FIELDS, WARRIOR_RULES, WARRIOR_SPELLS } from './warrior/data';
 import { DEFAULT_PALADIN_OPTIONS, PALADIN_DATA, PALADIN_DEFAULT_TALENTS, PALADIN_RULE_FIELDS, PALADIN_RULES, PALADIN_SPELLS } from './paladin/data';
 import type { TalentData } from './talentData';
 import { emptyStats, type Localized, type SpellDef, type Stats } from './types';
 import { DEFAULT_RULES, WARLOCK_SPELLS } from './warlock/spells';
 import { WARLOCK_DATA } from './warlock/talents';
 
-export type ClassId = 'warlock' | 'paladin' | 'druid' | 'mage' | 'priest' | 'hunter';
+export type ClassId = 'warlock' | 'paladin' | 'druid' | 'mage' | 'priest' | 'hunter' | 'rogue' | 'warrior' | 'shaman';
 export type Metric = 'dps' | 'hps' | 'tps';
 
 export interface SpecDef {
@@ -209,8 +212,74 @@ export const HUNTER: ClassModule = {
   defaultExtraStats: { ...emptyStats(), agility: 180, attackPower: 200, strength: 40, critPct: 3, hitPct: 4, intellect: 90, spirit: 40, stamina: 150, mp5: 5 },
 };
 
-export const CLASSES: ClassModule[] = [WARLOCK, PALADIN, DRUID, MAGE, PRIEST, HUNTER];
-export const CLASS_BY_ID: Record<ClassId, ClassModule> = { warlock: WARLOCK, paladin: PALADIN, druid: DRUID, mage: MAGE, priest: PRIEST, hunter: HUNTER };
+export const ROGUE: ClassModule = {
+  id: 'rogue',
+  blizzardClassId: 4,
+  name: { fr: 'Voleur', en: 'Rogue' },
+  icon: 'classicon_rogue',
+  color: '#fff569',
+  data: ROGUE_DATA,
+  trees: ROGUE_DATA.trees,
+  talents: ROGUE_DATA.talents,
+  spells: ROGUE_SPELLS,
+  defaultRules: ROGUE_RULES,
+  ruleFields: ROGUE_RULE_FIELDS,
+  ruleBooleans: [],
+  specs: [
+    { tree: 0, id: 'assassination', name: { fr: 'Assassinat', en: 'Assassination' }, icon: 'ability_rogue_eviscerate', metric: 'dps', defaultTalents: ROGUE_DEFAULT_TALENTS.assassination },
+    { tree: 1, id: 'combat', name: { fr: 'Combat', en: 'Combat' }, icon: 'ability_backstab', metric: 'dps', defaultTalents: ROGUE_DEFAULT_TALENTS.combat },
+    { tree: 2, id: 'subtlety', name: { fr: 'Finesse', en: 'Subtlety' }, icon: 'ability_stealth', metric: 'dps', defaultTalents: ROGUE_DEFAULT_TALENTS.subtlety },
+  ],
+  statKeys: ['agility', 'attackPower', 'strength', 'critPct', 'hitPct', 'stamina', 'armor'],
+  defaultExtraStats: { ...emptyStats(), agility: 250, attackPower: 250, strength: 80, critPct: 4, hitPct: 5, stamina: 150 },
+};
+
+export const WARRIOR: ClassModule = {
+  id: 'warrior',
+  blizzardClassId: 1,
+  name: { fr: 'Guerrier', en: 'Warrior' },
+  icon: 'classicon_warrior',
+  color: '#c79c6e',
+  data: WARRIOR_DATA,
+  trees: WARRIOR_DATA.trees,
+  talents: WARRIOR_DATA.talents,
+  spells: WARRIOR_SPELLS,
+  defaultRules: WARRIOR_RULES,
+  ruleFields: WARRIOR_RULE_FIELDS,
+  ruleBooleans: [],
+  specs: [
+    { tree: 0, id: 'arms', name: { fr: 'Armes', en: 'Arms' }, icon: 'ability_warrior_savageblow', metric: 'dps', defaultTalents: WARRIOR_DEFAULT_TALENTS.arms },
+    { tree: 1, id: 'fury', name: { fr: 'Fureur', en: 'Fury' }, icon: 'ability_warrior_innerrage', metric: 'dps', defaultTalents: WARRIOR_DEFAULT_TALENTS.fury },
+    { tree: 2, id: 'prot', name: { fr: 'Protection', en: 'Protection' }, icon: 'ability_warrior_defensivestance', metric: 'tps', defaultTalents: WARRIOR_DEFAULT_TALENTS.prot },
+  ],
+  statKeys: ['strength', 'attackPower', 'agility', 'critPct', 'hitPct', 'stamina', 'armor', 'defense', 'dodgePct', 'parryPct', 'blockPct', 'blockValue'],
+  defaultExtraStats: { ...emptyStats(), strength: 250, attackPower: 150, agility: 120, critPct: 4, hitPct: 5, stamina: 200, armor: 4000 },
+};
+
+export const SHAMAN: ClassModule = {
+  id: 'shaman',
+  blizzardClassId: 7,
+  name: { fr: 'Chaman', en: 'Shaman' },
+  icon: 'classicon_shaman',
+  color: '#0070de',
+  data: SHAMAN_DATA,
+  trees: SHAMAN_DATA.trees,
+  talents: SHAMAN_DATA.talents,
+  spells: SHAMAN_SPELLS,
+  defaultRules: SHAMAN_RULES,
+  ruleFields: SHAMAN_RULE_FIELDS,
+  ruleBooleans: [],
+  specs: [
+    { tree: 0, id: 'elemental', name: { fr: 'Élémentaire', en: 'Elemental' }, icon: 'spell_nature_lightning', metric: 'dps', defaultTalents: SHAMAN_DEFAULT_TALENTS.elemental },
+    { tree: 1, id: 'enhancement', name: { fr: 'Amélioration', en: 'Enhancement' }, icon: 'spell_nature_lightningshield', metric: 'dps', defaultTalents: SHAMAN_DEFAULT_TALENTS.enhancement },
+    { tree: 2, id: 'resto', name: { fr: 'Restauration', en: 'Restoration' }, icon: 'spell_nature_magicimmunity', metric: 'hps', defaultTalents: SHAMAN_DEFAULT_TALENTS.resto },
+  ],
+  statKeys: ['spellPower', 'firePower', 'healingPower', 'attackPower', 'strength', 'agility', 'critPct', 'hitPct', 'intellect', 'spirit', 'stamina', 'mp5'],
+  defaultExtraStats: { ...emptyStats(), spellPower: 100, healingPower: 100, attackPower: 100, strength: 100, agility: 60, critPct: 3, hitPct: 3, intellect: 120, spirit: 60, stamina: 120, mp5: 5 },
+};
+
+export const CLASSES: ClassModule[] = [WARLOCK, PALADIN, DRUID, MAGE, PRIEST, HUNTER, ROGUE, WARRIOR, SHAMAN];
+export const CLASS_BY_ID: Record<ClassId, ClassModule> = { warlock: WARLOCK, paladin: PALADIN, druid: DRUID, mage: MAGE, priest: PRIEST, hunter: HUNTER, rogue: ROGUE, warrior: WARRIOR, shaman: SHAMAN };
 export const CLASS_BY_BLIZZARD_ID = new Map(CLASSES.map((c) => [c.blizzardClassId, c]));
 
-export { DEFAULT_DRUID_OPTIONS, DEFAULT_HUNTER_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS };
+export { DEFAULT_DRUID_OPTIONS, DEFAULT_HUNTER_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS, DEFAULT_ROGUE_OPTIONS, DEFAULT_SHAMAN_OPTIONS, DEFAULT_WARRIOR_OPTIONS };

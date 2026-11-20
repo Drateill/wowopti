@@ -21,16 +21,18 @@ export interface BuffDef {
 }
 
 const magic10 = { 'school:shadow': 1.1, 'school:fire': 1.1, 'school:holy': 1.1, 'school:arcane': 1.1, 'school:nature': 1.1 };
-const CASTER_DMG = ['warlock', 'mage', 'priest:shadow', 'paladin:ret', 'paladin:prot', 'druid:balance'];
-const MANA_USERS = ['warlock', 'mage', 'priest', 'hunter', 'paladin', 'druid:balance', 'druid:resto'];
-const CASTERS = ['warlock', 'mage', 'priest:shadow', 'druid:balance'];
-const HEALER = ['paladin:holy', 'druid:resto', 'priest:disc', 'priest:holy'];
+const CASTER_DMG = ['warlock', 'mage', 'priest:shadow', 'paladin:ret', 'paladin:prot', 'druid:balance', 'shaman:elemental'];
+const MANA_USERS = ['warlock', 'mage', 'priest', 'hunter', 'paladin', 'druid:balance', 'druid:resto', 'shaman'];
+const CASTERS = ['warlock', 'mage', 'priest:shadow', 'druid:balance', 'shaman:elemental'];
+const HEALER = ['paladin:holy', 'druid:resto', 'priest:disc', 'priest:holy', 'shaman:resto'];
 const PAL_MELEE = ['paladin:ret', 'paladin:prot'];
 const FERAL = ['druid:cat', 'druid:bear'];
-const MELEE = [...PAL_MELEE, ...FERAL, 'hunter:surv'];
+const MELEE = [...PAL_MELEE, ...FERAL, 'hunter:surv', 'rogue', 'warrior', 'shaman:enhancement'];
+/** Corps à corps qui portent une arme (pierres à aiguiser, hâte, caractéristiques). */
+const WEAPON_USERS = [...PAL_MELEE, 'hunter:surv', 'rogue', 'warrior', 'shaman:enhancement'];
 /** Effets utiles aussi à distance (agilité, critique, armure de la cible, puissance d'attaque générale). */
 const PHYSICAL = [...MELEE, 'hunter'];
-const TANK = ['paladin:prot', 'druid:bear'];
+const TANK = ['paladin:prot', 'druid:bear', 'warrior:prot'];
 
 /** Le buff concerne-t-il cette classe et cette spécialisation ? */
 export const buffVisible = (b: { for?: string[] }, classId: string, spec: string) =>
@@ -81,26 +83,26 @@ BUFFS.push(
   { id: 'dumplings', for: MELEE, kind: 'consumable', group: 'food', name: { en: 'Smoked Desert Dumplings', fr: 'Boulettes fumées du désert' }, icon: 'inv_misc_food_64', wowhead: { type: 'item', id: 20452 }, stats: { strength: 20 } },
   { id: 'grilledSquid', for: PHYSICAL, kind: 'consumable', group: 'food', name: { en: 'Grilled Squid', fr: 'Calmar grillé' }, icon: 'inv_misc_fish_13', wowhead: { type: 'item', id: 13928 }, stats: { critPct: 1 } },
   { id: 'sunfruit', for: MELEE, kind: 'consumable', group: 'food', name: { en: 'Blessed Sunfruit', fr: 'Fruit solaire béni' }, icon: 'inv_misc_food_41', wowhead: { type: 'item', id: 13810 }, stats: { strength: 10 } },
-  { id: 'elementalStone', for: [...PAL_MELEE, 'hunter:surv'], kind: 'consumable', group: 'weapon', name: { en: 'Elemental Sharpening Stone', fr: 'Pierre à aiguiser élémentaire' }, icon: 'inv_stone_02', wowhead: { type: 'item', id: 18262 }, stats: { critPct: 2 } },
-  { id: 'denseStone', for: [...PAL_MELEE, 'hunter:surv'], kind: 'consumable', group: 'weapon', name: { en: 'Dense Sharpening Stone', fr: 'Pierre à aiguiser dense' }, icon: 'inv_stone_sharpeningstone_05', wowhead: { type: 'item', id: 12404 }, mods: { weaponDamage: 8 } },
+  { id: 'elementalStone', for: WEAPON_USERS, kind: 'consumable', group: 'weapon', name: { en: 'Elemental Sharpening Stone', fr: 'Pierre à aiguiser élémentaire' }, icon: 'inv_stone_02', wowhead: { type: 'item', id: 18262 }, stats: { critPct: 2 } },
+  { id: 'denseStone', for: WEAPON_USERS, kind: 'consumable', group: 'weapon', name: { en: 'Dense Sharpening Stone', fr: 'Pierre à aiguiser dense' }, icon: 'inv_stone_sharpeningstone_05', wowhead: { type: 'item', id: 12404 }, mods: { weaponDamage: 8 } },
   { id: 'flaskTitans', for: TANK, kind: 'consumable', group: 'flask', name: { en: 'Flask of the Titans', fr: 'Flacon des Titans' }, icon: 'inv_potion_62', wowhead: { type: 'item', id: 13510 }, mods: { maxHealth: 1200 } },
   { id: 'greaterDefense', for: TANK, kind: 'consumable', group: 'guardianElixir', name: { en: 'Elixir of Greater Defense', fr: 'Élixir de défense supérieure' }, icon: 'inv_potion_66', wowhead: { type: 'item', id: 13445 }, stats: { armor: 450 } },
   { id: 'rumsey', for: TANK, kind: 'consumable', group: 'drink', name: { en: 'Rumsey Rum Black Label', fr: 'Rhum de Rumsey label noir' }, icon: 'inv_drink_04', wowhead: { type: 'item', id: 21151 }, stats: { stamina: 15 } },
 
   { id: 'battleShout', for: MELEE, kind: 'raid', name: { en: 'Battle Shout', fr: 'Cri de guerre' }, icon: 'ability_warrior_battleshout', wowhead: { type: 'spell', id: 25289 }, stats: { attackPower: 140 } },
   { id: 'blessingOfMight', for: MELEE, kind: 'raid', group: 'blessingMight', name: { en: 'Blessing of Might', fr: 'Bénédiction de puissance' }, icon: 'spell_holy_fistofjustice', wowhead: { type: 'spell', id: 25291 }, stats: { attackPower: 133 } },
-  { id: 'blessingOfWisdom', for: ['paladin', 'priest', 'druid:balance', 'druid:resto'], kind: 'raid', name: { en: 'Blessing of Wisdom', fr: 'Bénédiction de sagesse' }, icon: 'spell_holy_sealofwisdom', wowhead: { type: 'spell', id: 25290 }, stats: { mp5: 40 } },
+  { id: 'blessingOfWisdom', for: ['paladin', 'priest', 'druid:balance', 'druid:resto', 'shaman'], kind: 'raid', name: { en: 'Blessing of Wisdom', fr: 'Bénédiction de sagesse' }, icon: 'spell_holy_sealofwisdom', wowhead: { type: 'spell', id: 25290 }, stats: { mp5: 40 } },
   {
-    id: 'leaderOfThePack', for: [...PAL_MELEE, 'hunter'], kind: 'raid', name: { en: 'Leader of the Pack', fr: 'Chef de la meute' }, icon: 'spell_nature_unyeildingstamina', wowhead: { type: 'spell', id: 24932 }, stats: { critPct: 3 },
+    id: 'leaderOfThePack', for: [...WEAPON_USERS, 'hunter'], kind: 'raid', name: { en: 'Leader of the Pack', fr: 'Chef de la meute' }, icon: 'spell_nature_unyeildingstamina', wowhead: { type: 'spell', id: 24932 }, stats: { critPct: 3 },
     note: { en: '+3% crit (value from the Forever druid talent).', fr: '+3 % de critique (valeur du talent de druide Forever).' },
   },
   { id: 'strengthOfEarth', for: MELEE, kind: 'raid', name: { en: 'Strength of Earth Totem', fr: 'Totem de Force de la Terre' }, icon: 'spell_nature_earthbindtotem', wowhead: { type: 'spell', id: 25361 }, stats: { strength: 53 } },
   { id: 'fortitude', for: TANK, kind: 'raid', name: { en: 'Power Word: Fortitude', fr: 'Mot de pouvoir : Robustesse' }, icon: 'spell_holy_wordfortitude', wowhead: { type: 'spell', id: 10938 }, stats: { stamina: 70 } },
 
-  { id: 'fengus', for: ['paladin', 'druid'], kind: 'world', name: { en: 'Fengus’ Ferocity', fr: 'Férocité de Fengus' }, icon: 'spell_nature_undyingstrength', wowhead: { type: 'spell', id: 22817 }, stats: { attackPower: 200, spellPower: 230 } },
+  { id: 'fengus', for: ['paladin', 'druid', 'rogue', 'warrior', 'shaman'], kind: 'world', name: { en: 'Fengus’ Ferocity', fr: 'Férocité de Fengus' }, icon: 'spell_nature_undyingstrength', wowhead: { type: 'spell', id: 22817 }, stats: { attackPower: 200, spellPower: 230 } },
   { id: 'moldar', for: TANK, kind: 'world', name: { en: 'Mol’dar’s Moxie', fr: 'Détermination de Mol’dar' }, icon: 'spell_nature_massteleport', wowhead: { type: 'spell', id: 22818 }, mods: { staminaMult: 1.15 } },
   {
-    id: 'warchief', for: ['paladin', 'druid'], kind: 'world', name: { en: 'Warchief’s Blessing', fr: 'Bénédiction du chef de guerre' }, icon: 'spell_arcane_teleportorgrimmar', wowhead: { type: 'spell', id: 16609 },
+    id: 'warchief', for: ['paladin', 'druid', 'rogue', 'warrior', 'shaman'], kind: 'world', name: { en: 'Warchief’s Blessing', fr: 'Bénédiction du chef de guerre' }, icon: 'spell_arcane_teleportorgrimmar', wowhead: { type: 'spell', id: 16609 },
     stats: { mp5: 10 }, mods: { hastePct: 15, maxHealth: 300 },
   },
 
@@ -123,17 +125,17 @@ export interface EnchantDef {
 }
 
 export const ENCHANTS: EnchantDef[] = [
-  { id: 'arcanumFocus', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'head', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
-  { id: 'arcanumFocusLegs', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'legs', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
-  { id: 'signetMojo', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'shoulders', name: { en: 'Zandalar Signet of Mojo', fr: 'Cachet de mojo zandalar' }, wowhead: { type: 'item', id: 20076 }, stats: { spellPower: 18 } },
-  { id: 'powerScourge', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'shoulders', name: { en: 'Power of the Scourge', fr: 'Puissance du Fléau' }, wowhead: { type: 'item', id: 23545 }, stats: { spellPower: 15, critPct: 1 } },
+  { id: 'arcanumFocus', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'head', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
+  { id: 'arcanumFocusLegs', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'legs', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
+  { id: 'signetMojo', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'shoulders', name: { en: 'Zandalar Signet of Mojo', fr: 'Cachet de mojo zandalar' }, wowhead: { type: 'item', id: 20076 }, stats: { spellPower: 18 } },
+  { id: 'powerScourge', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'shoulders', name: { en: 'Power of the Scourge', fr: 'Puissance du Fléau' }, wowhead: { type: 'item', id: 23545 }, stats: { spellPower: 15, critPct: 1 } },
   { id: 'chestStats', for: ['warlock', 'mage', 'priest'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { intellect: 4, spirit: 4, stamina: 4 } },
-  { id: 'chestInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'chest', name: { en: 'Major Intellect', fr: 'Intelligence majeure' }, wowhead: { type: 'spell', id: 20028 }, stats: { intellect: 10 } },
-  { id: 'wristInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'wrist', name: { en: 'Greater Intellect', fr: 'Intelligence supérieure' }, wowhead: { type: 'spell', id: 20008 }, stats: { intellect: 7 } },
+  { id: 'chestInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'chest', name: { en: 'Major Intellect', fr: 'Intelligence majeure' }, wowhead: { type: 'spell', id: 20028 }, stats: { intellect: 10 } },
+  { id: 'wristInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'wrist', name: { en: 'Greater Intellect', fr: 'Intelligence supérieure' }, wowhead: { type: 'spell', id: 20008 }, stats: { intellect: 7 } },
   { id: 'glovesFire', for: ['warlock', 'mage:fire'], slot: 'hands', name: { en: 'Fire Power', fr: 'Puissance du feu' }, wowhead: { type: 'spell', id: 25078 }, stats: { firePower: 20 } },
-  { id: 'weaponSp', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: 'Spell Power', fr: 'Puissance des sorts' }, wowhead: { type: 'spell', id: 22749 }, stats: { spellPower: 30 } },
-  { id: 'weapon2hSp', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: '2H Mighty Spell Power', fr: '2M Puissance des sorts renforcée' }, wowhead: { type: 'spell', id: 1248607 }, stats: { spellPower: 55 } },
-  { id: 'weaponInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: 'Mighty Intellect', fr: 'Intelligence renforcée' }, wowhead: { type: 'spell', id: 23804 }, stats: { intellect: 22 } },
+  { id: 'weaponSp', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'mainHand', name: { en: 'Spell Power', fr: 'Puissance des sorts' }, wowhead: { type: 'spell', id: 22749 }, stats: { spellPower: 30 } },
+  { id: 'weapon2hSp', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'mainHand', name: { en: '2H Mighty Spell Power', fr: '2M Puissance des sorts renforcée' }, wowhead: { type: 'spell', id: 1248607 }, stats: { spellPower: 55 } },
+  { id: 'weaponInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto', 'shaman:elemental', 'shaman:resto'], slot: 'mainHand', name: { en: 'Mighty Intellect', fr: 'Intelligence renforcée' }, wowhead: { type: 'spell', id: 23804 }, stats: { intellect: 22 } },
 ];
 
 ENCHANTS.push(
@@ -144,7 +146,7 @@ ENCHANTS.push(
   { id: 'weaponAgi', for: PHYSICAL, slot: 'mainHand', name: { en: 'Agility', fr: 'Agilité' }, wowhead: { type: 'spell', id: 23800 }, stats: { agility: 15 } },
   { id: 'superiorStriking', for: MELEE, slot: 'mainHand', name: { en: 'Superior Striking', fr: 'Frappe excellente' }, wowhead: { type: 'spell', id: 20031 }, stats: {}, mods: { weaponDamage: 5 } },
   { id: 'glovesStr', for: MELEE, slot: 'hands', name: { en: 'Greater Strength', fr: 'Force supérieure' }, wowhead: { type: 'spell', id: 20013 }, stats: { strength: 10 } },
-  { id: 'glovesHaste', for: ['paladin', 'druid', 'hunter'], slot: 'hands', name: { en: 'Minor Haste', fr: 'Hâte mineure' }, wowhead: { type: 'spell', id: 13948 }, stats: {}, mods: { hastePct: 1 } },
+  { id: 'glovesHaste', for: ['paladin', 'druid', 'hunter', 'rogue', 'warrior', 'shaman:enhancement'], slot: 'hands', name: { en: 'Minor Haste', fr: 'Hâte mineure' }, wowhead: { type: 'spell', id: 13948 }, stats: {}, mods: { hastePct: 1 } },
   { id: 'wristStr', for: MELEE, slot: 'wrist', name: { en: 'Superior Strength', fr: 'Force excellente' }, wowhead: { type: 'spell', id: 20010 }, stats: { strength: 9 } },
   { id: 'wristHealing', for: HEALER, slot: 'wrist', name: { en: 'Healing Power', fr: 'Pouvoir de guérison' }, wowhead: { type: 'spell', id: 23802 }, stats: { spellPower: 8, healingPower: 16 } },
   { id: 'wristDeflection', for: TANK, slot: 'wrist', name: { en: 'Deflection', fr: 'Déviation' }, wowhead: { type: 'spell', id: 13931 }, stats: { defense: 7 } },
@@ -156,9 +158,9 @@ ENCHANTS.push(
   { id: 'signetSerenity', for: HEALER, slot: 'shoulders', name: { en: 'Zandalar Signet of Serenity', fr: 'Cachet de sérénité zandalar' }, wowhead: { type: 'item', id: 20078 }, stats: { healingPower: 33 } },
   { id: 'mightScourge', for: PHYSICAL, slot: 'shoulders', name: { en: 'Might of the Scourge', fr: 'Pouvoir du Fléau' }, wowhead: { type: 'item', id: 23548 }, stats: { attackPower: 26, critPct: 1 } },
   { id: 'signetMight', for: PHYSICAL, slot: 'shoulders', name: { en: 'Zandalar Signet of Might', fr: 'Cachet de puissance zandalar' }, wowhead: { type: 'item', id: 20077 }, stats: { attackPower: 30 } },
-  { id: 'chestStatsPal', for: ['paladin', 'druid', 'hunter'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { strength: 4, agility: 4, intellect: 4, spirit: 4, stamina: 4 } },
+  { id: 'chestStatsPal', for: ['paladin', 'druid', 'hunter', 'rogue', 'warrior', 'shaman'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { strength: 4, agility: 4, intellect: 4, spirit: 4, stamina: 4 } },
   { id: 'cloakDefense', for: TANK, slot: 'back', name: { en: 'Superior Defense', fr: 'Défense excellente' }, wowhead: { type: 'spell', id: 20015 }, stats: { armor: 70 } },
-  { id: 'shieldStamina', for: ['paladin:prot'], slot: 'offHand', name: { en: 'Greater Stamina', fr: 'Endurance supérieure' }, wowhead: { type: 'spell', id: 20017 }, stats: { stamina: 9 } },
+  { id: 'shieldStamina', for: ['paladin:prot', 'warrior:prot'], slot: 'offHand', name: { en: 'Greater Stamina', fr: 'Endurance supérieure' }, wowhead: { type: 'spell', id: 20017 }, stats: { stamina: 9 } },
 );
 
 export const ENCHANT_BY_ID = new Map(ENCHANTS.map((e) => [e.id, e]));

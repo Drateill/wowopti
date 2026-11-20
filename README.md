@@ -2,7 +2,7 @@
 
 Outil de theorycraft pour **WoW Forever** : simulateur (DPS, soins, menace), poids de stats,
 comparateur et optimiseur d'équipement, planificateur de talents, import de personnage.
-Classes : démoniste, paladin, druide, mage, prêtre, chasseur (toutes les spécialisations).
+Classes : démoniste, paladin, druide, mage, prêtre, chasseur, voleur, guerrier, chaman (toutes les spécialisations).
 
 ## Développement
 

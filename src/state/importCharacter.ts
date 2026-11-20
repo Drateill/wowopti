@@ -3,7 +3,7 @@ import type { ImportedCharacter } from '../data/character';
 import { CLASS_BY_ID } from '../data/classes';
 import { emptyStats } from '../data/types';
 import { isValid } from '../engine/talents';
-import { druidPreset, hunterPreset, magePreset, paladinPreset, priestPreset, warlockPreset, profileOf, type AppState, type Item, type SlotId } from './store';
+import { profileOf, specPresets, type AppState, type Item, type SlotId } from './store';
 import { pointsInTree } from '../engine/talents';
 
 /**
@@ -44,7 +44,7 @@ export function applyCharacter(state: AppState, char: ImportedCharacter, backupN
     const main = counts.indexOf(Math.max(...counts));
     const current = cls.specs.find((s) => s.id === state.spec);
     const next = cls.specs.find((s) => s.tree === main);
-    if (next && current?.tree !== main) specPatch = { spec: next.id, pal: paladinPreset(next.id, state.pal), dru: druidPreset(next.id, state.dru), mage: magePreset(next.id, state.mage), pri: priestPreset(next.id, state.pri), hun: hunterPreset(next.id, state.hun), ...warlockPreset(next.id, state.rotation, state.buffs) };
+    if (next && current?.tree !== main) specPatch = { spec: next.id, ...specPresets(next.id, state) };
   }
   const backup = { id: `p-${Date.now().toString(36)}`, name: backupName, data: profileOf(state) };
   return {

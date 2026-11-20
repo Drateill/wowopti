@@ -1,0 +1,1841 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-20T12:46:27.975Z",
+ "trees": [
+  {
+   "key": "assassination",
+   "icon": "ability_rogue_eviscerate",
+   "name": {
+    "en": "Assassination",
+    "fr": "Assassinat"
+   }
+  },
+  {
+   "key": "combat",
+   "icon": "ability_backstab",
+   "name": {
+    "en": "Combat",
+    "fr": "Combat"
+   }
+  },
+  {
+   "key": "subtlety",
+   "icon": "ability_stealth",
+   "name": {
+    "en": "Subtlety",
+    "fr": "Finesse"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "improvedGouge",
+   "wowheadId": 105742,
+   "tree": 0,
+   "row": 0,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    13741,
+    13741,
+    13741
+   ],
+   "icon": "ability_gouge",
+   "name": {
+    "en": "Improved Gouge",
+    "fr": "Suriner amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the duration of your Gouge ability by 0.5 sec.",
+     "Increases the duration of your Gouge ability by 1 sec.",
+     "Increases the duration of your Gouge ability by 1.5 sec."
+    ],
+    "fr": [
+     "Augmente la durée de votre technique Suriner de 0.5 s.",
+     "Augmente la durée de votre technique Suriner de 1 s.",
+     "Augmente la durée de votre technique Suriner de 1.5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "remorselessAttacks",
+   "wowheadId": 105723,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    14144,
+    14144
+   ],
+   "icon": "ability_fiegndead",
+   "name": {
+    "en": "Remorseless Attacks",
+    "fr": "Attaques impitoyables"
+   },
+   "desc": {
+    "en": [
+     "After killing a non-trivial enemy, gives you a 20% increased critical strike chance on your next Sinister Strike, Backstab, Ambush, Mutilate, or Ghostly Strike. Lasts 20 sec.",
+     "After killing a non-trivial enemy, gives you a 40% increased critical strike chance on your next Sinister Strike, Backstab, Ambush, Mutilate, or Ghostly Strike. Lasts 20 sec."
+    ],
+    "fr": [
+     "Après avoir éliminé un personnage adverse non négligeable, augmente de 20 % les chances de coup critique de votre prochaine attaque utilisant Attaque pernicieuse, Attaque sournoise, Embuscade, Estropier ou Frappe fantomatique. Dure 20 sec.",
+     "Après avoir éliminé un personnage adverse non négligeable, augmente de 40 % les chances de coup critique de votre prochaine attaque utilisant Attaque pernicieuse, Attaque sournoise, Embuscade, Estropier ou Frappe fantomatique. Dure 20 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "malice",
+   "wowheadId": 105722,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    14138,
+    14138,
+    14138,
+    14138,
+    14138
+   ],
+   "icon": "ability_racial_bloodrage",
+   "name": {
+    "en": "Malice",
+    "fr": "Malice"
+   },
+   "desc": {
+    "en": [
+     "Increases your critical strike chance with all attacks and Poisons by 1%.",
+     "Increases your critical strike chance with all attacks and Poisons by 2%.",
+     "Increases your critical strike chance with all attacks and Poisons by 3%.",
+     "Increases your critical strike chance with all attacks and Poisons by 4%.",
+     "Increases your critical strike chance with all attacks and Poisons by 5%."
+    ],
+    "fr": [
+     "Augmente de 1 % vos chances d’infliger un coup critique avec vos attaques et poisons.",
+     "Augmente de 2 % vos chances d’infliger un coup critique avec vos attaques et poisons.",
+     "Augmente de 3 % vos chances d’infliger un coup critique avec vos attaques et poisons.",
+     "Augmente de 4 % vos chances d’infliger un coup critique avec vos attaques et poisons.",
+     "Augmente de 5 % vos chances d’infliger un coup critique avec vos attaques et poisons."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ruthlessness",
+   "wowheadId": 105721,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    14156,
+    14156,
+    14156
+   ],
+   "icon": "ability_druid_disembowel",
+   "name": {
+    "en": "Ruthlessness",
+    "fr": "Némésis"
+   },
+   "desc": {
+    "en": [
+     "Gives your finishing moves a 20% chance to add a Combo Point to your target.",
+     "Gives your finishing moves a 40% chance to add a Combo Point to your target.",
+     "Gives your finishing moves a 60% chance to add a Combo Point to your target."
+    ],
+    "fr": [
+     "Confère à vos coups de grâce 20 % de chances de générer un point de combo sur votre cible.",
+     "Confère à vos coups de grâce 40 % de chances de générer un point de combo sur votre cible.",
+     "Confère à vos coups de grâce 60 % de chances de générer un point de combo sur votre cible."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedExposeArmor",
+   "wowheadId": 105717,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    14168,
+    14168
+   ],
+   "icon": "ability_warrior_riposte",
+   "name": {
+    "en": "Improved Expose Armor",
+    "fr": "Exposer l'armure amélioré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Energy cost of your Expose Armor ability by 5, and refunds 1 Combo Point when cast with 5 Combo Points.",
+     "Reduces the Energy cost of your Expose Armor ability by 10, and refunds 2 Combo Points when cast with 5 Combo Points."
+    ],
+    "fr": [
+     "Réduit le coût en énergie de votre technique Exposer l’armure de 5. Si ce sort est lancé avec 5 points de combo, vous récupérez 1 point de combo.",
+     "Réduit le coût en énergie de votre technique Exposer l’armure de 10. Si ce sort est lancé avec 5 points de combo, vous récupérez 2 points de combo."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedSliceAndDice",
+   "wowheadId": 105739,
+   "tree": 0,
+   "row": 1,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    14165,
+    14165,
+    14165
+   ],
+   "icon": "ability_rogue_slicedice",
+   "name": {
+    "en": "Improved Slice and Dice",
+    "fr": "Débiter amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the duration of your Slice and Dice ability by 15%.",
+     "Increases the duration of your Slice and Dice ability by 30%.",
+     "Increases the duration of your Slice and Dice ability by 45%."
+    ],
+    "fr": [
+     "Augmente la durée de votre technique Débiter de 15%.",
+     "Augmente la durée de votre technique Débiter de 30%.",
+     "Augmente la durée de votre technique Débiter de 45%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "vigor",
+   "wowheadId": 105720,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    14983,
+    14983
+   ],
+   "icon": "spell_nature_earthbindtotem",
+   "name": {
+    "en": "Vigor",
+    "fr": "Vigueur"
+   },
+   "desc": {
+    "en": [
+     "Increases your maximum Energy by 5.",
+     "Increases your maximum Energy by 10."
+    ],
+    "fr": [
+     "Augmente votre maximum de points d’énergie de 5.",
+     "Augmente votre maximum de points d’énergie de 10."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "bloodSplatter",
+   "wowheadId": 105718,
+   "tree": 0,
+   "row": 2,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1329256
+   ],
+   "icon": "ability_rogue_rupture",
+   "name": {
+    "en": "Blood Splatter",
+    "fr": "Giclée de sang"
+   },
+   "desc": {
+    "en": [
+     "Increases the duration of your Rupture ability by 6 sec and your Garrote ability by 9 sec."
+    ],
+    "fr": [
+     "Augmente la durée de votre technique Rupture de 6 s et de votre technique Garrot de 9 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lethality",
+   "wowheadId": 105716,
+   "tree": 0,
+   "row": 2,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    14128,
+    14128
+   ],
+   "icon": "ability_criticalstrike",
+   "name": {
+    "en": "Lethality",
+    "fr": "Mortalité"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Mutilate, Ghostly Strike, and Hemorrhage abilities by 10%.",
+     "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Mutilate, Ghostly Strike, and Hemorrhage abilities by 20%."
+    ],
+    "fr": [
+     "Augmente de 10 % le bonus de dégâts des coups critiques de vos techniques Attaque pernicieuse, Suriner, Attaque sournoise, Estropier, Frappe fantomatique et Hémorragie.",
+     "Augmente de 20 % le bonus de dégâts des coups critiques de vos techniques Attaque pernicieuse, Suriner, Attaque sournoise, Estropier, Frappe fantomatique et Hémorragie."
+    ]
+   },
+   "requires": [
+    {
+     "key": "malice",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "key": "vilePoisons",
+   "wowheadId": 105714,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    16513,
+    16513,
+    16513,
+    16513,
+    16513
+   ],
+   "icon": "ability_rogue_feigndeath",
+   "name": {
+    "en": "Vile Poisons",
+    "fr": "Poisons abominables"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage dealt by your poisons by 4% and gives your poisons an additional 8% chance to resist dispel effects.",
+     "Increases the damage dealt by your poisons by 8% and gives your poisons an additional 16% chance to resist dispel effects.",
+     "Increases the damage dealt by your poisons by 12% and gives your poisons an additional 24% chance to resist dispel effects.",
+     "Increases the damage dealt by your poisons by 16% and gives your poisons an additional 32% chance to resist dispel effects.",
+     "Increases the damage dealt by your poisons by 20% and gives your poisons an additional 40% chance to resist dispel effects."
+    ],
+    "fr": [
+     "Augmente de 4 % les dégâts infligés par vos poisons et confère à ces derniers 8 % de chances supplémentaires de résister aux effets de dissipation.",
+     "Augmente de 8 % les dégâts infligés par vos poisons et confère à ces derniers 16 % de chances supplémentaires de résister aux effets de dissipation.",
+     "Augmente de 12 % les dégâts infligés par vos poisons et confère à ces derniers 24 % de chances supplémentaires de résister aux effets de dissipation.",
+     "Augmente de 16 % les dégâts infligés par vos poisons et confère à ces derniers 32 % de chances supplémentaires de résister aux effets de dissipation.",
+     "Augmente de 20 % les dégâts infligés par vos poisons et confère à ces derniers 40 % de chances supplémentaires de résister aux effets de dissipation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "coldBlood",
+   "wowheadId": 105715,
+   "tree": 0,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    14177
+   ],
+   "icon": "spell_ice_lament",
+   "name": {
+    "en": "Cold Blood",
+    "fr": "Sang froid"
+   },
+   "desc": {
+    "en": [
+     "When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, Eviscerate, or Mutilate by 100%."
+    ],
+    "fr": [
+     "À l’activation, augmente de 100 % les chances de coup critique de votre prochaine attaque utilisant Attaque pernicieuse, Attaque sournoise, Embuscade, Éviscération ou Estropier."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedPoisons",
+   "wowheadId": 105713,
+   "tree": 0,
+   "row": 3,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    14113,
+    14113,
+    14113,
+    14113,
+    14113
+   ],
+   "icon": "ability_poisons",
+   "name": {
+    "en": "Improved Poisons",
+    "fr": "Poisons améliorés"
+   },
+   "desc": {
+    "en": [
+     "Increases the chance to apply Poisons to your target by 2%, and gives Poison applications a 10% chance to not consume a charge.",
+     "Increases the chance to apply Poisons to your target by 4%, and gives Poison applications a 20% chance to not consume a charge.",
+     "Increases the chance to apply Poisons to your target by 6%, and gives Poison applications a 30% chance to not consume a charge.",
+     "Increases the chance to apply Poisons to your target by 8%, and gives Poison applications a 40% chance to not consume a charge.",
+     "Increases the chance to apply Poisons to your target by 10%, and gives Poison applications a 50% chance to not consume a charge."
+    ],
+    "fr": [
+     "Augmente de 2 % vos chances d’appliquer des poisons à votre cible et confère aux applications de poison 10 % de chances de ne pas consommer de charge.",
+     "Augmente de 4 % vos chances d’appliquer des poisons à votre cible et confère aux applications de poison 20 % de chances de ne pas consommer de charge.",
+     "Augmente de 6 % vos chances d’appliquer des poisons à votre cible et confère aux applications de poison 30 % de chances de ne pas consommer de charge.",
+     "Augmente de 8 % vos chances d’appliquer des poisons à votre cible et confère aux applications de poison 40 % de chances de ne pas consommer de charge.",
+     "Augmente de 10 % vos chances d’appliquer des poisons à votre cible et confère aux applications de poison 50 % de chances de ne pas consommer de charge."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "relentlessStrikes",
+   "wowheadId": 113633,
+   "tree": 0,
+   "row": 4,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    14179,
+    14179,
+    14179,
+    14179,
+    14179
+   ],
+   "icon": "ability_warrior_decisivestrike",
+   "name": {
+    "en": "Relentless Strikes",
+    "fr": "Frappes implacables"
+   },
+   "desc": {
+    "en": [
+     "Your finishing moves have a 4% chance per Combo Point to restore 25 Energy.",
+     "Your finishing moves have a 8% chance per Combo Point to restore 25 Energy.",
+     "Your finishing moves have a 12% chance per Combo Point to restore 25 Energy.",
+     "Your finishing moves have a 16% chance per Combo Point to restore 25 Energy.",
+     "Your finishing moves have a 20% chance per Combo Point to restore 25 Energy."
+    ],
+    "fr": [
+     "Vos coups de grâce ont 4 % de chances par point de combo de restaurer 25 points d’énergie.",
+     "Vos coups de grâce ont 8 % de chances par point de combo de restaurer 25 points d’énergie.",
+     "Vos coups de grâce ont 12 % de chances par point de combo de restaurer 25 points d’énergie.",
+     "Vos coups de grâce ont 16 % de chances par point de combo de restaurer 25 points d’énergie.",
+     "Vos coups de grâce ont 20 % de chances par point de combo de restaurer 25 points d’énergie."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "venom",
+   "wowheadId": 105712,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1329328
+   ],
+   "icon": "inv_sword_31",
+   "name": {
+    "en": "Venom",
+    "fr": "Toxine"
+   },
+   "desc": {
+    "en": [
+     "Causes your Shank ability to increase your Poison damage by 30% and your chance to apply Poisons by 20% for 6 sec."
+    ],
+    "fr": [
+     "Permet à votre technique Surin d’augmenter les dégâts infligés par vos poisons de 30 % et vos chances d’appliquer des poisons de 20 % pendant 6 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedKidneyShot",
+   "wowheadId": 105711,
+   "tree": 0,
+   "row": 4,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    14174,
+    14174
+   ],
+   "icon": "ability_rogue_kidneyshot",
+   "name": {
+    "en": "Improved Kidney Shot",
+    "fr": "Aiguillon perfide amélioré"
+   },
+   "desc": {
+    "en": [
+     "Enemies Stunned by your Kidney Shot ability take 5% increased damage from your poisons and attacks.",
+     "Enemies Stunned by your Kidney Shot ability take 10% increased damage from your poisons and attacks."
+    ],
+    "fr": [
+     "Les dégâts infligés par vos poisons et attaques augmentent de 5 % contre les personnages adverses étourdis par votre technique Aiguillon perfide.",
+     "Les dégâts infligés par vos poisons et attaques augmentent de 10 % contre les personnages adverses étourdis par votre technique Aiguillon perfide."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sealFate",
+   "wowheadId": 105710,
+   "tree": 0,
+   "row": 5,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    14186,
+    14186,
+    14186
+   ],
+   "icon": "spell_shadow_chilltouch",
+   "name": {
+    "en": "Seal Fate",
+    "fr": "Scelle le destin"
+   },
+   "desc": {
+    "en": [
+     "Your critical strikes from abilities that add Combo Points have a 33% chance to add an additional Combo Point.",
+     "Your critical strikes from abilities that add Combo Points have a 66% chance to add an additional Combo Point.",
+     "Your critical strikes from abilities that add Combo Points have a 100% chance to add an additional Combo Point."
+    ],
+    "fr": [
+     "Vos coups critiques obtenus avec des techniques générant des points de combo ont 33 % de chances de générer un point de combo supplémentaire.",
+     "Vos coups critiques obtenus avec des techniques générant des points de combo ont 66 % de chances de générer un point de combo supplémentaire.",
+     "Vos coups critiques obtenus avec des techniques générant des points de combo ont 100 % de chances de générer un point de combo supplémentaire."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "mutilate",
+   "wowheadId": 105709,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    399956
+   ],
+   "icon": "ability_rogue_deadlybrew",
+   "name": {
+    "en": "Mutilate",
+    "fr": "Estropier"
+   },
+   "desc": {
+    "en": [
+     "Instantly attacks with both weapons for 90% weapon damage plus an additional 40 with each weapon. Damage increased by 20% against Poisoned targets. Awards 2 Combo Points."
+    ],
+    "fr": [
+     "Attaque instantanément avec les deux armes et inflige 90 % des dégâts des armes plus 40 points de dégâts avec chacune d’elle. Dégâts contre les cibles empoisonnées augmentés de 20 %. Confère 2 points de combo."
+    ]
+   },
+   "requires": [
+    {
+     "key": "venom",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "coupDeGrace",
+   "wowheadId": 105708,
+   "tree": 1,
+   "row": 0,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    14162,
+    14162,
+    14162
+   ],
+   "icon": "ability_rogue_eviscerate",
+   "name": {
+    "en": "Coup de Grace",
+    "fr": "Achèvement"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Eviscerate ability by 7%, and the damage and storage rate of your Death Mark ability by 7%.",
+     "Increases the damage done by your Eviscerate ability by 13%, and the damage and storage rate of your Death Mark ability by 13%.",
+     "Increases the damage done by your Eviscerate ability by 20%, and the damage and storage rate of your Death Mark ability by 20%."
+    ],
+    "fr": [
+     "Augmente de 7 % les dégâts infligés par votre technique Eviscération, et de 7 % les dégâts et le taux d’accumulation de votre technique Marque de mort.",
+     "Augmente de 13 % les dégâts infligés par votre technique Eviscération, et de 13 % les dégâts et le taux d’accumulation de votre technique Marque de mort.",
+     "Augmente de 20 % les dégâts infligés par votre technique Eviscération, et de 20 % les dégâts et le taux d’accumulation de votre technique Marque de mort."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "efficientStrikes",
+   "wowheadId": 105741,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    13732,
+    13732
+   ],
+   "icon": "spell_shadow_ritualofsacrifice",
+   "name": {
+    "en": "Efficient Strikes",
+    "fr": "Attaques optimisées"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Energy cost of your Sinister Strike and Hemorrhage abilities by 3.",
+     "Reduces the Energy cost of your Sinister Strike and Hemorrhage abilities by 5."
+    ],
+    "fr": [
+     "Réduit de 3 le coût en énergie de vos techniques Attaque pernicieuse et Hémorragie.",
+     "Réduit de 5 le coût en énergie de vos techniques Attaque pernicieuse et Hémorragie."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lightningReflexes",
+   "wowheadId": 113398,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    13712,
+    13712,
+    13712,
+    13712,
+    13712
+   ],
+   "icon": "spell_nature_invisibilty",
+   "name": {
+    "en": "Lightning Reflexes",
+    "fr": "Réflexes-éclairs"
+   },
+   "desc": {
+    "en": [
+     "Increases your Dodge chance by 1%.",
+     "Increases your Dodge chance by 2%.",
+     "Increases your Dodge chance by 3%.",
+     "Increases your Dodge chance by 4%.",
+     "Increases your Dodge chance by 5%."
+    ],
+    "fr": [
+     "Augmente vos chances d’esquiver de 1 %.",
+     "Augmente vos chances d’esquiver de 2 %.",
+     "Augmente vos chances d’esquiver de 3 %.",
+     "Augmente vos chances d’esquiver de 4 %.",
+     "Augmente vos chances d’esquiver de 5 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "puncturingWounds",
+   "wowheadId": 105719,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    1224716,
+    1224716,
+    1224716
+   ],
+   "icon": "ability_backstab",
+   "name": {
+    "en": "Puncturing Wounds",
+    "fr": "Blessures transperçantes"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Backstab by 10% and your Mutilate by 5%, and gives Backstab a 15% chance to add an additional Combo Point.",
+     "Increases the critical strike chance of your Backstab by 20% and your Mutilate by 10%, and gives Backstab a 30% chance to add an additional Combo Point.",
+     "Increases the critical strike chance of your Backstab by 30% and your Mutilate by 15%, and gives Backstab a 45% chance to add an additional Combo Point."
+    ],
+    "fr": [
+     "Augmente les chances de coup critique de vos techniques Attaque sournoise et Estropier respectivement de 10 % et 5 %, et confère à Attaque sournoise 15 % de chances de générer un point de combo supplémentaire.",
+     "Augmente les chances de coup critique de vos techniques Attaque sournoise et Estropier respectivement de 20 % et 10 %, et confère à Attaque sournoise 30 % de chances de générer un point de combo supplémentaire.",
+     "Augmente les chances de coup critique de vos techniques Attaque sournoise et Estropier respectivement de 30 % et 15 %, et confère à Attaque sournoise 45 % de chances de générer un point de combo supplémentaire."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "deflection",
+   "wowheadId": 105738,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    13713,
+    13713,
+    13713
+   ],
+   "icon": "ability_parry",
+   "name": {
+    "en": "Deflection",
+    "fr": "Déviation"
+   },
+   "desc": {
+    "en": [
+     "Increases your Parry chance by 2%.",
+     "Increases your Parry chance by 4%.",
+     "Increases your Parry chance by 6%."
+    ],
+    "fr": [
+     "Augmente vos chances de parer de 2%.",
+     "Augmente vos chances de parer de 4%.",
+     "Augmente vos chances de parer de 6%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "precision",
+   "wowheadId": 105737,
+   "tree": 1,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    13705,
+    13705,
+    13705
+   ],
+   "icon": "ability_marksmanship",
+   "name": {
+    "en": "Precision",
+    "fr": "Précision"
+   },
+   "desc": {
+    "en": [
+     "Improves your chance to hit by 1%.",
+     "Improves your chance to hit by 2%.",
+     "Improves your chance to hit by 3%."
+    ],
+    "fr": [
+     "Améliore vos chances de toucher de 1 %.",
+     "Améliore vos chances de toucher de 2 %.",
+     "Améliore vos chances de toucher de 3 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedSprint",
+   "wowheadId": 105732,
+   "tree": 1,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    13743,
+    13743
+   ],
+   "icon": "ability_rogue_sprint",
+   "name": {
+    "en": "Improved Sprint",
+    "fr": "Sprint amélioré"
+   },
+   "desc": {
+    "en": [
+     "Gives a 50% chance to remove all movement impairing effects when you activate your Sprint ability.",
+     "Gives a 100% chance to remove all movement impairing effects when you activate your Sprint ability."
+    ],
+    "fr": [
+     "Confère 50 % de chances de dissiper tous les effets qui affectent le déplacement lorsque vous activez votre technique Sprint.",
+     "Confère 100 % de chances de dissiper tous les effets qui affectent le déplacement lorsque vous activez votre technique Sprint."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "endurance",
+   "wowheadId": 105736,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    13742,
+    13742
+   ],
+   "icon": "spell_shadow_shadowward",
+   "name": {
+    "en": "Endurance",
+    "fr": "Endurcissement"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Sprint and Evasion abilities by 30%.",
+     "Reduces the cooldown of your Sprint and Evasion abilities by 60%."
+    ],
+    "fr": [
+     "Réduit de 30 % le temps de recharge de vos techniques Sprint et Évasion.",
+     "Réduit de 60 % le temps de recharge de vos techniques Sprint et Évasion."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "riposte",
+   "wowheadId": 105735,
+   "tree": 1,
+   "row": 2,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    14251
+   ],
+   "icon": "ability_warrior_challange",
+   "name": {
+    "en": "Riposte",
+    "fr": "Riposte"
+   },
+   "desc": {
+    "en": [
+     "A strike that becomes active after parrying an opponent's attack. This attack deals 150% weapon damage and disarms the target for 6 sec."
+    ],
+    "fr": [
+     "Disponible après avoir paré une attaque de l’adversaire, cette technique inflige 150 % des dégâts de l’arme et désarme la cible pendant 6 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "deflection",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "composure",
+   "wowheadId": 105759,
+   "tree": 1,
+   "row": 2,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    1329265,
+    1329265
+   ],
+   "icon": "ability_rogue_fleetfooted",
+   "name": {
+    "en": "Composure",
+    "fr": "Sang-froid"
+   },
+   "desc": {
+    "en": [
+     "Increases the Energy cost reduction of your Poised ability by 5.",
+     "Increases the Energy cost reduction of your Poised ability by 10."
+    ],
+    "fr": [
+     "Augmente la réduction du coût en énergie de votre technique En garde de 5.",
+     "Augmente la réduction du coût en énergie de votre technique En garde de 10."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedKick",
+   "wowheadId": 105733,
+   "tree": 1,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    13754,
+    13754
+   ],
+   "icon": "ability_kick",
+   "name": {
+    "en": "Improved Kick",
+    "fr": "Coup de pied amélioré"
+   },
+   "desc": {
+    "en": [
+     "Gives your Kick ability a 50% chance to Silence the target for 2 sec.",
+     "Gives your Kick ability a 100% chance to Silence the target for 2 sec."
+    ],
+    "fr": [
+     "Confère à votre technique Coup de pied 50 % de chances de réduire la cible au silence pendant 2 sec.",
+     "Confère à votre technique Coup de pied 100 % de chances de réduire la cible au silence pendant 2 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "flawlessExecution",
+   "wowheadId": 108100,
+   "tree": 1,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1310711
+   ],
+   "icon": "inv_sword_35",
+   "name": {
+    "en": "Flawless Execution",
+    "fr": "Exécution parfaite"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Energy cost of your Eviscerate ability by 15."
+    ],
+    "fr": [
+     "Réduit de 15 le coût en énergie de votre technique Éviscération."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "weaponExpertise",
+   "wowheadId": 105726,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    30919,
+    30919
+   ],
+   "icon": "spell_holy_blessingofstrength",
+   "name": {
+    "en": "Weapon Expertise",
+    "fr": "Expertise en armes"
+   },
+   "desc": {
+    "en": [
+     "Reduces the chance for your attacks to be Dodged or Parried by 1%.",
+     "Reduces the chance for your attacks to be Dodged or Parried by 2%."
+    ],
+    "fr": [
+     "Réduit de 1 % les chances que vos attaques soient esquivées ou parées.",
+     "Réduit de 2 % les chances que vos attaques soient esquivées ou parées."
+    ]
+   },
+   "requires": [
+    {
+     "key": "precision",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "aggression",
+   "wowheadId": 105730,
+   "tree": 1,
+   "row": 3,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    18427,
+    18427,
+    18427
+   ],
+   "icon": "ability_racial_avatar",
+   "name": {
+    "en": "Aggression",
+    "fr": "Agressivité"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage of your Sinister Strike and Eviscerate abilities by 5%.",
+     "Increases the damage of your Sinister Strike and Eviscerate abilities by 10%.",
+     "Increases the damage of your Sinister Strike and Eviscerate abilities by 15%."
+    ],
+    "fr": [
+     "Augmente les points de dégâts infligés par vos techniques Attaque pernicieuse et Eviscération de 5%.",
+     "Augmente les points de dégâts infligés par vos techniques Attaque pernicieuse et Eviscération de 10%.",
+     "Augmente les points de dégâts infligés par vos techniques Attaque pernicieuse et Eviscération de 15%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "dualWieldSpecialization",
+   "wowheadId": 113635,
+   "tree": 1,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    13715,
+    13715
+   ],
+   "icon": "ability_dualwield",
+   "name": {
+    "en": "Dual Wield Specialization",
+    "fr": "Spécialisation Ambidextrie"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your off-hand weapon by 25%.",
+     "Increases the damage done by your off-hand weapon by 50%."
+    ],
+    "fr": [
+     "Augmente de 25 % les dégâts infligés par votre arme tenue en main gauche.",
+     "Augmente de 50 % les dégâts infligés par votre arme tenue en main gauche."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "bladeFlurry",
+   "wowheadId": 105728,
+   "tree": 1,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    13877
+   ],
+   "icon": "ability_warrior_punishingblow",
+   "name": {
+    "en": "Blade Flurry",
+    "fr": "Déluge de lames"
+   },
+   "desc": {
+    "en": [
+     "Increases your melee attack speed by 20% and your melee attacks strike an additional nearby opponent. Lasts 15 sec."
+    ],
+    "fr": [
+     "Augmente votre vitesse d’attaque en mêlée de 20 % et permet à vos attaques en mêlée de toucher un personnage adverse proche supplémentaire. Dure 15 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "hackAndSlash",
+   "wowheadId": 105727,
+   "tree": 1,
+   "row": 4,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    13960,
+    13960,
+    13960,
+    13960,
+    13960
+   ],
+   "icon": "inv_sword_27",
+   "name": {
+    "en": "Hack and Slash",
+    "fr": "Taillader et trancher"
+   },
+   "desc": {
+    "en": [
+     "Gives your melee weapon attacks a benefit depending on the weapon.\n\n Axe/Sword: Your successful\n melee attacks have a 1% chance\n to trigger an extra attack on the \n target.\n\n Dagger/Fist: Increases your\n critical strike chance by 1%.\n\n Mace: Your attacks ignore 3% of\n your target's armor.",
+     "Gives your melee weapon attacks a benefit depending on the weapon.\n\n Axe/Sword: Your successful\n melee attacks have a 2% chance\n to trigger an extra attack on the \n target.\n\n Dagger/Fist: Increases your\n critical strike chance by 2%.\n\n Mace: Your attacks ignore 6% of\n your target's armor.",
+     "Gives your melee weapon attacks a benefit depending on the weapon.\n\n Axe/Sword: Your successful\n melee attacks have a 3% chance\n to trigger an extra attack on the \n target.\n\n Dagger/Fist: Increases your\n critical strike chance by 3%.\n\n Mace: Your attacks ignore 9% of\n your target's armor.",
+     "Gives your melee weapon attacks a benefit depending on the weapon.\n\n Axe/Sword: Your successful\n melee attacks have a 4% chance\n to trigger an extra attack on the \n target.\n\n Dagger/Fist: Increases your\n critical strike chance by 4%.\n\n Mace: Your attacks ignore 12% of\n your target's armor.",
+     "Gives your melee weapon attacks a benefit depending on the weapon.\n\n Axe/Sword: Your successful\n melee attacks have a 5% chance\n to trigger an extra attack on the \n target.\n\n Dagger/Fist: Increases your\n critical strike chance by 5%.\n\n Mace: Your attacks ignore 15% of\n your target's armor."
+    ],
+    "fr": [
+     "Confère un avantage à vos attaques avec les armes de mêlée selon l’arme utilisée.\n\n Hache/épée : vos attaques en mêlée\n réussies ont 1 % de chances\n de déclencher une attaque supplémentaire \n contre la cible.\n\n Dague/poing : vos chances de coup critique\n augmentent de 1 %.\n\n Masse : vos attaques ignorent 3 % de\n l’armure de la cible.",
+     "Confère un avantage à vos attaques avec les armes de mêlée selon l’arme utilisée.\n\n Hache/épée : vos attaques en mêlée\n réussies ont 2 % de chances\n de déclencher une attaque supplémentaire \n contre la cible.\n\n Dague/poing : vos chances de coup critique\n augmentent de 2 %.\n\n Masse : vos attaques ignorent 6 % de\n l’armure de la cible.",
+     "Confère un avantage à vos attaques avec les armes de mêlée selon l’arme utilisée.\n\n Hache/épée : vos attaques en mêlée\n réussies ont 3 % de chances\n de déclencher une attaque supplémentaire \n contre la cible.\n\n Dague/poing : vos chances de coup critique\n augmentent de 3 %.\n\n Masse : vos attaques ignorent 9 % de\n l’armure de la cible.",
+     "Confère un avantage à vos attaques avec les armes de mêlée selon l’arme utilisée.\n\n Hache/épée : vos attaques en mêlée\n réussies ont 4 % de chances\n de déclencher une attaque supplémentaire \n contre la cible.\n\n Dague/poing : vos chances de coup critique\n augmentent de 4 %.\n\n Masse : vos attaques ignorent 12 % de\n l’armure de la cible.",
+     "Confère un avantage à vos attaques avec les armes de mêlée selon l’arme utilisée.\n\n Hache/épée : vos attaques en mêlée\n réussies ont 5 % de chances\n de déclencher une attaque supplémentaire \n contre la cible.\n\n Dague/poing : vos chances de coup critique\n augmentent de 5 %.\n\n Masse : vos attaques ignorent 15 % de\n l’armure de la cible."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "flashOfSteel",
+   "wowheadId": 105740,
+   "tree": 1,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    1329284,
+    1329284,
+    1329284,
+    1329284,
+    1329284
+   ],
+   "icon": "ability_rogue_restlessblades",
+   "name": {
+    "en": "Flash of Steel",
+    "fr": "L’éclat de l’acier"
+   },
+   "desc": {
+    "en": [
+     "Increases the Energy generated by your Shank ability by 3 and reduces its cooldown by 0.4 sec.",
+     "Increases the Energy generated by your Shank ability by 6 and reduces its cooldown by 0.8 sec.",
+     "Increases the Energy generated by your Shank ability by 9 and reduces its cooldown by 1.2 sec.",
+     "Increases the Energy generated by your Shank ability by 12 and reduces its cooldown by 1.6 sec.",
+     "Increases the Energy generated by your Shank ability by 15 and reduces its cooldown by 2.0 sec."
+    ],
+    "fr": [
+     "Augmente les points d’énergie générés par votre technique Surin de 3 et réduit le temps de recharge de 0.4 s.",
+     "Augmente les points d’énergie générés par votre technique Surin de 6 et réduit le temps de recharge de 0.8 s.",
+     "Augmente les points d’énergie générés par votre technique Surin de 9 et réduit le temps de recharge de 1.2 s.",
+     "Augmente les points d’énergie générés par votre technique Surin de 12 et réduit le temps de recharge de 1.6 s.",
+     "Augmente les points d’énergie générés par votre technique Surin de 15 et réduit le temps de recharge de 2.0 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "adrenalineRush",
+   "wowheadId": 105724,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    13750
+   ],
+   "icon": "spell_shadow_shadowworddominate",
+   "name": {
+    "en": "Adrenaline Rush",
+    "fr": "Poussée d'adrénaline"
+   },
+   "desc": {
+    "en": [
+     "Increases your Energy regeneration rate by 100% for 15 sec."
+    ],
+    "fr": [
+     "Augmente la vitesse de régénération de votre Energie de 100% pendant 15 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "bladeFlurry",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "setup",
+   "wowheadId": 105751,
+   "tree": 2,
+   "row": 0,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    13983,
+    13983,
+    13983
+   ],
+   "icon": "spell_nature_mirrorimage",
+   "name": {
+    "en": "Setup",
+    "fr": "Préparatifs"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 15% chance to add a Combo Point to your target after Dodging their attack or fully resisting one of their spells.",
+     "Gives you a 30% chance to add a Combo Point to your target after Dodging their attack or fully resisting one of their spells.",
+     "Gives you a 45% chance to add a Combo Point to your target after Dodging their attack or fully resisting one of their spells."
+    ],
+    "fr": [
+     "Vous confère 15 % de chances d’ajouter un point de combo à votre cible après avoir esquivé son attaque ou entièrement résisté à l’un de ses sorts.",
+     "Vous confère 30 % de chances d’ajouter un point de combo à votre cible après avoir esquivé son attaque ou entièrement résisté à l’un de ses sorts.",
+     "Vous confère 45 % de chances d’ajouter un point de combo à votre cible après avoir esquivé son attaque ou entièrement résisté à l’un de ses sorts."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "masterOfDeception",
+   "wowheadId": 105761,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    13958,
+    13958,
+    13958
+   ],
+   "icon": "spell_shadow_charm",
+   "name": {
+    "en": "Master of Deception",
+    "fr": "Maître des illusions"
+   },
+   "desc": {
+    "en": [
+     "Reduces the chance enemies have to detect you while in Stealth mode as if you were 1 levels higher.",
+     "Reduces the chance enemies have to detect you while in Stealth mode as if you were 2 levels higher.",
+     "Reduces the chance enemies have to detect you while in Stealth mode as if you were 3 levels higher."
+    ],
+    "fr": [
+     "Réduit les chances de vos adversaires de vous détecter lorsque vous êtes en camouflage comme si vous aviez gagné 1 niveaux.",
+     "Réduit les chances de vos adversaires de vous détecter lorsque vous êtes en camouflage comme si vous aviez gagné 2 niveaux.",
+     "Réduit les chances de vos adversaires de vous détecter lorsque vous êtes en camouflage comme si vous aviez gagné 3 niveaux."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "opportunity",
+   "wowheadId": 105760,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    14057,
+    14057,
+    14057,
+    14057,
+    14057
+   ],
+   "icon": "ability_warrior_warcry",
+   "name": {
+    "en": "Opportunity",
+    "fr": "Opportunité"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 4%.",
+     "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 8%.",
+     "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 12%.",
+     "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 16%.",
+     "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 20%."
+    ],
+    "fr": [
+     "Augmente de 4 % les dégâts infligés avec vos techniques Attaque sournoise, Garrot, Embuscade et Estropier.",
+     "Augmente de 8 % les dégâts infligés avec vos techniques Attaque sournoise, Garrot, Embuscade et Estropier.",
+     "Augmente de 12 % les dégâts infligés avec vos techniques Attaque sournoise, Garrot, Embuscade et Estropier.",
+     "Augmente de 16 % les dégâts infligés avec vos techniques Attaque sournoise, Garrot, Embuscade et Estropier.",
+     "Augmente de 20 % les dégâts infligés avec vos techniques Attaque sournoise, Garrot, Embuscade et Estropier."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "dirtyDeeds",
+   "wowheadId": 105745,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    14082,
+    14082
+   ],
+   "icon": "spell_shadow_summonsuccubus",
+   "name": {
+    "en": "Dirty Deeds",
+    "fr": "Coups fourrés"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Energy cost of your Cheap Shot and Garrote abilities by 10, and your Garrote ability no longer requires you to be behind your target.",
+     "Reduces the Energy cost of your Cheap Shot and Garrote abilities by 20, and your Garrote ability no longer requires you to be behind your target."
+    ],
+    "fr": [
+     "Réduit de 10 le coût en énergie de vos techniques Coup bas et Garrot. De plus, votre technique Garrot ne requiert plus que vous vous placiez derrière la cible.",
+     "Réduit de 20 le coût en énergie de vos techniques Coup bas et Garrot. De plus, votre technique Garrot ne requiert plus que vous vous placiez derrière la cible."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "camouflage",
+   "wowheadId": 105756,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    13975,
+    13975,
+    13975
+   ],
+   "icon": "ability_stealth",
+   "name": {
+    "en": "Camouflage",
+    "fr": "Dissimulation"
+   },
+   "desc": {
+    "en": [
+     "Reduces your speed penalty from your Stealth ability by 5% and reduces its cooldown by 2 sec.",
+     "Reduces your speed penalty from your Stealth ability by 10% and reduces its cooldown by 4 sec.",
+     "Reduces your speed penalty from your Stealth ability by 15% and reduces its cooldown by 6 sec."
+    ],
+    "fr": [
+     "Réduit de 5 % la pénalité affectant la vitesse de votre technique Camouflage et réduit son temps de recharge de 2 s.",
+     "Réduit de 10 % la pénalité affectant la vitesse de votre technique Camouflage et réduit son temps de recharge de 4 s.",
+     "Réduit de 15 % la pénalité affectant la vitesse de votre technique Camouflage et réduit son temps de recharge de 6 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedAmbush",
+   "wowheadId": 105749,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    14079,
+    14079,
+    14079
+   ],
+   "icon": "ability_rogue_ambush",
+   "name": {
+    "en": "Improved Ambush",
+    "fr": "Embuscade améliorée"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your Ambush ability by 15%.",
+     "Increases the critical strike chance of your Ambush ability by 30%.",
+     "Increases the critical strike chance of your Ambush ability by 45%."
+    ],
+    "fr": [
+     "Augmente de 15 % les chances de coup critique de votre technique Embuscade.",
+     "Augmente de 30 % les chances de coup critique de votre technique Embuscade.",
+     "Augmente de 45 % les chances de coup critique de votre technique Embuscade."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "dirtyTricks",
+   "wowheadId": 105757,
+   "tree": 2,
+   "row": 1,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    1224782,
+    1224782
+   ],
+   "icon": "ability_sap",
+   "name": {
+    "en": "Dirty Tricks",
+    "fr": "Coup tordu"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Energy cost of your Sap and Blind abilities by 25%.",
+     "Reduces the Energy cost of your Sap and Blind abilities by 50%."
+    ],
+    "fr": [
+     "Réduit de 25 % le coût en énergie de vos techniques Assommer et Cécité.",
+     "Réduit de 50 % le coût en énergie de vos techniques Assommer et Cécité."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "initiative",
+   "wowheadId": 105755,
+   "tree": 2,
+   "row": 2,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    13976,
+    13976,
+    13976
+   ],
+   "icon": "spell_shadow_fumble",
+   "name": {
+    "en": "Initiative",
+    "fr": "Initiative"
+   },
+   "desc": {
+    "en": [
+     "Gives you a 33% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability.",
+     "Gives you a 67% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability.",
+     "Gives you a 100% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability."
+    ],
+    "fr": [
+     "Vous confère 33% de chances de gagner un point de combo supplémentaire lorsque vous utilisez les techniques Embuscade, Garrot et Coup bas.",
+     "Vous confère 67% de chances de gagner un point de combo supplémentaire lorsque vous utilisez les techniques Embuscade, Garrot et Coup bas.",
+     "Vous confère 100% de chances de gagner un point de combo supplémentaire lorsque vous utilisez les techniques Embuscade, Garrot et Coup bas."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "premeditation",
+   "wowheadId": 105743,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    14183
+   ],
+   "icon": "spell_shadow_possession",
+   "name": {
+    "en": "Premeditation",
+    "fr": "Préméditation"
+   },
+   "desc": {
+    "en": [
+     "Adds 2 Combo Points to your target. You must add to or use those combo points within 20 sec or the combo points are lost."
+    ],
+    "fr": [
+     "Confère 2 points de combo à la cible. Vous devez accumuler d’autres points de combo ou les utiliser en moins de 20 sec sinon les points de combo sont perdus."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "serratedBlades",
+   "wowheadId": 105752,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    14171,
+    14171,
+    14171
+   ],
+   "icon": "inv_sword_17",
+   "name": {
+    "en": "Serrated Blades",
+    "fr": "Lames dentelées"
+   },
+   "desc": {
+    "en": [
+     "Causes your attacks to ignore 3% of your target's Armor and increases the damage dealt by your Rupture ability by 10%.",
+     "Causes your attacks to ignore 6% of your target's Armor and increases the damage dealt by your Rupture ability by 20%.",
+     "Causes your attacks to ignore 9% of your target's Armor and increases the damage dealt by your Rupture ability by 30%."
+    ],
+    "fr": [
+     "Vos attaques ignorent 3 % de l’armure de votre cible. Augmente de 10 % les dégâts infligés par votre technique Rupture.",
+     "Vos attaques ignorent 6 % de l’armure de votre cible. Augmente de 20 % les dégâts infligés par votre technique Rupture.",
+     "Vos attaques ignorent 9 % de l’armure de votre cible. Augmente de 30 % les dégâts infligés par votre technique Rupture."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "elusiveness",
+   "wowheadId": 105753,
+   "tree": 2,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    13981,
+    13981
+   ],
+   "icon": "spell_magic_lesserinvisibilty",
+   "name": {
+    "en": "Elusiveness",
+    "fr": "Insaisissable"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Vanish and Blind abilities by 45 sec.",
+     "Reduces the cooldown of your Vanish and Blind abilities by 90 sec."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de vos techniques Disparition et Cécité de 45 sec.",
+     "Réduit le temps de recharge de vos techniques Disparition et Cécité de 90 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ghostlyStrike",
+   "wowheadId": 105754,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    14278
+   ],
+   "icon": "spell_shadow_curse",
+   "name": {
+    "en": "Ghostly Strike",
+    "fr": "Frappe fantomatique"
+   },
+   "desc": {
+    "en": [
+     "A strike that deals 125% (180% if a Dagger is equipped in your Main Hand) weapon damage, increases your chance to dodge by 15% for 7 sec, and causes your next Ambush or Garrote cast within 7 sec to not require Stealth. Awards 1 combo point."
+    ],
+    "fr": [
+     "Une attaque qui inflige 125 % des dégâts de l’arme (180 % si une dague est équipée en main droite), augmente vos chances d’esquiver de 15 % pendant 7 sec et permet à votre prochaine utilisation d’Embuscade ou de Garrot dans les 7 sec de ne pas nécessiter le camouflage. Vous gagnez 1 point de combo."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "quickGetaway",
+   "wowheadId": 110867,
+   "tree": 2,
+   "row": 3,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    1310728,
+    1310728
+   ],
+   "icon": "ability_rogue_blackjack",
+   "name": {
+    "en": "Quick Getaway",
+    "fr": "Fuite rapide"
+   },
+   "desc": {
+    "en": [
+     "Increases the maximum number of targets you may have Sapped by 1, and increases your movement speed by 15% for 3 sec after Sapping a target.",
+     "Increases the maximum number of targets you may have Sapped by 1, and increases your movement speed by 30% for 3 sec after Sapping a target."
+    ],
+    "fr": [
+     "Augmente de 1 le nombre maximum de cibles pouvant être assommées, et de 15 % votre vitesse de déplacement pendant 3 sec après avoir assommé une cible.",
+     "Augmente de 1 le nombre maximum de cibles pouvant être assommées, et de 30 % votre vitesse de déplacement pendant 3 sec après avoir assommé une cible."
+    ]
+   },
+   "requires": [
+    {
+     "key": "dirtyTricks",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "heightenedSenses",
+   "wowheadId": 105747,
+   "tree": 2,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    30894,
+    30894
+   ],
+   "icon": "ability_ambush",
+   "name": {
+    "en": "Heightened Senses",
+    "fr": "Sens amplifiés"
+   },
+   "desc": {
+    "en": [
+     "Increases your Stealth detection as if you were 1 levels higher and reduces your chance to be hit by spells and ranged attacks by 2%.",
+     "Increases your Stealth detection as if you were 3 levels higher and reduces your chance to be hit by spells and ranged attacks by 4%."
+    ],
+    "fr": [
+     "Augmente votre détection du camouflage comme si vous aviez 1 niveaux de plus et réduit de 2 % la probabilité que les sorts et les attaques à distance vous touchent.",
+     "Augmente votre détection du camouflage comme si vous aviez 3 niveaux de plus et réduit de 4 % la probabilité que les sorts et les attaques à distance vous touchent."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "preparation",
+   "wowheadId": 105746,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    14185
+   ],
+   "icon": "spell_shadow_antishadow",
+   "name": {
+    "en": "Preparation",
+    "fr": "Préparation"
+   },
+   "desc": {
+    "en": [
+     "When activated, this ability immediately finishes the cooldown on your other Rogue abilities."
+    ],
+    "fr": [
+     "Lorsque vous la déclenchez, cette technique annule le temps de recharge de toutes vos autres techniques de voleur."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "hemorrhage",
+   "wowheadId": 105748,
+   "tree": 2,
+   "row": 4,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    16511
+   ],
+   "icon": "spell_shadow_lifedrain",
+   "name": {
+    "en": "Hemorrhage",
+    "fr": "Hémorragie"
+   },
+   "desc": {
+    "en": [
+     "An instant strike that deals 100% weapon damage (145% if a Dagger is equipped) and causes the target to take 15% increased Rupture and Garrote damage from the Rogue. Lasts 15 sec. Awards 1 Combo Point."
+    ],
+    "fr": [
+     "Une frappe instantanée qui inflige 100 % des dégâts de l’arme (145 % si une dague est équipée). Augmente de 15 % les dégâts de Rupture et de Garrot infligés à la cible par le personnage voleur. Dure 15 sec. Confère 1 point de combo."
+    ]
+   },
+   "requires": [
+    {
+     "key": "serratedBlades",
+     "qty": 3
+    }
+   ]
+  },
+  {
+   "key": "bootKnife",
+   "wowheadId": 105750,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    1329286,
+    1329286,
+    1329286,
+    1329286,
+    1329286
+   ],
+   "icon": "inv_sword_32",
+   "name": {
+    "en": "Boot Knife",
+    "fr": "Couteau de jet"
+   },
+   "desc": {
+    "en": [
+     "Grants your Shank ability a 20% chance to add 2 Combo Points to the target.",
+     "Grants your Shank ability a 40% chance to add 2 Combo Points to the target.",
+     "Grants your Shank ability a 60% chance to add 2 Combo Points to the target.",
+     "Grants your Shank ability a 80% chance to add 2 Combo Points to the target.",
+     "Grants your Shank ability a 100% chance to add 2 Combo Points to the target."
+    ],
+    "fr": [
+     "Confère à votre technique Surin 20 % de chances d’ajouter 2 points de combo à la cible.",
+     "Confère à votre technique Surin 40 % de chances d’ajouter 2 points de combo à la cible.",
+     "Confère à votre technique Surin 60 % de chances d’ajouter 2 points de combo à la cible.",
+     "Confère à votre technique Surin 80 % de chances d’ajouter 2 points de combo à la cible.",
+     "Confère à votre technique Surin 100 % de chances d’ajouter 2 points de combo à la cible."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "deathMark",
+   "wowheadId": 110866,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1316709
+   ],
+   "icon": "ability_creature_cursed_02",
+   "name": {
+    "en": "Death Mark",
+    "fr": "Marque de mort"
+   },
+   "desc": {
+    "en": [
+     "Finishing move that marks the target, storing a portion of the damage dealt by your attacks per Combo Point. Garrote and Rupture damage is stored at twice the rate. After 6 sec, the stored damage is dealt, up to a maximum increased by Attack Power and Critical Strike chance:\n 1 point : 12% stored, (((63 + 102 + 0.04 * Attack Power) * ($mcrit / 100 + 1)) * 1) damage cap\n 2 points: 24% stored, (((63 + (204) + 2 * 0.04 * Attack Power) * ($mcrit / 100 + 1)) * 1) damage cap\n 3 points: 36% stored, (((63 + (306) + 3 * 0.04 * Attack Power) * ($mcrit / 100 + 1)) * 1) damage cap\n 4 points: 48% stored, (((63 + (408) + 4 * 0.04 * Attack Power) * ($mcrit / 100 + 1)) * 1) damage cap\n 5 points: 60% stored, (((63 + (510) + 5 * 0.04 * Attack Power) * ($mcrit / 100 + 1)) * 1) damage cap"
+    ],
+    "fr": [
+     "Un coup de grâce qui marque la cible et accumule une partie des dégâts infligés par vos attaques par point de combo. Les dégâts de Garrot et de Rupture sont accumulés deux fois plus vite. Au bout de 6 sec, ces dégâts accumulés sont infligés, jusqu’à une valeur maximale augmentée par la puissance d’attaque et les chances de coup critique :\n 1 point : 12 % des dégâts accumulés, limite de dégâts de (((63 + 102 + 0.04 * Puissance d'attaque) * ($mcrit / 100 + 1)) * 1).\n 2 points : 24 % des dégâts accumulés, limite de dégâts de (((63 + (204) + 2 * 0.04 * Puissance d'attaque) * ($mcrit / 100 + 1)) * 1)\n 3 points : 36 % des dégâts accumulés, limite de dégâts de (((63 + (306) + 3 * 0.04 * Puissance d'attaque) * ($mcrit / 100 + 1)) * 1).\n 4 points : 48 % des dégâts accumulés, limite de dégâts de (((63 + (408) + 4 * 0.04 * Puissance d'attaque) * ($mcrit / 100 + 1)) * 1).\n 5 points : 60 % des dégâts accumulés, limite de dégâts de (((63 + (510) + 5 * 0.04 * Puissance d'attaque) * ($mcrit / 100 + 1)) * 1) ."
+    ]
+   },
+   "requires": [
+    {
+     "key": "preparation",
+     "qty": 1
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "melee": {
+   "id": 6603,
+   "name": {
+    "en": "Attack",
+    "fr": "Attaque"
+   },
+   "tooltip": {
+    "en": "Attack\nInstant",
+    "fr": "Attaque\nInstantanée"
+   },
+   "icon": "temp"
+  },
+  "sinisterStrike": {
+   "id": 11294,
+   "name": {
+    "en": "Sinister Strike",
+    "fr": "Attaque pernicieuse"
+   },
+   "tooltip": {
+    "en": "Sinister Strike45 EnergyMelee RangeInstantRequires RogueRequires level 54\nRequires Melee WeaponAn instant strike that causes 68 damage in addition to your normal weapon damage. Awards 1 combo point.",
+    "fr": "Attaque pernicieuseEnergie : 45AllongeInstantanéeRequiert VoleurNiveau 54 requis\nRequiert Arme de mêléeUne attaque instantanée qui inflige 68 points de dégâts en plus des dégâts normaux de votre arme. Vous gagnez 1 point de combo."
+   },
+   "icon": "spell_shadow_ritualofsacrifice"
+  },
+  "backstab": {
+   "id": 25300,
+   "name": {
+    "en": "Backstab",
+    "fr": "Attaque sournoise"
+   },
+   "tooltip": {
+    "en": "Backstab60 EnergyMelee RangeInstantRequires RogueRequires level 60\nBackstab the target, causing 150% weapon damage plus 150 to the target. Must be behind the target. Requires a dagger in the main hand. Awards 1 combo point.",
+    "fr": "Attaque sournoiseEnergie : 60AllongeInstantanéeRequiert VoleurNiveau 60 requis\nAttaque sournoisement la cible et lui inflige 150 % des dégâts de l’arme plus 150. Il faut être derrière la cible. Requiert une dague en main droite. Vous gagnez 1 point de combo."
+   },
+   "icon": "ability_backstab"
+  },
+  "eviscerate": {
+   "id": 31016,
+   "name": {
+    "en": "Eviscerate",
+    "fr": "Eviscération"
+   },
+   "tooltip": {
+    "en": "Eviscerate35 Energy / 1 to 5 Combo PointsMelee RangeInstantRequires RogueRequires level 60\nRequires Melee WeaponFinishing move that causes damage per combo point, increased by Attack Power:\n 1 point : [54 + (170 * (1 * 1))]-[162 + (170 * (1 * 1))] damage\n 2 points: [54 + (2 * 170 * (1 * 1))]-[162 + (2 * 170 * (1 * 1))] damage\n 3 points: [54 + (3 * 170 * (1 * 1))]-[162 + (3 * 170 * (1 * 1))] damage\n 4 points: [54 + (4 * 170 * (1 * 1))]-[162 + (4 * 170 * (1 * 1))] damage\n 5 points: [54 + (5 * 170 * (1 * 1))]-[162 + (5 * 170 * (1 * 1))] damage",
+    "fr": "EviscérationEnergie : 35 / 1 à 5 Points de comboAllongeInstantanéeRequiert VoleurNiveau 60 requis\nRequiert Arme de mêléeCoup de grâce qui inflige des dégâts en fonction du nombre de points de combo. Les dégâts sont augmentés par la puissance d’attaque :\n 1 point : [54 + (170 * (1 * 1))]-[162 + (170 * (1 * 1))] points de dégâts\n 2 points : [54 + (2 * 170 * (1 * 1))]-[162 + (2 * 170 * (1 * 1))] points de dégâts\n 3 points : [54 + (3 * 170 * (1 * 1))]-[162 + (3 * 170 * (1 * 1))] points de dégâts\n 4 points : [54 + (4 * 170 * (1 * 1))]-[162 + (4 * 170 * (1 * 1))] points de dégâts\n 5 points : [54 + (5 * 170 * (1 * 1))]-[162 + (5 * 170 * (1 * 1))] points de dégâts"
+   },
+   "icon": "ability_rogue_eviscerate"
+  },
+  "sliceAndDice": {
+   "id": 6774,
+   "name": {
+    "en": "Slice and Dice",
+    "fr": "Débiter"
+   },
+   "tooltip": {
+    "en": "Slice and DiceRank 225 Energy / 1 to 5 Combo Points100 yd rangeInstantRequires RogueRequires level 42\nFinishing move that increases melee attack speed by 30%. Lasts longer per combo point:\n 1 point : (9 * 1) seconds\n 2 points: (12 * 1) seconds\n 3 points: (15 * 1) seconds\n 4 points: (18 * 1) seconds\n 5 points: (21 * 1) seconds",
+    "fr": "DébiterRang : 2Energie : 25 / 1 à 5 Points de combo100 m de portéeInstantanéeRequiert VoleurNiveau 42 requis\nCoup de grâce qui augmente la vitesse d’attaque en mêlée de 30 %. L’effet dure plus longtemps selon le nombre de points de combo :\n 1 point : (9 * 1) s\n 2 points : (12 * 1) s\n 3 points : (15 * 1) s\n 4 points : (18 * 1) s\n 5 points : (21 * 1) s"
+   },
+   "icon": "ability_rogue_slicedice"
+  },
+  "rupture": {
+   "id": 11275,
+   "name": {
+    "en": "Rupture",
+    "fr": "Rupture"
+   },
+   "tooltip": {
+    "en": "Rupture25 Energy / 1 to 5 Combo PointsMelee RangeInstantRequires RogueRequires level 60\nRequires Melee WeaponFinishing move that causes damage over time, increased by your Attack Power. Lasts longer per combo point:\n 1 point : [(39.73) * (4 + 0 / 2)] damage over [(8 + 0)] secs\n 2 points: [(44.46) * (5 + 0 / 2)] damage over [(10 + 0)] secs\n 3 points: [(49.19) * (6 + 0 / 2)] damage over [(12 + 0)] secs\n 4 points: [(53.92) * (7 + 0 / 2)] damage over [(14 + 0)] secs\n 5 points: [(58.65) * (8 + 0 / 2)] damage over [(16 + 0)] secs",
+    "fr": "RuptureEnergie : 25 / 1 à 5 Points de comboAllongeInstantanéeRequiert VoleurNiveau 60 requis\nRequiert Arme de mêléeCoup de grâce qui inflige des dégâts sur la durée. Les dégâts augmentent avec votre puissance d’attaque et l’effet dure plus longtemps selon le nombre de points de combo :\n 1 point : [(39.73) * (4 + 0 / 2)] points de dégâts en [(8 + 0)] s\n 2 points : [(44.46) * (5 + 0 / 2)] points de dégâts en [(10 + 0)] s\n 3 points : [(49.19) * (6 + 0 / 2)] points de dégâts en [(12 + 0)] s\n 4 points : [(53.92) * (7 + 0 / 2)] points de dégâts en [(14 + 0)] s\n 5 points : [(58.65) * (8 + 0 / 2)] points de dégâts en [(16 + 0)] s"
+   },
+   "icon": "ability_rogue_rupture"
+  },
+  "ambush": {
+   "id": 11269,
+   "name": {
+    "en": "Ambush",
+    "fr": "Embuscade"
+   },
+   "tooltip": {
+    "en": "Ambush60 EnergyMelee RangeInstantRequires RogueRequires level 58\nRequires StealthAmbush the target, causing 250% weapon damage plus 290 to the target. Must be stealthed and behind the target. Requires a dagger in the main hand. Awards 1 combo point.",
+    "fr": "EmbuscadeEnergie : 60AllongeInstantanéeRequiert VoleurNiveau 58 requis\nRequiert CamouflageVous tendez une embuscade à la cible et lui infligez 250% des dégâts de l'arme plus 290. Vous devez être camouflé et derrière la cible. Requiert une dague en main droite. Vous gagnez 1 point de combo."
+   },
+   "icon": "ability_rogue_ambush"
+  },
+  "garrote": {
+   "id": 11290,
+   "name": {
+    "en": "Garrote",
+    "fr": "Garrot"
+   },
+   "tooltip": {
+    "en": "Garrote50 EnergyMelee RangeInstantRequires RogueRequires level 54\nRequires StealthGarrote the enemy, causing 552 damage over 18 sec, increased by your Attack Power. Must be stealthed and behind the target. Awards 1 combo point.",
+    "fr": "GarrotEnergie : 50AllongeInstantanéeRequiert VoleurNiveau 54 requis\nRequiert CamouflageGarrotte l'ennemi et lui inflige 552 points de dégâts en 18 sec, augmentés par votre puissance d'attaque. Il faut être camouflé et derrière la cible. Vous gagnez 1 point de combo."
+   },
+   "icon": "ability_rogue_garrote"
+  },
+  "bladeFlurry": {
+   "id": 13877,
+   "name": {
+    "en": "Blade Flurry",
+    "fr": "Déluge de lames"
+   },
+   "tooltip": {
+    "en": "Blade FlurryTalent25 EnergyInstant2 min cooldownRequires RogueRequires level 1\nIncreases your melee attack speed by 20% and your melee attacks strike an additional nearby opponent. Lasts 15 sec.",
+    "fr": "Déluge de lamesTalentEnergie : 25Instantanée2 min de rechargeRequiert VoleurNiveau 1 requis\nAugmente votre vitesse d’attaque en mêlée de 20 % et permet à vos attaques en mêlée de toucher un personnage adverse proche supplémentaire. Dure 15 sec."
+   },
+   "icon": "ability_warrior_punishingblow"
+  },
+  "adrenalineRush": {
+   "id": 13750,
+   "name": {
+    "en": "Adrenaline Rush",
+    "fr": "Poussée d'adrénaline"
+   },
+   "tooltip": {
+    "en": "Adrenaline RushTalentInstant5 min cooldownRequires RogueIncreases your Energy regeneration rate by 100% for 15 sec.",
+    "fr": "Poussée d'adrénalineTalentInstantanée5 min de rechargeRequiert VoleurAugmente la vitesse de régénération de votre Energie de 100% pendant 15 sec."
+   },
+   "icon": "spell_shadow_shadowworddominate"
+  },
+  "coldBlood": {
+   "id": 14177,
+   "name": {
+    "en": "Cold Blood",
+    "fr": "Sang froid"
+   },
+   "tooltip": {
+    "en": "Cold BloodTalentInstant3 min cooldownRequires RogueWhen activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, Eviscerate, or Mutilate by 100%.",
+    "fr": "Sang froidTalentInstantanée3 min de rechargeRequiert VoleurÀ l’activation, augmente de 100 % les chances de coup critique de votre prochaine attaque utilisant Attaque pernicieuse, Attaque sournoise, Embuscade, Éviscération ou Estropier."
+   },
+   "icon": "spell_ice_lament"
+  },
+  "exposeArmor": {
+   "id": 11198,
+   "name": {
+    "en": "Expose Armor",
+    "fr": "Exposer l'armure"
+   },
+   "tooltip": {
+    "en": "Expose ArmorRank 525 Energy / 1 to 5 Combo PointsMelee RangeInstantRequires RogueRequires level 56\nRequires Melee WeaponFinishing move that exposes the target for 30 sec, reducing Armor per combo point:\n 1 point : 450 Armor\n 2 points: 900 Armor\n 3 points: 1350 Armor\n 4 points: 1800 Armor\n 5 points: 2250 Armor",
+    "fr": "Exposer l'armureRang : 5Energie : 25 / 1 à 5 Points de comboAllongeInstantanéeRequiert VoleurNiveau 56 requis\nRequiert Arme de mêléeCoup de grâce qui expose la cible pendant 30 sec et réduit l’armure selon le nombre de points de combo :\n 1 point : 450 d’armure\n 2 points : 900 d’armure\n 3 points : 1350 d’armure\n 4 points : 1800 d’armure\n 5 points: 2250 d’armure"
+   },
+   "icon": "ability_warrior_riposte"
+  },
+  "instantPoison": {
+   "id": 11338,
+   "name": {
+    "en": "Instant Poison IV",
+    "fr": "Poison instantané IV"
+   },
+   "tooltip": {
+    "en": "Instant Poison IVItem Effect3 sec castRequires RogueRequires level 44\nRequires Melee WeaponCoats a weapon with poison that lasts for 30 minutes.\nEach strike has a 20% chance of poisoning the enemy which instantly inflicts 45 to 57 Nature damage. 130 charges. (Proc chance: 20%)",
+    "fr": "Poison instantané IV[Item Effect]3 s d'incantationRequiert VoleurNiveau 44 requis\nRequiert Arme de mêléeEnduit une arme de poison durant 30 min.\nChaque coup a 20 % de chances d’empoisonner l’adversaire et de lui infliger instantanément 45 à 57 points de dégâts de nature. 130 charges. (Chance d'occurence :20%)"
+   },
+   "icon": "ability_poisons"
+  },
+  "deadlyPoison": {
+   "id": 25349,
+   "name": {
+    "en": "Deadly Poison V",
+    "fr": "Poison mortel V"
+   },
+   "tooltip": {
+    "en": "Deadly Poison V\n100 yd range\nInstantRequires RogueRequires level 60\nTarget takes 23 Nature damage every 3 seconds.",
+    "fr": "Poison mortel V\n100 m de portée\nInstantanéeRequiert VoleurNiveau 60 requis\nLa cible subit 23 points de dégâts de nature toutes les 3 s."
+   },
+   "icon": "ability_rogue_dualweild"
+  }
+ }
+}
