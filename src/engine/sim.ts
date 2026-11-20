@@ -3,6 +3,7 @@ import type { AnySimConfig } from '../state/store';
 import { druidWeightSpec, simulateDruid } from './druidSim';
 import { mageWeightSpec, simulateMage } from './mageSim';
 import { paladinWeightSpec, simulatePaladin } from './paladinSim';
+import { priestWeightSpec, simulatePriest } from './priestSim';
 import type { SimResult, StatWeight } from './simTypes';
 import { WEIGHT_DELTAS, simulate as simulateWarlock, type SimConfig } from './warlockSim';
 
@@ -11,6 +12,7 @@ import { WEIGHT_DELTAS, simulate as simulateWarlock, type SimConfig } from './wa
 export function simulateAny(config: AnySimConfig): SimResult {
   if (config.classId === 'druid') return simulateDruid(config);
   if (config.classId === 'mage') return simulateMage(config);
+  if (config.classId === 'priest') return simulatePriest(config);
   return config.classId === 'paladin' ? simulatePaladin(config) : simulateWarlock(config as SimConfig);
 }
 
@@ -18,6 +20,7 @@ export function simulateAny(config: AnySimConfig): SimResult {
 export function weightSpec(config: AnySimConfig): { deltas: Partial<Record<keyof Stats, number>>; base: keyof Stats } {
   if (config.classId === 'druid') return druidWeightSpec(config.spec);
   if (config.classId === 'mage') return mageWeightSpec();
+  if (config.classId === 'priest') return priestWeightSpec(config.spec);
   return config.classId === 'paladin' ? paladinWeightSpec(config.spec) : { deltas: WEIGHT_DELTAS, base: 'spellPower' };
 }
 

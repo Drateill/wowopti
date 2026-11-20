@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import type { DruidOptions } from '../data/druid/data';
 import type { MageOptions } from '../data/mage/data';
+import type { PriestHealFiller, PriestOptions } from '../data/priest/data';
 import type { PaladinOptions, PaladinSeal } from '../data/paladin/data';
 import { runSim } from '../engine/simClient';
 import type { SimResult } from '../engine/simTypes';
@@ -60,7 +61,7 @@ export function SimPanel() {
           <NumberField label={t('duration')} value={state.fightLength} min={10} onChange={(v) => set({ fightLength: Math.max(10, v), weights: null })} />
           <NumberField label={t('iterations')} value={state.iterations} min={50} step={100} onChange={(v) => set({ iterations: Math.max(50, Math.min(50000, v)), weights: null })} />
         </div>
-        {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : <WarlockOptions />}
+        {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : <WarlockOptions />}
         <p className="small muted">{t('buffsElsewhere')}</p>
         <button className="btn" onClick={run} disabled={running}>{running ? t('simulating') : t('runSim')}</button>
         {error && <p className="bad small">{error}</p>}
@@ -289,6 +290,75 @@ function MageOptionsPanel() {
       {box('evocation', <SpellName id="evocation" />)}
       {box('manaPotions', t('palManaPotions'))}
       <p className="small muted">{t(`mageNote_${spec}` as TKey)}</p>
+    </>
+  );
+}
+
+function PriestOptionsPanel() {
+  const { state, set } = useStore();
+  const { t, L } = useI18n();
+  const { cls } = useStore();
+  const o = state.pri;
+  const setO = (patch: Partial<PriestOptions>) => set({ pri: { ...o, ...patch }, weights: null });
+  const has = (k: string) => rank(state.talents, k) > 0;
+  const box = (key: keyof PriestOptions, label: React.ReactNode, ok = true) => (
+    <label className={`check ${ok ? '' : 'muted'}`}>
+      <input type="checkbox" disabled={!ok} checked={!!o[key] && ok} onChange={(e) => setO({ [key]: e.target.checked })} />
+      {label} {!ok && t('talentRequired')}
+    </label>
+  );
+  const common = (
+    <>
+      {box('innerFocus', <SpellName id="innerFocus" />, has('innerFocus'))}
+      {box('powerInfusion', t('priPowerInfusion'), has('powerInfusion'))}
+      {box('manaPotions', t('palManaPotions'))}
+    </>
+  );
+  if (state.spec === 'shadow') {
+    return (
+      <>
+        <h3>{t('rotation')}</h3>
+        {box('mindBlast', <SpellName id="mindBlast" />)}
+        {box('devouringPlague', <SpellName id="devouringPlague" />)}
+        {box('shadowWordDeath', <SpellName id="shadowWordDeath" />)}
+        {o.shadowWordDeath && <p className="small warn">{t('priSwdWarn')}</p>}
+        {box('vampiricEmbrace', <SpellName id="vampiricEmbrace" />, has('vampiricEmbrace'))}
+        {common}
+        {!has('mindFlay') && <p className="small warn">{t('priNoFlay')}</p>}
+        <p className="small muted">{t('priShadowNote')}</p>
+      </>
+    );
+  }
+  const fillers: PriestHealFiller[] = ['greaterHeal', 'heal', 'flashHeal', 'prayerOfHealing'];
+  return (
+    <>
+      <h3>{t('palHealing')}</h3>
+      <div className="row">
+        <NumberField label={t('palActivity')} value={o.activityPct} min={5} max={100} step={5} onChange={(v) => setO({ activityPct: Math.max(5, Math.min(100, v)) })} />
+        <NumberField label={t('palOverheal')} value={o.overhealPct} min={0} max={90} step={5} onChange={(v) => setO({ overhealPct: Math.max(0, Math.min(90, v)) })} />
+      </div>
+      <div className="row">
+        <NumberField label={t('priShieldTargets')} value={o.shieldTargets} min={0} max={10} onChange={(v) => setO({ shieldTargets: Math.max(0, Math.min(10, v)) })} />
+        <NumberField label={t('priRenewTargets')} value={o.renewTargets} min={0} max={10} onChange={(v) => setO({ renewTargets: Math.max(0, Math.min(10, v)) })} />
+      </div>
+      <label className="field">
+        {t('filler')}
+        <select value={o.healFiller} onChange={(e) => setO({ healFiller: e.target.value as PriestHealFiller })}>
+          {fillers.map((id) => (
+            <option key={id} value={id}>{L(cls.data.spellMeta[id]?.name)}</option>
+          ))}
+        </select>
+      </label>
+      {o.healFiller === 'prayerOfHealing' && (
+        <NumberField label={t('priPohTargets')} value={o.pohTargets} min={1} max={5} onChange={(v) => setO({ pohTargets: Math.max(1, Math.min(5, v)) })} />
+      )}
+      {box('penance', <SpellName id="penance" />, has('penance'))}
+      {box('prayerOfMending', <SpellName id="prayerOfMending" />, has('prayerOfMending'))}
+      {o.prayerOfMending && has('prayerOfMending') && (
+        <NumberField label={t('priPomCharges')} value={o.pomCharges} min={1} max={5} onChange={(v) => setO({ pomCharges: Math.max(1, Math.min(5, v)) })} />
+      )}
+      {common}
+      <p className="small muted">{t(state.spec === 'disc' ? 'priDiscNote' : 'priHolyNote')}</p>
     </>
   );
 }

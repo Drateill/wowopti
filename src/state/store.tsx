@@ -1,13 +1,15 @@
 import { createContext, useContext, useEffect, useMemo, useReducer, useState, type ReactNode } from 'react';
 import { BUFF_BY_ID, buffVisible, enchantMods, enchantStats, type EnchantRef } from '../data/buffs';
-import { CLASS_BY_ID, DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, type ClassId, type ClassModule } from '../data/classes';
+import { CLASS_BY_ID, DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS, type ClassId, type ClassModule } from '../data/classes';
 import type { MageOptions, MageRules, MageSpec } from '../data/mage/data';
+import type { PriestOptions, PriestRules, PriestSpec } from '../data/priest/data';
 import type { DruidOptions, DruidRules, DruidSpec } from '../data/druid/data';
 import type { PaladinOptions, PaladinRules, PaladinSpec } from '../data/paladin/data';
 import { parseSetBonus, type ItemSet } from '../data/setBonus';
 import { emptyMods, emptyStats, mergeMods, type GameRules, type Lang, type Localized, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import type { DruidSimConfig } from '../engine/druidSim';
 import type { MageSimConfig } from '../engine/mageSim';
+import type { PriestSimConfig } from '../engine/priestSim';
 import type { PaladinSimConfig } from '../engine/paladinSim';
 import type { StatWeight } from '../engine/simTypes';
 import { pointsInTree, type TalentPoints } from '../engine/talents';
@@ -54,10 +56,12 @@ export interface ProfileData {
   dru: DruidOptions;
   /** Mage : sort de remplissage, temps forts, gestion du mana. */
   mage: MageOptions;
+  /** Prêtre : rotation d'Ombre, soins. */
+  pri: PriestOptions;
   fightLength: number;
 }
 
-export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'fightLength'];
+export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'fightLength'];
 
 export interface Profile {
   id: string;
@@ -118,6 +122,13 @@ export function magePreset(spec: string, base: MageOptions = DEFAULT_MAGE_OPTION
   return { ...base, filler: spec === 'fire' ? 'fireball' : 'frostbolt' };
 }
 
+/** Options de prêtre adaptées à la spécialisation (boucliers en Discipline, Rénovations en Sacré). */
+export function priestPreset(spec: string, base: PriestOptions = DEFAULT_PRIEST_OPTIONS): PriestOptions {
+  if (spec === 'disc') return { ...base, shieldTargets: 2, renewTargets: 1 };
+  if (spec === 'holy') return { ...base, shieldTargets: 1, renewTargets: 2 };
+  return base;
+}
+
 const BASE_ROTATION: RotationOptions = { bane: 'agony', corruption: true, immolate: true, siphonLife: true, conflagrate: false, wrack: false, filler: 'shadowBolt', petAttacks: true };
 const BASE_BUFFS: RaidBuffs = { shadowDamagePct: 0, fireDamagePct: 0, sacrificed: 'none', activePet: 'imp', raidIsbUptime: 0 };
 
@@ -140,6 +151,7 @@ export function defaultState(classId: ClassId): AppState {
     pal: paladinPreset(spec.id),
     dru: druidPreset(spec.id),
     mage: magePreset(spec.id),
+    pri: priestPreset(spec.id),
     fightLength: 180,
     iterations: 2000,
     rules: cls.defaultRules,
@@ -182,6 +194,7 @@ export function migrate(parsed: Partial<Omit<AppState, 'version'>> & { version?:
     pal: { ...base.pal, ...d.pal },
     dru: { ...base.dru, ...d.dru },
     mage: { ...base.mage, ...d.mage },
+    pri: { ...base.pri, ...d.pri },
   });
   return {
     ...base,
@@ -315,7 +328,7 @@ export function computeGear(state: GearInput): { stats: Stats; mods: SimModifier
 /** Total des stats (objets, sets, enchantements, consommables, bonus divers). */
 export const gearStats = (state: GearInput): Stats => computeGear(state).stats;
 
-export type AnySimConfig = (SimConfig & { classId?: 'warlock' }) | PaladinSimConfig | DruidSimConfig | MageSimConfig;
+export type AnySimConfig = (SimConfig & { classId?: 'warlock' }) | PaladinSimConfig | DruidSimConfig | MageSimConfig | PriestSimConfig;
 
 type ConfigOverrides = Partial<Pick<SimConfig, 'iterations' | 'seed' | 'fightLength'>>;
 
@@ -323,6 +336,9 @@ type ConfigOverrides = Partial<Pick<SimConfig, 'iterations' | 'seed' | 'fightLen
 export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): AnySimConfig {
   const { stats, mods, weapon, shield } = computeGear(state);
   const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345 };
+  if (state.classId === 'priest') {
+    return { ...common, classId: 'priest', spec: state.spec as PriestSpec, rules: state.rules as unknown as PriestRules, options: state.pri, ...overrides };
+  }
   if (state.classId === 'mage') {
     return { ...common, classId: 'mage', spec: state.spec as MageSpec, rules: state.rules as unknown as MageRules, options: state.mage, ...overrides };
   }

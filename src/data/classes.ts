@@ -1,12 +1,13 @@
 import { DEFAULT_DRUID_OPTIONS, DRUID_DATA, DRUID_DEFAULT_TALENTS, DRUID_RULE_FIELDS, DRUID_RULES, DRUID_SPELLS } from './druid/data';
 import { DEFAULT_MAGE_OPTIONS, MAGE_DATA, MAGE_DEFAULT_TALENTS, MAGE_RULE_FIELDS, MAGE_RULES, MAGE_SPELLS } from './mage/data';
+import { DEFAULT_PRIEST_OPTIONS, PRIEST_DATA, PRIEST_DEFAULT_TALENTS, PRIEST_RULE_FIELDS, PRIEST_RULES, PRIEST_SPELLS } from './priest/data';
 import { DEFAULT_PALADIN_OPTIONS, PALADIN_DATA, PALADIN_DEFAULT_TALENTS, PALADIN_RULE_FIELDS, PALADIN_RULES, PALADIN_SPELLS } from './paladin/data';
 import type { TalentData } from './talentData';
 import { emptyStats, type Localized, type SpellDef, type Stats } from './types';
 import { DEFAULT_RULES, WARLOCK_SPELLS } from './warlock/spells';
 import { WARLOCK_DATA } from './warlock/talents';
 
-export type ClassId = 'warlock' | 'paladin' | 'druid' | 'mage';
+export type ClassId = 'warlock' | 'paladin' | 'druid' | 'mage' | 'priest';
 export type Metric = 'dps' | 'hps' | 'tps';
 
 export interface SpecDef {
@@ -163,8 +164,30 @@ export const MAGE: ClassModule = {
   defaultExtraStats: { ...emptyStats(), spellPower: 120, critPct: 3, hitPct: 4, intellect: 110, spirit: 40, stamina: 100 },
 };
 
-export const CLASSES: ClassModule[] = [WARLOCK, PALADIN, DRUID, MAGE];
-export const CLASS_BY_ID: Record<ClassId, ClassModule> = { warlock: WARLOCK, paladin: PALADIN, druid: DRUID, mage: MAGE };
+export const PRIEST: ClassModule = {
+  id: 'priest',
+  blizzardClassId: 5,
+  name: { fr: 'Prêtre', en: 'Priest' },
+  icon: 'classicon_priest',
+  color: '#e8e8e8',
+  data: PRIEST_DATA,
+  trees: PRIEST_DATA.trees,
+  talents: PRIEST_DATA.talents,
+  spells: PRIEST_SPELLS,
+  defaultRules: PRIEST_RULES,
+  ruleFields: PRIEST_RULE_FIELDS,
+  ruleBooleans: [],
+  specs: [
+    { tree: 0, id: 'disc', name: { fr: 'Discipline', en: 'Discipline' }, icon: 'spell_holy_powerwordshield', metric: 'hps', defaultTalents: PRIEST_DEFAULT_TALENTS.disc },
+    { tree: 1, id: 'holy', name: { fr: 'Sacré', en: 'Holy' }, icon: 'spell_holy_guardianspirit', metric: 'hps', defaultTalents: PRIEST_DEFAULT_TALENTS.holy },
+    { tree: 2, id: 'shadow', name: { fr: 'Ombre', en: 'Shadow' }, icon: 'spell_shadow_shadowwordpain', metric: 'dps', defaultTalents: PRIEST_DEFAULT_TALENTS.shadow },
+  ],
+  statKeys: ['spellPower', 'shadowPower', 'healingPower', 'critPct', 'hitPct', 'intellect', 'spirit', 'stamina', 'mp5'],
+  defaultExtraStats: { ...emptyStats(), spellPower: 100, healingPower: 150, critPct: 2, hitPct: 2, intellect: 110, spirit: 90, stamina: 100, mp5: 5 },
+};
+
+export const CLASSES: ClassModule[] = [WARLOCK, PALADIN, DRUID, MAGE, PRIEST];
+export const CLASS_BY_ID: Record<ClassId, ClassModule> = { warlock: WARLOCK, paladin: PALADIN, druid: DRUID, mage: MAGE, priest: PRIEST };
 export const CLASS_BY_BLIZZARD_ID = new Map(CLASSES.map((c) => [c.blizzardClassId, c]));
 
-export { DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS };
+export { DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS };

@@ -21,10 +21,10 @@ export interface BuffDef {
 }
 
 const magic10 = { 'school:shadow': 1.1, 'school:fire': 1.1, 'school:holy': 1.1, 'school:arcane': 1.1, 'school:nature': 1.1 };
-const CASTER_DMG = ['warlock', 'mage', 'paladin:ret', 'paladin:prot', 'druid:balance'];
-const MANA_USERS = ['warlock', 'mage', 'paladin', 'druid:balance', 'druid:resto'];
-const CASTERS = ['warlock', 'mage', 'druid:balance'];
-const HEALER = ['paladin:holy', 'druid:resto'];
+const CASTER_DMG = ['warlock', 'mage', 'priest:shadow', 'paladin:ret', 'paladin:prot', 'druid:balance'];
+const MANA_USERS = ['warlock', 'mage', 'priest', 'paladin', 'druid:balance', 'druid:resto'];
+const CASTERS = ['warlock', 'mage', 'priest:shadow', 'druid:balance'];
+const HEALER = ['paladin:holy', 'druid:resto', 'priest:disc', 'priest:holy'];
 const PAL_MELEE = ['paladin:ret', 'paladin:prot'];
 const FERAL = ['druid:cat', 'druid:bear'];
 const MELEE = [...PAL_MELEE, ...FERAL];
@@ -39,7 +39,7 @@ export const BUFFS: BuffDef[] = [
   { id: 'flaskSupreme', for: [...CASTER_DMG], kind: 'consumable', group: 'flask', name: { en: 'Flask of Supreme Power', fr: 'Flacon de pouvoir suprême' }, icon: 'inv_potion_41', wowhead: { type: 'item', id: 13512 }, stats: { spellPower: 150 } },
   { id: 'flaskWisdom', for: [...CASTERS, ...HEALER], kind: 'consumable', group: 'flask', name: { en: 'Flask of Distilled Wisdom', fr: 'Flacon de sagesse distillée' }, icon: 'inv_potion_97', wowhead: { type: 'item', id: 13511 }, mods: { maxMana: 2000 } },
   { id: 'greaterArcane', for: [...CASTER_DMG], kind: 'consumable', group: 'battleElixir', name: { en: 'Greater Arcane Elixir', fr: 'Elixir des arcanes supérieur' }, icon: 'inv_potion_109', wowhead: { type: 'item', id: 13454 }, stats: { spellPower: 35 } },
-  { id: 'shadowPower', for: ['warlock'], kind: 'consumable', group: 'battleElixir', name: { en: 'Elixir of Shadow Power', fr: "Elixir de Puissance de l'ombre" }, icon: 'inv_potion_48', wowhead: { type: 'item', id: 9264 }, stats: { shadowPower: 40 } },
+  { id: 'shadowPower', for: ['warlock', 'priest:shadow'], kind: 'consumable', group: 'battleElixir', name: { en: 'Elixir of Shadow Power', fr: "Elixir de Puissance de l'ombre" }, icon: 'inv_potion_48', wowhead: { type: 'item', id: 9264 }, stats: { shadowPower: 40 } },
   { id: 'mageblood', for: [...CASTERS, ...HEALER], kind: 'consumable', group: 'guardianElixir', name: { en: 'Mageblood Elixir', fr: 'Elixir magesang' }, icon: 'inv_potion_137', wowhead: { type: 'item', id: 20007 }, stats: { mp5: 12 } },
   { id: 'wizardOil', for: [...CASTERS, ...HEALER, 'paladin:ret'], kind: 'consumable', group: 'weapon', name: { en: 'Brilliant Wizard Oil', fr: 'Huile de sorcier brillante' }, icon: 'inv_potion_105', wowhead: { type: 'item', id: 20749 }, stats: { spellPower: 36, critPct: 1 } },
   { id: 'manaOil', for: [...CASTERS, ...HEALER], kind: 'consumable', group: 'weapon', name: { en: 'Brilliant Mana Oil', fr: 'Huile de mana brillante' }, icon: 'inv_potion_100', wowhead: { type: 'item', id: 20748 }, stats: { mp5: 15 } },
@@ -87,7 +87,7 @@ BUFFS.push(
 
   { id: 'battleShout', for: MELEE, kind: 'raid', name: { en: 'Battle Shout', fr: 'Cri de guerre' }, icon: 'ability_warrior_battleshout', wowhead: { type: 'spell', id: 25289 }, stats: { attackPower: 140 } },
   { id: 'blessingOfMight', for: MELEE, kind: 'raid', group: 'blessingMight', name: { en: 'Blessing of Might', fr: 'Bénédiction de puissance' }, icon: 'spell_holy_fistofjustice', wowhead: { type: 'spell', id: 25291 }, stats: { attackPower: 133 } },
-  { id: 'blessingOfWisdom', for: ['paladin', 'druid:balance', 'druid:resto'], kind: 'raid', name: { en: 'Blessing of Wisdom', fr: 'Bénédiction de sagesse' }, icon: 'spell_holy_sealofwisdom', wowhead: { type: 'spell', id: 25290 }, stats: { mp5: 40 } },
+  { id: 'blessingOfWisdom', for: ['paladin', 'priest', 'druid:balance', 'druid:resto'], kind: 'raid', name: { en: 'Blessing of Wisdom', fr: 'Bénédiction de sagesse' }, icon: 'spell_holy_sealofwisdom', wowhead: { type: 'spell', id: 25290 }, stats: { mp5: 40 } },
   {
     id: 'leaderOfThePack', for: PAL_MELEE, kind: 'raid', name: { en: 'Leader of the Pack', fr: 'Chef de la meute' }, icon: 'spell_nature_unyeildingstamina', wowhead: { type: 'spell', id: 24932 }, stats: { critPct: 3 },
     note: { en: '+3% crit (value from the Forever druid talent).', fr: '+3 % de critique (valeur du talent de druide Forever).' },
@@ -121,17 +121,17 @@ export interface EnchantDef {
 }
 
 export const ENCHANTS: EnchantDef[] = [
-  { id: 'arcanumFocus', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'head', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
-  { id: 'arcanumFocusLegs', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'legs', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
-  { id: 'signetMojo', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'shoulders', name: { en: 'Zandalar Signet of Mojo', fr: 'Cachet de mojo zandalar' }, wowhead: { type: 'item', id: 20076 }, stats: { spellPower: 18 } },
-  { id: 'powerScourge', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'shoulders', name: { en: 'Power of the Scourge', fr: 'Puissance du Fléau' }, wowhead: { type: 'item', id: 23545 }, stats: { spellPower: 15, critPct: 1 } },
-  { id: 'chestStats', for: ['warlock', 'mage'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { intellect: 4, spirit: 4, stamina: 4 } },
-  { id: 'chestInt', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'chest', name: { en: 'Major Intellect', fr: 'Intelligence majeure' }, wowhead: { type: 'spell', id: 20028 }, stats: { intellect: 10 } },
-  { id: 'wristInt', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'wrist', name: { en: 'Greater Intellect', fr: 'Intelligence supérieure' }, wowhead: { type: 'spell', id: 20008 }, stats: { intellect: 7 } },
+  { id: 'arcanumFocus', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'head', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
+  { id: 'arcanumFocusLegs', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'legs', name: { en: 'Arcanum of Focus', fr: 'Arcanum de focalisation' }, wowhead: { type: 'item', id: 18330 }, stats: { spellPower: 8 } },
+  { id: 'signetMojo', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'shoulders', name: { en: 'Zandalar Signet of Mojo', fr: 'Cachet de mojo zandalar' }, wowhead: { type: 'item', id: 20076 }, stats: { spellPower: 18 } },
+  { id: 'powerScourge', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'shoulders', name: { en: 'Power of the Scourge', fr: 'Puissance du Fléau' }, wowhead: { type: 'item', id: 23545 }, stats: { spellPower: 15, critPct: 1 } },
+  { id: 'chestStats', for: ['warlock', 'mage', 'priest'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { intellect: 4, spirit: 4, stamina: 4 } },
+  { id: 'chestInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'chest', name: { en: 'Major Intellect', fr: 'Intelligence majeure' }, wowhead: { type: 'spell', id: 20028 }, stats: { intellect: 10 } },
+  { id: 'wristInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'wrist', name: { en: 'Greater Intellect', fr: 'Intelligence supérieure' }, wowhead: { type: 'spell', id: 20008 }, stats: { intellect: 7 } },
   { id: 'glovesFire', for: ['warlock', 'mage:fire'], slot: 'hands', name: { en: 'Fire Power', fr: 'Puissance du feu' }, wowhead: { type: 'spell', id: 25078 }, stats: { firePower: 20 } },
-  { id: 'weaponSp', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: 'Spell Power', fr: 'Puissance des sorts' }, wowhead: { type: 'spell', id: 22749 }, stats: { spellPower: 30 } },
-  { id: 'weapon2hSp', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: '2H Mighty Spell Power', fr: '2M Puissance des sorts renforcée' }, wowhead: { type: 'spell', id: 1248607 }, stats: { spellPower: 55 } },
-  { id: 'weaponInt', for: ['warlock', 'mage', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: 'Mighty Intellect', fr: 'Intelligence renforcée' }, wowhead: { type: 'spell', id: 23804 }, stats: { intellect: 22 } },
+  { id: 'weaponSp', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: 'Spell Power', fr: 'Puissance des sorts' }, wowhead: { type: 'spell', id: 22749 }, stats: { spellPower: 30 } },
+  { id: 'weapon2hSp', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: '2H Mighty Spell Power', fr: '2M Puissance des sorts renforcée' }, wowhead: { type: 'spell', id: 1248607 }, stats: { spellPower: 55 } },
+  { id: 'weaponInt', for: ['warlock', 'mage', 'priest', 'paladin:holy', 'druid:balance', 'druid:resto'], slot: 'mainHand', name: { en: 'Mighty Intellect', fr: 'Intelligence renforcée' }, wowhead: { type: 'spell', id: 23804 }, stats: { intellect: 22 } },
 ];
 
 ENCHANTS.push(

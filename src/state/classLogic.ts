@@ -2,6 +2,8 @@ import type { DruidRules, DruidSpec } from '../data/druid/data';
 import { deriveDruid } from '../engine/druidSim';
 import { deriveMage } from '../engine/mageSim';
 import type { MageRules } from '../data/mage/data';
+import type { PriestRules } from '../data/priest/data';
+import { derivePriest } from '../engine/priestSim';
 import type { PaladinRules } from '../data/paladin/data';
 import type { GameRules } from '../data/types';
 import { derivePaladin } from '../engine/paladinSim';
@@ -32,6 +34,38 @@ export interface CharacterSheet {
 export function characterSheet(state: AppState): CharacterSheet {
   const g = computeGear(state);
   if (state.classId === 'druid') return druidSheet(state, g);
+  if (state.classId === 'priest') {
+    const d = derivePriest(state.rules as unknown as PriestRules, g.stats, state.talents, g.mods);
+    if (state.spec === 'shadow') {
+      return {
+        hitCapped: d.shadowHitToCap === 0,
+        entries: [
+          { label: 'sumSp', short: 'sumSp', value: d.shadowPower, digits: 0 },
+          { label: 'sheetSpellCrit', short: 'sumCrit', value: d.spellCritPct, digits: 2, pct: true },
+          {
+            label: 'sheetHit', short: 'sumHit', value: d.shadowHitPct, digits: 1, pct: true,
+            sub: d.shadowHitToCap > 0 ? { key: 'hitLeft', vars: { n: d.shadowHitToCap } } : { key: 'capReached' },
+            tone: d.shadowHitToCap > 0 ? 'warn' : 'good',
+          },
+          { label: 'sheetIntellect', value: d.intellect, digits: 0 },
+          { label: 'sheetSpirit', value: d.spirit, digits: 0 },
+          { label: 'maxMana', short: 'sumMana', value: d.maxMana, digits: 0 },
+        ],
+      };
+    }
+    return {
+      hitCapped: false,
+      entries: [
+        { label: 'sheetHealing', short: 'sumHeal', value: d.healingPower, digits: 0 },
+        { label: 'sheetSpellCrit', short: 'sumCrit', value: d.spellCritPct, digits: 2, pct: true },
+        { label: 'sheetIntellect', value: d.intellect, digits: 0 },
+        { label: 'sheetSpirit', value: d.spirit, digits: 0 },
+        { label: 'maxMana', short: 'sumMana', value: d.maxMana, digits: 0 },
+        { label: 'sheetMp5', short: 'sumMp5', value: d.mp5, digits: 0 },
+        { label: 'sheetRegen', value: d.spiritRegen * 5, digits: 0 },
+      ],
+    };
+  }
   if (state.classId === 'mage') {
     const d = deriveMage(state.rules as unknown as MageRules, g.stats, state.talents, g.mods);
     return {

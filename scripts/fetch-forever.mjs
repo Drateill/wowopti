@@ -57,6 +57,19 @@ const CLASSES = {
       arcanePower: 12042, presenceOfMind: 12043, evocation: 12051, mageArmor: 22783, coldSnap: 12472,
     },
   },
+  priest: {
+    trees: [
+      { wid: 201, key: 'discipline', skill: 613 },
+      { wid: 202, key: 'holy', skill: 56 },
+      { wid: 203, key: 'shadow', skill: 78 },
+    ],
+    spells: {
+      smite: 10934, holyFire: 15261, mindBlast: 10947, shadowWordPain: 10894, mindFlay: 18807, devouringPlague: 19280,
+      vampiricEmbrace: 15286, shadowform: 15473, greaterHeal: 25314, heal: 6064, flashHeal: 10917, renew: 25315,
+      prayerOfHealing: 25316, powerWordShield: 10901, innerFire: 10952, powerInfusion: 10060, innerFocus: 14751,
+      holyNova: 15431, penance: 1316995, prayerOfMending: 1240827, shadowWordDeath: 1309636,
+    },
+  },
 };
 
 const get = async (url) => {
