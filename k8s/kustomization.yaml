@@ -9,4 +9,4 @@ resources:
 # L'étiquette est mise à jour par la CI (.github/workflows/deploy.yml) à chaque push sur main.
 images:
   - name: ghcr.io/drateill/wowopti
-    newTag: "2301019"
+    newTag: "58b7509"
