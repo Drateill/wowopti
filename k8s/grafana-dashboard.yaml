@@ -1,0 +1,387 @@
+# Tableau Grafana : chargé automatiquement par le sidecar de Grafana (étiquette grafana_dashboard=1).
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wowopti-grafana-dashboard
+  labels:
+    grafana_dashboard: "1"
+data:
+  wowopti.json: |
+    {
+      "uid": "wowopti",
+      "title": "Forever Theorycraft (wowopti)",
+      "tags": [
+        "wowopti"
+      ],
+      "timezone": "browser",
+      "schemaVersion": 39,
+      "version": 1,
+      "refresh": "1m",
+      "time": {
+        "from": "now-24h",
+        "to": "now"
+      },
+      "templating": {
+        "list": [
+          {
+            "name": "datasource",
+            "type": "datasource",
+            "query": "prometheus",
+            "label": "Source",
+            "current": {}
+          }
+        ]
+      },
+      "panels": [
+        {
+          "id": 1,
+          "type": "gauge",
+          "title": "Quota Blizzard utilisé (heure glissante)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 7
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "100 * max(wowopti_blizzard_requests_last_hour) / max(wowopti_blizzard_hourly_quota)",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percent",
+              "min": 0,
+              "max": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "options": {},
+          "description": "Appels à l'API Blizzard sur la dernière heure, rapportés au quota de 36 000 par heure."
+        },
+        {
+          "id": 2,
+          "type": "stat",
+          "title": "Appels Blizzard (dernière heure)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 6,
+            "y": 0,
+            "w": 6,
+            "h": 7
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "max(wowopti_blizzard_requests_last_hour)",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "options": {}
+        },
+        {
+          "id": 3,
+          "type": "stat",
+          "title": "Refus 429 (dernière heure)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 0,
+            "w": 6,
+            "h": 7
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum(increase(wowopti_rate_limited_total[1h]))",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "options": {},
+          "description": "Requêtes refusées par les limites par IP ou globale."
+        },
+        {
+          "id": 4,
+          "type": "stat",
+          "title": "Imports de personnage (dernière heure)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 18,
+            "y": 0,
+            "w": 6,
+            "h": 7
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum(increase(wowopti_character_imports_total[1h]))",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "options": {}
+        },
+        {
+          "id": 5,
+          "type": "timeseries",
+          "title": "Taux de succès du cache",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 7,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum by (cache) (rate(wowopti_cache_requests_total{result=\"hit\"}[15m])) / sum by (cache) (rate(wowopti_cache_requests_total[15m]))",
+              "legendFormat": "{{cache}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit",
+              "min": 0,
+              "max": 1
+            },
+            "overrides": []
+          },
+          "options": {}
+        },
+        {
+          "id": 6,
+          "type": "timeseries",
+          "title": "Refus 429 par portée",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 7,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum by (source, scope) (increase(wowopti_rate_limited_total[5m]))",
+              "legendFormat": "{{source}} · {{scope}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "options": {},
+          "description": "import : 10 par minute et par IP ; requests : 300 par minute et par IP ; global : plafond pour tout le site."
+        },
+        {
+          "id": 7,
+          "type": "timeseries",
+          "title": "Appels sortants par statut",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 15,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum by (api, status) (rate(wowopti_upstream_requests_total[5m])) * 60",
+              "legendFormat": "{{api}} · {{status}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "options": {},
+          "description": "Appels par minute vers Blizzard et Wowhead."
+        },
+        {
+          "id": 8,
+          "type": "timeseries",
+          "title": "Requêtes reçues par route",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 15,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum by (route) (rate(wowopti_requests_total[5m])) * 60",
+              "legendFormat": "{{route}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "options": {},
+          "description": "Requêtes par minute."
+        },
+        {
+          "id": 9,
+          "type": "timeseries",
+          "title": "Entrées en cache",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 23,
+            "w": 12,
+            "h": 7
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "sum by (cache) (wowopti_cache_entries)",
+              "legendFormat": "{{cache}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "options": {}
+        },
+        {
+          "id": 10,
+          "type": "timeseries",
+          "title": "Mémoire du serveur",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 23,
+            "w": 12,
+            "h": 7
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "expr": "max(wowopti_process_resident_memory_bytes)",
+              "legendFormat": "RSS",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "options": {}
+        }
+      ]
+    }

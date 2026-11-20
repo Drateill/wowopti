@@ -52,6 +52,11 @@ export class ResponseCache {
     private now: () => number = Date.now,
   ) {}
 
+  /** Nombre d'entrées (pour les métriques). */
+  get size(): number {
+    return this.entries.size;
+  }
+
   get(key: string): CachedResponse | null {
     const e = this.entries.get(key);
     if (!e) return null;

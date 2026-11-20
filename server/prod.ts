@@ -8,8 +8,11 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { extname, join, normalize, resolve } from 'node:path';
 import { createBlizzardHandler } from './blizzard';
 import { ResponseCache, TokenBuckets, clientIp, rateLimited } from './guard';
+import { metrics, recordUpstream, registerCache, renderMetrics } from './metrics';
 
 const PORT = Number(process.env.PORT ?? 8080);
+// Métriques Prometheus sur un port à part, jamais exposé par l'ingress (0 pour les couper).
+const METRICS_PORT = Number(process.env.METRICS_PORT ?? 9100);
 const ROOT = resolve(process.env.STATIC_DIR ?? 'dist');
 
 const blizzard = createBlizzardHandler({
@@ -35,6 +38,7 @@ const WOWHEAD_ALLOWED = /^\/forever(\/fr)?\/search\/suggestions-template$/;
 // 120 recherches par minute et par IP, résultats gardés 10 min.
 const wowheadLimit = new TokenBuckets(120, 2);
 const wowheadCache = new ResponseCache(2000);
+registerCache('wowhead', () => wowheadCache.size);
 
 async function wowhead(req: IncomingMessage, res: ServerResponse, path: string) {
   const url = new URL(path, 'https://www.wowhead.com');
@@ -46,6 +50,7 @@ async function wowhead(req: IncomingMessage, res: ServerResponse, path: string) 
   if (!wowheadCache.get(key)) {
     const wait = wowheadLimit.take(clientIp(req));
     if (wait) {
+      metrics.rateLimited.inc({ source: 'wowhead', scope: 'requests' });
       const r = rateLimited(wait, 'requests');
       res.writeHead(r.status, r.headers);
       return res.end(r.body);
@@ -55,11 +60,16 @@ async function wowhead(req: IncomingMessage, res: ServerResponse, path: string) 
     const { value, hit } = await wowheadCache.fetch(
       key,
       async () => {
-        const upstream = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (theorycraft tool)' } });
+        const upstream = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (theorycraft tool)' } }).catch((e) => {
+          recordUpstream('wowhead', null);
+          throw e;
+        });
+        recordUpstream('wowhead', upstream.status);
         return { status: upstream.status, body: await upstream.text(), contentType: upstream.headers.get('content-type') ?? 'application/json' };
       },
       (r) => (r.status === 200 ? 600_000 : 0),
     );
+    metrics.cache.inc({ cache: 'wowhead', result: hit ? 'hit' : 'miss' });
     res.writeHead(value.status, { 'Content-Type': value.contentType, 'Cache-Control': 'public, max-age=600', 'X-Cache': hit ? 'HIT' : 'MISS' });
     res.end(value.body);
   } catch (e) {
@@ -109,16 +119,38 @@ const server = createServer((req, res) => {
     return res.end('ok');
   }
   if (url.pathname === '/blizzard' || url.pathname.startsWith('/blizzard/')) {
+    metrics.requests.inc({ route: 'blizzard' });
     req.url = (req.url ?? '').slice('/blizzard'.length) || '/';
     return done(blizzard(req, res));
   }
-  if (url.pathname.startsWith('/wowhead/')) return done(wowhead(req, res, (req.url ?? '').slice('/wowhead'.length)));
+  if (url.pathname.startsWith('/wowhead/')) {
+    metrics.requests.inc({ route: 'wowhead' });
+    return done(wowhead(req, res, (req.url ?? '').slice('/wowhead'.length)));
+  }
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     res.writeHead(405);
     return res.end();
   }
+  metrics.requests.inc({ route: url.pathname.startsWith('/assets/') ? 'assets' : 'page' });
   return done(serveStatic(req, res, url.pathname));
 });
 
 server.listen(PORT, () => console.log(`Forever Theorycraft sur le port ${PORT} (fichiers : ${ROOT})`));
-for (const sig of ['SIGTERM', 'SIGINT'] as const) process.on(sig, () => server.close(() => process.exit(0)));
+
+const metricsServer =
+  METRICS_PORT > 0
+    ? createServer((req, res) => {
+        if (req.url !== '/metrics') {
+          res.writeHead(404);
+          return res.end();
+        }
+        res.writeHead(200, { 'Content-Type': 'text/plain; version=0.0.4; charset=utf-8' });
+        res.end(renderMetrics());
+      }).listen(METRICS_PORT, () => console.log(`Métriques Prometheus sur le port ${METRICS_PORT}`))
+    : null;
+
+for (const sig of ['SIGTERM', 'SIGINT'] as const)
+  process.on(sig, () => {
+    metricsServer?.close();
+    server.close(() => process.exit(0));
+  });

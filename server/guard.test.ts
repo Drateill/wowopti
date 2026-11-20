@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { LIMITS, createBlizzardHandler } from './blizzard';
+import { SlidingWindow, metrics, renderMetrics } from './metrics';
 import { ResponseCache, TokenBuckets, clientIp } from './guard';
 
 describe('seaux à jetons', () => {
@@ -90,13 +91,31 @@ describe('relais Blizzard protégé', () => {
     expect(upstream).toHaveLength(1);
   });
 
+  it('compte cache, appels sortants et refus dans les métriques', async () => {
+    const { get } = setup();
+    const hit = metrics.cache.get({ cache: 'blizzard', result: 'hit' });
+    const miss = metrics.cache.get({ cache: 'blizzard', result: 'miss' });
+    const ok = metrics.upstream.get({ api: 'blizzard', status: '2xx' });
+    await get('/api/profile/wow/character/metrique');
+    await get('/api/profile/wow/character/metrique');
+    expect(metrics.cache.get({ cache: 'blizzard', result: 'miss' })).toBe(miss + 1);
+    expect(metrics.cache.get({ cache: 'blizzard', result: 'hit' })).toBe(hit + 1);
+    expect(metrics.upstream.get({ api: 'blizzard', status: '2xx' })).toBe(ok + 1);
+    const text = renderMetrics();
+    expect(text).toMatch(/^wowopti_cache_requests_total\{cache="blizzard",result="hit"\} \d+$/m);
+    expect(text).toMatch(/^wowopti_blizzard_requests_last_hour \d+$/m);
+    expect(text).toMatch(/^wowopti_cache_entries\{cache="blizzard"\} \d+$/m);
+  });
+
   it(`limite à ${LIMITS.importsPerMinute} imports par minute et par IP, avec Retry-After`, async () => {
     const { get, advance } = setup();
+    const before = metrics.rateLimited.get({ source: 'blizzard', scope: 'import' });
     for (let i = 0; i < LIMITS.importsPerMinute; i++) expect((await get(`/api/profile/wow/character/perso${i}`)).status).toBe(200);
     const refused = await get('/api/profile/wow/character/encore');
     expect(refused.status).toBe(429);
     expect(JSON.parse(refused.body)).toMatchObject({ error: 'rate_limited', scope: 'import' });
     expect(Number(refused.headers['retry-after'])).toBeGreaterThan(0);
+    expect(metrics.rateLimited.get({ source: 'blizzard', scope: 'import' })).toBe(before + 1);
     // Une autre IP n'est pas touchée, le cache reste servi, et la limite se recharge.
     expect((await get('/api/profile/wow/character/encore', '2.2.2.2')).status).toBe(200);
     expect((await get('/api/profile/wow/character/perso0')).status).toBe(200);
@@ -112,5 +131,18 @@ describe('relais Blizzard protégé', () => {
     advance(121_000);
     await get('/api/profile/wow/character/inconnu');
     expect(upstream).toHaveLength(2);
+  });
+});
+
+describe('fenêtre glissante', () => {
+  it('oublie les événements de plus d’une heure', () => {
+    let t = 0;
+    const w = new SlidingWindow(3600_000, () => t);
+    w.add();
+    t = 1800_000;
+    w.add();
+    expect(w.count()).toBe(2);
+    t = 3600_001;
+    expect(w.count()).toBe(1);
   });
 });

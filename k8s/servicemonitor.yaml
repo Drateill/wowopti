@@ -1,0 +1,15 @@
+# Prometheus (kube-prometheus-stack, release « kube-prom ») lit /metrics sur le port interne du service.
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: wowopti
+  labels:
+    release: kube-prom
+spec:
+  selector:
+    matchLabels:
+      app: wowopti
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s

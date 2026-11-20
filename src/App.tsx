@@ -158,7 +158,7 @@ export default function App() {
       </header>
       <nav className="tabs">
         {TABS.map(([id, key]) => (
-          <button key={id} className={tab === id ? 'active' : ''} onClick={() => setTab(id)}>
+          <button key={id} className={tab === id ? 'active' : ''} onClick={(e) => { setTab(id); e.currentTarget.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' }); }}>
             {t(key)}
           </button>
         ))}
@@ -178,6 +178,13 @@ export default function App() {
         {tab === 'weights' && <WeightsPanel />}
         {tab === 'settings' && <SettingsPanel />}
       </TabErrorBoundary>
+      <footer className="site-footer small muted">
+        <p>{t('footerSources')}</p>
+        <details>
+          <summary>{t('privacyTitle')}</summary>
+          <p>{t('privacyText')}</p>
+        </details>
+      </footer>
     </div>
   );
 }

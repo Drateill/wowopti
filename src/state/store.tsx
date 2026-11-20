@@ -102,6 +102,8 @@ export interface AppState extends ProfileData {
   rules: Record<string, number | boolean>;
   spells: SpellDef[];
   weights: StatWeight[] | null;
+  /** Dernier personnage importé depuis Blizzard (pour le mettre à jour d'un clic). */
+  character?: { slug: string; name: string };
 }
 
 const browserLang = (): Lang => {

@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { ENCHANTS } from '../data/buffs';
 import { runCompare } from '../engine/simClient';
 import { pointsInTree } from '../engine/talents';
 import type { SimResult } from '../engine/simTypes';
 import { useI18n, type TKey } from '../i18n';
 import { characterSheet } from '../state/classLogic';
 import { encodeProfile } from '../state/share';
-import { buildConfig, profileOf, useStore, type ProfileData } from '../state/store';
+import { SLOTS, buildConfig, profileOf, useStore, type ProfileData } from '../state/store';
 import { SpellName } from './SimPanel';
 import { Progress } from './ui';
 
@@ -13,7 +14,7 @@ const CURRENT = '__current__';
 
 export function ProfilesPanel() {
   const { state, set, cls } = useStore();
-  const { t, num, L } = useI18n();
+  const { t, num, L, slot: slotName } = useI18n();
   const [name, setName] = useState('');
   const [link, setLink] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -188,6 +189,45 @@ export function ProfilesPanel() {
             </tbody>
           </table>
         </div>
+
+        {(() => {
+          // Objets qui diffèrent entre A et B (emplacement par emplacement, enchantement compris).
+          const da = dataOf(a);
+          const db = dataOf(b);
+          const nameOf = (d: ProfileData, s: (typeof SLOTS)[number]) => {
+            const item = state.items.find((i) => i.id === d.equipped[s]);
+            const ench = d.enchants?.[s];
+            const e = !ench ? '' : typeof ench === 'string' ? ` + ${L(ENCHANTS.find((x) => x.id === ench)?.name) || ench}` : ` + ${L(ench.name)}`;
+            return item ? `${L(item.name)}${e}` : '—';
+          };
+          const diff = SLOTS.filter((s) => da.equipped[s] !== db.equipped[s] || JSON.stringify(da.enchants?.[s] ?? null) !== JSON.stringify(db.enchants?.[s] ?? null));
+          if (a === b) return null;
+          return (
+            <>
+              <h3>{t('compareGear')}</h3>
+              {diff.length === 0 ? (
+                <p className="small muted">{t('compareSameGear')}</p>
+              ) : (
+                <div className="table-wrap">
+                  <table>
+                    <thead>
+                      <tr><th>{t('slot')}</th><th>A</th><th>B</th></tr>
+                    </thead>
+                    <tbody>
+                      {diff.map((s) => (
+                        <tr key={s}>
+                          <td>{slotName(s)}</td>
+                          <td>{nameOf(da, s)}</td>
+                          <td>{nameOf(db, s)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </>
+          );
+        })()}
 
         {results && (
           <>

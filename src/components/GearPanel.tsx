@@ -3,7 +3,7 @@ import { NotInBlizzardApi, blizzardStatus, fetchItemBlizzard, searchItemsBlizzar
 import { ENCHANTS, buffVisible } from '../data/buffs';
 import { fetchCharacter } from '../data/character';
 import { RateLimitedError } from '../data/rateLimit';
-import { applyCharacter } from '../state/importCharacter';
+import { applyCharacter, refreshCharacter } from '../state/importCharacter';
 import { emptyStats, type Stats } from '../data/types';
 import {
   ITEM_SOURCES, QUALITY_COLORS, classifyResult, fetchItem, fetchSuffixScale, parseItemRef, searchItems, suggestItems, wowheadUrl,
@@ -625,7 +625,7 @@ const IMPORTED = '__imported__';
 
 function CharacterImport() {
   const { state, set, cls } = useStore();
-  const { t, L } = useI18n();
+  const { t, L, slot: slotName } = useI18n();
   const errorText = (err: unknown) => apiErrorText(t, err);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
@@ -640,6 +640,27 @@ function CharacterImport() {
       alive = false;
     };
   }, []);
+
+  const refresh = async () => {
+    const known = state.character;
+    if (!known) return;
+    setBusy(true);
+    setReport(null);
+    try {
+      const char = await fetchCharacter(known.slug, cls);
+      const { patch, changed } = refreshCharacter(state, char, t('beforeCharRefresh', { name: char.name }));
+      set(patch);
+      setReport({
+        ok: true,
+        lines: [changed.length ? t('charRefreshed', { name: char.name, n: changed.length, list: changed.map((s) => slotName(s)).join(', ') }) : t('charUpToDate', { name: char.name })],
+      });
+    } catch (err) {
+      const msg = String((err as Error).message ?? err);
+      setReport({ ok: false, lines: [/404|Not Found/i.test(msg) ? t('charNotFound') : errorText(err)] });
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const run = async (e: FormEvent) => {
     e.preventDefault();
@@ -679,6 +700,13 @@ function CharacterImport() {
             <button className="btn" disabled={busy || !ready}>{busy ? t('searching') : t('import')}</button>
           </form>
           <p className="small muted">{t('charHelp')}</p>
+          {state.character && (
+            <div className="row">
+              <button className="btn secondary" onClick={refresh} disabled={busy || !ready} title={t('charRefreshHelp')}>
+                {t('charRefresh', { name: state.character.name })}
+              </button>
+            </div>
+          )}
         </>
       )}
       {report && (

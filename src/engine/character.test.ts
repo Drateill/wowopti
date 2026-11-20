@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { parseEnchantText } from '../data/buffs';
 import { characterSlug, matchEnchant, talentKey, type ImportedCharacter } from '../data/character';
-import { applyCharacter } from '../state/importCharacter';
+import { applyCharacter, refreshCharacter } from '../state/importCharacter';
 import { DEFAULT_STATE, computeGear } from '../state/store';
 
 describe('import de personnage', () => {
@@ -57,6 +57,23 @@ describe('import de personnage', () => {
     const other = applyCharacter(DEFAULT_STATE, { ...char, sameClass: false, talents: {} }, 'Avant');
     expect(other.talentsApplied).toBe(false);
     expect(other.patch.talents).toBeUndefined();
+
+    // Mise à jour : seul l'emplacement changé est repris, les talents ne bougent pas.
+    const imported = { ...DEFAULT_STATE, ...patch };
+    expect(imported.character).toEqual({ slug: char.slug, name: char.name });
+    const same = refreshCharacter(imported, char, 'Avant maj');
+    expect(same.changed).toEqual([]);
+    expect(same.patch.profiles).toBeUndefined();
+    const newHead = { ...char.items[0], id: 9, name: { en: 'New', fr: 'Nouveau' } };
+    const next = refreshCharacter({ ...imported, talents: {} }, { ...char, items: [newHead, char.items[1]] }, 'Avant maj');
+    expect(next.changed).toEqual(['head']);
+    expect(next.patch.equipped).toEqual({ head: 'wh-9', finger2: 'wh-2' });
+    expect(next.patch.talents).toBeUndefined();
+    expect(next.patch.profiles?.at(-1)?.name).toBe('Avant maj');
+    // Objet retiré en jeu : l'emplacement est vidé.
+    const removed = refreshCharacter(imported, { ...char, items: [char.items[0]] }, 'x');
+    expect(removed.changed).toEqual(['finger2']);
+    expect(removed.patch.equipped).toEqual({ head: 'wh-1' });
   });
 });
 

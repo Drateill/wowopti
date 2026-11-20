@@ -122,6 +122,12 @@ a.plain:hover { text-decoration: underline; }
 @media (max-width: 760px) {
   .sim-layout { grid-template-columns: 1fr; }
   .header .summary { margin-left: 0; }
+  /* Onglets : un fondu à droite montre qu'on peut faire défiler. */
+  .tabs { mask-image: linear-gradient(to right, #000 85%, transparent); -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); padding-right: 32px; }
+  .tabs button { padding: 10px 10px; }
+  /* Tableaux larges : la première colonne (nom du sort, de l'objet…) reste visible en défilant. */
+  .table-wrap th:first-child, .table-wrap td:first-child { position: sticky; left: 0; background: var(--panel); z-index: 1; }
+  .panel { padding: 12px; }
 }
 
 /* Buffs, ensembles, enchantements, filtres */
@@ -148,3 +154,8 @@ a.plain:hover { text-decoration: underline; }
 .spec-switch button.active { background: var(--panel-2); color: var(--text); }
 .spec-switch button:focus { outline: none; }
 .spec-switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Pied de page : sources, mentions et confidentialité */
+.site-footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); }
+.site-footer p { margin: 4px 0; }
+.site-footer summary { cursor: pointer; }

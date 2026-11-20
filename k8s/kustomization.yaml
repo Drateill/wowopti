@@ -6,6 +6,8 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
+  - servicemonitor.yaml
+  - grafana-dashboard.yaml
 # L'étiquette est mise à jour par la CI (.github/workflows/deploy.yml) à chaque push sur main.
 images:
   - name: ghcr.io/drateill/wowopti

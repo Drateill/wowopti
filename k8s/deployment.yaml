@@ -24,6 +24,9 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+            # Métriques Prometheus : port interne, pas routé par l'ingress.
+            - name: metrics
+              containerPort: 9100
           env:
             - name: BLIZZARD_REGION
               value: eu

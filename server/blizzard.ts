@@ -3,6 +3,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { Plugin } from 'vite';
 import { ResponseCache, TokenBuckets, clientIp, rateLimited, type CachedResponse } from './guard';
+import { metrics, recordUpstream, registerCache } from './metrics';
 
 interface Options {
   clientId?: string;
@@ -49,6 +50,7 @@ export function createBlizzardHandler(opts: Options): (req: IncomingMessage, res
   const requests = new TokenBuckets(LIMITS.requestsPerMinute, LIMITS.requestsPerMinute / 60, now);
   const global = new TokenBuckets(LIMITS.globalBurst, LIMITS.globalPerHour / 3600, now);
   const cache = new ResponseCache(3000, now);
+  registerCache('blizzard', () => cache.size);
 
   async function getToken(): Promise<string> {
     if (token && token.expires > Date.now() + 60_000) return token.value;
@@ -70,7 +72,15 @@ export function createBlizzardHandler(opts: Options): (req: IncomingMessage, res
     const url = new URL(`https://${region}.api.blizzard.com${path}`);
     query.forEach((v, k) => url.searchParams.set(k, v));
     url.searchParams.set('namespace', ns);
-    return fetch(url, { headers: { Authorization: `Bearer ${await getToken()}` } });
+    const auth = `Bearer ${await getToken()}`;
+    try {
+      const r = await fetch(url, { headers: { Authorization: auth } });
+      recordUpstream('blizzard', r.status);
+      return r;
+    } catch (e) {
+      recordUpstream('blizzard', null);
+      throw e;
+    }
   }
 
   /** Trouve le namespace qui répond. On teste un index (beaucoup d'objets manquent dans l'API Forever). */
@@ -115,6 +125,7 @@ export function createBlizzardHandler(opts: Options): (req: IncomingMessage, res
       res.statusCode = r.status;
       res.setHeader('Content-Type', r.contentType);
       res.setHeader('X-Cache', hit ? 'HIT' : 'MISS');
+      metrics.cache.inc({ cache: 'blizzard', result: hit ? 'hit' : 'miss' });
       res.end(r.body);
     };
     const cached = cache.get(key);
@@ -125,6 +136,7 @@ export function createBlizzardHandler(opts: Options): (req: IncomingMessage, res
     const limited = (wait: number, scope: 'import' | 'requests' | 'global') => {
       const r = rateLimited(wait, scope);
       console.warn(`[limite] ${scope} refusé pour ${ip} (${wait} s)`);
+      metrics.rateLimited.inc({ source: 'blizzard', scope });
       res.writeHead(r.status, r.headers);
       res.end(r.body);
     };
@@ -136,6 +148,7 @@ export function createBlizzardHandler(opts: Options): (req: IncomingMessage, res
     if (waitIp) return limited(waitIp, 'requests');
     const waitAll = global.take('all');
     if (waitAll) return limited(waitAll, 'global');
+    if (IMPORT_PATH.test(path)) metrics.imports.inc();
 
     try {
       const { value, hit } = await cache.fetch(
