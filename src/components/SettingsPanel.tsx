@@ -1,12 +1,18 @@
-import type { DruidSpec } from '../data/druid/data';
+import type { DruidRules, DruidSpec } from '../data/druid/data';
+import type { HunterRules } from '../data/hunter/data';
+import type { RogueRules } from '../data/rogue/data';
+import type { WarriorSpec } from '../data/warrior/data';
+import type { WeaponInfo } from '../data/types';
 import type { SpellDef } from '../data/types';
 import { wowheadUrl } from '../data/wowhead';
 import { deriveDruid } from '../engine/druidSim';
-import { deriveHunter } from '../engine/hunterSim';
+import { DEFAULT_MELEE, DEFAULT_RANGED, deriveHunter } from '../engine/hunterSim';
 import { deriveMage } from '../engine/mageSim';
 import { derivePaladin } from '../engine/paladinSim';
 import { derivePriest } from '../engine/priestSim';
-import { deriveShaman } from '../engine/shamanSim';
+import { DEFAULT_ROGUE_MH, DEFAULT_ROGUE_OH, deriveRogue } from '../engine/rogueSim';
+import { DEFAULT_SHAMAN_2H, deriveShaman } from '../engine/shamanSim';
+import { DEFAULT_WARRIOR_1H, DEFAULT_WARRIOR_2H, deriveWarrior } from '../engine/warriorSim';
 import { makeCalculator, type SimConfig } from '../engine/warlockSim';
 import { useI18n, type TKey } from '../i18n';
 import { buildConfig, computeGear, useStore, type AppState } from '../state/store';
@@ -69,6 +75,88 @@ function powerResolver(state: AppState): (s: SpellDef) => number | null {
   }
 }
 
+const mid = (s: SpellDef) => ((s.directMin ?? 0) + (s.directMax ?? 0)) / 2;
+
+/**
+ * Techniques physiques : coup d'arme moyen (dégâts de l'arme + puissance d'attaque / 14 × vitesse),
+ * puis la formule de chaque moteur. Hors armure de la cible et hors bonus en % des talents.
+ * Les coups de grâce sont donnés à 5 points de combo.
+ */
+function physicalAverages(state: AppState): Record<string, number> {
+  const c = buildConfig(state) as { gear: AppState['extraStats']; mods: ReturnType<typeof computeGear>['mods']; weapon?: WeaponInfo | null; offHand?: WeaponInfo | null; meleeWeapon?: WeaponInfo | null };
+  const rules = state.rules as never;
+  const sp = new Map(state.spells.map((s) => [s.id, s]));
+  const coeff = (id: string) => sp.get(id)?.directCoeff ?? 0;
+  const base = (id: string) => (sp.has(id) ? mid(sp.get(id)!) : 0);
+  const dot = (id: string) => sp.get(id)?.dotTotal ?? 0;
+  const hit = (w: WeaponInfo, ap: number, extra = c.mods.weaponDamage) => (w.min + w.max) / 2 + extra + (ap / 14) * w.speed;
+  const out: Record<string, number> = {};
+  switch (state.classId) {
+    case 'rogue': {
+      const r = state.rules as unknown as RogueRules;
+      const ap = deriveRogue(rules, c.gear, state.talents, c.mods).attackPower;
+      const mh = c.weapon ?? DEFAULT_ROGUE_MH;
+      const oh = c.offHand === undefined ? DEFAULT_ROGUE_OH : c.offHand;
+      out.melee = hit(mh, ap);
+      for (const id of ['sinisterStrike', 'backstab', 'hemorrhage']) out[id] = hit(mh, ap) * coeff(id) + base(id);
+      out.mutilate = (hit(mh, ap) + (oh ? hit(oh, ap) : 0)) * coeff('mutilate') + base('mutilate') * (oh ? 2 : 1);
+      if (oh) out.shank = hit(oh, ap) * coeff('shank');
+      out.eviscerate = base('eviscerate') + 170 * 4 + r.eviscerateApPerCp * ap * 5;
+      out.rupture = (dot('rupture') * 9) / 8 + r.ruptureApAt5 * ap;
+      break;
+    }
+    case 'warrior': {
+      const d = deriveWarrior(rules, c.gear, state.talents, state.spec as WarriorSpec, c.mods);
+      const w = c.weapon ?? (state.spec === 'arms' ? DEFAULT_WARRIOR_2H : DEFAULT_WARRIOR_1H);
+      const h = hit(w, d.attackPower);
+      out.melee = h;
+      for (const id of ['heroicStrike', 'mortalStrike', 'overpower', 'slam']) out[id] = h + base(id);
+      out.whirlwind = h * coeff('whirlwind');
+      out.bloodthirst = coeff('bloodthirst') * d.attackPower + base('bloodthirst');
+      out.revenge = base('revenge') + coeff('revenge') * d.attackPower;
+      out.shieldSlam = base('shieldSlam') + d.blockValue;
+      out.execute = base('execute');
+      out.rend = dot('rend');
+      break;
+    }
+    case 'shaman': {
+      const d = deriveShaman(rules, c.gear, state.talents, c.mods);
+      const h = hit(c.weapon ?? DEFAULT_SHAMAN_2H, d.attackPower);
+      out.melee = h;
+      out.stormstrike = h * coeff('stormstrike');
+      break;
+    }
+    case 'druid': {
+      const r = state.rules as unknown as DruidRules;
+      const d = deriveDruid(rules, c.gear, state.talents, state.spec as DruidSpec, c.mods);
+      const w = c.weapon ?? { min: 1, max: 2, speed: 2, twoHand: false };
+      const speed = state.spec === 'bear' ? r.bearAttackSpeed : r.catAttackSpeed;
+      // En forme, l'arme compte pour ses dégâts par seconde, ramenés à la vitesse de la forme.
+      const h = ((w.min + w.max) / 2 / w.speed) * speed + (d.attackPower / 14) * speed;
+      for (const id of ['claw', 'shred', 'maul', 'primalBite']) out[id] = h * (coeff(id) || 1) + base(id);
+      out.rake = base('rake') + dot('rake');
+      out.rip = dot('rip') + (sp.get('rip')?.dotCoeff ?? 0) * d.attackPower;
+      out.ferociousBite = base('ferociousBite') + coeff('ferociousBite') * d.attackPower;
+      out.swipe = base('swipe');
+      out.lacerate = dot('lacerate') + (sp.get('lacerate')?.dotCoeff ?? 0) * d.attackPower;
+      break;
+    }
+    case 'hunter': {
+      const r = state.rules as unknown as HunterRules;
+      const d = deriveHunter(rules, c.gear, state.talents, c.mods);
+      const ranged = hit(c.weapon ?? DEFAULT_RANGED, d.rangedAp, r.ammoDps * (c.weapon ?? DEFAULT_RANGED).speed);
+      const melee = hit(c.meleeWeapon ?? DEFAULT_MELEE, d.meleeAp);
+      out.autoShot = ranged;
+      for (const id of ['aimedShot', 'multiShot', 'sniperShot']) out[id] = ranged + base(id);
+      for (const id of ['raptorStrike', 'mongooseBite']) out[id] = melee + base(id);
+      out.summonHawk = base('summonHawk') + coeff('summonHawk') * d.rangedAp;
+      break;
+    }
+  }
+  for (const k of Object.keys(out)) if (!sp.has(k) || !Number.isFinite(out[k])) delete out[k];
+  return out;
+}
+
 /** Dégâts (ou soins) moyens d'un sort hors critique, avec la puissance actuelle (0 : non calculable ici). */
 export function spellAverages(state: AppState): (s: SpellDef) => number {
   if (state.classId === 'warlock') {
@@ -76,7 +164,9 @@ export function spellAverages(state: AppState): (s: SpellDef) => number {
     return (s) => calc.directAvg(s) + calc.dotTotal(s) + calc.delayed(s);
   }
   const power = powerResolver(state);
+  const physical = physicalAverages(state);
   return (s) => {
+    if (physical[s.id] !== undefined) return physical[s.id];
     if (s.directMax === undefined && s.dotTotal === undefined) return 0;
     const p = power(s);
     if (p === null) return 0;

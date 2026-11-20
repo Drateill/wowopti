@@ -15,6 +15,7 @@ import { rank } from '../engine/talents';
 import { effectivePet, type RotationOptions } from '../engine/warlockSim';
 import { useI18n, type TKey } from '../i18n';
 import { buildConfig, computeGear, useStore } from '../state/store';
+import { Calibration } from './Calibration';
 import { Icon, NumberField, Progress } from './ui';
 
 const axis = { stroke: '#9a92a8', fontSize: 11 };
@@ -65,6 +66,11 @@ export function SimPanel() {
           <NumberField label={t('duration')} value={state.fightLength} min={10} onChange={(v) => set({ fightLength: Math.max(10, v), weights: null })} />
           <NumberField label={t('iterations')} value={state.iterations} min={50} step={100} onChange={(v) => set({ iterations: Math.max(50, Math.min(50000, v)), weights: null })} />
         </div>
+        <div className="row">
+          <NumberField label={t('fightTargets')} value={state.targets ?? 1} min={1} max={10} onChange={(v) => set({ targets: Math.max(1, Math.min(10, Math.round(v) || 1)), weights: null })} />
+          <NumberField label={t('fightMovement')} value={state.movementPct ?? 0} min={0} max={60} step={5} onChange={(v) => set({ movementPct: Math.max(0, Math.min(60, v || 0)), weights: null })} />
+        </div>
+        <p className="small muted">{t('fightTypeHelp')}</p>
         {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : cls.id === 'hunter' ? <HunterOptionsPanel /> : cls.id === 'rogue' ? <RogueOptionsPanel /> : cls.id === 'warrior' ? <WarriorOptionsPanel /> : cls.id === 'shaman' ? <ShamanOptionsPanel /> : <WarlockOptions />}
         <p className="small muted">{t('buffsElsewhere')}</p>
         <button className="btn" onClick={run} disabled={running}>{running ? t('simulating') : t('runSim')}</button>
@@ -74,6 +80,7 @@ export function SimPanel() {
       <div className="grid" style={{ alignContent: 'start' }}>
         {!result && <div className="panel muted">{t('simEmpty')}</div>}
         {result && <Results r={result} fight={state.fightLength} />}
+        {result && <Calibration r={result} />}
         {running && <Progress value={null} />}
       </div>
     </div>

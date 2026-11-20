@@ -8,12 +8,19 @@ import { DEFAULT_MELEE, DEFAULT_RANGED, hunterWeightSpec, simulateHunter } from 
 import { DEFAULT_ROGUE_MH, rogueWeightSpec, simulateRogue } from './rogueSim';
 import { DEFAULT_SHAMAN_2H, shamanWeightSpec, simulateShaman } from './shamanSim';
 import { DEFAULT_WARRIOR_1H, DEFAULT_WARRIOR_2H, simulateWarrior, warriorWeightSpec } from './warriorSim';
+import { applyFight, type FightSettings } from './fight';
 import type { SimResult, StatWeight } from './simTypes';
 import { WEIGHT_DELTAS, simulate as simulateWarlock, type SimConfig } from './warlockSim';
 
 // Point d'entrée commun : choisit le simulateur de la classe.
 
 export function simulateAny(config: AnySimConfig): SimResult {
+  const fight = (config as { fight?: FightSettings & { healer?: boolean } }).fight;
+  const res = simulateSingle(config);
+  return applyFight(res, config as Parameters<typeof applyFight>[1], fight, !!fight?.healer);
+}
+
+function simulateSingle(config: AnySimConfig): SimResult {
   if (config.classId === 'druid') return simulateDruid(config);
   if (config.classId === 'mage') return simulateMage(config);
   if (config.classId === 'priest') return simulatePriest(config);

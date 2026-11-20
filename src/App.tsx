@@ -12,7 +12,7 @@ import type { Lang } from './data/types';
 import { decodeTalents, pointsInTree } from './engine/talents';
 import { useI18n, type TKey } from './i18n';
 import { characterSheet } from './state/classLogic';
-import { decodeProfile, importShared } from './state/share';
+import { decodeProfile, encodeProfile, importShared } from './state/share';
 import { profileOf, specPresets, useClassSwitch, useStore } from './state/store';
 
 const TABS: [string, TKey][] = [
@@ -31,6 +31,19 @@ export default function App() {
   const { t, L, num, lang } = useI18n();
   const [tab, setTab] = useState('sim');
   const [importMsg, setImportMsg] = useState<string | null>(null);
+  const [shared, setShared] = useState(false);
+
+  /** Copie le lien de toute la configuration (talents, stuff, buffs, options). */
+  const shareBuild = async () => {
+    const url = `${location.origin}${location.pathname}#p=${await encodeProfile(profileOf(state), state.items, state.classId)}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setShared(true);
+      setTimeout(() => setShared(false), 2000);
+    } catch {
+      setImportMsg(t('shareManual', { url }));
+    }
+  };
 
   // Un lien partagé charge le build de talents (#t=...) ou toute la configuration (#p=...),
   // en passant d'abord sur la bonne classe si besoin.
@@ -119,6 +132,9 @@ export default function App() {
           <option value="fr">FR</option>
           <option value="en">EN</option>
         </select>
+        <button className="btn secondary small" title={t('shareHelp')} onClick={shareBuild}>
+          {shared ? t('linkCopied') : t('shareBuild')}
+        </button>
         <div className="summary">
           <span>{t('sumTalents')} <b>{points}</b></span>
           {sheet.entries

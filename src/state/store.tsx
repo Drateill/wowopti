@@ -75,9 +75,13 @@ export interface ProfileData {
   /** Chaman : sorts, arme, soins. */
   sha: ShamanOptions;
   fightLength: number;
+  /** Nombre de cibles (sorts de zone). */
+  targets: number;
+  /** Part du combat passée à se déplacer, en %. */
+  movementPct: number;
 }
 
-export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'rog', 'war', 'sha', 'fightLength'];
+export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'rog', 'war', 'sha', 'fightLength', 'targets', 'movementPct'];
 
 export interface Profile {
   id: string;
@@ -215,6 +219,8 @@ export function defaultState(classId: ClassId): AppState {
     war: warriorPreset(spec.id),
     sha: shamanPreset(spec.id),
     fightLength: 180,
+    targets: 1,
+    movementPct: 0,
     iterations: 2000,
     rules: cls.defaultRules,
     spells: cls.spells,
@@ -405,7 +411,9 @@ type ConfigOverrides = Partial<Pick<SimConfig, 'iterations' | 'seed' | 'fightLen
 /** Configuration de simulation de la classe de l'état. */
 export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): AnySimConfig {
   const { stats, mods, weapon, rangedWeapon, offHandWeapon, shield } = computeGear(state);
-  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345 };
+  const healer = CLASS_BY_ID[state.classId].specs.find((s) => s.id === state.spec)?.metric === 'hps';
+  const fight = { targets: state.targets ?? 1, movementPct: state.movementPct ?? 0, healer };
+  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight };
   // Main gauche : l'arme portée ; si aucune main n'est équipée, le simulateur prend ses armes par défaut.
   const offHand = offHandWeapon ?? (state.equipped.offHand || state.equipped.mainHand ? null : undefined);
   if (state.classId === 'rogue') {

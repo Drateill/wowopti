@@ -18,6 +18,7 @@ import {
   FAMILIES, SLOTS, buildConfig, computeGear, gearStats, slotFamily, useStore, type ActiveSet, type AppState, type Item, type SlotId,
 } from '../state/store';
 import { Icon, Progress, StatsEditor, useStatSummary } from './ui';
+import { UpgradeFinder } from './UpgradeFinder';
 
 /** Message d'erreur des recherches et imports : limite de requêtes (avec le délai) ou erreur brute. */
 function apiErrorText(t: ReturnType<typeof useI18n>['t'], err: unknown): string {
@@ -166,6 +167,8 @@ export function GearPanel() {
           </div>
         </div>
       </div>
+
+      <UpgradeFinder />
 
       <ItemLibrary />
     </div>

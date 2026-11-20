@@ -1,0 +1,77 @@
+name: Données Forever (hebdomadaire)
+
+# Chaque lundi, retélécharge talents et sorts depuis Wowhead Forever. S'ils ont changé (patch Forever),
+# pousse une branche data/forever-AAAA-MM-JJ, ouvre une issue avec le résumé et le résultat des tests,
+# et prévient sur Discord. Rien n'est fusionné automatiquement.
+on:
+  schedule:
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: forever-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Télécharger les données
+        run: node scripts/fetch-forever.mjs
+      - name: Comparer
+        id: diff
+        run: |
+          node scripts/diff-forever.mjs > diff.md
+          if [ -s diff.md ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          cat diff.md
+      - name: Tests avec les nouvelles données
+        if: steps.diff.outputs.changed == 'true'
+        id: tests
+        run: |
+          if npm test > test.log 2>&1; then echo "result=✅ les tests passent" >> "$GITHUB_OUTPUT"; else echo "result=❌ des tests échouent (voir le journal du workflow)" >> "$GITHUB_OUTPUT"; fi
+          tail -n 40 test.log
+      - name: Pousser la branche et ouvrir une issue
+        if: steps.diff.outputs.changed == 'true'
+        id: publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TESTS: ${{ steps.tests.outputs.result }}
+        run: |
+          branch="data/forever-$(date -u +%F)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add src/data/generated
+          git commit -m "data: Forever talents and spells refresh $(date -u +%F)"
+          git push --force origin "$branch"
+          {
+            echo "Les données Wowhead Forever ont changé. Branche : \`$branch\`"
+            echo
+            echo "Comparer : ${{ github.server_url }}/${{ github.repository }}/compare/main...$branch"
+            echo
+            echo "Tests : $TESTS"
+            echo
+            cat diff.md
+            echo
+            echo "À vérifier : les valeurs lues dans les descriptions (talentValue) et les sorts recopiés dans src/data/<classe>/data.ts."
+          } > issue.md
+          url=$(gh issue create --title "Données Forever modifiées ($(date -u +%F))" --body-file issue.md)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+      - name: "Discord: données modifiées"
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          MSG: "🔄 Données Forever modifiées pour `${{ github.repository }}` — ${{ steps.tests.outputs.result }} — ${{ steps.publish.outputs.url }}"
+        run: |
+          [ -n "$WEBHOOK" ] || exit 0
+          jq -n --arg c "$MSG" '{content:$c}' | curl -sf -X POST -H "Content-Type: application/json" -d @- "$WEBHOOK" || true
