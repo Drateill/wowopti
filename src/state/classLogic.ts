@@ -4,6 +4,8 @@ import { deriveMage } from '../engine/mageSim';
 import type { MageRules } from '../data/mage/data';
 import type { PriestRules } from '../data/priest/data';
 import { derivePriest } from '../engine/priestSim';
+import type { HunterRules } from '../data/hunter/data';
+import { deriveHunter } from '../engine/hunterSim';
 import type { PaladinRules } from '../data/paladin/data';
 import type { GameRules } from '../data/types';
 import { derivePaladin } from '../engine/paladinSim';
@@ -34,6 +36,27 @@ export interface CharacterSheet {
 export function characterSheet(state: AppState): CharacterSheet {
   const g = computeGear(state);
   if (state.classId === 'druid') return druidSheet(state, g);
+  if (state.classId === 'hunter') {
+    const d = deriveHunter(state.rules as unknown as HunterRules, g.stats, state.talents, g.mods, state.hun);
+    const surv = state.spec === 'surv';
+    return {
+      hitCapped: d.hitToCap === 0,
+      entries: [
+        surv
+          ? { label: 'sheetAp', short: 'sumAp', value: d.meleeAp, digits: 0 }
+          : { label: 'sheetRangedAp', short: 'sumAp', value: d.rangedAp, digits: 0, sub: { key: 'sheetHunterBuffsIn' } },
+        { label: 'sheetMeleeCrit', short: 'sumCrit', value: d.critPct, digits: 2, pct: true },
+        {
+          label: 'sheetHit', short: 'sumHit', value: d.hitPct, digits: 1, pct: true,
+          sub: d.hitToCap > 0 ? { key: 'hitLeft', vars: { n: d.hitToCap } } : { key: 'capReached' },
+          tone: d.hitToCap > 0 ? 'warn' : 'good',
+        },
+        { label: 'sheetAgility', value: d.agility, digits: 0 },
+        { label: 'sheetIntellect', value: d.intellect, digits: 0 },
+        { label: 'maxMana', short: 'sumMana', value: d.maxMana, digits: 0 },
+      ],
+    };
+  }
   if (state.classId === 'priest') {
     const d = derivePriest(state.rules as unknown as PriestRules, g.stats, state.talents, g.mods);
     if (state.spec === 'shadow') {

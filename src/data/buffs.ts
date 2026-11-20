@@ -22,12 +22,14 @@ export interface BuffDef {
 
 const magic10 = { 'school:shadow': 1.1, 'school:fire': 1.1, 'school:holy': 1.1, 'school:arcane': 1.1, 'school:nature': 1.1 };
 const CASTER_DMG = ['warlock', 'mage', 'priest:shadow', 'paladin:ret', 'paladin:prot', 'druid:balance'];
-const MANA_USERS = ['warlock', 'mage', 'priest', 'paladin', 'druid:balance', 'druid:resto'];
+const MANA_USERS = ['warlock', 'mage', 'priest', 'hunter', 'paladin', 'druid:balance', 'druid:resto'];
 const CASTERS = ['warlock', 'mage', 'priest:shadow', 'druid:balance'];
 const HEALER = ['paladin:holy', 'druid:resto', 'priest:disc', 'priest:holy'];
 const PAL_MELEE = ['paladin:ret', 'paladin:prot'];
 const FERAL = ['druid:cat', 'druid:bear'];
-const MELEE = [...PAL_MELEE, ...FERAL];
+const MELEE = [...PAL_MELEE, ...FERAL, 'hunter:surv'];
+/** Effets utiles aussi à distance (agilité, critique, armure de la cible, puissance d'attaque générale). */
+const PHYSICAL = [...MELEE, 'hunter'];
 const TANK = ['paladin:prot', 'druid:bear'];
 
 /** Le buff concerne-t-il cette classe et cette spécialisation ? */
@@ -71,16 +73,16 @@ export const BUFFS: BuffDef[] = [
 
 // Paladin (corps à corps, soins, tank). Valeurs Forever relevées sur Wowhead.
 BUFFS.push(
-  { id: 'mongoose', for: MELEE, kind: 'consumable', group: 'battleElixir', name: { en: 'Elixir of the Mongoose', fr: 'Elixir de la Mangouste' }, icon: 'inv_potion_32', wowhead: { type: 'item', id: 13452 }, stats: { agility: 25, critPct: 2 } },
+  { id: 'mongoose', for: PHYSICAL, kind: 'consumable', group: 'battleElixir', name: { en: 'Elixir of the Mongoose', fr: 'Elixir de la Mangouste' }, icon: 'inv_potion_32', wowhead: { type: 'item', id: 13452 }, stats: { agility: 25, critPct: 2 } },
   { id: 'greaterStrength', for: MELEE, kind: 'consumable', group: 'strength', name: { en: 'Elixir of Greater Strength', fr: 'Élixir de Force supérieure' }, icon: 'inv_potion_59', wowhead: { type: 'item', id: 9206 }, stats: { strength: 25 } },
   { id: 'jujuPower', for: MELEE, kind: 'consumable', group: 'strength', name: { en: 'Juju Power', fr: 'Pouvoir de Juju' }, icon: 'inv_misc_monsterscales_11', wowhead: { type: 'item', id: 12451 }, stats: { strength: 30 } },
-  { id: 'jujuMight', for: MELEE, kind: 'consumable', group: 'attackPower', name: { en: 'Juju Might', fr: 'Puissance de Juju' }, icon: 'inv_misc_monsterscales_07', wowhead: { type: 'item', id: 12460 }, stats: { attackPower: 40 } },
+  { id: 'jujuMight', for: PHYSICAL, kind: 'consumable', group: 'attackPower', name: { en: 'Juju Might', fr: 'Puissance de Juju' }, icon: 'inv_misc_monsterscales_07', wowhead: { type: 'item', id: 12460 }, stats: { attackPower: 40 } },
   { id: 'firewater', for: MELEE, kind: 'consumable', group: 'attackPower', name: { en: 'Winterfall Firewater', fr: 'Eau de feu des Tombe-hiver' }, icon: 'inv_potion_92', wowhead: { type: 'item', id: 12820 }, stats: { attackPower: 35 } },
   { id: 'dumplings', for: MELEE, kind: 'consumable', group: 'food', name: { en: 'Smoked Desert Dumplings', fr: 'Boulettes fumées du désert' }, icon: 'inv_misc_food_64', wowhead: { type: 'item', id: 20452 }, stats: { strength: 20 } },
-  { id: 'grilledSquid', for: MELEE, kind: 'consumable', group: 'food', name: { en: 'Grilled Squid', fr: 'Calmar grillé' }, icon: 'inv_misc_fish_13', wowhead: { type: 'item', id: 13928 }, stats: { critPct: 1 } },
+  { id: 'grilledSquid', for: PHYSICAL, kind: 'consumable', group: 'food', name: { en: 'Grilled Squid', fr: 'Calmar grillé' }, icon: 'inv_misc_fish_13', wowhead: { type: 'item', id: 13928 }, stats: { critPct: 1 } },
   { id: 'sunfruit', for: MELEE, kind: 'consumable', group: 'food', name: { en: 'Blessed Sunfruit', fr: 'Fruit solaire béni' }, icon: 'inv_misc_food_41', wowhead: { type: 'item', id: 13810 }, stats: { strength: 10 } },
-  { id: 'elementalStone', for: PAL_MELEE, kind: 'consumable', group: 'weapon', name: { en: 'Elemental Sharpening Stone', fr: 'Pierre à aiguiser élémentaire' }, icon: 'inv_stone_02', wowhead: { type: 'item', id: 18262 }, stats: { critPct: 2 } },
-  { id: 'denseStone', for: PAL_MELEE, kind: 'consumable', group: 'weapon', name: { en: 'Dense Sharpening Stone', fr: 'Pierre à aiguiser dense' }, icon: 'inv_stone_sharpeningstone_05', wowhead: { type: 'item', id: 12404 }, mods: { weaponDamage: 8 } },
+  { id: 'elementalStone', for: [...PAL_MELEE, 'hunter:surv'], kind: 'consumable', group: 'weapon', name: { en: 'Elemental Sharpening Stone', fr: 'Pierre à aiguiser élémentaire' }, icon: 'inv_stone_02', wowhead: { type: 'item', id: 18262 }, stats: { critPct: 2 } },
+  { id: 'denseStone', for: [...PAL_MELEE, 'hunter:surv'], kind: 'consumable', group: 'weapon', name: { en: 'Dense Sharpening Stone', fr: 'Pierre à aiguiser dense' }, icon: 'inv_stone_sharpeningstone_05', wowhead: { type: 'item', id: 12404 }, mods: { weaponDamage: 8 } },
   { id: 'flaskTitans', for: TANK, kind: 'consumable', group: 'flask', name: { en: 'Flask of the Titans', fr: 'Flacon des Titans' }, icon: 'inv_potion_62', wowhead: { type: 'item', id: 13510 }, mods: { maxHealth: 1200 } },
   { id: 'greaterDefense', for: TANK, kind: 'consumable', group: 'guardianElixir', name: { en: 'Elixir of Greater Defense', fr: 'Élixir de défense supérieure' }, icon: 'inv_potion_66', wowhead: { type: 'item', id: 13445 }, stats: { armor: 450 } },
   { id: 'rumsey', for: TANK, kind: 'consumable', group: 'drink', name: { en: 'Rumsey Rum Black Label', fr: 'Rhum de Rumsey label noir' }, icon: 'inv_drink_04', wowhead: { type: 'item', id: 21151 }, stats: { stamina: 15 } },
@@ -89,7 +91,7 @@ BUFFS.push(
   { id: 'blessingOfMight', for: MELEE, kind: 'raid', group: 'blessingMight', name: { en: 'Blessing of Might', fr: 'Bénédiction de puissance' }, icon: 'spell_holy_fistofjustice', wowhead: { type: 'spell', id: 25291 }, stats: { attackPower: 133 } },
   { id: 'blessingOfWisdom', for: ['paladin', 'priest', 'druid:balance', 'druid:resto'], kind: 'raid', name: { en: 'Blessing of Wisdom', fr: 'Bénédiction de sagesse' }, icon: 'spell_holy_sealofwisdom', wowhead: { type: 'spell', id: 25290 }, stats: { mp5: 40 } },
   {
-    id: 'leaderOfThePack', for: PAL_MELEE, kind: 'raid', name: { en: 'Leader of the Pack', fr: 'Chef de la meute' }, icon: 'spell_nature_unyeildingstamina', wowhead: { type: 'spell', id: 24932 }, stats: { critPct: 3 },
+    id: 'leaderOfThePack', for: [...PAL_MELEE, 'hunter'], kind: 'raid', name: { en: 'Leader of the Pack', fr: 'Chef de la meute' }, icon: 'spell_nature_unyeildingstamina', wowhead: { type: 'spell', id: 24932 }, stats: { critPct: 3 },
     note: { en: '+3% crit (value from the Forever druid talent).', fr: '+3 % de critique (valeur du talent de druide Forever).' },
   },
   { id: 'strengthOfEarth', for: MELEE, kind: 'raid', name: { en: 'Strength of Earth Totem', fr: 'Totem de Force de la Terre' }, icon: 'spell_nature_earthbindtotem', wowhead: { type: 'spell', id: 25361 }, stats: { strength: 53 } },
@@ -102,9 +104,9 @@ BUFFS.push(
     stats: { mp5: 10 }, mods: { hastePct: 15, maxHealth: 300 },
   },
 
-  { id: 'sunderArmor', for: MELEE, kind: 'debuff', name: { en: 'Sunder Armor ×5', fr: 'Fracasser armure ×5' }, icon: 'ability_warrior_sunder', wowhead: { type: 'spell', id: 11597 }, mods: { armorReduction: 2250 } },
-  { id: 'faerieFire', for: MELEE, kind: 'debuff', name: { en: 'Faerie Fire', fr: 'Lucioles' }, icon: 'spell_nature_faeriefire', wowhead: { type: 'spell', id: 9907 }, mods: { armorReduction: 505 } },
-  { id: 'curseOfRecklessness', for: MELEE, kind: 'debuff', name: { en: 'Curse of Recklessness', fr: 'Malédiction de témérité' }, icon: 'spell_shadow_unholystrength', wowhead: { type: 'spell', id: 11717 }, mods: { armorReduction: 505 } },
+  { id: 'sunderArmor', for: PHYSICAL, kind: 'debuff', name: { en: 'Sunder Armor ×5', fr: 'Fracasser armure ×5' }, icon: 'ability_warrior_sunder', wowhead: { type: 'spell', id: 11597 }, mods: { armorReduction: 2250 } },
+  { id: 'faerieFire', for: PHYSICAL, kind: 'debuff', name: { en: 'Faerie Fire', fr: 'Lucioles' }, icon: 'spell_nature_faeriefire', wowhead: { type: 'spell', id: 9907 }, mods: { armorReduction: 505 } },
+  { id: 'curseOfRecklessness', for: PHYSICAL, kind: 'debuff', name: { en: 'Curse of Recklessness', fr: 'Malédiction de témérité' }, icon: 'spell_shadow_unholystrength', wowhead: { type: 'spell', id: 11717 }, mods: { armorReduction: 505 } },
 );
 
 export const BUFF_BY_ID = new Map(BUFFS.map((b) => [b.id, b]));
@@ -137,12 +139,12 @@ export const ENCHANTS: EnchantDef[] = [
 ENCHANTS.push(
   { id: 'crusader', for: MELEE, slot: 'mainHand', name: { en: 'Crusader', fr: 'Croisé' }, wowhead: { type: 'spell', id: 20034 }, stats: { strength: 22 },
     note: { en: '+100 Strength for 15 s on proc: about 22 Strength on average (1 proc per minute assumed).', fr: '+100 Force pendant 15 s quand il se déclenche : environ 22 Force en moyenne (1 déclenchement par minute supposé).' } },
-  { id: 'weapon2hAgi', for: MELEE, slot: 'mainHand', name: { en: '2H Agility', fr: '2M Agilité' }, wowhead: { type: 'spell', id: 27837 }, stats: { agility: 25 } },
+  { id: 'weapon2hAgi', for: PHYSICAL, slot: 'mainHand', name: { en: '2H Agility', fr: '2M Agilité' }, wowhead: { type: 'spell', id: 27837 }, stats: { agility: 25 } },
   { id: 'weaponStr', for: MELEE, slot: 'mainHand', name: { en: 'Strength', fr: 'Force' }, wowhead: { type: 'spell', id: 23799 }, stats: { strength: 15 } },
-  { id: 'weaponAgi', for: MELEE, slot: 'mainHand', name: { en: 'Agility', fr: 'Agilité' }, wowhead: { type: 'spell', id: 23800 }, stats: { agility: 15 } },
+  { id: 'weaponAgi', for: PHYSICAL, slot: 'mainHand', name: { en: 'Agility', fr: 'Agilité' }, wowhead: { type: 'spell', id: 23800 }, stats: { agility: 15 } },
   { id: 'superiorStriking', for: MELEE, slot: 'mainHand', name: { en: 'Superior Striking', fr: 'Frappe excellente' }, wowhead: { type: 'spell', id: 20031 }, stats: {}, mods: { weaponDamage: 5 } },
   { id: 'glovesStr', for: MELEE, slot: 'hands', name: { en: 'Greater Strength', fr: 'Force supérieure' }, wowhead: { type: 'spell', id: 20013 }, stats: { strength: 10 } },
-  { id: 'glovesHaste', for: ['paladin', 'druid'], slot: 'hands', name: { en: 'Minor Haste', fr: 'Hâte mineure' }, wowhead: { type: 'spell', id: 13948 }, stats: {}, mods: { hastePct: 1 } },
+  { id: 'glovesHaste', for: ['paladin', 'druid', 'hunter'], slot: 'hands', name: { en: 'Minor Haste', fr: 'Hâte mineure' }, wowhead: { type: 'spell', id: 13948 }, stats: {}, mods: { hastePct: 1 } },
   { id: 'wristStr', for: MELEE, slot: 'wrist', name: { en: 'Superior Strength', fr: 'Force excellente' }, wowhead: { type: 'spell', id: 20010 }, stats: { strength: 9 } },
   { id: 'wristHealing', for: HEALER, slot: 'wrist', name: { en: 'Healing Power', fr: 'Pouvoir de guérison' }, wowhead: { type: 'spell', id: 23802 }, stats: { spellPower: 8, healingPower: 16 } },
   { id: 'wristDeflection', for: TANK, slot: 'wrist', name: { en: 'Deflection', fr: 'Déviation' }, wowhead: { type: 'spell', id: 13931 }, stats: { defense: 7 } },
@@ -152,9 +154,9 @@ ENCHANTS.push(
   { id: 'syncretistLegs', for: HEALER, slot: 'legs', name: { en: 'Syncretist’s Sigil', fr: 'Signe du syncrétiste' }, wowhead: { type: 'item', id: 19783 }, stats: { stamina: 10, defense: 7, healingPower: 24 } },
   { id: 'resilienceScourge', for: HEALER, slot: 'shoulders', name: { en: 'Resilience of the Scourge', fr: 'Résistance du Fléau' }, wowhead: { type: 'item', id: 23547 }, stats: { healingPower: 31, mp5: 5 } },
   { id: 'signetSerenity', for: HEALER, slot: 'shoulders', name: { en: 'Zandalar Signet of Serenity', fr: 'Cachet de sérénité zandalar' }, wowhead: { type: 'item', id: 20078 }, stats: { healingPower: 33 } },
-  { id: 'mightScourge', for: MELEE, slot: 'shoulders', name: { en: 'Might of the Scourge', fr: 'Pouvoir du Fléau' }, wowhead: { type: 'item', id: 23548 }, stats: { attackPower: 26, critPct: 1 } },
-  { id: 'signetMight', for: MELEE, slot: 'shoulders', name: { en: 'Zandalar Signet of Might', fr: 'Cachet de puissance zandalar' }, wowhead: { type: 'item', id: 20077 }, stats: { attackPower: 30 } },
-  { id: 'chestStatsPal', for: ['paladin', 'druid'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { strength: 4, agility: 4, intellect: 4, spirit: 4, stamina: 4 } },
+  { id: 'mightScourge', for: PHYSICAL, slot: 'shoulders', name: { en: 'Might of the Scourge', fr: 'Pouvoir du Fléau' }, wowhead: { type: 'item', id: 23548 }, stats: { attackPower: 26, critPct: 1 } },
+  { id: 'signetMight', for: PHYSICAL, slot: 'shoulders', name: { en: 'Zandalar Signet of Might', fr: 'Cachet de puissance zandalar' }, wowhead: { type: 'item', id: 20077 }, stats: { attackPower: 30 } },
+  { id: 'chestStatsPal', for: ['paladin', 'druid', 'hunter'], slot: 'chest', name: { en: 'Greater Stats', fr: 'Caractéristiques supérieures' }, wowhead: { type: 'spell', id: 20025 }, stats: { strength: 4, agility: 4, intellect: 4, spirit: 4, stamina: 4 } },
   { id: 'cloakDefense', for: TANK, slot: 'back', name: { en: 'Superior Defense', fr: 'Défense excellente' }, wowhead: { type: 'spell', id: 20015 }, stats: { armor: 70 } },
   { id: 'shieldStamina', for: ['paladin:prot'], slot: 'offHand', name: { en: 'Greater Stamina', fr: 'Endurance supérieure' }, wowhead: { type: 'spell', id: 20017 }, stats: { stamina: 9 } },
 );

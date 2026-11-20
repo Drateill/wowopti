@@ -3,6 +3,7 @@ import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Too
 import type { DruidOptions } from '../data/druid/data';
 import type { MageOptions } from '../data/mage/data';
 import type { PriestHealFiller, PriestOptions } from '../data/priest/data';
+import type { HunterOptions } from '../data/hunter/data';
 import type { PaladinOptions, PaladinSeal } from '../data/paladin/data';
 import { runSim } from '../engine/simClient';
 import type { SimResult } from '../engine/simTypes';
@@ -61,7 +62,7 @@ export function SimPanel() {
           <NumberField label={t('duration')} value={state.fightLength} min={10} onChange={(v) => set({ fightLength: Math.max(10, v), weights: null })} />
           <NumberField label={t('iterations')} value={state.iterations} min={50} step={100} onChange={(v) => set({ iterations: Math.max(50, Math.min(50000, v)), weights: null })} />
         </div>
-        {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : <WarlockOptions />}
+        {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : cls.id === 'hunter' ? <HunterOptionsPanel /> : <WarlockOptions />}
         <p className="small muted">{t('buffsElsewhere')}</p>
         <button className="btn" onClick={run} disabled={running}>{running ? t('simulating') : t('runSim')}</button>
         {error && <p className="bad small">{error}</p>}
@@ -359,6 +360,60 @@ function PriestOptionsPanel() {
       )}
       {common}
       <p className="small muted">{t(state.spec === 'disc' ? 'priDiscNote' : 'priHolyNote')}</p>
+    </>
+  );
+}
+
+function HunterOptionsPanel() {
+  const { state, set, cls } = useStore();
+  const { t, L } = useI18n();
+  const o = state.hun;
+  const setO = (patch: Partial<HunterOptions>) => set({ hun: { ...o, ...patch }, weights: null });
+  const has = (k: string) => rank(state.talents, k) > 0;
+  const gear = computeGear(state);
+  const box = (key: keyof HunterOptions, label: React.ReactNode, ok = true) => (
+    <label className={`check ${ok ? '' : 'muted'}`}>
+      <input type="checkbox" disabled={!ok} checked={!!o[key] && ok} onChange={(e) => setO({ [key]: e.target.checked })} />
+      {label} {!ok && t('talentRequired')}
+    </label>
+  );
+  const surv = state.spec === 'surv';
+  return (
+    <>
+      <h3>{t('rotation')}</h3>
+      {box('pet', t('hunPet'))}
+      {!o.pet && has('loneWolf') && <p className="small muted">{t('hunLoneWolf')}</p>}
+      {o.pet && has('loneWolf') && <p className="small warn">{t('hunLoneWolfOff')}</p>}
+      {box('huntersMark', <SpellName id="huntersMark" />)}
+      {!surv && box('aspectOfTheHawk', <SpellName id="aspectOfTheHawk" />)}
+      {box('serpentSting', <SpellName id="serpentSting" />)}
+      {surv ? (
+        <>
+          {box('raptorStrike', <SpellName id="raptorStrike" />)}
+          {box('mongooseBite', t('hunMongoose'), has('exposePrey'))}
+          {box('striderKick', <SpellName id="striderKick" />, has('striderKick'))}
+          {!gear.weapon && <p className="small warn">{t('hunNoMelee')}</p>}
+        </>
+      ) : (
+        <>
+          <label className="field">
+            {t('hunSixSecond')}
+            <select value={o.sixSecondShot} onChange={(e) => setO({ sixSecondShot: e.target.value as HunterOptions['sixSecondShot'] })}>
+              <option value="aimedShot">{L(cls.data.spellMeta.aimedShot?.name)}</option>
+              <option value="multiShot">{L(cls.data.spellMeta.multiShot?.name)}</option>
+              <option value="none">{t('hunNone')}</option>
+            </select>
+          </label>
+          {box('arcaneShot', <SpellName id="arcaneShot" />)}
+          {box('summonHawk', <SpellName id="summonHawk" />, has('summonHawk'))}
+          {box('sniperShot', <SpellName id="sniperShot" />, has('sniperShot'))}
+          {!gear.rangedWeapon && <p className="small warn">{t('hunNoRanged')}</p>}
+        </>
+      )}
+      {box('rapidFire', <SpellName id="rapidFire" />)}
+      {box('bestialWrath', <SpellName id="bestialWrath" />, has('bestialWrath') && o.pet)}
+      {box('manaPotions', t('palManaPotions'))}
+      <p className="small muted">{t(`hunNote_${state.spec}` as TKey)}</p>
     </>
   );
 }

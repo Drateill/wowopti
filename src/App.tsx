@@ -13,7 +13,7 @@ import { decodeTalents, pointsInTree } from './engine/talents';
 import { useI18n, type TKey } from './i18n';
 import { characterSheet } from './state/classLogic';
 import { decodeProfile, importShared } from './state/share';
-import { druidPreset, magePreset, paladinPreset, priestPreset, profileOf, useClassSwitch, useStore, warlockPreset } from './state/store';
+import { druidPreset, hunterPreset, magePreset, paladinPreset, priestPreset, profileOf, useClassSwitch, useStore, warlockPreset } from './state/store';
 
 const TABS: [string, TKey][] = [
   ['talents', 'tabTalents'],
@@ -84,7 +84,7 @@ export default function App() {
   const changeSpec = (id: string) => {
     const next = cls.specs.find((s) => s.id === id);
     if (!next) return;
-    set({ spec: id, talents: next.defaultTalents, pal: paladinPreset(id, state.pal), dru: druidPreset(id, state.dru), mage: magePreset(id, state.mage), pri: priestPreset(id, state.pri), ...warlockPreset(id, state.rotation, state.buffs), weights: null });
+    set({ spec: id, talents: next.defaultTalents, pal: paladinPreset(id, state.pal), dru: druidPreset(id, state.dru), mage: magePreset(id, state.mage), pri: priestPreset(id, state.pri), hun: hunterPreset(id, state.hun), ...warlockPreset(id, state.rotation, state.buffs), weights: null });
   };
 
   return (

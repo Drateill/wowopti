@@ -4,6 +4,7 @@ import { druidWeightSpec, simulateDruid } from './druidSim';
 import { mageWeightSpec, simulateMage } from './mageSim';
 import { paladinWeightSpec, simulatePaladin } from './paladinSim';
 import { priestWeightSpec, simulatePriest } from './priestSim';
+import { DEFAULT_MELEE, DEFAULT_RANGED, hunterWeightSpec, simulateHunter } from './hunterSim';
 import type { SimResult, StatWeight } from './simTypes';
 import { WEIGHT_DELTAS, simulate as simulateWarlock, type SimConfig } from './warlockSim';
 
@@ -13,6 +14,7 @@ export function simulateAny(config: AnySimConfig): SimResult {
   if (config.classId === 'druid') return simulateDruid(config);
   if (config.classId === 'mage') return simulateMage(config);
   if (config.classId === 'priest') return simulatePriest(config);
+  if (config.classId === 'hunter') return simulateHunter(config);
   return config.classId === 'paladin' ? simulatePaladin(config) : simulateWarlock(config as SimConfig);
 }
 
@@ -21,11 +23,18 @@ export function weightSpec(config: AnySimConfig): { deltas: Partial<Record<keyof
   if (config.classId === 'druid') return druidWeightSpec(config.spec);
   if (config.classId === 'mage') return mageWeightSpec();
   if (config.classId === 'priest') return priestWeightSpec(config.spec);
+  if (config.classId === 'hunter') return hunterWeightSpec(config.spec);
   return config.classId === 'paladin' ? paladinWeightSpec(config.spec) : { deltas: WEIGHT_DELTAS, base: 'spellPower' };
 }
 
 /** Ajoute `delta` à une stat. Le DPS d'arme modifie les dégâts de l'arme portée. */
 function withDelta(config: AnySimConfig, key: keyof Stats, delta: number): AnySimConfig {
+  if (key === 'weaponDps' && config.classId === 'hunter') {
+    const bump = (w: { min: number; max: number; speed: number; twoHand: boolean }) => ({ ...w, min: w.min + delta * w.speed, max: w.max + delta * w.speed });
+    return config.spec === 'surv'
+      ? { ...config, meleeWeapon: bump(config.meleeWeapon ?? DEFAULT_MELEE) }
+      : { ...config, weapon: bump(config.weapon ?? DEFAULT_RANGED) };
+  }
   if (key === 'weaponDps' && (config.classId === 'paladin' || config.classId === 'druid')) {
     const w = config.weapon ?? { min: 1, max: 2, speed: 2, twoHand: false };
     return { ...config, weapon: { ...w, min: w.min + delta * w.speed, max: w.max + delta * w.speed } };

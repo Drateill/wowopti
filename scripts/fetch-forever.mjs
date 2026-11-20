@@ -57,6 +57,17 @@ const CLASSES = {
       arcanePower: 12042, presenceOfMind: 12043, evocation: 12051, mageArmor: 22783, coldSnap: 12472,
     },
   },
+  hunter: {
+    trees: [
+      { wid: 361, key: 'beastMastery', skill: 50 },
+      { wid: 363, key: 'marksmanship', skill: 163 },
+      { wid: 362, key: 'survival', skill: 51 },
+    ],
+    spells: {
+      autoShot: 75, aimedShot: 20904, multiShot: 2643, arcaneShot: 14287, serpentSting: 25295, huntersMark: 14325,
+      rapidFire: 3045, raptorStrike: 14266, mongooseBite: 14271, bestialWrath: 19574, aspectOfTheHawk: 25296,
+    },
+  },
   priest: {
     trees: [
       { wid: 201, key: 'discipline', skill: 613 },

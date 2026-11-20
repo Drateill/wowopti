@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useMemo, useReducer, useState, type ReactNode } from 'react';
 import { BUFF_BY_ID, buffVisible, enchantMods, enchantStats, type EnchantRef } from '../data/buffs';
-import { CLASS_BY_ID, DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS, type ClassId, type ClassModule } from '../data/classes';
+import { CLASS_BY_ID, DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS, DEFAULT_HUNTER_OPTIONS, type ClassId, type ClassModule } from '../data/classes';
 import type { MageOptions, MageRules, MageSpec } from '../data/mage/data';
 import type { PriestOptions, PriestRules, PriestSpec } from '../data/priest/data';
+import type { HunterOptions, HunterRules, HunterSpec } from '../data/hunter/data';
 import type { DruidOptions, DruidRules, DruidSpec } from '../data/druid/data';
 import type { PaladinOptions, PaladinRules, PaladinSpec } from '../data/paladin/data';
 import { parseSetBonus, type ItemSet } from '../data/setBonus';
@@ -10,6 +11,7 @@ import { emptyMods, emptyStats, mergeMods, type GameRules, type Lang, type Local
 import type { DruidSimConfig } from '../engine/druidSim';
 import type { MageSimConfig } from '../engine/mageSim';
 import type { PriestSimConfig } from '../engine/priestSim';
+import type { HunterSimConfig } from '../engine/hunterSim';
 import type { PaladinSimConfig } from '../engine/paladinSim';
 import type { StatWeight } from '../engine/simTypes';
 import { pointsInTree, type TalentPoints } from '../engine/talents';
@@ -58,10 +60,12 @@ export interface ProfileData {
   mage: MageOptions;
   /** Prêtre : rotation d'Ombre, soins. */
   pri: PriestOptions;
+  /** Chasseur : familier, tirs, corps à corps de Survie. */
+  hun: HunterOptions;
   fightLength: number;
 }
 
-export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'fightLength'];
+export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'fightLength'];
 
 export interface Profile {
   id: string;
@@ -129,6 +133,12 @@ export function priestPreset(spec: string, base: PriestOptions = DEFAULT_PRIEST_
   return base;
 }
 
+/** Options de chasseur adaptées à la spécialisation (Loup solitaire en Précision, mêlée en Survie). */
+export function hunterPreset(spec: string, base: HunterOptions = DEFAULT_HUNTER_OPTIONS): HunterOptions {
+  if (spec === 'mm') return { ...base, pet: false, sixSecondShot: 'aimedShot' };
+  return { ...base, pet: true };
+}
+
 const BASE_ROTATION: RotationOptions = { bane: 'agony', corruption: true, immolate: true, siphonLife: true, conflagrate: false, wrack: false, filler: 'shadowBolt', petAttacks: true };
 const BASE_BUFFS: RaidBuffs = { shadowDamagePct: 0, fireDamagePct: 0, sacrificed: 'none', activePet: 'imp', raidIsbUptime: 0 };
 
@@ -152,6 +162,7 @@ export function defaultState(classId: ClassId): AppState {
     dru: druidPreset(spec.id),
     mage: magePreset(spec.id),
     pri: priestPreset(spec.id),
+    hun: hunterPreset(spec.id),
     fightLength: 180,
     iterations: 2000,
     rules: cls.defaultRules,
@@ -195,6 +206,7 @@ export function migrate(parsed: Partial<Omit<AppState, 'version'>> & { version?:
     dru: { ...base.dru, ...d.dru },
     mage: { ...base.mage, ...d.mage },
     pri: { ...base.pri, ...d.pri },
+    hun: { ...base.hun, ...d.hun },
   });
   return {
     ...base,
@@ -279,10 +291,11 @@ type GearInput = Pick<AppState, 'items' | 'equipped' | 'extraStats' | 'enchants'
  * Tout ce que le personnage porte et consomme : objets, bonus d'ensemble, enchantements,
  * consommables, buffs et débuffs. Renvoie les stats, les effets de sort et l'arme portée.
  */
-export function computeGear(state: GearInput): { stats: Stats; mods: SimModifiers; sets: ActiveSet[]; weapon: WeaponInfo | null; shield: boolean } {
+export function computeGear(state: GearInput): { stats: Stats; mods: SimModifiers; sets: ActiveSet[]; weapon: WeaponInfo | null; rangedWeapon: WeaponInfo | null; shield: boolean } {
   let stats = addStats(emptyStats(), state.extraStats);
   let mods = emptyMods();
   let weapon: WeaponInfo | null = null;
+  let rangedWeapon: WeaponInfo | null = null;
   let shield = false;
   const sets = new Map<number, { set: ItemSet; ids: Set<string> }>();
   for (const [slot, id] of Object.entries(state.equipped)) {
@@ -290,6 +303,7 @@ export function computeGear(state: GearInput): { stats: Stats; mods: SimModifier
     if (!item) continue;
     stats = addStats(stats, item.stats);
     if (slot === 'mainHand' && item.weapon) weapon = item.weapon;
+    if (slot === 'ranged' && item.weapon) rangedWeapon = item.weapon;
     if (slot === 'offHand' && (item.stats.blockValue ?? 0) > 0) shield = true;
     if (item.set) {
       const entry = sets.get(item.set.id) ?? { set: item.set, ids: new Set<string>() };
@@ -322,20 +336,23 @@ export function computeGear(state: GearInput): { stats: Stats; mods: SimModifier
     if (buff.stats) stats = addStats(stats, buff.stats);
     if (buff.mods) mods = mergeMods(mods, buff.mods);
   }
-  return { stats, mods, sets: active, weapon, shield };
+  return { stats, mods, sets: active, weapon, rangedWeapon, shield };
 }
 
 /** Total des stats (objets, sets, enchantements, consommables, bonus divers). */
 export const gearStats = (state: GearInput): Stats => computeGear(state).stats;
 
-export type AnySimConfig = (SimConfig & { classId?: 'warlock' }) | PaladinSimConfig | DruidSimConfig | MageSimConfig | PriestSimConfig;
+export type AnySimConfig = (SimConfig & { classId?: 'warlock' }) | PaladinSimConfig | DruidSimConfig | MageSimConfig | PriestSimConfig | HunterSimConfig;
 
 type ConfigOverrides = Partial<Pick<SimConfig, 'iterations' | 'seed' | 'fightLength'>>;
 
 /** Configuration de simulation de la classe de l'état. */
 export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): AnySimConfig {
-  const { stats, mods, weapon, shield } = computeGear(state);
+  const { stats, mods, weapon, rangedWeapon, shield } = computeGear(state);
   const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345 };
+  if (state.classId === 'hunter') {
+    return { ...common, classId: 'hunter', spec: state.spec as HunterSpec, rules: state.rules as unknown as HunterRules, options: state.hun, weapon: rangedWeapon, meleeWeapon: weapon, ...overrides };
+  }
   if (state.classId === 'priest') {
     return { ...common, classId: 'priest', spec: state.spec as PriestSpec, rules: state.rules as unknown as PriestRules, options: state.pri, ...overrides };
   }

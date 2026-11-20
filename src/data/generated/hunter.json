@@ -1,0 +1,1750 @@
+{
+ "source": "wowhead.com/forever",
+ "fetchedAt": "2026-11-20T09:12:32.844Z",
+ "trees": [
+  {
+   "key": "beastMastery",
+   "icon": "ability_hunter_beasttaming",
+   "name": {
+    "en": "Beast Mastery",
+    "fr": "Maîtrise des bêtes"
+   }
+  },
+  {
+   "key": "marksmanship",
+   "icon": "ability_marksmanship",
+   "name": {
+    "en": "Marksmanship",
+    "fr": "Précision"
+   }
+  },
+  {
+   "key": "survival",
+   "icon": "ability_hunter_swiftstrike",
+   "name": {
+    "en": "Survival",
+    "fr": "Survie"
+   }
+  }
+ ],
+ "talents": [
+  {
+   "key": "deadlyAspects",
+   "wowheadId": 104960,
+   "tree": 0,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    19552,
+    19552,
+    19552,
+    19552,
+    19552
+   ],
+   "icon": "spell_nature_ravenform",
+   "name": {
+    "en": "Deadly Aspects",
+    "fr": "Aspects mortels"
+   },
+   "desc": {
+    "en": [
+     "While Aspect of the Hawk is active, Auto Shot has a 2% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 2% chance of increasing melee attack speed by 30% for 12 sec.",
+     "While Aspect of the Hawk is active, Auto Shot has a 4% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 4% chance of increasing melee attack speed by 30% for 12 sec.",
+     "While Aspect of the Hawk is active, Auto Shot has a 6% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 6% chance of increasing melee attack speed by 30% for 12 sec.",
+     "While Aspect of the Hawk is active, Auto Shot has a 8% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 8% chance of increasing melee attack speed by 30% for 12 sec.",
+     "While Aspect of the Hawk is active, Auto Shot has a 10% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 10% chance of increasing melee attack speed by 30% for 12 sec."
+    ],
+    "fr": [
+     "Lorsqu’Aspect du faucon est actif, les tirs automatiques ont 2 % de chances d’augmenter la vitesse d’attaque à distance de 30 % pendant 12 sec. Lorsqu’Aspect de la bête est actif, toutes les attaques automatiques en mêlée ont 2 % de chances d’augmenter la vitesse d’attaque en mêlée de 30 % pendant 12 sec.",
+     "Lorsqu’Aspect du faucon est actif, les tirs automatiques ont 4 % de chances d’augmenter la vitesse d’attaque à distance de 30 % pendant 12 sec. Lorsqu’Aspect de la bête est actif, toutes les attaques automatiques en mêlée ont 4 % de chances d’augmenter la vitesse d’attaque en mêlée de 30 % pendant 12 sec.",
+     "Lorsqu’Aspect du faucon est actif, les tirs automatiques ont 6 % de chances d’augmenter la vitesse d’attaque à distance de 30 % pendant 12 sec. Lorsqu’Aspect de la bête est actif, toutes les attaques automatiques en mêlée ont 6 % de chances d’augmenter la vitesse d’attaque en mêlée de 30 % pendant 12 sec.",
+     "Lorsqu’Aspect du faucon est actif, les tirs automatiques ont 8 % de chances d’augmenter la vitesse d’attaque à distance de 30 % pendant 12 sec. Lorsqu’Aspect de la bête est actif, toutes les attaques automatiques en mêlée ont 8 % de chances d’augmenter la vitesse d’attaque en mêlée de 30 % pendant 12 sec.",
+     "Lorsqu’Aspect du faucon est actif, les tirs automatiques ont 10 % de chances d’augmenter la vitesse d’attaque à distance de 30 % pendant 12 sec. Lorsqu’Aspect de la bête est actif, toutes les attaques automatiques en mêlée ont 10 % de chances d’augmenter la vitesse d’attaque en mêlée de 30 % pendant 12 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "enduranceTraining",
+   "wowheadId": 104976,
+   "tree": 0,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19583,
+    19583,
+    19583,
+    19583,
+    19583
+   ],
+   "icon": "spell_nature_reincarnation",
+   "name": {
+    "en": "Endurance Training",
+    "fr": "Entraînement à l'Endurance"
+   },
+   "desc": {
+    "en": [
+     "Increases the Health and Armor of your pets by 3%.",
+     "Increases the Health and Armor of your pets by 6%.",
+     "Increases the Health and Armor of your pets by 9%.",
+     "Increases the Health and Armor of your pets by 12%.",
+     "Increases the Health and Armor of your pets by 15%."
+    ],
+    "fr": [
+     "Augmente de 3 % les points de vie et l’armure de vos familiers.",
+     "Augmente de 6 % les points de vie et l’armure de vos familiers.",
+     "Augmente de 9 % les points de vie et l’armure de vos familiers.",
+     "Augmente de 12 % les points de vie et l’armure de vos familiers.",
+     "Augmente de 15 % les points de vie et l’armure de vos familiers."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "focusedFire",
+   "wowheadId": 104975,
+   "tree": 0,
+   "row": 1,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1223755,
+    1223755
+   ],
+   "icon": "inv_weapon_crossbow_10",
+   "name": {
+    "en": "Focused Fire",
+    "fr": "Feu focalisé"
+   },
+   "desc": {
+    "en": [
+     "Increases all damage you and your pet deal by 1% while your pet is active.",
+     "Increases all damage you and your pet deal by 2% while your pet is active."
+    ],
+    "fr": [
+     "Augmente de 1 % tous les dégâts que vous et votre familier infligez tant que ce dernier est actif.",
+     "Augmente de 2 % tous les dégâts que vous et votre familier infligez tant que ce dernier est actif."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedAspectOfTheMonkey",
+   "wowheadId": 104974,
+   "tree": 0,
+   "row": 1,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    19549,
+    19549,
+    19549
+   ],
+   "icon": "ability_hunter_aspectofthemonkey",
+   "name": {
+    "en": "Improved Aspect of the Monkey",
+    "fr": "Aspect du singe amélioré"
+   },
+   "desc": {
+    "en": [
+     "Increases the Dodge bonus of your Aspect of the Monkey by 2%. Additionally, your pet gains 50% of the effect of your Aspect of the Monkey ability.",
+     "Increases the Dodge bonus of your Aspect of the Monkey by 4%. Additionally, your pet gains 50% of the effect of your Aspect of the Monkey ability.",
+     "Increases the Dodge bonus of your Aspect of the Monkey by 6%. Additionally, your pet gains 50% of the effect of your Aspect of the Monkey ability."
+    ],
+    "fr": [
+     "Augmente de 2 % le bonus d’Esquive conféré par votre Aspect du singe. De plus, votre familier obtient 50 % de l’effet de votre technique Aspect du singe.",
+     "Augmente de 4 % le bonus d’Esquive conféré par votre Aspect du singe. De plus, votre familier obtient 50 % de l’effet de votre technique Aspect du singe.",
+     "Augmente de 6 % le bonus d’Esquive conféré par votre Aspect du singe. De plus, votre familier obtient 50 % de l’effet de votre technique Aspect du singe."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedRevivePet",
+   "wowheadId": 104972,
+   "tree": 0,
+   "row": 1,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    24443,
+    24443
+   ],
+   "icon": "ability_hunter_beastsoothe",
+   "name": {
+    "en": "Improved Revive Pet",
+    "fr": "Ressusciter le familier amélioré"
+   },
+   "desc": {
+    "en": [
+     "Revive Pet's casting time is reduced by 3 sec, mana cost is reduced by 20%, and increases the health your pet returns with by an additional 15%.",
+     "Revive Pet's casting time is reduced by 6 sec, mana cost is reduced by 40%, and increases the health your pet returns with by an additional 30%."
+    ],
+    "fr": [
+     "Le temps d'incantation du sort Ressusciter le familier est réduit de 3 sec., son coût en mana est diminué de 20% et le familier revient avec 15% points de vie supplémentaires.",
+     "Le temps d'incantation du sort Ressusciter le familier est réduit de 6 sec., son coût en mana est diminué de 40% et le familier revient avec 30% points de vie supplémentaires."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "pathfinding",
+   "wowheadId": 104973,
+   "tree": 0,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    19559,
+    19559
+   ],
+   "icon": "ability_mount_jungletiger",
+   "name": {
+    "en": "Pathfinding",
+    "fr": "Science des chemins"
+   },
+   "desc": {
+    "en": [
+     "Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by 3%.",
+     "Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by 6%."
+    ],
+    "fr": [
+     "Augmente le bonus d'accélération de vos Aspects de la meute et du guépard de 3%.",
+     "Augmente le bonus d'accélération de vos Aspects de la meute et du guépard de 6%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "bestialSwiftness",
+   "wowheadId": 104970,
+   "tree": 0,
+   "row": 2,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    19596
+   ],
+   "icon": "ability_druid_dash",
+   "name": {
+    "en": "Bestial Swiftness",
+    "fr": "Rapidité bestiale"
+   },
+   "desc": {
+    "en": [
+     "Increases the movement speed of your pets by 30%."
+    ],
+    "fr": [
+     "Augmente de 30 % la vitesse de déplacement de vos familiers."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "unleashedFury",
+   "wowheadId": 104969,
+   "tree": 0,
+   "row": 2,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19616,
+    19616,
+    19616,
+    19616,
+    19616
+   ],
+   "icon": "ability_bullrush",
+   "name": {
+    "en": "Unleashed Fury",
+    "fr": "Fureur libérée"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your pets and hawks by 3%.",
+     "Increases the damage done by your pets and hawks by 6%.",
+     "Increases the damage done by your pets and hawks by 9%.",
+     "Increases the damage done by your pets and hawks by 12%.",
+     "Increases the damage done by your pets and hawks by 15%."
+    ],
+    "fr": [
+     "Augmente de 3 % les dégâts infligés par vos faucons et familiers.",
+     "Augmente de 6 % les dégâts infligés par vos faucons et familiers.",
+     "Augmente de 9 % les dégâts infligés par vos faucons et familiers.",
+     "Augmente de 12 % les dégâts infligés par vos faucons et familiers.",
+     "Augmente de 15 % les dégâts infligés par vos faucons et familiers."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedMendPet",
+   "wowheadId": 104968,
+   "tree": 0,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    19572,
+    19572
+   ],
+   "icon": "ability_hunter_mendpet",
+   "name": {
+    "en": "Improved Mend Pet",
+    "fr": "Guérison du familier améliorée"
+   },
+   "desc": {
+    "en": [
+     "Gives your Mend Pet spell a 15% chance of cleansing 1 Curse, Disease, Magic, or Poison effect from your pet each time it heals and reduces the Mana cost by 10%.",
+     "Gives your Mend Pet spell a 50% chance of cleansing 1 Curse, Disease, Magic, or Poison effect from your pet each time it heals and reduces the Mana cost by 20%."
+    ],
+    "fr": [
+     "Confère à votre sort Guérison du familier 15 % de chances de dissiper 1 effet de malédiction, de maladie, de magie ou de poison affectant votre familier à chaque fois qu’il le soigne, et réduit le coût en mana de 10 %.",
+     "Confère à votre sort Guérison du familier 50 % de chances de dissiper 1 effet de malédiction, de maladie, de magie ou de poison affectant votre familier à chaque fois qu’il le soigne, et réduit le coût en mana de 20 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "ferocity",
+   "wowheadId": 104967,
+   "tree": 0,
+   "row": 3,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19598,
+    19598,
+    19598,
+    19598,
+    19598
+   ],
+   "icon": "inv_misc_monsterclaw_04",
+   "name": {
+    "en": "Ferocity",
+    "fr": "Ferocité"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of your pets and hawks by 2%.",
+     "Increases the critical strike chance of your pets and hawks by 4%.",
+     "Increases the critical strike chance of your pets and hawks by 6%.",
+     "Increases the critical strike chance of your pets and hawks by 8%.",
+     "Increases the critical strike chance of your pets and hawks by 10%."
+    ],
+    "fr": [
+     "Augmente de 2 % les chances de coup critique de vos faucons et familiers.",
+     "Augmente de 4 % les chances de coup critique de vos faucons et familiers.",
+     "Augmente de 6 % les chances de coup critique de vos faucons et familiers.",
+     "Augmente de 8 % les chances de coup critique de vos faucons et familiers.",
+     "Augmente de 10 % les chances de coup critique de vos faucons et familiers."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "summonHawk",
+   "wowheadId": 104966,
+   "tree": 0,
+   "row": 3,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    1293241
+   ],
+   "icon": "ability_hunter_animalhandler",
+   "name": {
+    "en": "Summon Hawk",
+    "fr": "Invocation de faucon"
+   },
+   "desc": {
+    "en": [
+     "Command a hawk to dive-bomb your targeted enemy, dealing [32 / Ferocity: 48 / Unleashed Fury: 52 + (Ranged Attack Power * (0.05))] Physical damage and continuing its assault for 18 sec. Only 2 hawks can be active at once. Summon Hawk shares its cooldown with Arcane Shot."
+    ],
+    "fr": [
+     "Ordonne à un faucon de réaliser un bombardement en piqué sur l’adversaire que vous ciblez. Il lui inflige [32 / Ferocité: 48 / Fureur libérée: 52 + (Puissance d'attaque à distance * (0.05))] points de dégâts physiques et continue son assaut pendant 18 sec. Seuls 2 faucons peuvent être actifs à la fois. Invoquer un faucon partage son temps de recharge avec Tir des arcanes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "spiritBond",
+   "wowheadId": 104965,
+   "tree": 0,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    19578,
+    19578
+   ],
+   "icon": "ability_druid_demoralizingroar",
+   "name": {
+    "en": "Spirit Bond",
+    "fr": "Engagement spirituel"
+   },
+   "desc": {
+    "en": [
+     "While your pet is active, you and your pet will regenerate 1% of total health every 10 sec.",
+     "While your pet is active, you and your pet will regenerate 1% of total health every 5 sec."
+    ],
+    "fr": [
+     "Tant que votre familier est actif, vous et votre familier récupérez 1 % du total de vos points de vie toutes les 10 s.",
+     "Tant que votre familier est actif, vous et votre familier récupérez 1 % du total de vos points de vie toutes les 5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "intimidation",
+   "wowheadId": 104964,
+   "tree": 0,
+   "row": 4,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    19577
+   ],
+   "icon": "ability_devour",
+   "name": {
+    "en": "Intimidation",
+    "fr": "Intimidation"
+   },
+   "desc": {
+    "en": [
+     "Command your pet to Stun the target for 3 sec on its next successful attack, which also gains 100% increased critical strike chance. Generates high threat."
+    ],
+    "fr": [
+     "Vous ordonnez à votre familier d’étourdir la cible pendant 3 sec lors de sa prochaine attaque réussie, qui bénéficie également de chances de coup critique augmentées de 100 %. Génère un niveau élevé de menace."
+    ]
+   },
+   "requires": [
+    {
+     "key": "bestialSwiftness",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "bestialDiscipline",
+   "wowheadId": 104963,
+   "tree": 0,
+   "row": 4,
+   "col": 3,
+   "maxRank": 2,
+   "spellIds": [
+    19590,
+    19590
+   ],
+   "icon": "spell_nature_abolishmagic",
+   "name": {
+    "en": "Bestial Discipline",
+    "fr": "Discipline bestiale"
+   },
+   "desc": {
+    "en": [
+     "Increases the Focus regeneration of your pets by 10% and allows 25% of your Mana regeneration to continue while casting.",
+     "Increases the Focus regeneration of your pets by 20% and allows 50% of your Mana regeneration to continue while casting."
+    ],
+    "fr": [
+     "Augmente de 10 % la régénération de focalisation de vos familiers et permet à 25 % de votre régénération de mana de se poursuivre pendant les incantations.",
+     "Augmente de 20 % la régénération de focalisation de vos familiers et permet à 50 % de votre régénération de mana de se poursuivre pendant les incantations."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "frenzy",
+   "wowheadId": 104962,
+   "tree": 0,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19621,
+    19621,
+    19621,
+    19621,
+    19621
+   ],
+   "icon": "inv_misc_monsterclaw_03",
+   "name": {
+    "en": "Frenzy",
+    "fr": "Frénésie"
+   },
+   "desc": {
+    "en": [
+     "Gives your pet a 20% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
+     "Gives your pet a 40% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
+     "Gives your pet a 60% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
+     "Gives your pet a 80% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
+     "Gives your pet a 100% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike."
+    ],
+    "fr": [
+     "Confère à votre familier 20% de chances de bénéficier d'un bonus de 30% à la vitesse d'attaque pendant 8 sec après qu'il a infligé un coup critique.",
+     "Confère à votre familier 40% de chances de bénéficier d'un bonus de 30% à la vitesse d'attaque pendant 8 sec après qu'il a infligé un coup critique.",
+     "Confère à votre familier 60% de chances de bénéficier d'un bonus de 30% à la vitesse d'attaque pendant 8 sec après qu'il a infligé un coup critique.",
+     "Confère à votre familier 80% de chances de bénéficier d'un bonus de 30% à la vitesse d'attaque pendant 8 sec après qu'il a infligé un coup critique.",
+     "Confère à votre familier 100% de chances de bénéficier d'un bonus de 30% à la vitesse d'attaque pendant 8 sec après qu'il a infligé un coup critique."
+    ]
+   },
+   "requires": [
+    {
+     "key": "ferocity",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "key": "bestialWrath",
+   "wowheadId": 104961,
+   "tree": 0,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    19574
+   ],
+   "icon": "ability_druid_ferociousbite",
+   "name": {
+    "en": "Bestial Wrath",
+    "fr": "Courroux bestial"
+   },
+   "desc": {
+    "en": [
+     "Send your pet into a rage causing 50% additional damage for 18 sec. While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed."
+    ],
+    "fr": [
+     "Votre familier, fou de rage, inflige 50% de points de dégâts supplémentaires pendant 18 sec. Lorsqu’il est dans cet état, il n’éprouve ni pitié, ni remords, ni peur et ne peut plus être arrêté à moins d’être tué."
+    ]
+   },
+   "requires": [
+    {
+     "key": "intimidation",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "hawkEye",
+   "wowheadId": 105013,
+   "tree": 1,
+   "row": 0,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    19498,
+    19498,
+    19498
+   ],
+   "icon": "ability_townwatch",
+   "name": {
+    "en": "Hawk Eye",
+    "fr": "Oeil de faucon"
+   },
+   "desc": {
+    "en": [
+     "Increases the range of your ranged weapons by 2 yards.",
+     "Increases the range of your ranged weapons by 4 yards.",
+     "Increases the range of your ranged weapons by 6 yards."
+    ],
+    "fr": [
+     "Augmente la portée de vos armes à distance de 2 mètres.",
+     "Augmente la portée de vos armes à distance de 4 mètres.",
+     "Augmente la portée de vos armes à distance de 6 mètres."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedConcussiveShot",
+   "wowheadId": 105012,
+   "tree": 1,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    19407,
+    19407,
+    19407,
+    19407,
+    19407
+   ],
+   "icon": "spell_frost_stun",
+   "name": {
+    "en": "Improved Concussive Shot",
+    "fr": "Trait de choc amélioré"
+   },
+   "desc": {
+    "en": [
+     "Gives your Concussive Shot a 4% chance to stun the target for 3 sec.",
+     "Gives your Concussive Shot a 8% chance to stun the target for 3 sec.",
+     "Gives your Concussive Shot a 12% chance to stun the target for 3 sec.",
+     "Gives your Concussive Shot a 16% chance to stun the target for 3 sec.",
+     "Gives your Concussive Shot a 20% chance to stun the target for 3 sec."
+    ],
+    "fr": [
+     "Confère à votre technique Trait de choc 4% de chances d'étourdir la cible pendant 3 sec.",
+     "Confère à votre technique Trait de choc 8% de chances d'étourdir la cible pendant 3 sec.",
+     "Confère à votre technique Trait de choc 12% de chances d'étourdir la cible pendant 3 sec.",
+     "Confère à votre technique Trait de choc 16% de chances d'étourdir la cible pendant 3 sec.",
+     "Confère à votre technique Trait de choc 20% de chances d'étourdir la cible pendant 3 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lethalAttacks",
+   "wowheadId": 105011,
+   "tree": 1,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19426,
+    19426,
+    19426,
+    19426,
+    19426
+   ],
+   "icon": "ability_searingarrow",
+   "name": {
+    "en": "Lethal Attacks",
+    "fr": "Attaques mortelles"
+   },
+   "desc": {
+    "en": [
+     "Increases your critical strike chance with all attacks by 1%.",
+     "Increases your critical strike chance with all attacks by 2%.",
+     "Increases your critical strike chance with all attacks by 3%.",
+     "Increases your critical strike chance with all attacks by 4%.",
+     "Increases your critical strike chance with all attacks by 5%."
+    ],
+    "fr": [
+     "Augmente de 1 % vos chances d’infliger un coup critique avec toutes vos attaques.",
+     "Augmente de 2 % vos chances d’infliger un coup critique avec toutes vos attaques.",
+     "Augmente de 3 % vos chances d’infliger un coup critique avec toutes vos attaques.",
+     "Augmente de 4 % vos chances d’infliger un coup critique avec toutes vos attaques.",
+     "Augmente de 5 % vos chances d’infliger un coup critique avec toutes vos attaques."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedStings",
+   "wowheadId": 110870,
+   "tree": 1,
+   "row": 1,
+   "col": 0,
+   "maxRank": 3,
+   "spellIds": [
+    1310661,
+    1310661,
+    1310661
+   ],
+   "icon": "ability_hunter_quickshot",
+   "name": {
+    "en": "Improved Stings",
+    "fr": "Morsures et piqûres améliorées"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage of your Serpent Sting ability by 6%, reduces the cooldown of your Viper Sting ability by 2 sec, and increases the duration of your Scorpid Sting ability by 15 sec.",
+     "Increases the damage of your Serpent Sting ability by 13%, reduces the cooldown of your Viper Sting ability by 4 sec, and increases the duration of your Scorpid Sting ability by 30 sec.",
+     "Increases the damage of your Serpent Sting ability by 20%, reduces the cooldown of your Viper Sting ability by 6 sec, and increases the duration of your Scorpid Sting ability by 45 sec."
+    ],
+    "fr": [
+     "Augmente les dégâts de votre Morsure de serpent de 6 %, réduit le temps de recharge de votre Morsure de vipère de 2 s et prolonge la durée de votre Piqûre de scorpide de 15 s.",
+     "Augmente les dégâts de votre Morsure de serpent de 13 %, réduit le temps de recharge de votre Morsure de vipère de 4 s et prolonge la durée de votre Piqûre de scorpide de 30 s.",
+     "Augmente les dégâts de votre Morsure de serpent de 20 %, réduit le temps de recharge de votre Morsure de vipère de 6 s et prolonge la durée de votre Piqûre de scorpide de 45 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "efficiency",
+   "wowheadId": 105009,
+   "tree": 1,
+   "row": 1,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    19416,
+    19416,
+    19416,
+    19416,
+    19416
+   ],
+   "icon": "spell_frost_wizardmark",
+   "name": {
+    "en": "Efficiency",
+    "fr": "Efficacité"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of your Shots, Stings, and melee abilities by 3%.",
+     "Reduces the Mana cost of your Shots, Stings, and melee abilities by 6%.",
+     "Reduces the Mana cost of your Shots, Stings, and melee abilities by 9%.",
+     "Reduces the Mana cost of your Shots, Stings, and melee abilities by 12%.",
+     "Reduces the Mana cost of your Shots, Stings, and melee abilities by 15%."
+    ],
+    "fr": [
+     "Réduit le coût en mana de vos Tirs, Piqûres et techniques de mêlée de 3 %.",
+     "Réduit le coût en mana de vos Tirs, Piqûres et techniques de mêlée de 6 %.",
+     "Réduit le coût en mana de vos Tirs, Piqûres et techniques de mêlée de 9 %.",
+     "Réduit le coût en mana de vos Tirs, Piqûres et techniques de mêlée de 12 %.",
+     "Réduit le coût en mana de vos Tirs, Piqûres et techniques de mêlée de 15 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "carefulAim",
+   "wowheadId": 105008,
+   "tree": 1,
+   "row": 1,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    1223984,
+    1223984,
+    1223984,
+    1223984,
+    1223984
+   ],
+   "icon": "ability_hunter_zenarchery",
+   "name": {
+    "en": "Careful Aim",
+    "fr": "Visée minutieuse"
+   },
+   "desc": {
+    "en": [
+     "Increases your Attack Power by 20% of your Intellect.",
+     "Increases your Attack Power by 40% of your Intellect.",
+     "Increases your Attack Power by 60% of your Intellect.",
+     "Increases your Attack Power by 80% of your Intellect.",
+     "Increases your Attack Power by 100% of your Intellect."
+    ],
+    "fr": [
+     "Augmente votre puissance d’attaque d’un montant égal à 20 % de votre Intelligence.",
+     "Augmente votre puissance d’attaque d’un montant égal à 40 % de votre Intelligence.",
+     "Augmente votre puissance d’attaque d’un montant égal à 60 % de votre Intelligence.",
+     "Augmente votre puissance d’attaque d’un montant égal à 80 % de votre Intelligence.",
+     "Augmente votre puissance d’attaque d’un montant égal à 100 % de votre Intelligence."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "rapidKilling",
+   "wowheadId": 105005,
+   "tree": 1,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    415405,
+    415405
+   ],
+   "icon": "ability_hunter_rapidkilling",
+   "name": {
+    "en": "Rapid Killing",
+    "fr": "Tueur rapide"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown on your Rapid Fire ability by 1 min. In addition, when you kill a non-trivial enemy or it dies while afflicted by your Serpent Sting, you gain Rapid Killing, increasing the damage of your next Shot ability within 20 sec by 10%.",
+     "Reduces the cooldown on your Rapid Fire ability by 2 min. In addition, when you kill a non-trivial enemy or it dies while afflicted by your Serpent Sting, you gain Rapid Killing, increasing the damage of your next Shot ability within 20 sec by 20%."
+    ],
+    "fr": [
+     "Réduit de 1 min le temps de recharge de votre technique Tir rapide. De plus, lorsque vous éliminez un adversaire non négligeable ou qu’il meurt alors qu’il subit Morsure de serpent, vous obtenez l’effet Tueur rapide, qui augmente de 10 % les dégâts de votre prochaine technique de tir lancée dans les 20 sec.",
+     "Réduit de 2 min le temps de recharge de votre technique Tir rapide. De plus, lorsque vous éliminez un adversaire non négligeable ou qu’il meurt alors qu’il subit Morsure de serpent, vous obtenez l’effet Tueur rapide, qui augmente de 20 % les dégâts de votre prochaine technique de tir lancée dans les 20 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedArcaneShot",
+   "wowheadId": 105006,
+   "tree": 1,
+   "row": 2,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    19454,
+    19454,
+    19454,
+    19454,
+    19454
+   ],
+   "icon": "ability_impalingbolt",
+   "name": {
+    "en": "Improved Arcane Shot",
+    "fr": "Tir des arcanes amélioré"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Arcane Shot by 0.3 sec. Does not affect the cooldown of abilities which share a cooldown with Arcane Shot.",
+     "Reduces the cooldown of your Arcane Shot by 0.6 sec. Does not affect the cooldown of abilities which share a cooldown with Arcane Shot.",
+     "Reduces the cooldown of your Arcane Shot by 0.9 sec. Does not affect the cooldown of abilities which share a cooldown with Arcane Shot.",
+     "Reduces the cooldown of your Arcane Shot by 1.2 sec. Does not affect the cooldown of abilities which share a cooldown with Arcane Shot.",
+     "Reduces the cooldown of your Arcane Shot by 1.5 sec. Does not affect the cooldown of abilities which share a cooldown with Arcane Shot."
+    ],
+    "fr": [
+     "Réduit le temps de recharge de votre Tir des arcanes de 0.3 s. N’affecte pas le temps de recharge des techniques qui partagent un temps de recharge avec Tir des arcanes.",
+     "Réduit le temps de recharge de votre Tir des arcanes de 0.6 s. N’affecte pas le temps de recharge des techniques qui partagent un temps de recharge avec Tir des arcanes.",
+     "Réduit le temps de recharge de votre Tir des arcanes de 0.9 s. N’affecte pas le temps de recharge des techniques qui partagent un temps de recharge avec Tir des arcanes.",
+     "Réduit le temps de recharge de votre Tir des arcanes de 1.2 s. N’affecte pas le temps de recharge des techniques qui partagent un temps de recharge avec Tir des arcanes.",
+     "Réduit le temps de recharge de votre Tir des arcanes de 1.5 s. N’affecte pas le temps de recharge des techniques qui partagent un temps de recharge avec Tir des arcanes."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "loneWolf",
+   "wowheadId": 105007,
+   "tree": 1,
+   "row": 2,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    415370
+   ],
+   "icon": "ability_mount_whitedirewolf",
+   "name": {
+    "en": "Lone Wolf",
+    "fr": "Loup solitaire"
+   },
+   "desc": {
+    "en": [
+     "You deal 20% increased damage with all attacks while you do not have an active pet."
+    ],
+    "fr": [
+     "Vous infligez 20 % de dégâts supplémentaires avec toutes vos attaques tant que vous n’avez pas de familier actif."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "trueshotAura",
+   "wowheadId": 105004,
+   "tree": 1,
+   "row": 3,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1299346
+   ],
+   "icon": "ability_trueshot",
+   "name": {
+    "en": "Trueshot Aura",
+    "fr": "Aura de précision"
+   },
+   "desc": {
+    "en": [
+     "Increases the Ranged Attack Power of party or raid members within 45 yds by 20."
+    ],
+    "fr": [
+     "Augmente de 20 la puissance d’attaque à distance des membres du groupe ou du raid à moins de 45 m."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "mortalShots",
+   "wowheadId": 105002,
+   "tree": 1,
+   "row": 3,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19485,
+    19485,
+    19485,
+    19485,
+    19485
+   ],
+   "icon": "ability_piercedamage",
+   "name": {
+    "en": "Mortal Shots",
+    "fr": "Coups mortels"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike damage bonus on all ranged abilities by 6%.",
+     "Increases the critical strike damage bonus on all ranged abilities by 12%.",
+     "Increases the critical strike damage bonus on all ranged abilities by 18%.",
+     "Increases the critical strike damage bonus on all ranged abilities by 24%.",
+     "Increases the critical strike damage bonus on all ranged abilities by 30%."
+    ],
+    "fr": [
+     "Augmente de 6 % le bonus de dégâts des coups critiques de toutes vos techniques à distance.",
+     "Augmente de 12 % le bonus de dégâts des coups critiques de toutes vos techniques à distance.",
+     "Augmente de 18 % le bonus de dégâts des coups critiques de toutes vos techniques à distance.",
+     "Augmente de 24 % le bonus de dégâts des coups critiques de toutes vos techniques à distance.",
+     "Augmente de 30 % le bonus de dégâts des coups critiques de toutes vos techniques à distance."
+    ]
+   },
+   "requires": [
+    {
+     "key": "carefulAim",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "key": "rapidRecuperation",
+   "wowheadId": 104999,
+   "tree": 1,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    1223987,
+    1223987
+   ],
+   "icon": "ability_hunter_rapidregeneration",
+   "name": {
+    "en": "Rapid Recuperation",
+    "fr": "Recouvrement rapide"
+   },
+   "desc": {
+    "en": [
+     "Afflicting a target with Serpent Sting allows 25% of your Mana Regeneration to continue while casting for 15 sec, increased to 50% when Rapid Killing is consumed.",
+     "Afflicting a target with Serpent Sting allows 50% of your Mana Regeneration to continue while casting for 15 sec, increased to 100% when Rapid Killing is consumed."
+    ],
+    "fr": [
+     "Quand vous infligez Morsure de serpent à une cible, vous bénéficiez de 25 % de votre régénération de mana normale lors des incantations pendant 15 sec. Ce taux passe à 50 % quand Tueur rapide est consommé.",
+     "Quand vous infligez Morsure de serpent à une cible, vous bénéficiez de 50 % de votre régénération de mana normale lors des incantations pendant 15 sec. Ce taux passe à 100 % quand Tueur rapide est consommé."
+    ]
+   },
+   "requires": [
+    {
+     "key": "rapidKilling",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "key": "barrage",
+   "wowheadId": 105001,
+   "tree": 1,
+   "row": 4,
+   "col": 2,
+   "maxRank": 3,
+   "spellIds": [
+    19461,
+    19461,
+    19461
+   ],
+   "icon": "ability_upgrademoonglaive",
+   "name": {
+    "en": "Barrage",
+    "fr": "Barrage"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage done by your Multi-Shot, Aimed Shot, and Volley abilities by 5%.",
+     "Increases the damage done by your Multi-Shot, Aimed Shot, and Volley abilities by 10%.",
+     "Increases the damage done by your Multi-Shot, Aimed Shot, and Volley abilities by 15%."
+    ],
+    "fr": [
+     "Augmente de 5 % les dégâts infligés par vos techniques Flèches multiples, Visée et Salve.",
+     "Augmente de 10 % les dégâts infligés par vos techniques Flèches multiples, Visée et Salve.",
+     "Augmente de 15 % les dégâts infligés par vos techniques Flèches multiples, Visée et Salve."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "scatterShot",
+   "wowheadId": 105000,
+   "tree": 1,
+   "row": 4,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    19503
+   ],
+   "icon": "ability_golemstormbolt",
+   "name": {
+    "en": "Scatter Shot",
+    "fr": "Flèche de dispersion"
+   },
+   "desc": {
+    "en": [
+     "A short-range shot that deals 50% weapon damage and disorients the target for 4 sec. Any damage caused will remove the effect. Turns off your attack when used."
+    ],
+    "fr": [
+     "Un tir à courte distance qui inflige 50% des points de dégâts de l'arme et désoriente la cible pendant 4 sec. Si la cible subit des dégâts, l'effet est annulé. Interrompt l'attaque lors de son utilisation."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "rangedWeaponSpecialization",
+   "wowheadId": 104998,
+   "tree": 1,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19507,
+    19507,
+    19507,
+    19507,
+    19507
+   ],
+   "icon": "inv_weapon_rifle_06",
+   "name": {
+    "en": "Ranged Weapon Specialization",
+    "fr": "Spécialisation Armes à distance"
+   },
+   "desc": {
+    "en": [
+     "Increases the damage you deal with ranged weapons by 1%.",
+     "Increases the damage you deal with ranged weapons by 2%.",
+     "Increases the damage you deal with ranged weapons by 3%.",
+     "Increases the damage you deal with ranged weapons by 4%.",
+     "Increases the damage you deal with ranged weapons by 5%."
+    ],
+    "fr": [
+     "Augmente les points de dégâts que vous infligez avec les armes à distance de 1%.",
+     "Augmente les points de dégâts que vous infligez avec les armes à distance de 2%.",
+     "Augmente les points de dégâts que vous infligez avec les armes à distance de 3%.",
+     "Augmente les points de dégâts que vous infligez avec les armes à distance de 4%.",
+     "Augmente les points de dégâts que vous infligez avec les armes à distance de 5%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "sniperShot",
+   "wowheadId": 104997,
+   "tree": 1,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1310687
+   ],
+   "icon": "hunter_pvp_snipershot",
+   "name": {
+    "en": "Sniper Shot",
+    "fr": "Tir de précision"
+   },
+   "desc": {
+    "en": [
+     "A long-range shot that deals ranged damage plus 320 and increases the range of your next 3 Shots by 10 yards for 10 sec."
+    ],
+    "fr": [
+     "Un tir à longue portée qui inflige les dégâts de l’arme à distance plus 320 et augmente de 10 m la portée de vos 3 prochains tirs pendant 10 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "trueshotAura",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "improvedTracking",
+   "wowheadId": 104996,
+   "tree": 2,
+   "row": 0,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    24293,
+    24293,
+    24293,
+    24293,
+    24293
+   ],
+   "icon": "inv_misc_head_dragon_black",
+   "name": {
+    "en": "Improved Tracking",
+    "fr": "Pistage amélioré"
+   },
+   "desc": {
+    "en": [
+     "While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids, or Undead, all damage you deal to the tracked creature type is increased by 1%.",
+     "While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids, or Undead, all damage you deal to the tracked creature type is increased by 2%.",
+     "While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids, or Undead, all damage you deal to the tracked creature type is increased by 3%.",
+     "While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids, or Undead, all damage you deal to the tracked creature type is increased by 4%.",
+     "While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids, or Undead, all damage you deal to the tracked creature type is increased by 5%."
+    ],
+    "fr": [
+     "Lorsque vous remontez la piste de bêtes, de démons, de draconiens, d’élémentaires, de géants, d’humanoïdes ou de morts-vivants, tous les dégâts que vous infligez au type de créature pisté augmentent de 1 %.",
+     "Lorsque vous remontez la piste de bêtes, de démons, de draconiens, d’élémentaires, de géants, d’humanoïdes ou de morts-vivants, tous les dégâts que vous infligez au type de créature pisté augmentent de 2 %.",
+     "Lorsque vous remontez la piste de bêtes, de démons, de draconiens, d’élémentaires, de géants, d’humanoïdes ou de morts-vivants, tous les dégâts que vous infligez au type de créature pisté augmentent de 3 %.",
+     "Lorsque vous remontez la piste de bêtes, de démons, de draconiens, d’élémentaires, de géants, d’humanoïdes ou de morts-vivants, tous les dégâts que vous infligez au type de créature pisté augmentent de 4 %.",
+     "Lorsque vous remontez la piste de bêtes, de démons, de draconiens, d’élémentaires, de géants, d’humanoïdes ou de morts-vivants, tous les dégâts que vous infligez au type de créature pisté augmentent de 5 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "deflection",
+   "wowheadId": 104995,
+   "tree": 2,
+   "row": 0,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19295,
+    19295,
+    19295,
+    19295,
+    19295
+   ],
+   "icon": "ability_parry",
+   "name": {
+    "en": "Deflection",
+    "fr": "Déviation"
+   },
+   "desc": {
+    "en": [
+     "Increases your Parry chance by 1%.",
+     "Increases your Parry chance by 2%.",
+     "Increases your Parry chance by 3%.",
+     "Increases your Parry chance by 4%.",
+     "Increases your Parry chance by 5%."
+    ],
+    "fr": [
+     "Augmente vos chances de Parer de 1%.",
+     "Augmente vos chances de Parer de 2%.",
+     "Augmente vos chances de Parer de 3%.",
+     "Augmente vos chances de Parer de 4%.",
+     "Augmente vos chances de Parer de 5%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "entrapment",
+   "wowheadId": 104994,
+   "tree": 2,
+   "row": 1,
+   "col": 0,
+   "maxRank": 5,
+   "spellIds": [
+    19184,
+    19184,
+    19184,
+    19184,
+    19184
+   ],
+   "icon": "spell_nature_stranglevines",
+   "name": {
+    "en": "Entrapment",
+    "fr": "Piège"
+   },
+   "desc": {
+    "en": [
+     "When your traps are triggered, all affected targets are Entrapped, preventing them from moving for 1 sec.",
+     "When your traps are triggered, all affected targets are Entrapped, preventing them from moving for 2 sec.",
+     "When your traps are triggered, all affected targets are Entrapped, preventing them from moving for 3 sec.",
+     "When your traps are triggered, all affected targets are Entrapped, preventing them from moving for 4 sec.",
+     "When your traps are triggered, all affected targets are Entrapped, preventing them from moving for 5 sec."
+    ],
+    "fr": [
+     "Lorsque vos pièges se déclenchent, toutes les cibles affectées subissent Pris au piège et ne peuvent plus se déplacer pendant 1 s.",
+     "Lorsque vos pièges se déclenchent, toutes les cibles affectées subissent Pris au piège et ne peuvent plus se déplacer pendant 2 s.",
+     "Lorsque vos pièges se déclenchent, toutes les cibles affectées subissent Pris au piège et ne peuvent plus se déplacer pendant 3 s.",
+     "Lorsque vos pièges se déclenchent, toutes les cibles affectées subissent Pris au piège et ne peuvent plus se déplacer pendant 4 s.",
+     "Lorsque vos pièges se déclenchent, toutes les cibles affectées subissent Pris au piège et ne peuvent plus se déplacer pendant 5 s."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "savageStrikes",
+   "wowheadId": 104993,
+   "tree": 2,
+   "row": 1,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    19159,
+    19159
+   ],
+   "icon": "ability_racial_bloodrage",
+   "name": {
+    "en": "Savage Strikes",
+    "fr": "Frappes sauvages"
+   },
+   "desc": {
+    "en": [
+     "Increases the critical strike chance of all your melee abilities by 2%.",
+     "Increases the critical strike chance of all your melee abilities by 4%."
+    ],
+    "fr": [
+     "Augmente de 2 % les chances de coup critique de toutes vos techniques de mêlée.",
+     "Augmente de 4 % les chances de coup critique de toutes vos techniques de mêlée."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "survivalist",
+   "wowheadId": 104992,
+   "tree": 2,
+   "row": 1,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19255,
+    19255,
+    19255,
+    19255,
+    19255
+   ],
+   "icon": "spell_shadow_twilight",
+   "name": {
+    "en": "Survivalist",
+    "fr": "Survivant"
+   },
+   "desc": {
+    "en": [
+     "Increases your total Health by 2%.",
+     "Increases your total Health by 4%.",
+     "Increases your total Health by 6%.",
+     "Increases your total Health by 8%.",
+     "Increases your total Health by 10%."
+    ],
+    "fr": [
+     "Augmente votre total de points de vie de 2 %.",
+     "Augmente votre total de points de vie de 4 %.",
+     "Augmente votre total de points de vie de 6 %.",
+     "Augmente votre total de points de vie de 8 %.",
+     "Augmente votre total de points de vie de 10 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "improvedWingClip",
+   "wowheadId": 104990,
+   "tree": 2,
+   "row": 1,
+   "col": 3,
+   "maxRank": 3,
+   "spellIds": [
+    19228,
+    19228,
+    19228
+   ],
+   "icon": "ability_rogue_trip",
+   "name": {
+    "en": "Improved Wing Clip",
+    "fr": "Coupure d'ailes améliorée"
+   },
+   "desc": {
+    "en": [
+     "Gives your Wing Clip ability a 7% chance to immobilize the target for 5 sec.",
+     "Gives your Wing Clip ability a 13% chance to immobilize the target for 5 sec.",
+     "Gives your Wing Clip ability a 20% chance to immobilize the target for 5 sec."
+    ],
+    "fr": [
+     "Confère à votre technique Coupure d’ailes 7 % de chances d’immobiliser la cible pendant 5 sec.",
+     "Confère à votre technique Coupure d’ailes 13 % de chances d’immobiliser la cible pendant 5 sec.",
+     "Confère à votre technique Coupure d’ailes 20 % de chances d’immobiliser la cible pendant 5 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "cleverTraps",
+   "wowheadId": 104991,
+   "tree": 2,
+   "row": 2,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    19239,
+    19239
+   ],
+   "icon": "spell_nature_timestop",
+   "name": {
+    "en": "Clever Traps",
+    "fr": "Pièges astucieux"
+   },
+   "desc": {
+    "en": [
+     "Increases the duration of Freezing and Frost trap effects by 15% and the damage of Immolation and Explosive trap effects by 15%.",
+     "Increases the duration of Freezing and Frost trap effects by 30% and the damage of Immolation and Explosive trap effects by 30%."
+    ],
+    "fr": [
+     "Augmente la durée des effets de Piège givrant et Piège de givre de 15% et les dégâts infligés par les effets de Piège d'Immolation et Piège explosif de 15%.",
+     "Augmente la durée des effets de Piège givrant et Piège de givre de 30% et les dégâts infligés par les effets de Piège d'Immolation et Piège explosif de 30%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "surefooted",
+   "wowheadId": 104987,
+   "tree": 2,
+   "row": 2,
+   "col": 1,
+   "maxRank": 3,
+   "spellIds": [
+    19290,
+    19290,
+    19290
+   ],
+   "icon": "ability_kick",
+   "name": {
+    "en": "Surefooted",
+    "fr": "Pied sûr"
+   },
+   "desc": {
+    "en": [
+     "Increases your hit chance by 1% and reduces the duration of movement impairing effects on you by 10%.",
+     "Increases your hit chance by 2% and reduces the duration of movement impairing effects on you by 20%.",
+     "Increases your hit chance by 3% and reduces the duration of movement impairing effects on you by 30%."
+    ],
+    "fr": [
+     "Augmente vos chances de toucher de 1 % et réduit la durée des effets ralentissant vos déplacements de 10 %.",
+     "Augmente vos chances de toucher de 2 % et réduit la durée des effets ralentissant vos déplacements de 20 %.",
+     "Augmente vos chances de toucher de 3 % et réduit la durée des effets ralentissant vos déplacements de 30 %."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "deterrence",
+   "wowheadId": 104986,
+   "tree": 2,
+   "row": 2,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    19263
+   ],
+   "icon": "ability_whirlwind",
+   "name": {
+    "en": "Deterrence",
+    "fr": "Dissuasion"
+   },
+   "desc": {
+    "en": [
+     "When activated, increases your Dodge and Parry chance by 25% for 10 sec."
+    ],
+    "fr": [
+     "Une fois activé, augmente vos chances d'Esquiver et de Parer de 25% pendant 10 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "survivalTactics",
+   "wowheadId": 104988,
+   "tree": 2,
+   "row": 3,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    19376,
+    19376
+   ],
+   "icon": "ability_ensnare",
+   "name": {
+    "en": "Survival Tactics",
+    "fr": "Tactique de survie"
+   },
+   "desc": {
+    "en": [
+     "Increases your chance to hit with your Trap and Feign Death abilities by 5%.",
+     "Increases your chance to hit with your Trap and Feign Death abilities by 10%."
+    ],
+    "fr": [
+     "Augmente de 5 % vos chances de toucher avec vos techniques Piège et Feindre la mort.",
+     "Augmente de 10 % vos chances de toucher avec vos techniques Piège et Feindre la mort."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "predatorsEdge",
+   "wowheadId": 110861,
+   "tree": 2,
+   "row": 3,
+   "col": 1,
+   "maxRank": 5,
+   "spellIds": [
+    1310627,
+    1310627,
+    1310627,
+    1310627,
+    1310627
+   ],
+   "icon": "ability_dualwield",
+   "name": {
+    "en": "Predator's Edge",
+    "fr": "Tranchant de prédateur"
+   },
+   "desc": {
+    "en": [
+     "Increases your melee ability critical strike damage by 6% and your Off Hand weapon damage by 10%.",
+     "Increases your melee ability critical strike damage by 12% and your Off Hand weapon damage by 20%.",
+     "Increases your melee ability critical strike damage by 18% and your Off Hand weapon damage by 30%.",
+     "Increases your melee ability critical strike damage by 24% and your Off Hand weapon damage by 40%.",
+     "Increases your melee ability critical strike damage by 30% and your Off Hand weapon damage by 50%."
+    ],
+    "fr": [
+     "Augmente de 6 % les dégâts des coups critiques de vos techniques de mêlée et de 10 % les dégâts de votre arme en main gauche.",
+     "Augmente de 12 % les dégâts des coups critiques de vos techniques de mêlée et de 20 % les dégâts de votre arme en main gauche.",
+     "Augmente de 18 % les dégâts des coups critiques de vos techniques de mêlée et de 30 % les dégâts de votre arme en main gauche.",
+     "Augmente de 24 % les dégâts des coups critiques de vos techniques de mêlée et de 40 % les dégâts de votre arme en main gauche.",
+     "Augmente de 30 % les dégâts des coups critiques de vos techniques de mêlée et de 50 % les dégâts de votre arme en main gauche."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "counterattack",
+   "wowheadId": 104989,
+   "tree": 2,
+   "row": 3,
+   "col": 2,
+   "maxRank": 1,
+   "spellIds": [
+    19306
+   ],
+   "icon": "ability_warrior_challange",
+   "name": {
+    "en": "Counterattack",
+    "fr": "Contre-attaque"
+   },
+   "desc": {
+    "en": [
+     "A strike that becomes active after parrying an opponent's attack. This attack deals 50% weapon damage plus 26 and immobilizes the target for 5 sec. Counterattack cannot be blocked, dodged, or parried."
+    ],
+    "fr": [
+     "Disponible après avoir paré une attaque de l’adversaire, cette technique inflige 50 % des dégâts de l’arme plus 26, et immobilise la cible pendant 5 sec. La contre-attaque ne peut être bloquée, esquivée ou parée."
+    ]
+   },
+   "requires": [
+    {
+     "key": "deterrence",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "key": "resourcefulness",
+   "wowheadId": 104983,
+   "tree": 2,
+   "row": 4,
+   "col": 0,
+   "maxRank": 2,
+   "spellIds": [
+    440529,
+    440529
+   ],
+   "icon": "ability_hunter_resourcefulness",
+   "name": {
+    "en": "Resourcefulness",
+    "fr": "Ingéniosité"
+   },
+   "desc": {
+    "en": [
+     "Reduces the Mana cost of your Trap and melee abilities by 30%, and grants your melee and ranged ability Critical Strikes a 50% chance to allow 50% of your Mana Regeneration to continue while casting for 30 sec.",
+     "Reduces the Mana cost of your Trap and melee abilities by 60%, and grants your melee and ranged ability Critical Strikes a 100% chance to allow 50% of your Mana Regeneration to continue while casting for 30 sec."
+    ],
+    "fr": [
+     "Réduit de 30 % le coût en mana de vos pièges et techniques en mêlée. De plus, vos coups critiques avec vos techniques à distance et en mêlée ont 50 % de chances de permettre à 50 % de votre régénération de mana de se poursuivre lors des incantations pendant 30 sec.",
+     "Réduit de 60 % le coût en mana de vos pièges et techniques en mêlée. De plus, vos coups critiques avec vos techniques à distance et en mêlée ont 100 % de chances de permettre à 50 % de votre régénération de mana de se poursuivre lors des incantations pendant 30 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "exposePrey",
+   "wowheadId": 104985,
+   "tree": 2,
+   "row": 4,
+   "col": 1,
+   "maxRank": 2,
+   "spellIds": [
+    1310532,
+    1310532
+   ],
+   "icon": "ability_hunter_swiftstrike",
+   "name": {
+    "en": "Expose Prey",
+    "fr": "Exposition de proie"
+   },
+   "desc": {
+    "en": [
+     "Grants your melee and ranged attacks against enemies afflicted by Hunter's Mark a 5% chance to allow an activation of Mongoose Bite. Lasts 10 sec.",
+     "Grants your melee and ranged attacks against enemies afflicted by Hunter's Mark a 10% chance to allow an activation of Mongoose Bite. Lasts 10 sec."
+    ],
+    "fr": [
+     "Vos attaques en mêlée et à distance contre des adversaires affectés par Marque du chasseur ont 5 % de chances de permettre l’activation de Morsure de mangouste. Dure 10 sec.",
+     "Vos attaques en mêlée et à distance contre des adversaires affectés par Marque du chasseur ont 10 % de chances de permettre l’activation de Morsure de mangouste. Dure 10 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "survivalistsDiscipline",
+   "wowheadId": 110860,
+   "tree": 2,
+   "row": 4,
+   "col": 2,
+   "maxRank": 2,
+   "spellIds": [
+    1310496,
+    1310496
+   ],
+   "icon": "ability_hunter_mastertactitian",
+   "name": {
+    "en": "Survivalist's Discipline",
+    "fr": "Discipline de survivaliste"
+   },
+   "desc": {
+    "en": [
+     "Reduces the cooldown of your Trap and Deterrence abilities by 20%.",
+     "Reduces the cooldown of your Trap and Deterrence abilities by 40%."
+    ],
+    "fr": [
+     "Réduit de 20 % le temps de recharge de vos techniques Piège et Dissuasion.",
+     "Réduit de 40 % le temps de recharge de vos techniques Piège et Dissuasion."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "striderKick",
+   "wowheadId": 104981,
+   "tree": 2,
+   "row": 4,
+   "col": 3,
+   "maxRank": 1,
+   "spellIds": [
+    1317257
+   ],
+   "icon": "ability_hunter_pet_tallstrider",
+   "name": {
+    "en": "Strider Kick",
+    "fr": "Coup de trotteur"
+   },
+   "desc": {
+    "en": [
+     "A powerful kick that deals 100% melee weapon damage and increases movement speed by 30% for 3 sec."
+    ],
+    "fr": [
+     "Un coup puissant qui inflige 100 % des dégâts de l’arme de mêlée et augmente la vitesse de déplacement de 30 % pendant 3 sec."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "lightningReflexes",
+   "wowheadId": 110859,
+   "tree": 2,
+   "row": 5,
+   "col": 2,
+   "maxRank": 5,
+   "spellIds": [
+    19168,
+    19168,
+    19168,
+    19168,
+    19168
+   ],
+   "icon": "spell_nature_invisibilty",
+   "name": {
+    "en": "Lightning Reflexes",
+    "fr": "Réflexes éclairs"
+   },
+   "desc": {
+    "en": [
+     "Increases your Agility by 3%.",
+     "Increases your Agility by 6%.",
+     "Increases your Agility by 9%.",
+     "Increases your Agility by 12%.",
+     "Increases your Agility by 15%."
+    ],
+    "fr": [
+     "Augmente votre Agilité de 3%.",
+     "Augmente votre Agilité de 6%.",
+     "Augmente votre Agilité de 9%.",
+     "Augmente votre Agilité de 12%.",
+     "Augmente votre Agilité de 15%."
+    ]
+   },
+   "requires": []
+  },
+  {
+   "key": "laceratingStrikes",
+   "wowheadId": 104984,
+   "tree": 2,
+   "row": 6,
+   "col": 1,
+   "maxRank": 1,
+   "spellIds": [
+    1310533
+   ],
+   "icon": "ability_gouge",
+   "name": {
+    "en": "Lacerating Strikes",
+    "fr": "Frappes lacérantes"
+   },
+   "desc": {
+    "en": [
+     "Your Mongoose Bite also causes the target to Bleed for damage equal to 40% of the damage done by Mongoose Bite over 21 sec"
+    ],
+    "fr": [
+     "Votre Morsure de mangouste fait également saigner la cible, ce qui lui inflige 40 % des dégâts de la morsure en 21 sec."
+    ]
+   },
+   "requires": [
+    {
+     "key": "exposePrey",
+     "qty": 2
+    }
+   ]
+  }
+ ],
+ "spells": {
+  "autoShot": {
+   "id": 75,
+   "name": {
+    "en": "Auto Shot",
+    "fr": "Tir automatique"
+   },
+   "tooltip": {
+    "en": "Auto Shot\n8 - 35 yd range\nInstantRequires HunterRequires level 1\nRequires Ranged WeaponAutomatically shoots the target until cancelled.",
+    "fr": "Tir automatique\n8 - 35 m de portée\nInstantanéeRequiert ChasseurNiveau 1 requis\nRequiert Arme à distanceAttaque automatiquement la cible jusqu'à annulation."
+   },
+   "icon": "ability_whirlwind"
+  },
+  "aimedShot": {
+   "id": 20904,
+   "name": {
+    "en": "Aimed Shot",
+    "fr": "Visée"
+   },
+   "tooltip": {
+    "en": "Aimed Shot310 Mana8 - 35 yd range2 sec cast6 sec cooldownRequires HunterRequires level 60\nRequires Ranged WeaponAn aimed shot that increases ranged damage by 350. Aimed Shot shares its cooldown with Multi-Shot.",
+    "fr": "ViséeMana : 3108 - 35 m de portée2 s d'incantation6 s de rechargeRequiert ChasseurNiveau 60 requis\nRequiert Arme à distanceUn tir précis qui augmente les points de dégâts infligés par votre attaque à distance de 350. Visée partage son temps de recharge avec Flèches multiples."
+   },
+   "icon": "inv_spear_07"
+  },
+  "multiShot": {
+   "id": 2643,
+   "name": {
+    "en": "Multi-Shot",
+    "fr": "Flèches multiples"
+   },
+   "tooltip": {
+    "en": "Multi-Shot13.9% of base mana8 - 35 yd rangeInstant6 sec cooldownRequires HunterRequires level 18\nRequires Ranged WeaponFires several missiles, hitting 3 targets. Multi-Shot shares its cooldown with Aimed Shot.",
+    "fr": "Flèches multiples13.9% de la mana de base8 - 35 m de portéeInstantanée6 s de rechargeRequiert ChasseurNiveau 18 requis\nRequiert Arme à distanceTire plusieurs projectiles et touche 3 cibles. Flèches multiples partage son temps de recharge avec Visée."
+   },
+   "icon": "ability_upgrademoonglaive"
+  },
+  "arcaneShot": {
+   "id": 14287,
+   "name": {
+    "en": "Arcane Shot",
+    "fr": "Tir des arcanes"
+   },
+   "tooltip": {
+    "en": "Arcane Shot11% of base mana8 - 35 yd range6 sec cooldownRequires HunterRequires level 60\nRequires Ranged WeaponAn instant shot that causes 280 Arcane damage.",
+    "fr": "Tir des arcanes11% de la mana de base8 - 35 m de portée6 s de rechargeRequiert ChasseurNiveau 60 requis\nRequiert Arme à distanceUn tir instantané qui inflige 280 points de dégâts des Arcanes."
+   },
+   "icon": "ability_impalingbolt"
+  },
+  "serpentSting": {
+   "id": 25295,
+   "name": {
+    "en": "Serpent Sting",
+    "fr": "Morsure de serpent"
+   },
+   "tooltip": {
+    "en": "Serpent Sting250 Mana8 - 35 yd rangeRequires HunterRequires level 60\nRequires Ranged WeaponStings the target, causing 675 Nature damage over 15 sec. Only one Sting per Hunter can be active on any one target.",
+    "fr": "Morsure de serpentMana : 2508 - 35 m de portéeRequiert ChasseurNiveau 60 requis\nRequiert Arme à distanceMord la cible et lui inflige 675 points de dégâts de Nature en 15 sec. Une seule technique de Morsure ou de Piqûre peut être active sur la cible par chasseur."
+   },
+   "icon": "ability_hunter_quickshot"
+  },
+  "huntersMark": {
+   "id": 14325,
+   "name": {
+    "en": "Hunter's Mark",
+    "fr": "Marque du chasseur"
+   },
+   "tooltip": {
+    "en": "Hunter's Mark60 Mana100 yd rangeInstantRequires HunterRequires level 58\nPlaces the Hunter's Mark on the target, increasing the Ranged Attack Power of all attackers against that target by 143. In addition, the target of this ability can always be seen by the hunter whether it stealths or turns invisible. The target also appears on the mini-map. Lasts for 2 min.",
+    "fr": "Marque du chasseurMana : 60100 m de portéeInstantanéeRequiert ChasseurNiveau 58 requis\nAppose la Marque du chasseur sur la cible, augmentant la puissance des attaques à distance de tous les attaquants de la cible de 143. De plus, la cible reste visible pour le chasseur même si elle se déplace furtivement ou passe invisible. La cible apparaît aussi sur la minicarte. Dure 2 min."
+   },
+   "icon": "ability_hunter_snipershot"
+  },
+  "rapidFire": {
+   "id": 3045,
+   "name": {
+    "en": "Rapid Fire",
+    "fr": "Tir rapide"
+   },
+   "tooltip": {
+    "en": "Rapid Fire\n100 ManaInstant5 min cooldownRequires HunterRequires level 26\nIncreases ranged and melee attack speed by 40% for 15 sec.",
+    "fr": "Tir rapide\nMana : 100Instantanée5 min de rechargeRequiert ChasseurNiveau 26 requis\nAugmente la vitesse d’attaque en mêlée et à distance de 40 % pendant 15 sec."
+   },
+   "icon": "ability_hunter_runningshot"
+  },
+  "raptorStrike": {
+   "id": 14266,
+   "name": {
+    "en": "Raptor Strike",
+    "fr": "Attaque du raptor"
+   },
+   "tooltip": {
+    "en": "Raptor Strike100 ManaMelee RangeNext Melee6 sec cooldownRequires HunterRequires level 56\nRequires Melee WeaponA strong attack that deals melee weapon damage plus 70.",
+    "fr": "Attaque du raptorMana : 100AllongeProchaine attaque en mêlée6 s de rechargeRequiert ChasseurNiveau 56 requis\nRequiert Arme de mêléeUne attaque puissante qui inflige les dégâts de l’arme de mêlée plus 70."
+   },
+   "icon": "ability_meleedamage"
+  },
+  "mongooseBite": {
+   "id": 14271,
+   "name": {
+    "en": "Mongoose Bite",
+    "fr": "Morsure de la mangouste"
+   },
+   "tooltip": {
+    "en": "Mongoose Bite65 ManaMelee RangeInstant5 sec cooldownRequires HunterRequires level 58\nCounterattack the enemy for melee weapon damage plus 57. Can only be performed after you dodge.",
+    "fr": "Morsure de la mangousteMana : 65AllongeInstantanée5 s de rechargeRequiert ChasseurNiveau 58 requis\nContre-attaque l’adversaire et lui inflige 57 points de dégâts. Réalisable uniquement après une esquive."
+   },
+   "icon": "ability_hunter_swiftstrike"
+  },
+  "bestialWrath": {
+   "id": 19574,
+   "name": {
+    "en": "Bestial Wrath",
+    "fr": "Courroux bestial"
+   },
+   "tooltip": {
+    "en": "Bestial WrathTalent12% of base mana100 yd rangeInstant2 min cooldownRequires HunterRequires level 40\nSend your pet into a rage causing 50% additional damage for 18 sec. While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed.",
+    "fr": "Courroux bestialTalent12% de la mana de base100 m de portéeInstantanée2 min de rechargeRequiert ChasseurNiveau 40 requis\nVotre familier, fou de rage, inflige 50% de points de dégâts supplémentaires pendant 18 sec. Lorsqu’il est dans cet état, il n’éprouve ni pitié, ni remords, ni peur et ne peut plus être arrêté à moins d’être tué."
+   },
+   "icon": "ability_druid_ferociousbite"
+  },
+  "aspectOfTheHawk": {
+   "id": 25296,
+   "name": {
+    "en": "Aspect of the Hawk",
+    "fr": "Aspect du faucon"
+   },
+   "tooltip": {
+    "en": "Aspect of the Hawk\n120 Mana\nInstantRequires HunterRequires level 60\nThe hunter takes on the aspects of a hawk, increasing Ranged Attack Power by 120. Only one Aspect can be active at a time.",
+    "fr": "Aspect du faucon\nMana : 120\nInstantanéeRequiert ChasseurNiveau 60 requis\nLe chasseur adopte les qualités du faucon. Il augmente la puissance de ses attaques à distance de 120. Un seul aspect peut être activé à la fois."
+   },
+   "icon": "spell_nature_ravenform"
+  }
+ }
+}

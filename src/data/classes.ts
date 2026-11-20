@@ -1,5 +1,6 @@
 import { DEFAULT_DRUID_OPTIONS, DRUID_DATA, DRUID_DEFAULT_TALENTS, DRUID_RULE_FIELDS, DRUID_RULES, DRUID_SPELLS } from './druid/data';
 import { DEFAULT_MAGE_OPTIONS, MAGE_DATA, MAGE_DEFAULT_TALENTS, MAGE_RULE_FIELDS, MAGE_RULES, MAGE_SPELLS } from './mage/data';
+import { DEFAULT_HUNTER_OPTIONS, HUNTER_DATA, HUNTER_DEFAULT_TALENTS, HUNTER_RULE_FIELDS, HUNTER_RULES, HUNTER_SPELLS } from './hunter/data';
 import { DEFAULT_PRIEST_OPTIONS, PRIEST_DATA, PRIEST_DEFAULT_TALENTS, PRIEST_RULE_FIELDS, PRIEST_RULES, PRIEST_SPELLS } from './priest/data';
 import { DEFAULT_PALADIN_OPTIONS, PALADIN_DATA, PALADIN_DEFAULT_TALENTS, PALADIN_RULE_FIELDS, PALADIN_RULES, PALADIN_SPELLS } from './paladin/data';
 import type { TalentData } from './talentData';
@@ -7,7 +8,7 @@ import { emptyStats, type Localized, type SpellDef, type Stats } from './types';
 import { DEFAULT_RULES, WARLOCK_SPELLS } from './warlock/spells';
 import { WARLOCK_DATA } from './warlock/talents';
 
-export type ClassId = 'warlock' | 'paladin' | 'druid' | 'mage' | 'priest';
+export type ClassId = 'warlock' | 'paladin' | 'druid' | 'mage' | 'priest' | 'hunter';
 export type Metric = 'dps' | 'hps' | 'tps';
 
 export interface SpecDef {
@@ -186,8 +187,30 @@ export const PRIEST: ClassModule = {
   defaultExtraStats: { ...emptyStats(), spellPower: 100, healingPower: 150, critPct: 2, hitPct: 2, intellect: 110, spirit: 90, stamina: 100, mp5: 5 },
 };
 
-export const CLASSES: ClassModule[] = [WARLOCK, PALADIN, DRUID, MAGE, PRIEST];
-export const CLASS_BY_ID: Record<ClassId, ClassModule> = { warlock: WARLOCK, paladin: PALADIN, druid: DRUID, mage: MAGE, priest: PRIEST };
+export const HUNTER: ClassModule = {
+  id: 'hunter',
+  blizzardClassId: 3,
+  name: { fr: 'Chasseur', en: 'Hunter' },
+  icon: 'classicon_hunter',
+  color: '#abd473',
+  data: HUNTER_DATA,
+  trees: HUNTER_DATA.trees,
+  talents: HUNTER_DATA.talents,
+  spells: HUNTER_SPELLS,
+  defaultRules: HUNTER_RULES,
+  ruleFields: HUNTER_RULE_FIELDS,
+  ruleBooleans: [],
+  specs: [
+    { tree: 0, id: 'bm', name: { fr: 'Maîtrise des bêtes', en: 'Beast Mastery' }, icon: 'ability_hunter_beasttaming', metric: 'dps', defaultTalents: HUNTER_DEFAULT_TALENTS.bm },
+    { tree: 1, id: 'mm', name: { fr: 'Précision', en: 'Marksmanship' }, icon: 'ability_marksmanship', metric: 'dps', defaultTalents: HUNTER_DEFAULT_TALENTS.mm },
+    { tree: 2, id: 'surv', name: { fr: 'Survie', en: 'Survival' }, icon: 'ability_hunter_swiftstrike', metric: 'dps', defaultTalents: HUNTER_DEFAULT_TALENTS.surv },
+  ],
+  statKeys: ['agility', 'attackPower', 'strength', 'critPct', 'hitPct', 'intellect', 'spirit', 'stamina', 'mp5', 'armor'],
+  defaultExtraStats: { ...emptyStats(), agility: 180, attackPower: 200, strength: 40, critPct: 3, hitPct: 4, intellect: 90, spirit: 40, stamina: 150, mp5: 5 },
+};
+
+export const CLASSES: ClassModule[] = [WARLOCK, PALADIN, DRUID, MAGE, PRIEST, HUNTER];
+export const CLASS_BY_ID: Record<ClassId, ClassModule> = { warlock: WARLOCK, paladin: PALADIN, druid: DRUID, mage: MAGE, priest: PRIEST, hunter: HUNTER };
 export const CLASS_BY_BLIZZARD_ID = new Map(CLASSES.map((c) => [c.blizzardClassId, c]));
 
-export { DEFAULT_DRUID_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS };
+export { DEFAULT_DRUID_OPTIONS, DEFAULT_HUNTER_OPTIONS, DEFAULT_MAGE_OPTIONS, DEFAULT_PALADIN_OPTIONS, DEFAULT_PRIEST_OPTIONS };
