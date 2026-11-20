@@ -1,11 +1,13 @@
-name: Données Forever (hebdomadaire)
+name: Données Forever (manuel)
 
-# Chaque lundi, retélécharge talents et sorts depuis Wowhead Forever. S'ils ont changé (patch Forever),
+# DÉSACTIVÉ en automatique : les conditions de Wowhead (contrat ZAM) interdisent l'extraction
+# automatisée de leur contenu (voir docs/conditions-utilisation.md). Le lancement planifié est retiré ;
+# ne relancer à la main qu'avec une autorisation écrite de Wowhead ou une autre source de données.
+#
+# Quand il est lancé : retélécharge talents et sorts depuis Wowhead Forever. S'ils ont changé (patch Forever),
 # pousse une branche data/forever-AAAA-MM-JJ, ouvre une issue avec le résumé et le résultat des tests,
 # et prévient sur Discord. Rien n'est fusionné automatiquement.
 on:
-  schedule:
-    - cron: '17 5 * * 1'
   workflow_dispatch:
 
 permissions:

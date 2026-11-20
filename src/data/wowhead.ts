@@ -1,12 +1,12 @@
 import { addEquipEffects, parseWeaponText } from './effects';
-import { rateLimitError } from './rateLimit';
 import { parseSetFromTooltip, type ItemSet } from './setBonus';
 import { emptyStats, type Lang, type Localized, type Stats, type WeaponInfo } from './types';
 
 export { addEquipEffects };
 
 // Accès aux données publiques de Wowhead (base WoW Forever).
-// - Recherche : passe par le proxy /wowhead de Vite (le site n'autorise pas les appels directs du navigateur).
+// - Recherche : plus de recherche Wowhead (ses conditions interdisent les requêtes automatisées sur
+//   /search) ; la recherche d'objets passe par l'API Blizzard (data/blizzard.ts).
 // - Infobulles d'objets : appelées directement (CORS autorisé).
 
 /** Accepte un nom d'icône (Wowhead) ou une URL complète (API Blizzard). */
@@ -26,87 +26,6 @@ export interface ItemSearchResult {
   icon: string;
   quality: number;
   description: string;
-}
-
-type RawResult = { type: number; id: number; name: string; icon?: string; quality?: number; pinDescription?: string };
-
-async function rawSearch(query: string, lang: Lang): Promise<RawResult[]> {
-  const path = `/wowhead/forever${lang === 'fr' ? '/fr' : ''}/search/suggestions-template?q=${encodeURIComponent(query)}`;
-  const res = await fetch(path);
-  if (res.status === 429) throw await rateLimitError(res);
-  if (!res.ok) throw new Error(`Wowhead : ${res.status}`);
-  return ((await res.json()) as { results: RawResult[] }).results ?? [];
-}
-
-export interface ItemSuggestion extends ItemSearchResult {
-  itemLevel: number | null;
-  category: string; // « Cape », « Tissu »…
-}
-
-const GEAR_ROOTS = new Set(['Armor', 'Weapons', 'Weapon', 'Armure', 'Armes', 'Arme']);
-const suggestCache = new Map<string, Promise<ItemSuggestion[]>>();
-
-/**
- * Suggestions pendant la frappe. On utilise toujours Wowhead : sa recherche accepte les mots
- * incomplets (« pèler » → « Pèlerine »), contrairement à l'API Blizzard. Seuls les objets
- * équipables sont gardés (pas les recettes ni les composants).
- */
-export function suggestItems(query: string, lang: Lang, limit = 8): Promise<ItemSuggestion[]> {
-  const key = `${lang}:${query.trim().toLowerCase()}`;
-  const cached = suggestCache.get(key);
-  if (cached) return cached;
-  const run = (async () => {
-    const lists = await Promise.all(
-      lang === 'en' ? [rawSearch(query, 'en')] : [rawSearch(query, lang), rawSearch(query, 'en').catch(() => [])],
-    );
-    const seen = new Set<number>();
-    const out: ItemSuggestion[] = [];
-    for (const r of lists.flat() as (RawResult & { pinBreadcrumb?: string[]; pinFooterText?: string })[]) {
-      if (r.type !== 3 || seen.has(r.id) || !GEAR_ROOTS.has(r.pinBreadcrumb?.[0] ?? '')) continue;
-      seen.add(r.id);
-      const ilvl = /(?:item level|niveau d.objet|objet de niveau) (\d+)/i.exec(r.pinDescription ?? '');
-      out.push({
-        id: r.id,
-        name: r.name.replace(/^\[(.*)\]$/, '$1'),
-        icon: r.icon ?? '',
-        quality: r.quality ?? 1,
-        description: r.pinDescription ?? '',
-        itemLevel: ilvl ? Number(ilvl[1]) : null,
-        category: r.pinFooterText ?? r.pinBreadcrumb?.[1] ?? '',
-      });
-      if (out.length >= limit) break;
-    }
-    return out;
-  })();
-  suggestCache.set(key, run);
-  run.catch(() => suggestCache.delete(key)); // une erreur réseau ne reste pas en cache
-  return run;
-}
-
-/**
- * Recherche d'objets. Beaucoup d'objets Forever ne sont pas encore traduits : en français on
- * cherche aussi en anglais, et quand seul un ensemble est trouvé (« Grande tenue de Gangrecoeur »),
- * on récupère son nom anglais pour lister ses pièces.
- */
-export async function searchItems(query: string, lang: Lang): Promise<ItemSearchResult[]> {
-  const lists = await Promise.all(lang === 'en' ? [rawSearch(query, 'en')] : [rawSearch(query, lang), rawSearch(query, 'en')]);
-  const all = lists.flat();
-  const sets = all.filter((r) => r.type === 4).slice(0, 3);
-  for (const set of sets) {
-    try {
-      const res = await fetch(`https://nether.wowhead.com/forever/tooltip/item-set/${set.id}`);
-      const enName = ((await res.json()) as { name?: string }).name ?? '';
-      // « Felheart Raiment » → « Felheart » : les pièces partagent le premier mot.
-      const key = enName.split(' ')[0];
-      if (key.length >= 4) all.push(...(await rawSearch(key, 'en')).filter((r) => r.name.includes(key)));
-    } catch {
-      /* ensemble ignoré */
-    }
-  }
-  const seen = new Set<number>();
-  return all
-    .filter((r) => r.type === 3 && !seen.has(r.id) && seen.add(r.id))
-    .map((r) => ({ id: r.id, name: r.name, icon: r.icon ?? '', quality: r.quality ?? 1, description: r.pinDescription ?? '' }));
 }
 
 const SLOT_MAP: Record<string, string> = {
@@ -229,26 +148,3 @@ export function parseItemRef(input: string): number | null {
   return m ? Number(m[1]) : null;
 }
 
-export type ItemSource = 'loot' | 'crafted' | 'quest' | 'vendor' | 'pvp';
-export const ITEM_SOURCES: ItemSource[] = ['loot', 'crafted', 'quest', 'vendor', 'pvp'];
-
-/**
- * Infos lues dans la description de recherche Wowhead (anglais ou français) :
- * provenance, niveau d'objet, et si un démoniste peut le porter (tissu, pas réservé à une autre classe).
- */
-export function classifyResult(description: string) {
-  const d = description.replace(/<[^>]+>/g, '');
-  const sources = new Set<ItemSource>();
-  if (/looted|dropped|dépouillé|butin/i.test(d)) sources.add('loot');
-  if (/crafted|fabriqué/i.test(d)) sources.add('crafted');
-  if (/quest reward|récompense de quête/i.test(d)) sources.add('quest');
-  if (/sold by NPCs|vendu par des PNJ/i.test(d)) sources.add('vendor');
-  if (/\bPvP\b|\bJcJ\b/i.test(d)) sources.add('pvp');
-  const ilvl = /(?:item level|objet de niveau|niveau d.objet) (\d+)/i.exec(d);
-  const wrongArmor = /\b(leather|mail|plate|shield|cuir|mailles|plaques|bouclier)\b/i.test(d);
-  const cls = /(?:Requires|Nécessite) ([A-Za-zÀ-ÿ]+)\./.exec(d);
-  const otherClass = !!cls && !/^(Warlock|Démoniste)$/i.test(cls[1]);
-  // Recettes et commandes d'artisan : ce ne sont pas des objets à porter.
-  const notGear = /\b(pattern|recipe|formula|plans|schematic|patron|recette|formule|schéma|commission)\b/i.test(d);
-  return { sources, itemLevel: ilvl ? Number(ilvl[1]) : null, usable: !wrongArmor && !otherClass && !notGear };
-}

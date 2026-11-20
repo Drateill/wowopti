@@ -176,28 +176,30 @@ describe('objets API Blizzard', () => {
   });
 });
 
-describe('suggestions de recherche', () => {
-  it('garde les objets équipables, sans doublon, avec le niveau d’objet', async () => {
+describe('recherche d’objets (API Blizzard)', () => {
+  it('cherche en français et en anglais, garde les objets équipables, sans doublon', async () => {
     const { vi } = await import('vitest');
-    const { suggestItems } = await import('../data/wowhead');
-    const fr = {
-      results: [
-        { type: 3, id: 279269, name: 'Pèlerine gangrenée', icon: 'inv_misc_cape_07', quality: 4, pinBreadcrumb: ['Armure', 'Cape'], pinFooterText: 'Cape', pinDescription: 'Cette cape épique de niveau d’objet 65…' },
-        { type: 3, id: 279300, name: 'Patron : pèlerine gangrenée', pinBreadcrumb: ['Recette', 'Patron de couture'] },
-        { type: 4, id: 203, name: 'Grande tenue de Gangrecoeur' },
-      ],
-    };
-    const en = {
-      results: [
-        { type: 3, id: 279269, name: 'Fel Cape', pinBreadcrumb: ['Armor', 'Cloak'] },
-        { type: 3, id: 16342, name: "[Sergeant's Cape]", quality: 3, pinBreadcrumb: ['Armor', 'Cloak'], pinFooterText: 'Cloak', pinDescription: 'This rare cloak of item level 63 goes in the "Back" slot.' },
-      ],
-    };
-    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({ ok: true, json: async () => (url.includes('/fr/') ? fr : en) })));
-    const list = await suggestItems('pèlerine', 'fr');
+    const { searchItemsBlizzard } = await import('../data/blizzard');
+    const cape = { id: 279269, level: 65, name: { en_US: 'Fel Cape', fr_FR: 'Pèlerine gangrenée' }, quality: { type: 'EPIC' }, inventory_type: { type: 'CLOAK' }, item_subclass: { name: { en_US: 'Cloth', fr_FR: 'Tissu' } }, media: { id: 1 } };
+    const sergeant = { id: 16342, level: 63, name: { en_US: "Sergeant's Cape", fr_FR: 'Pèlerine de sergent' }, quality: { type: 'RARE' }, inventory_type: { type: 'CLOAK' }, item_subclass: { name: { en_US: 'Cloth', fr_FR: 'Tissu' } }, media: { id: 2 } };
+    const pattern = { id: 279318, level: 1, name: { en_US: 'Pattern: Fel Cape', fr_FR: 'Patron : pèlerine gangrenée' }, quality: { type: 'EPIC' }, inventory_type: { type: 'NON_EQUIP' } };
+    const calls: string[] = [];
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (url: string) => {
+        calls.push(url);
+        const body = url.includes('/media/')
+          ? { assets: [{ key: 'icon', value: 'https://render.example/icon.jpg' }] }
+          : { results: (url.includes('fr_FR') ? [sergeant, cape, pattern] : [cape]).map((data) => ({ data })) };
+        return { ok: true, status: 200, json: async () => body };
+      }),
+    );
+    const list = await searchItemsBlizzard('pèlerine gangrenée', 'fr', 1);
     vi.unstubAllGlobals();
-    expect(list.map((s) => s.id)).toEqual([279269, 16342]);
-    expect(list[1].name).toBe("Sergeant's Cape");
-    expect(list[1].itemLevel).toBe(63);
+    expect(list.map((s) => s.id)).toEqual([279269, 16342]); // nom complet d'abord, pas de recette, pas de doublon
+    expect(list[0]).toMatchObject({ name: 'Pèlerine gangrenée', itemLevel: 65, inventoryType: 'CLOAK', subclass: 'Cloth', category: 'Tissu', quality: 4 });
+    expect(list[0].icon).toBe('https://render.example/icon.jpg');
+    expect(list[1].icon).toBe(''); // icônes demandées pour le premier résultat seulement
+    expect(calls.every((u) => u.startsWith('/blizzard/'))).toBe(true);
   });
 });

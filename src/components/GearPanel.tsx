@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
-import { NotInBlizzardApi, blizzardStatus, fetchItemBlizzard, searchItemsBlizzard, type BlizzardStatus } from '../data/blizzard';
+import { NotInBlizzardApi, blizzardStatus, fetchItemBlizzard, searchItemsBlizzard, type BlizzardSearchResult, type BlizzardStatus } from '../data/blizzard';
+import { usableBy } from '../data/upgrades';
 import { ENCHANTS, buffVisible } from '../data/buffs';
 import { fetchCharacter } from '../data/character';
 import { RateLimitedError } from '../data/rateLimit';
 import { applyCharacter, refreshCharacter } from '../state/importCharacter';
 import { emptyStats, type Stats } from '../data/types';
 import {
-  ITEM_SOURCES, QUALITY_COLORS, classifyResult, fetchItem, fetchSuffixScale, parseItemRef, searchItems, suggestItems, wowheadUrl,
-  type ItemSearchResult, type ItemSource, type ItemSuggestion,
+  QUALITY_COLORS, fetchItem, fetchSuffixScale, parseItemRef, wowheadUrl,
 } from '../data/wowhead';
 import { runCompare } from '../engine/simClient';
 import { characterSheet } from '../state/classLogic';
@@ -176,49 +176,45 @@ export function GearPanel() {
 }
 
 function ItemSearch() {
-  const { state, set } = useStore();
+  const { state, set, cls } = useStore();
   const { t, lang } = useI18n();
   const errorText = (err: unknown) => apiErrorText(t, err);
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<ItemSearchResult[] | null>(null);
+  const [results, setResults] = useState<BlizzardSearchResult[] | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [added, setAdded] = useState<Set<number>>(new Set());
-  const [source, setSource] = useState<'wowhead' | 'blizzard'>('wowhead');
   const [status, setStatus] = useState<BlizzardStatus | null>(null);
   const blizzardReady = !!status?.configured && !!status.ok;
-  const [suggestions, setSuggestions] = useState<ItemSuggestion[]>([]);
+  const [suggestions, setSuggestions] = useState<BlizzardSearchResult[]>([]);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const lastQuery = useRef('');
   const [usableOnly, setUsableOnly] = useState(true);
-  const [sources, setSources] = useState<Set<ItemSource>>(new Set(ITEM_SOURCES));
   const [minIlvl, setMinIlvl] = useState(0);
   /** Objet à enchantement aléatoire en attente : on choisit son suffixe avant de l'ajouter. */
   const [pending, setPending] = useState<{ item: Item; andEquip: boolean; scale: SuffixScale | null } | null>(null);
 
-  /** Filtres de recherche : la description Wowhead dit d'où vient l'objet et qui peut le porter. */
-  const keep = (r: ItemSearchResult) => {
-    const info = classifyResult(`${r.name} ${r.description}`);
-    if (usableOnly && !info.usable) return false;
-    if (minIlvl && info.itemLevel !== null && info.itemLevel < minIlvl) return false;
-    if (info.sources.size && ![...info.sources].some((s) => sources.has(s))) return false;
+  /** Filtres de recherche : objets que la classe peut porter (armure, armes) et niveau d'objet minimum. */
+  const keep = (r: BlizzardSearchResult) => {
+    if (usableOnly && !usableBy(cls.id, r.inventoryType, r.subclass)) return false;
+    if (minIlvl && r.itemLevel !== null && r.itemLevel < minIlvl) return false;
     return true;
   };
   const shownSuggestions = suggestions.filter(keep).slice(0, 8);
   const shownResults = results?.filter(keep) ?? null;
   const hidden = results ? results.length - (shownResults?.length ?? 0) : 0;
 
-  // Suggestions : 250 ms après la dernière frappe, à partir de 3 caractères.
+  // Suggestions : 400 ms après la dernière frappe, à partir de 3 caractères (l'API cherche des mots entiers).
   useEffect(() => {
     const q = query.trim();
-    if (q.length < 3 || parseItemRef(q) || q === lastQuery.current) {
+    if (!blizzardReady || q.length < 3 || parseItemRef(q) || q === lastQuery.current) {
       if (q.length < 3) setSuggestions([]);
       return;
     }
     let alive = true;
     const timer = setTimeout(() => {
-      suggestItems(q, lang, 20)
+      searchItemsBlizzard(q, lang, 8)
         .then((list) => {
           if (!alive) return; // une réponse plus ancienne ne remplace pas la plus récente
           setSuggestions(list);
@@ -226,14 +222,14 @@ function ItemSearch() {
           setOpen(true);
         })
         .catch(() => alive && setSuggestions([]));
-    }, 250);
+    }, 400);
     return () => {
       alive = false;
       clearTimeout(timer);
     };
-  }, [query, lang]);
+  }, [query, lang, blizzardReady]);
 
-  const pick = (sug: ItemSuggestion) => {
+  const pick = (sug: BlizzardSearchResult) => {
     lastQuery.current = sug.name;
     setQuery(sug.name);
     setOpen(false);
@@ -262,7 +258,6 @@ function ItemSearch() {
     blizzardStatus().then((s) => {
       if (!alive) return;
       setStatus(s);
-      if (s.configured && s.ok) setSource('blizzard');
     });
     return () => {
       alive = false;
@@ -280,16 +275,15 @@ function ItemSearch() {
       await addItem(ref, false);
       return;
     }
+    if (!blizzardReady) {
+      setMessage(t('searchNeedsBlizzard'));
+      return;
+    }
     setBusy(true);
     try {
-      let r = source === 'blizzard' ? await searchItemsBlizzard(q, lang) : await searchItems(q, lang);
-      if (!r.length && source === 'blizzard') {
-        // Objet absent de l'API (fréquent pour les sets Forever) : on tente Wowhead.
-        r = await searchItems(q, lang);
-        if (r.length) setMessage(t('blizzardFallback'));
-      }
+      const r = await searchItemsBlizzard(q, lang);
       setResults(r);
-      if (!r.length) setMessage(t('noResults'));
+      if (!r.length) setMessage(t('noResultsBlizzard'));
     } catch (err) {
       setMessage(errorText(err));
     } finally {
@@ -313,7 +307,7 @@ function ItemSearch() {
     setBusy(true);
     try {
       const data =
-        source === 'blizzard'
+        blizzardReady
           ? await fetchItemBlizzard(id).catch((e) => (e instanceof NotInBlizzardApi ? fetchItem(id) : Promise.reject(e)))
           : await fetchItem(id);
       if (!data.slot) {
@@ -358,16 +352,6 @@ function ItemSearch() {
   return (
     <div className="panel grid">
       <h3>{t('searchItems')}</h3>
-      <div className="row small">
-        <span className="muted">{t('source')} :</span>
-        <label className="check">
-          <input type="radio" name="item-source" checked={source === 'wowhead'} onChange={() => setSource('wowhead')} /> Wowhead
-        </label>
-        <label className={`check ${blizzardReady ? '' : 'muted'}`}>
-          <input type="radio" name="item-source" disabled={!blizzardReady} checked={source === 'blizzard'} onChange={() => setSource('blizzard')} />{' '}
-          {t('sourceBlizzard')}
-        </label>
-      </div>
       {status && !status.configured && <p className="small muted">{t('blizzardNotConfigured')}</p>}
       {status?.configured && !status.ok && <p className="small warn">{t('blizzardError', { e: status.error ?? '?' })}</p>}
       {blizzardReady && <p className="small good">{t('blizzardOk', { ns: status!.namespace ?? '' })}</p>}
@@ -428,23 +412,6 @@ function ItemSearch() {
             <input type="number" min={0} value={minIlvl} style={{ width: 64 }} onChange={(e) => setMinIlvl(e.target.valueAsNumber || 0)} />
           </label>
         </div>
-        <div className="row small">
-          {ITEM_SOURCES.map((src) => (
-            <label key={src} className="check">
-              <input
-                type="checkbox"
-                checked={sources.has(src)}
-                onChange={(e) => {
-                  const next = new Set(sources);
-                  if (e.target.checked) next.add(src);
-                  else next.delete(src);
-                  setSources(next);
-                }}
-              />{' '}
-              {t(`src_${src}` as TKey)}
-            </label>
-          ))}
-        </div>
       </details>
       {message && <p className="small warn">{message}</p>}
       {pending && (
@@ -483,7 +450,7 @@ function ItemSearch() {
           ))}
         </div>
       )}
-      <p className="small muted">{source === 'blizzard' ? t('blizzardSource') : t('wowheadSource')}</p>
+      <p className="small muted">{t('blizzardSource')}</p>
     </div>
   );
 }

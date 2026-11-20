@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { parseSetBonus, parseSetFromTooltip } from '../data/setBonus';
-import { classifyResult } from '../data/wowhead';
 import { DEFAULT_STATE, buildConfig, computeGear, migrate, type AppState, type Item } from '../state/store';
 import { simulateAny as simulate } from './sim';
 import { talentEffects } from './warlockSim';
@@ -105,14 +104,15 @@ describe('démon et talents de Démonologie', () => {
 });
 
 describe('recherche et migration', () => {
-  it('reconnaît la provenance et les objets qu’un démoniste peut porter', () => {
-    const a = classifyResult('This epic cloth armor of item level 62 goes in the "Chest" slot. Requires Mage. It is crafted.');
-    expect(a.usable).toBe(false);
-    expect(a.sources.has('crafted')).toBe(true);
-    expect(a.itemLevel).toBe(62);
-    expect(classifyResult('Ce bleue armures en tissu d\'objet de niveau 61 va dans l\'emplacement de "Torse". C\'est fabriqué.').usable).toBe(true);
-    expect(classifyResult('Patron : Robe en étoffe lunaire Ce/cette patron de couture est utilisé…').usable).toBe(false);
-    expect(classifyResult('Plate · item level 60').usable).toBe(false);
+  it('filtre la recherche selon ce que la classe peut porter', async () => {
+    const { usableBy } = await import('../data/upgrades');
+    expect(usableBy('warlock', 'CHEST', 'Cloth')).toBe(true);
+    expect(usableBy('warlock', 'CHEST', 'Plate')).toBe(false);
+    expect(usableBy('warrior', 'CHEST', 'Plate')).toBe(true);
+    expect(usableBy('mage', 'TWOHWEAPON', 'Staff')).toBe(true);
+    expect(usableBy('rogue', 'TWOHWEAPON', 'Staff')).toBe(false);
+    expect(usableBy('priest', 'CLOAK', 'Cloth')).toBe(true);
+    expect(usableBy('druid', 'SHIELD', 'Shield')).toBe(false);
   });
 
   it('complète un état sauvegardé par la version précédente', () => {

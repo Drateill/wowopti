@@ -63,6 +63,12 @@ export function canUse(classId: ClassId, slot: SlotId, row: Pick<SearchRow, 'inv
   return ARMOR[classId].includes(sub);
 }
 
+/** L'objet (type d'emplacement et sous-classe de l'API) peut-il être porté par la classe, à un emplacement quelconque ? */
+export function usableBy(classId: ClassId, inventoryType: string, subclass: string): boolean {
+  const row = { inventory_type: { type: inventoryType }, item_subclass: { name: { en_US: subclass } } };
+  return (Object.keys(SLOT_TYPES) as SlotId[]).some((slot) => canUse(classId, slot, row));
+}
+
 /** Candidats pour un emplacement : les mieux classés par niveau d'objet, sans les objets de test. */
 export async function searchCandidates(classId: ClassId, slot: SlotId, limit = 25): Promise<SearchRow[]> {
   const json = await api<{ results: { data: SearchRow }[] }>('/data/wow/search/item', {

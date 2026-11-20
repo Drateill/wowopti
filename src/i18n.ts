@@ -183,7 +183,8 @@ const fr = {
   blizzardNotConfigured: 'API Blizzard non configurée : copie .env.example en .env.local, mets-y tes clés, puis relance npm run dev.',
   blizzardError: 'API Blizzard configurée mais indisponible : {e}',
   blizzardOk: 'API Blizzard connectée ({ns}).',
-  blizzardFallback: 'Rien dans l’API Blizzard pour cette recherche (objet pas encore publié) : résultats Wowhead affichés.',
+  searchNeedsBlizzard: 'La recherche par nom passe par l’API Blizzard, indisponible pour le moment. Tu peux coller un lien ou un numéro d’objet Wowhead.',
+  noResultsBlizzard: 'Aucun objet équipable trouvé. L’API Blizzard cherche des mots entiers (« pèlerine », pas « pèler »), et certains objets propres à Forever n’y sont pas encore : dans ce cas, colle le lien ou le numéro de l’objet sur Wowhead.',
 
   // Réglages
   settingsWhy: 'Pourquoi cet onglet',
@@ -699,7 +700,8 @@ const en: Dict = {
   blizzardNotConfigured: 'Blizzard API not configured: copy .env.example to .env.local, add your keys, then restart npm run dev.',
   blizzardError: 'Blizzard API configured but unavailable: {e}',
   blizzardOk: 'Blizzard API connected ({ns}).',
-  blizzardFallback: 'Nothing in the Blizzard API for this search (item not published yet): showing Wowhead results.',
+  searchNeedsBlizzard: 'Name search uses the Blizzard API, which is unavailable right now. You can paste a Wowhead item link or ID.',
+  noResultsBlizzard: 'No equippable item found. The Blizzard API matches whole words (“felheart”, not “felhea”), and some Forever-only items are not in it yet: in that case, paste the item’s Wowhead link or ID.',
 
   settingsWhy: 'Why this tab',
   settingsWhyText:

@@ -34,10 +34,10 @@ Le fichier robots.txt de wowhead.com interdit aussi `/forever/search` (et `/sear
 
 | Usage dans l'app | Risque | Alternative conforme |
 |---|---|---|
-| `scripts/fetch-forever.mjs` télécharge talents, sorts, infobulles et icônes, et le workflow le relance chaque lundi | **Élevé** : extraction automatisée, puis redistribution dans un site public | Demander une autorisation écrite à Wowhead/ZAM, ou repartir de sources sous licence ouverte (fichiers DBC/DB2 du client, données communautaires sous licence libre) |
-| Relais serveur `/wowhead/forever/search/suggestions-template` (recherche d'objets) | **Élevé** : requête automatisée sur un chemin interdit par robots.txt | Recherche par l'API Blizzard (`/data/wow/search/item`, déjà utilisée par le chercheur d'améliorations), ou lien qui ouvre la recherche Wowhead dans le navigateur |
+| `scripts/fetch-forever.mjs` télécharge talents, sorts, infobulles et icônes (le lancement automatique du lundi est **retiré** ; le workflow ne se lance plus qu'à la main) | **Élevé** : extraction automatisée, puis redistribution dans un site public. Les données déjà téléchargées restent dans l'app | Demander une autorisation écrite à Wowhead/ZAM, ou repartir de sources sous licence ouverte (fichiers DBC/DB2 du client, données communautaires sous licence libre) |
+| ~~Relais serveur `/wowhead/forever/search/suggestions-template` (recherche d'objets)~~ | **Réglé** : relais supprimé, la recherche et les suggestions passent par l'API Blizzard (`/data/wow/search/item`) | — |
 | Infobulles et ensembles lus depuis le navigateur sur `nether.wowhead.com` (stats, blocage des boucliers, suffixes) | Moyen : c'est le navigateur du visiteur qui fait l'appel, mais le contenu est réutilisé dans l'app | Fiche d'objet de l'API Blizzard en premier (déjà le cas), Wowhead seulement en complément |
 | Liens vers les pages Wowhead | Faible | Rien à changer |
 | Icônes chargées depuis `wow.zamimg.com` | Faible à moyen : elles viennent de Blizzard, mais sont hébergées par ZAM | Icônes servies par l'API média de Blizzard (`/data/wow/media/item/...`), déjà utilisée à l'import |
 
-**Conclusion :** tant que Wowhead n'a pas donné son accord, il vaut mieux ne pas faire connaître le site plus largement. Ce qui pose problème : le téléchargement automatique des données Wowhead et le relais de la recherche.
+**Conclusion :** le relais de la recherche est supprimé et le téléchargement n'est plus automatique. Reste à régler : les talents et sorts déjà extraits de Wowhead et publiés dans l'app, et les infobulles lues sur `nether.wowhead.com`. Tant que Wowhead n'a pas donné son accord, il vaut mieux ne pas faire connaître le site plus largement.

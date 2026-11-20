@@ -98,31 +98,68 @@ interface SearchData {
   media?: { id: number };
 }
 
-export async function searchItemsBlizzard(query: string, lang: Lang): Promise<ItemSearchResult[]> {
+/** Résultat de recherche Blizzard : de quoi l'afficher, le filtrer par classe et par niveau. */
+export interface BlizzardSearchResult extends ItemSearchResult {
+  itemLevel: number | null;
+  /** Type d'emplacement de l'API (HEAD, WEAPON, TWOHWEAPON…). */
+  inventoryType: string;
+  /** Sous-classe en anglais (« Cloth », « Sword »…), pour savoir qui peut le porter. */
+  subclass: string;
+  /** Sous-classe dans la langue affichée (« Tissu »…). */
+  category: string;
+}
+
+const searchCache = new Map<string, Promise<SearchData[]>>();
+
+/** Lignes brutes de la recherche, dans la langue demandée et en anglais (beaucoup d'objets Forever ne sont pas traduits). */
+function searchRows(query: string, lang: Lang): Promise<SearchData[]> {
+  const key = `${lang}:${query.trim().toLowerCase()}`;
+  let run = searchCache.get(key);
+  if (run) return run;
+  const one = (loc: string) =>
+    api<{ results: { data: SearchData }[] }>('/data/wow/search/item', { [`name.${loc}`]: query.trim(), orderby: 'level:desc', _pageSize: '100' }).then((j) =>
+      j.results.map((r) => r.data),
+    );
+  run = (async () => {
+    const lists = await Promise.all(lang === 'en' ? [one('en_US')] : [one(BLIZZ_LOCALE[lang]), one('en_US').catch(() => [])]);
+    const seen = new Set<number>();
+    return lists.flat().filter((d) => !seen.has(d.id) && !!seen.add(d.id));
+  })();
+  searchCache.set(key, run);
+  run.catch(() => searchCache.delete(key)); // une erreur ne reste pas en cache
+  return run;
+}
+
+/**
+ * Recherche d'objets équipables dans l'API Blizzard. L'API cherche des mots entiers (« pèlerine »,
+ * pas « pèler »), et il lui manque encore des objets propres à Forever. Les noms qui contiennent la
+ * recherche entière passent en premier, puis les objets de plus haut niveau. Les icônes ne sont
+ * demandées que pour les `icons` premiers résultats.
+ */
+export async function searchItemsBlizzard(query: string, lang: Lang, icons = 20): Promise<BlizzardSearchResult[]> {
   const loc = BLIZZ_LOCALE[lang];
-  const json = await api<{ results: { data: SearchData }[] }>('/data/wow/search/item', {
-    [`name.${loc}`]: query,
-    orderby: 'level:desc',
-    _pageSize: '100',
-  });
-  // L'API trouve chaque mot séparément : on remonte les noms qui contiennent la recherche entière,
-  // puis les objets de plus haut niveau.
-  const q = query.toLowerCase();
-  const name = (d: SearchData) => pick(d.name, loc) || pick(d.name, 'en_US');
-  const results = json.results
-    .map((r) => r.data)
-    .filter((d) => d.inventory_type && SLOT[d.inventory_type.type])
-    .sort((a, b) => Number(!name(a).toLowerCase().includes(q)) - Number(!name(b).toLowerCase().includes(q)) || (b.level ?? 0) - (a.level ?? 0))
+  const q = query.trim().toLowerCase();
+  const name = (d: SearchData) => (pick(d.name, loc) || pick(d.name, 'en_US')).replace(/^\[(.*)\]$/, '$1');
+  const matches = (d: SearchData) => name(d).toLowerCase().includes(q) || pick(d.name, 'en_US').toLowerCase().includes(q);
+  const results = (await searchRows(query, lang))
+    .filter((d) => d.inventory_type && SLOT[d.inventory_type.type] && !/^\[/.test(pick(d.name, 'en_US')))
+    .sort((a, b) => Number(!matches(a)) - Number(!matches(b)) || (b.level ?? 0) - (a.level ?? 0))
     .slice(0, 30);
-  const icons = await Promise.all(results.slice(0, 20).map((d) => iconName(d.media?.id ?? d.id)));
-  return results.map((d, i) => ({
-    id: d.id,
-    name: name(d),
-    icon: icons[i] ?? '',
-    quality: QUALITY[d.quality?.type ?? 'COMMON'] ?? 1,
-    // Type d'armure (« Tissu », « Cuir »…) + niveau d'objet : sert aussi aux filtres de recherche.
-    description: [pick(d.item_subclass?.name, loc), d.level ? `${lang === 'fr' ? 'objet de niveau' : 'item level'} ${d.level}` : ''].filter(Boolean).join(' · '),
-  }));
+  const iconNames = await Promise.all(results.slice(0, icons).map((d) => iconName(d.media?.id ?? d.id)));
+  return results.map((d, i) => {
+    const category = pick(d.item_subclass?.name, loc);
+    return {
+      id: d.id,
+      name: name(d),
+      icon: iconNames[i] ?? '',
+      quality: QUALITY[d.quality?.type ?? 'COMMON'] ?? 1,
+      description: [category, d.level ? `${lang === 'fr' ? 'objet de niveau' : 'item level'} ${d.level}` : ''].filter(Boolean).join(' · '),
+      itemLevel: d.level ?? null,
+      inventoryType: d.inventory_type!.type,
+      subclass: pick(d.item_subclass?.name, 'en_US'),
+      category,
+    };
+  });
 }
 
 export interface BlizzardItem {
