@@ -5,13 +5,14 @@ import { fetchCharacter } from '../data/character';
 import { applyCharacter } from '../state/importCharacter';
 import { emptyStats, type Stats } from '../data/types';
 import {
-  ITEM_SOURCES, QUALITY_COLORS, classifyResult, fetchItem, parseItemRef, searchItems, suggestItems, wowheadUrl,
+  ITEM_SOURCES, QUALITY_COLORS, classifyResult, fetchItem, fetchSuffixScale, parseItemRef, searchItems, suggestItems, wowheadUrl,
   type ItemSearchResult, type ItemSource, type ItemSuggestion,
 } from '../data/wowhead';
 import { runCompare } from '../engine/simClient';
 import { characterSheet } from '../state/classLogic';
 
 import { useI18n, type TKey } from '../i18n';
+import { RANDOM_SUFFIXES, suffixStats, type SuffixScale } from '../data/randomSuffix';
 import {
   FAMILIES, SLOTS, buildConfig, computeGear, gearStats, slotFamily, useStore, type ActiveSet, type AppState, type Item, type SlotId,
 } from '../state/store';
@@ -179,6 +180,8 @@ function ItemSearch() {
   const [usableOnly, setUsableOnly] = useState(true);
   const [sources, setSources] = useState<Set<ItemSource>>(new Set(ITEM_SOURCES));
   const [minIlvl, setMinIlvl] = useState(0);
+  /** Objet à enchantement aléatoire en attente : on choisit son suffixe avant de l'ajouter. */
+  const [pending, setPending] = useState<{ item: Item; andEquip: boolean; scale: SuffixScale | null } | null>(null);
 
   /** Filtres de recherche : la description Wowhead dit d'où vient l'objet et qui peut le porter. */
   const keep = (r: ItemSearchResult) => {
@@ -280,6 +283,18 @@ function ItemSearch() {
     }
   };
 
+  /** Range l'objet dans la bibliothèque (et l'équipe si demandé). */
+  const store = (item: Item, andEquip: boolean) => {
+    const existing = state.items.find((i) => i.id === item.id);
+    const items = existing ? state.items : [...state.items, item];
+    const equipped = { ...state.equipped };
+    if (andEquip) {
+      const slot = slotFor(item.slot, state.equipped);
+      if (slot) equipped[slot] = item.id;
+    }
+    set({ items, equipped });
+  };
+
   const addItem = async (id: number, andEquip: boolean) => {
     setBusy(true);
     try {
@@ -297,7 +312,9 @@ function ItemSearch() {
       const wh = fromWowhead ? null : await fetchItem(id).catch(() => null);
       const itemSet = data.set ?? wh?.set ?? null;
       const stats = wh?.shieldBlock ? { ...data.stats, blockValue: data.stats.blockValue + wh.shieldBlock } : data.stats;
-      const existing = state.items.find((i) => i.wowheadId === id);
+      const random = fromWowhead ? (data as { randomEnchant?: boolean }).randomEnchant : wh?.randomEnchant;
+      // Un objet à suffixe aléatoire peut exister en plusieurs versions dans la bibliothèque.
+      const existing = random ? undefined : state.items.find((i) => i.wowheadId === id);
       const item: Item = existing ?? {
         id: `wh-${id}`,
         wowheadId: id,
@@ -310,13 +327,12 @@ function ItemSearch() {
         set: itemSet,
         weapon: data.weapon ?? wh?.weapon ?? null,
       };
-      const items = existing ? state.items : [...state.items, item];
-      const equipped = { ...state.equipped };
-      if (andEquip) {
-        const slot = slotFor(item.slot, state.equipped);
-        if (slot) equipped[slot] = item.id;
+      if (random) {
+        const scale = await fetchSuffixScale(id).catch(() => null);
+        setPending({ item, andEquip, scale });
+        return;
       }
-      set({ items, equipped });
+      store(item, andEquip);
       setAdded((s) => new Set(s).add(id));
     } catch (err) {
       setMessage(t('searchError', { e: String((err as Error).message ?? err) }));
@@ -417,6 +433,18 @@ function ItemSearch() {
         </div>
       </details>
       {message && <p className="small warn">{message}</p>}
+      {pending && (
+        <SuffixPicker
+          item={pending.item}
+          scale={pending.scale}
+          onCancel={() => setPending(null)}
+          onConfirm={(item) => {
+            store(item, pending.andEquip);
+            setAdded((s) => new Set(s).add(pending.item.wowheadId ?? 0));
+            setPending(null);
+          }}
+        />
+      )}
       {hidden > 0 && <p className="small muted">{t('hiddenByFilters', { n: hidden })}</p>}
       {shownResults && shownResults.length > 0 && (
         <div className="search-results">
@@ -442,6 +470,54 @@ function ItemSearch() {
         </div>
       )}
       <p className="small muted">{source === 'blizzard' ? t('blizzardSource') : t('wowheadSource')}</p>
+    </div>
+  );
+}
+
+
+/** Choix du suffixe d'un objet à enchantement aléatoire (« … du hibou ») et de ses valeurs. */
+function SuffixPicker({ item, scale, onCancel, onConfirm }: { item: Item; scale: SuffixScale | null; onCancel: () => void; onConfirm: (item: Item) => void }) {
+  const { t, L } = useI18n();
+  const fallback: SuffixScale = { pair: Math.max(1, Math.round((item.itemLevel ?? 20) / 5)), single: Math.max(1, Math.round((item.itemLevel ?? 20) / 3.7)) };
+  const sc = scale ?? fallback;
+  const [key, setKey] = useState(RANDOM_SUFFIXES[0].key);
+  const def = RANDOM_SUFFIXES.find((s) => s.key === key)!;
+  const [values, setValues] = useState<Stats>({ ...emptyStats(), ...suffixStats(def, sc) });
+  const choose = (k: string) => {
+    setKey(k);
+    const d = RANDOM_SUFFIXES.find((s) => s.key === k)!;
+    setValues({ ...emptyStats(), ...suffixStats(d, sc) });
+  };
+  const confirm = () => {
+    const stats = { ...item.stats };
+    for (const s of def.stats) stats[s.stat] = (stats[s.stat] ?? 0) + (values[s.stat] ?? 0);
+    onConfirm({
+      ...item,
+      id: `${item.id}-${key}`,
+      name: { fr: `${item.name.fr} ${def.name.fr}`, en: `${item.name.en} ${def.name.en}` },
+      stats,
+    });
+  };
+  return (
+    <div className="panel grid" style={{ borderColor: 'var(--accent, #9b6cf0)' }}>
+      <strong>{t('suffixTitle', { item: L(item.name) })}</strong>
+      <p className="small muted">{t('suffixHelp')}</p>
+      <div className="row" style={{ alignItems: 'flex-end' }}>
+        <label className="field">
+          {t('suffix')}
+          <select value={key} onChange={(e) => choose(e.target.value)}>
+            {RANDOM_SUFFIXES.map((s) => (
+              <option key={s.key} value={s.key}>{L(item.name)} {L(s.name)}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <StatsEditor stats={values} keys={def.stats.map((s) => s.stat)} onChange={setValues} />
+      {(def.estimated || !scale) && <p className="small warn">{t('suffixEstimated')}</p>}
+      <div className="row">
+        <button className="btn" onClick={confirm}>{t('suffixAdd')}</button>
+        <button className="btn secondary" onClick={onCancel}>{t('cancel')}</button>
+      </div>
     </div>
   );
 }

@@ -139,13 +139,16 @@ export function parseItemTooltip(html: string): {
   itemLevel: number | null;
   weapon: WeaponInfo | null;
   shieldBlock: number;
+  /** « <Random enchantment> » : les stats dépendent du suffixe (du hibou, de l'aigle…). */
+  randomEnchant: boolean;
 } {
   // Les bonus d'ensemble sont ignorés : on coupe avant la liste des pièces du set.
   const own = html.split('item-set=')[0];
   const stats = emptyStats();
-  for (const m of own.matchAll(/<!--stat(\d+)-->([+-]?\d+)/g)) {
+  // Les résistances réutilisent les mêmes marqueurs (« +7 Arcane Resistance » est noté stat6) : on les écarte.
+  for (const m of own.matchAll(/<!--stat(\d+)-->([+-]?\d+)( \w+ Resistance)?/g)) {
     const key = STAT_IDS[Number(m[1])];
-    if (key) stats[key] += Number(m[2]);
+    if (key && !m[3]) stats[key] += Number(m[2]);
   }
   const text = own.replace(/<!--[^>]*-->/g, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   addEquipEffects(text, stats);
@@ -168,6 +171,7 @@ export function parseItemTooltip(html: string): {
     itemLevel: itemLevel ? Number(itemLevel[1]) : null,
     weapon,
     shieldBlock,
+    randomEnchant: /&lt;Random enchantment&gt;/.test(own),
   };
 }
 
@@ -200,6 +204,21 @@ export async function fetchItem(id: number) {
   const parsed = parseItemTooltip(en.tooltip);
   const name: Localized = { en: en.name, fr: fr ? cleanName(fr.name, en.name) : en.name };
   return { id, name, icon: en.icon, quality: en.quality, ...parsed, set: mergeSets(en.tooltip, fr?.tooltip ?? null) };
+}
+
+/**
+ * Valeurs de référence d'un objet à enchantement aléatoire : Wowhead calcule un suffixe donné pour cet objet
+ * (« du hibou » = deux stats, « d'intelligence » = une stat) quand on lui passe son identifiant.
+ */
+export async function fetchSuffixScale(id: number): Promise<{ pair: number; single: number }> {
+  const read = async (rand: number) => {
+    const res = await fetch(`https://nether.wowhead.com/forever/tooltip/item/${id}?locale=0&rand=${rand}`);
+    if (!res.ok) throw new Error(`Wowhead : ${res.status}`);
+    const { tooltip } = (await res.json()) as { tooltip: string };
+    return parseItemTooltip(tooltip).stats.intellect;
+  };
+  const [pair, single] = await Promise.all([read(-9), read(-19)]);
+  return { pair, single };
 }
 
 /** Accepte un numéro ou un lien Wowhead (…/item=12345/…). */

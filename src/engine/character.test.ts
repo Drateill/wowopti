@@ -59,3 +59,24 @@ describe('import de personnage', () => {
     expect(other.patch.talents).toBeUndefined();
   });
 });
+
+describe('objets à enchantement aléatoire', () => {
+  it('repère « <Random enchantment> » et ignore les résistances', async () => {
+    const { parseItemTooltip } = await import('../data/wowhead');
+    const base = parseItemTooltip('<table><tr><td>Waist</td></tr></table><span><!--amr-->22 Armor</span><br><span class="q2">&lt;Random enchantment&gt;</span>');
+    expect(base.randomEnchant).toBe(true);
+    const resist = parseItemTooltip('<span class="q1">+<!--stat6-->7 Arcane Resistance<br />+<!--stat5-->4 Intellect<br />+<!--stat38-->14 Attack Power</span>');
+    expect(resist.randomEnchant).toBe(false);
+    expect(resist.stats.spirit).toBe(0);
+    expect(resist.stats.intellect).toBe(4);
+    expect(resist.stats.attackPower).toBe(14);
+  });
+
+  it('calcule les valeurs d’un suffixe', async () => {
+    const { RANDOM_SUFFIXES, suffixStats } = await import('../data/randomSuffix');
+    const scale = { pair: 5, single: 7 };
+    expect(suffixStats(RANDOM_SUFFIXES.find((s) => s.key === 'owl')!, scale)).toEqual({ intellect: 5, spirit: 5 });
+    expect(suffixStats(RANDOM_SUFFIXES.find((s) => s.key === 'intellect')!, scale)).toEqual({ intellect: 7 });
+    expect(suffixStats(RANDOM_SUFFIXES.find((s) => s.key === 'shadowWrath')!, scale).shadowPower).toBe(5);
+  });
+});
