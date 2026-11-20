@@ -1,8 +1,8 @@
 import { FROSTFIRE, MAGE_DATA, type MageOptions, type MageRules, type MageSpec } from '../data/mage/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats } from '../data/types';
 import { createRng } from './rng';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
-import { MAGE_STEPS } from './rotationSteps';
+import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { MAGE_STEPS, cooldownSteps } from './rotationSteps';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
 
@@ -22,6 +22,8 @@ export interface MageSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Temps forts : désactivés ou soumis à des conditions. */
+  cooldowns?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -279,19 +281,20 @@ export function simulateMage(config: MageSimConfig): SimResult {
     };
     const pick = makePriority(MAGE_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
     const choose = (): SpellDef => pick() ?? filler();
+    const cd = makeCooldownGate(cooldownSteps('mage', spec), config.cooldowns, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
     while (t < fightLength - EPS) {
       // Hors temps de recharge global : temps forts, Évocation, potion.
       if (o.cooldowns) {
-        if (fx.arcanePower && isReady('arcanePower')) {
+        if (fx.arcanePower && isReady('arcanePower') && cd('arcanePower')) {
           apUntil = t + 15;
           ready.set('arcanePower', t + 180);
         }
-        if (fx.presenceOfMind && isReady('presenceOfMind')) {
+        if (fx.presenceOfMind && isReady('presenceOfMind') && cd('presenceOfMind')) {
           pom = true;
           ready.set('presenceOfMind', t + 180);
         }
-        if (fx.combustion && isReady('combustion')) {
+        if (fx.combustion && isReady('combustion') && cd('combustion')) {
           combustionCrits = 3;
           combustionStacks = 0;
           ready.set('combustion', t + 180);

@@ -74,3 +74,46 @@ export function rotationResource(classId: string, spec: string): 'mana' | 'energ
 
 /** La classe a-t-elle des points de combo ? */
 export const hasCombo = (classId: string, spec: string) => classId === 'rogue' || (classId === 'druid' && spec === 'cat');
+
+/** Temps forts hors temps de recharge global, réglables par spécialisation (avec le talent requis, s'il y en a un). */
+const MAGE_CDS = ['arcanePower', 'presenceOfMind', 'combustion'];
+const WARRIOR_CDS = ['bloodrage', 'berserkerRage', 'recklessSwings', 'deathWish', 'recklessness'];
+const COOLDOWNS: Record<string, string[]> = {
+  'mage:arcane': MAGE_CDS,
+  'mage:fire': MAGE_CDS,
+  'mage:frost': MAGE_CDS,
+  'priest:shadow': ['powerInfusion', 'innerFocus'],
+  'warrior:arms': WARRIOR_CDS,
+  'warrior:fury': WARRIOR_CDS,
+  'warrior:prot': ['bloodrage', 'recklessSwings'],
+  'hunter:bm': ['rapidFire', 'bestialWrath'],
+  'hunter:mm': ['rapidFire', 'bestialWrath'],
+  'hunter:surv': ['rapidFire', 'bestialWrath'],
+  'rogue:assassination': ['adrenalineRush', 'coldBlood'],
+  'rogue:combat': ['adrenalineRush', 'coldBlood'],
+  'rogue:subtlety': ['adrenalineRush', 'coldBlood'],
+  'shaman:elemental': ['lightningMastery'],
+  'shaman:enhancement': ['lightningMastery', 'rageOfTheFarseer'],
+};
+
+export const cooldownSteps = (classId: string, spec: string): readonly string[] => COOLDOWNS[`${classId}:${spec}`] ?? [];
+
+/** Talent nécessaire pour un temps fort (absent : sort de base de la classe). */
+export const COOLDOWN_TALENT: Record<string, string | undefined> = {
+  arcanePower: 'arcanePower',
+  presenceOfMind: 'presenceOfMind',
+  combustion: 'combustion',
+  powerInfusion: 'powerInfusion',
+  innerFocus: 'innerFocus',
+  berserkerRage: 'improvedBerserkerRage',
+  recklessSwings: 'recklessSwings',
+  deathWish: 'deathWish',
+  bestialWrath: 'bestialWrath',
+  adrenalineRush: 'adrenalineRush',
+  coldBlood: 'coldBlood',
+  lightningMastery: 'lightningMastery',
+  rageOfTheFarseer: 'rageOfTheFarseer',
+};
+
+/** Clé de la liste des temps forts dans `priority` (à côté de la rotation de la spécialisation). */
+export const cooldownKey = (spec: string) => `${spec}:cd`;

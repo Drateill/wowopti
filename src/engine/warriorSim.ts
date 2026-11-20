@@ -1,8 +1,8 @@
 import { WARRIOR_DATA, type WarriorOptions, type WarriorRules, type WarriorSpec } from '../data/warrior/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
-import { WARRIOR_STEPS } from './rotationSteps';
+import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { WARRIOR_STEPS, cooldownSteps } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -26,6 +26,8 @@ export interface WarriorSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Temps forts : désactivés ou soumis à des conditions. */
+  cooldowns?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -462,34 +464,35 @@ export function simulateWarrior(config: WarriorSimConfig): SimResult {
       },
     };
     const act = makePriority(WARRIOR_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => rage, resourceMax: () => 100 });
+    const cd = makeCooldownGate(cooldownSteps('warrior', spec), config.cooldowns, { time: () => t, fightLength, resource: () => rage, resourceMax: () => 100 });
 
     while (t < fightLength - EPS) {
       // Hors temps de recharge global : Rage sanguinaire, Rage berserker, Frappes téméraires, Souhait mortel, Témérité.
-      if (o.bloodrage && isReady('bloodrage')) {
+      if (o.bloodrage && isReady('bloodrage') && cd('bloodrage')) {
         gain(10 * (1 + fx.improvedBloodragePct / 100));
         bloodrageTicks = 10;
         nextBloodrage = t + 1;
         ready.set('bloodrage', t + 60);
         rec.entry('bloodrage').casts++;
       }
-      if (spec === 'fury' && o.berserkerRage && fx.improvedBerserkerRage && isReady('berserkerRage')) {
+      if (spec === 'fury' && o.berserkerRage && fx.improvedBerserkerRage && isReady('berserkerRage') && cd('berserkerRage')) {
         gain(fx.improvedBerserkerRage);
         ready.set('berserkerRage', t + 30);
         rec.entry('berserkerRage').casts++;
       }
-      if (o.recklessSwings && fx.recklessSwings && isReady('recklessSwings')) {
+      if (o.recklessSwings && fx.recklessSwings && isReady('recklessSwings') && cd('recklessSwings')) {
         recklessLeft = 4;
         recklessUntil = t + 8;
         ready.set('recklessSwings', t + 15);
         rec.entry('recklessSwings').casts++;
       }
-      if (!prot && o.deathWish && fx.deathWish && isReady('deathWish') && rage >= 10) {
+      if (!prot && o.deathWish && fx.deathWish && isReady('deathWish') && rage >= 10 && cd('deathWish')) {
         rage -= 10;
         deathWishUntil = t + 30;
         ready.set('deathWish', t + 180);
         rec.entry('deathWish').casts++;
       }
-      if (spec === 'fury' && o.recklessness && isReady('recklessness') && t >= Math.max(0, fightLength - 15 - 1)) {
+      if (spec === 'fury' && o.recklessness && isReady('recklessness') && t >= Math.max(0, fightLength - 15 - 1) && cd('recklessness')) {
         recklessnessUntil = t + 15;
         ready.set('recklessness', t + 1800);
         rec.entry('recklessness').casts++;

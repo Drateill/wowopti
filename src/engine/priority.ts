@@ -114,3 +114,17 @@ export function makePriority<R>(
     return undefined;
   };
 }
+
+/**
+ * Temps forts hors temps de recharge global (Pouvoir des arcanes, Témérité…) : pas d'ordre, mais chacun
+ * peut être désactivé ou attendre ses conditions (ex. vie de la cible < 20 % pour le garder pour la fin).
+ * Renvoie une fonction qui dit si le temps fort a le droit d'être lancé maintenant.
+ */
+export function makeCooldownGate(defaults: readonly string[], custom: PriorityList | undefined, ctx: PriorityContext): (id: string) => boolean {
+  const rules = new Map(resolveOrder(defaults, custom).map((e) => [e.id, e]));
+  return (id) => {
+    const e = rules.get(id);
+    if (!e) return true;
+    return e.enabled && (e.conditions.length === 0 || conditionsHold(e.conditions, ctx));
+  };
+}

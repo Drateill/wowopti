@@ -1,8 +1,8 @@
 import { ROGUE_DATA, type RogueOptions, type RogueRules, type RogueSpec } from '../data/rogue/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
-import { ROGUE_STEPS } from './rotationSteps';
+import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { ROGUE_STEPS, cooldownSteps } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -25,6 +25,8 @@ export interface RogueSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Temps forts : désactivés ou soumis à des conditions. */
+  cooldowns?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -392,14 +394,15 @@ export function simulateRogue(config: RogueSimConfig): SimResult {
       builder: { when: () => true, run: () => useBuilder() },
     };
     const act = makePriority(ROGUE_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => energy, resourceMax: () => d.maxEnergy, combo: () => cp });
+    const cd = makeCooldownGate(cooldownSteps('rogue', config.spec), config.cooldowns, { time: () => t, fightLength, resource: () => energy, resourceMax: () => d.maxEnergy, combo: () => cp });
 
     while (t < fightLength - EPS) {
-      if (o.adrenalineRush && fx.adrenalineRush && isReady('adrenalineRush')) {
+      if (o.adrenalineRush && fx.adrenalineRush && isReady('adrenalineRush') && cd('adrenalineRush')) {
         arUntil = t + 15;
         ready.set('adrenalineRush', t + 300);
         rec.entry('adrenalineRush').casts++;
       }
-      if (o.coldBlood && fx.coldBlood && !coldBloodUp && isReady('coldBlood')) {
+      if (o.coldBlood && fx.coldBlood && !coldBloodUp && isReady('coldBlood') && cd('coldBlood')) {
         coldBloodUp = true;
         ready.set('coldBlood', t + 180);
         rec.entry('coldBlood').casts++;

@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { CLASSES } from '../data/classes';
 import { buildConfig, defaultState, specPresets, type AppState } from '../state/store';
-import { conditionsHold, isCustomized, makePriority, resolveOrder, type PriorityList } from './priority';
-import { rotationSteps } from './rotationSteps';
+import { conditionsHold, isCustomized, makeCooldownGate, makePriority, resolveOrder, type PriorityList } from './priority';
+import { cooldownKey, rotationSteps } from './rotationSteps';
 import { simulateAny } from './sim';
 
-const stateFor = (classId: (typeof CLASSES)[number]['id'], spec: string, priority?: PriorityList): AppState => {
+const stateFor = (classId: (typeof CLASSES)[number]['id'], spec: string, priority?: PriorityList, cooldowns?: PriorityList): AppState => {
   const base = defaultState(classId);
   const s = CLASSES.find((c) => c.id === classId)!.specs.find((x) => x.id === spec)!;
-  return { ...base, spec, talents: s.defaultTalents, ...specPresets(spec, base), iterations: 100, priority: priority ? { [spec]: priority } : {} };
+  return { ...base, spec, talents: s.defaultTalents, ...specPresets(spec, base), iterations: 100, priority: { ...(priority ? { [spec]: priority } : {}), ...(cooldowns ? { [cooldownKey(spec)]: cooldowns } : {}) } };
 };
 
 describe('liste de priorités', () => {
@@ -64,5 +64,22 @@ describe('liste de priorités', () => {
     const late = run([{ id: 'mindBlast', enabled: true, conditions: [{ kind: 'targetHp', op: '<', value: 20 }] }]);
     expect(late).toBeGreaterThan(0);
     expect(late).toBeLessThan(all * 0.35);
+  });
+
+  it('un temps fort peut être désactivé ou gardé pour la fin du combat', () => {
+    const gate = makeCooldownGate(['a', 'b'], [{ id: 'a', enabled: false, conditions: [] }, { id: 'b', enabled: true, conditions: [{ kind: 'elapsed', op: '>=', value: 60 }] }], {
+      time: () => 30, fightLength: 180, resource: () => 0, resourceMax: () => 1,
+    });
+    expect([gate('a'), gate('b'), gate('autre')]).toEqual([false, false, true]);
+
+    const run = (cd?: PriorityList) => simulateAny(buildConfig(stateFor('rogue', 'combat', undefined, cd)));
+    const casts = (r: ReturnType<typeof run>) => r.breakdown.find((b) => b.id === 'adrenalineRush')?.casts ?? 0;
+    const base = run();
+    expect(casts(base)).toBeGreaterThan(0);
+    expect(casts(run([{ id: 'adrenalineRush', enabled: false, conditions: [] }]))).toBe(0);
+    // Gardée jusqu'à 10 % de vie, elle est quand même lancée (une fois, en fin de combat), et le résultat change.
+    const late = run([{ id: 'adrenalineRush', enabled: true, conditions: [{ kind: 'targetHp', op: '<', value: 10 }] }]);
+    expect(casts(late)).toBe(1);
+    expect(late.dps).not.toBe(base.dps);
   });
 });

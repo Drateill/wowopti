@@ -1,8 +1,8 @@
 import { PRIEST_DATA, type PriestOptions, type PriestRules, type PriestSpec } from '../data/priest/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats } from '../data/types';
 import { createRng } from './rng';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
-import { PRIEST_STEPS } from './rotationSteps';
+import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { PRIEST_STEPS, cooldownSteps } from './rotationSteps';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
 
@@ -22,6 +22,8 @@ export interface PriestSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Temps forts : désactivés ou soumis à des conditions. */
+  cooldowns?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -228,14 +230,15 @@ function simulateShadow(config: PriestSimConfig): SimResult {
     };
     const pick = makePriority(PRIEST_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
     const choose = (): SpellDef => pick() ?? filler();
+    const cd = makeCooldownGate(cooldownSteps('priest', 'shadow'), config.cooldowns, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
     while (t < fightLength - EPS) {
-      if (o.powerInfusion && fx.powerInfusion && isReady('powerInfusion')) {
+      if (o.powerInfusion && fx.powerInfusion && isReady('powerInfusion') && cd('powerInfusion')) {
         piUntil = t + 15;
         ready.set('powerInfusion', t + 180);
         rec.entry('powerInfusion').casts++;
       }
-      if (o.innerFocus && fx.innerFocus && isReady('innerFocus') && !innerFocus) {
+      if (o.innerFocus && fx.innerFocus && isReady('innerFocus') && !innerFocus && cd('innerFocus')) {
         innerFocus = true;
         ready.set('innerFocus', t + 180);
       }

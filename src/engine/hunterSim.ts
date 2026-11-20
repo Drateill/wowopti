@@ -1,8 +1,8 @@
 import { HUNTER_DATA, type HunterOptions, type HunterRules, type HunterSpec } from '../data/hunter/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
-import { HUNTER_STEPS } from './rotationSteps';
+import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { HUNTER_STEPS, cooldownSteps } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -27,6 +27,8 @@ export interface HunterSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Temps forts : désactivés ou soumis à des conditions. */
+  cooldowns?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -407,15 +409,16 @@ export function simulateHunter(config: HunterSimConfig): SimResult {
       },
     };
     const act = makePriority(HUNTER_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const cd = makeCooldownGate(cooldownSteps('hunter', spec), config.cooldowns, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
     while (t < fightLength - EPS) {
       // Hors temps de recharge global : Tir rapide, Courroux bestial, potion.
-      if (o.rapidFire && isReady('rapidFire')) {
+      if (o.rapidFire && isReady('rapidFire') && cd('rapidFire')) {
         rapidUntil = t + 15;
         ready.set('rapidFire', t + 300 - fx.rapidKillingMin * 60);
         rec.entry('rapidFire').casts++;
       }
-      if (pet && o.bestialWrath && fx.bestialWrath && isReady('bestialWrath')) {
+      if (pet && o.bestialWrath && fx.bestialWrath && isReady('bestialWrath') && cd('bestialWrath')) {
         bwUntil = t + 18;
         ready.set('bestialWrath', t + 120);
         rec.entry('bestialWrath').casts++;

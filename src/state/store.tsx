@@ -20,6 +20,7 @@ import type { ShamanSimConfig } from '../engine/shamanSim';
 import type { WarriorSimConfig } from '../engine/warriorSim';
 import type { PaladinSimConfig } from '../engine/paladinSim';
 import type { PriorityList } from '../engine/priority';
+import { cooldownKey } from '../engine/rotationSteps';
 import type { StatWeight } from '../engine/simTypes';
 import { pointsInTree, type TalentPoints } from '../engine/talents';
 import type { RaidBuffs, RotationOptions, SimConfig } from '../engine/warlockSim';
@@ -420,7 +421,7 @@ export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): A
   const { stats, mods, weapon, rangedWeapon, offHandWeapon, shield } = computeGear(state);
   const healer = CLASS_BY_ID[state.classId].specs.find((s) => s.id === state.spec)?.metric === 'hps';
   const fight = { targets: state.targets ?? 1, movementPct: state.movementPct ?? 0, healer };
-  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight, priority: state.priority?.[state.spec] };
+  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight, priority: state.priority?.[state.spec], cooldowns: state.priority?.[cooldownKey(state.spec)] };
   // Main gauche : l'arme portée ; si aucune main n'est équipée, le simulateur prend ses armes par défaut.
   const offHand = offHandWeapon ?? (state.equipped.offHand || state.equipped.mainHand ? null : undefined);
   if (state.classId === 'rogue') {

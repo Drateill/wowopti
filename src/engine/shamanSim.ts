@@ -1,8 +1,8 @@
 import { SHAMAN_DATA, type ShamanOptions, type ShamanRules, type ShamanSpec } from '../data/shaman/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
-import { SHAMAN_STEPS } from './rotationSteps';
+import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { SHAMAN_STEPS, cooldownSteps } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -24,6 +24,8 @@ export interface ShamanSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Temps forts : désactivés ou soumis à des conditions. */
+  cooldowns?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -405,6 +407,7 @@ export function simulateShaman(config: ShamanSimConfig): SimResult {
     };
     const pick = makePriority(SHAMAN_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
     const actDps = (): boolean => pick() ?? false;
+    const cd = makeCooldownGate(cooldownSteps('shaman', spec), config.cooldowns, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
     // Soins
     const healCrit = (bonus = 0) => (d.spellCritPct + fx.tidalMasteryPct + bonus) / 100;
@@ -457,12 +460,12 @@ export function simulateShaman(config: ShamanSimConfig): SimResult {
     };
 
     while (t < fightLength - EPS) {
-      if (!healer && o.lightningMastery && fx.lightningMastery && isReady('lightningMastery')) {
+      if (!healer && o.lightningMastery && fx.lightningMastery && isReady('lightningMastery') && cd('lightningMastery')) {
         masteryUntil = t + 15;
         ready.set('lightningMastery', t + 180);
         rec.entry('lightningMastery').casts++;
       }
-      if (melee && o.rageOfTheFarseer && fx.rageOfTheFarseer && isReady('rageOfTheFarseer')) {
+      if (melee && o.rageOfTheFarseer && fx.rageOfTheFarseer && isReady('rageOfTheFarseer') && cd('rageOfTheFarseer')) {
         farseerUntil = t + 25;
         ready.set('rageOfTheFarseer', t + 180);
         rec.entry('rageOfTheFarseer').casts++;
