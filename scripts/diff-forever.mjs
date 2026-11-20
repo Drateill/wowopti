@@ -32,8 +32,11 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith('.json')).sort()) {
     const o = oldTalents.get(key);
     if (!o) out.push(`- talent ajouté : **${t.name.en}** (${key})`);
     else if (!same(o.desc, t.desc)) {
-      const i = t.desc.en.findIndex((d, r) => d !== o.desc.en[r]);
-      out.push(`- talent modifié : **${t.name.en}** — rang ${i + 1} : « ${o.desc.en[i] ?? '∅'} » → « ${t.desc.en[i] ?? '∅'} »`);
+      // Texte anglais d'abord (c'est lui qu'on lit pour les valeurs), sinon la traduction française seule.
+      const lang = same(o.desc.en, t.desc.en) ? 'fr' : 'en';
+      const i = t.desc[lang].findIndex((d, r) => d !== o.desc[lang]?.[r]);
+      const label = lang === 'fr' ? 'traduction française modifiée' : 'talent modifié';
+      out.push(`- ${label} : **${t.name.en}** — rang ${i + 1} : « ${o.desc[lang]?.[i] ?? '∅'} » → « ${t.desc[lang][i] ?? '∅'} »`);
     } else if (o.maxRank !== t.maxRank || o.row !== t.row || o.col !== t.col || o.tree !== t.tree) {
       out.push(`- talent déplacé ou rangs changés : **${t.name.en}**`);
     }
@@ -43,6 +46,7 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith('.json')).sort()) {
     const o = before.spells[key];
     if (!o) out.push(`- sort ajouté : **${s.name.en}** (${key})`);
     else if (o.id !== s.id || o.tooltip.en !== s.tooltip.en) out.push(`- sort modifié : **${s.name.en}** (${key})`);
+    else if (o.tooltip.fr !== s.tooltip.fr) out.push(`- traduction française du sort modifiée : **${s.name.en}** (${key})`);
   }
   if (!same(before.trees, now.trees)) out.push('- arbres de talents modifiés');
   if (out.length) lines.push(`### ${cls}`, ...out, '');

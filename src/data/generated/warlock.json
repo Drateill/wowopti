@@ -1,6 +1,6 @@
 {
  "source": "wowhead.com/forever",
- "fetchedAt": "2026-11-16T19:17:07.292Z",
+ "fetchedAt": "2026-11-20T16:18:44.660Z",
  "trees": [
   {
    "key": "curses",
@@ -476,9 +476,9 @@
      "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 12% per each of your Corruption, Siphon Life, and Bane of Agony effects active on the target, up to a maximum increase of 36%."
     ],
     "fr": [
-     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 4 % pour chacun de vos autres effets d’Affliction actifs sur la cible, jusqu’à un bonus maximal de 12 %.",
-     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 8 % pour chacun de vos autres effets d’Affliction actifs sur la cible, jusqu’à un bonus maximal de 24 %.",
-     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 12 % pour chacun de vos autres effets d’Affliction actifs sur la cible, jusqu’à un bonus maximal de 36 %."
+     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 4 % pour chacun des effets des sorts Corruption, Siphon de vie et Plaie d’agonie actifs sur la cible, jusqu’à une augmentation maximum de 12 %.",
+     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 8 % pour chacun des effets des sorts Corruption, Siphon de vie et Plaie d’agonie actifs sur la cible, jusqu’à une augmentation maximum de 24 %.",
+     "Augmente les dégâts infligés ou les points de vie drainés par vos sorts Drain de vie, Drain d’âme et Calvaire de 12 % pour chacun des effets des sorts Corruption, Siphon de vie et Plaie d’agonie actifs sur la cible, jusqu’à une augmentation maximum de 36 %."
     ]
    },
    "requires": []
@@ -540,7 +540,7 @@
      "Tears the target apart from within for 6 sec, inflicting 60 Shadow damage every 1 sec. While channeling, your Siphon Life, Corruption, and Bane of Agony effects on the target deal their periodic damage 100% faster."
     ],
     "fr": [
-     "Déchire la cible de l’intérieur, ce qui lui inflige 60 points de dégâts d’ombre toutes les 1 s et augmente les dégâts qu’elle subit par vos autres effets de dégâts d’ombre de 100 % pendant 6 sec."
+     "Déchire la cible de l’intérieur pendant 6 sec, ce qui lui inflige 60 points de dégâts d’ombre toutes les 1 s. Lorsque vous canalisez ce sort, la vitesse des dégâts périodiques des effets de vos sorts Siphon de vie, Corruption et Plaie d’agonie sur la cible augmente de 100 %."
     ]
    },
    "requires": [
@@ -1804,7 +1804,7 @@
    },
    "tooltip": {
     "en": "Wrack\nLevel 60Talent200 Mana30 yd rangeChanneled (6 sec cast)Requires WarlockRequires level 40\nTears the target apart from within for 6 sec, inflicting 60 Shadow damage every 1 sec. While channeling, your Siphon Life, Corruption, and Bane of Agony effects on the target deal their periodic damage 100% faster.",
-    "fr": "Calvaire\nNiveau 60TalentMana : 20030 m de portéeCanalisée (6 s d'incantation)Requiert DémonisteNiveau 40 requis\nDéchire la cible de l’intérieur, ce qui lui inflige 60 points de dégâts d’ombre toutes les 1 s et augmente les dégâts qu’elle subit par vos autres effets de dégâts d’ombre de 100 % pendant 6 sec."
+    "fr": "Calvaire\nNiveau 60TalentMana : 20030 m de portéeCanalisée (6 s d'incantation)Requiert DémonisteNiveau 40 requis\nDéchire la cible de l’intérieur pendant 6 sec, ce qui lui inflige 60 points de dégâts d’ombre toutes les 1 s. Lorsque vous canalisez ce sort, la vitesse des dégâts périodiques des effets de vos sorts Siphon de vie, Corruption et Plaie d’agonie sur la cible augmente de 100 %."
    },
    "icon": "ability_deathknight_hemorrhagicfever"
   }
