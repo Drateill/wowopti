@@ -1,7 +1,12 @@
-import type { PaladinRules } from '../data/paladin/data';
+import type { DruidSpec } from '../data/druid/data';
 import type { SpellDef } from '../data/types';
 import { wowheadUrl } from '../data/wowhead';
+import { deriveDruid } from '../engine/druidSim';
+import { deriveHunter } from '../engine/hunterSim';
+import { deriveMage } from '../engine/mageSim';
 import { derivePaladin } from '../engine/paladinSim';
+import { derivePriest } from '../engine/priestSim';
+import { deriveShaman } from '../engine/shamanSim';
 import { makeCalculator, type SimConfig } from '../engine/warlockSim';
 import { useI18n, type TKey } from '../i18n';
 import { buildConfig, computeGear, useStore, type AppState } from '../state/store';
@@ -18,26 +23,71 @@ const SPELL_FIELDS: [keyof SpellDef, TKey, number][] = [
   ['dotCoeff', 'colDotCoeff', 0.01],
 ];
 
-/** Dégâts (ou soins) moyens d'un sort hors critique, avec la puissance et les talents actuels. */
-function useAverage(state: AppState): (s: SpellDef) => number {
-  if (state.classId === 'paladin') {
-    const g = computeGear(state);
-    const d = derivePaladin(state.rules as unknown as PaladinRules, g.stats, state.talents, g.mods);
-    const heals = new Set(['holyLight', 'flashOfLight', 'holyShock', 'lightsVigil']);
-    return (s) => {
-      if (s.directMax === undefined && s.dotTotal === undefined) return 0;
-      const power = heals.has(s.id) ? d.healingPower : d.spellPower;
-      return ((s.directMin ?? 0) + (s.directMax ?? 0)) / 2 + (s.dotTotal ?? 0) + ((s.directCoeff ?? 0) + (s.dotCoeff ?? 0)) * power;
-    };
+// Soins : valeur moyenne calculée avec la puissance de soins.
+const HEALS = new Set([
+  'holyLight', 'flashOfLight', 'holyShock', 'lightsVigil',
+  'healingTouch', 'regrowth', 'rejuvenation', 'wildGrowth',
+  'greaterHeal', 'heal', 'flashHeal', 'prayerOfHealing', 'renew', 'powerWordShield', 'penance', 'prayerOfMending',
+  'healingWave', 'lesserHealingWave', 'chainHeal', 'riptide',
+]);
+
+/** Puissance qui s'applique à un sort (null : technique physique, dont la valeur dépend de l'arme). */
+function powerResolver(state: AppState): (s: SpellDef) => number | null {
+  const g = computeGear(state);
+  const rules = state.rules as never;
+  const heal = (hp: number, other: (s: SpellDef) => number | null) => (s: SpellDef) => (HEALS.has(s.id) ? hp : other(s));
+  switch (state.classId) {
+    case 'paladin': {
+      const d = derivePaladin(rules, g.stats, state.talents, g.mods);
+      return heal(d.healingPower, (s) => (s.school === 'physical' ? null : d.spellPower));
+    }
+    case 'druid': {
+      const d = deriveDruid(rules, g.stats, state.talents, state.spec as DruidSpec, g.mods);
+      return heal(d.healingPower, (s) => (s.school === 'physical' ? null : d.spellPower));
+    }
+    case 'mage': {
+      const d = deriveMage(rules, g.stats, state.talents, g.mods);
+      return (s) => (s.school === 'fire' ? d.firePower : d.spellPower) + (s.id === 'arcaneWrath' ? 0.05 * d.maxMana : 0);
+    }
+    case 'priest': {
+      const d = derivePriest(rules, g.stats, state.talents, g.mods);
+      return heal(d.healingPower, (s) => (s.school === 'shadow' ? d.shadowPower : d.spellPower));
+    }
+    case 'shaman': {
+      const d = deriveShaman(rules, g.stats, state.talents, g.mods);
+      return heal(d.healingPower, (s) =>
+        s.school === 'physical' ? null : s.school === 'fire' ? d.firePower : s.school === 'frost' ? d.frostPower : d.naturePower,
+      );
+    }
+    case 'hunter': {
+      const d = deriveHunter(rules, g.stats, state.talents, g.mods);
+      return (s) => (s.school === 'physical' ? null : d.rangedAp);
+    }
+    // Voleur et guerrier : poisons et saignements sans coefficient, le reste dépend de l'arme.
+    default:
+      return (s) => (s.school === 'physical' && (s.directCoeff || s.dotCoeff) ? null : 0);
   }
-  const calc = makeCalculator(buildConfig(state) as SimConfig);
-  return (s) => calc.directAvg(s) + calc.dotTotal(s) + calc.delayed(s);
+}
+
+/** Dégâts (ou soins) moyens d'un sort hors critique, avec la puissance actuelle (0 : non calculable ici). */
+export function spellAverages(state: AppState): (s: SpellDef) => number {
+  if (state.classId === 'warlock') {
+    const calc = makeCalculator(buildConfig(state) as SimConfig);
+    return (s) => calc.directAvg(s) + calc.dotTotal(s) + calc.delayed(s);
+  }
+  const power = powerResolver(state);
+  return (s) => {
+    if (s.directMax === undefined && s.dotTotal === undefined) return 0;
+    const p = power(s);
+    if (p === null) return 0;
+    return ((s.directMin ?? 0) + (s.directMax ?? 0)) / 2 + (s.dotTotal ?? 0) + ((s.directCoeff ?? 0) + (s.dotCoeff ?? 0)) * p;
+  };
 }
 
 export function SettingsPanel() {
   const { state, set, reset, cls } = useStore();
   const { t, num, lang } = useI18n();
-  const average = useAverage(state);
+  const average = spellAverages(state);
   const setRule = (k: string, v: number | boolean) => set({ rules: { ...state.rules, [k]: v }, weights: null });
   const setSpell = (id: string, k: keyof SpellDef, v: number) =>
     set({ spells: state.spells.map((s) => (s.id === id ? { ...s, [k]: v } : s)), weights: null });

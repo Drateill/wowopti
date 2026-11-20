@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import { Component, type CSSProperties, type ReactNode } from 'react';
 import { PCT_STATS, STAT_KEYS, type Stats } from '../data/types';
 import { iconUrl } from '../data/wowhead';
 import { useI18n } from '../i18n';
@@ -83,4 +83,21 @@ export function useStatSummary() {
     STAT_KEYS.filter((k) => s[k])
       .map((k) => `${s[k]! > 0 ? '+' : ''}${num(s[k]!, PCT_STATS.has(k) || k === 'weaponDps' ? 1 : 0)}${PCT_STATS.has(k) ? ' %' : ''} ${stat(k).replace(' %', '')}`)
       .join(', ') || '—';
+}
+
+/** Isole une erreur d'affichage dans un onglet : message à la place d'une page blanche. */
+export class TabErrorBoundary extends Component<{ message: string; children: ReactNode }, { error: Error | null }> {
+  state: { error: Error | null } = { error: null };
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+  render() {
+    if (!this.state.error) return this.props.children;
+    return (
+      <div className="panel">
+        <p>{this.props.message}</p>
+        <p className="small muted">{this.state.error.message}</p>
+      </div>
+    );
+  }
 }

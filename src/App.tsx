@@ -5,7 +5,7 @@ import { ProfilesPanel } from './components/ProfilesPanel';
 import { SettingsPanel } from './components/SettingsPanel';
 import { SimPanel } from './components/SimPanel';
 import { TalentPlanner } from './components/TalentPlanner';
-import { Icon } from './components/ui';
+import { Icon, TabErrorBoundary } from './components/ui';
 import { WeightsPanel } from './components/WeightsPanel';
 import { CLASSES, CLASS_BY_ID, type ClassId } from './data/classes';
 import type { Lang } from './data/types';
@@ -153,13 +153,15 @@ export default function App() {
           <button className="btn secondary small" onClick={() => setImportMsg(null)}>×</button>
         </div>
       )}
-      {tab === 'talents' && <TalentPlanner />}
-      {tab === 'gear' && <GearPanel />}
-      {tab === 'buffs' && <BuffsPanel />}
-      {tab === 'profiles' && <ProfilesPanel />}
-      {tab === 'sim' && <SimPanel />}
-      {tab === 'weights' && <WeightsPanel />}
-      {tab === 'settings' && <SettingsPanel />}
+      <TabErrorBoundary key={`${tab}-${state.classId}-${state.spec}`} message={t('tabCrashed')}>
+        {tab === 'talents' && <TalentPlanner />}
+        {tab === 'gear' && <GearPanel />}
+        {tab === 'buffs' && <BuffsPanel />}
+        {tab === 'profiles' && <ProfilesPanel />}
+        {tab === 'sim' && <SimPanel />}
+        {tab === 'weights' && <WeightsPanel />}
+        {tab === 'settings' && <SettingsPanel />}
+      </TabErrorBoundary>
     </div>
   );
 }
