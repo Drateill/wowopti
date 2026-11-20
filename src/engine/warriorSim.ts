@@ -1,6 +1,8 @@
 import { WARRIOR_DATA, type WarriorOptions, type WarriorRules, type WarriorSpec } from '../data/warrior/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { WARRIOR_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -23,6 +25,7 @@ export interface WarriorSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -348,23 +351,30 @@ export function simulateWarrior(config: WarriorSimConfig): SimResult {
     };
     const can = (id: string) => isReady(id) && rage >= cost(id);
 
-    const act = (): boolean => {
-      const s = (id: string) => sp(id);
-      if (prot) {
-        if (fx.shieldSlam && shield && can('shieldSlam')) {
+    const s = (id: string) => sp(id);
+    const steps: Record<string, StepImpl<boolean>> = {
+      shieldSlam: {
+        when: () => prot && fx.shieldSlam && shield && can('shieldSlam'),
+        run: () => {
           spend('shieldSlam');
           const sl = s('shieldSlam');
           strike('shieldSlam', sl.directMin! + rng() * (sl.directMax! - sl.directMin!) + d.blockValue, 'special');
           return true;
-        }
-        if (o.revenge && (ready.get('revengeProc') ?? -1) > t && can('revenge')) {
+        },
+      },
+      revenge: {
+        when: () => prot && o.revenge && (ready.get('revengeProc') ?? -1) > t && can('revenge'),
+        run: () => {
           spend('revenge');
           ready.set('revengeProc', -1);
           const rv = s('revenge');
           strike('revenge', (rv.directMin! + rng() * (rv.directMax! - rv.directMin!) + rv.directCoeff! * d.attackPower) * (1 + fx.improvedRevengePct / 100), 'special');
           return true;
-        }
-        if (o.sunderArmor && can('sunderArmor')) {
+        },
+      },
+      sunderArmor: {
+        when: () => prot && o.sunderArmor && can('sunderArmor'),
+        run: () => {
           spend('sunderArmor');
           // Fracasser armure ne fait pas de dégâts : seule la menace compte.
           if (rng() < specialMiss + dodge + parry) rec.entry('sunderArmor').misses++;
@@ -374,65 +384,84 @@ export function simulateWarrior(config: WarriorSimConfig): SimResult {
             rec.add('sunderArmor', rules.sunderThreat * threatMult, t);
           }
           return true;
-        }
-        return false;
-      }
-      const executing = o.execute && t >= executeStart;
-      if (executing && rage >= cost('execute')) {
-        const extra = rage - cost('execute');
-        spend('execute');
-        rage = 0;
-        strike('execute', s('execute').directMin! + 15 * extra, 'special');
-        return true;
-      }
-      if (spec === 'fury' && fx.bloodthirst && can('bloodthirst')) {
-        spend('bloodthirst');
-        strike('bloodthirst', s('bloodthirst').directCoeff! * d.attackPower + s('bloodthirst').directMin!, 'special');
-        return true;
-      }
-      if (spec !== 'fury' && fx.mortalStrike && can('mortalStrike')) {
-        spend('mortalStrike');
-        strike('mortalStrike', weaponRoll(mh, d.attackPower) + s('mortalStrike').directMin!, 'special');
-        return true;
-      }
-      if (spec === 'arms' && o.rend && !dots.has('rend') && can('rend')) {
-        spend('rend');
-        if (rng() < specialMiss + dodge) rec.entry('rend').misses++;
-        else {
-          rec.entry('rend').hits++;
-          const r = s('rend');
-          dots.set('rend', { ticksLeft: r.dotTicks!, interval: r.dotDuration! / r.dotTicks!, next: t + 3, tick: (r.dotTotal! * (1 + fx.improvedRendPct / 100)) / r.dotTicks! });
-        }
-        return true;
-      }
-      if (spec === 'arms' && o.overpower && t < opUntil && can('overpower')) {
-        spend('overpower');
-        opUntil = -1;
-        strike('overpower', weaponRoll(mh, d.attackPower) + s('overpower').directMin!, 'special', { miss: specialMiss, critBonus: fx.improvedOverpowerPct });
-        return true;
-      }
-      if (spec === 'fury' && o.whirlwind && can('whirlwind')) {
-        spend('whirlwind');
-        ready.set('whirlwind', t + (s('whirlwind').cooldown ?? 10) - fx.improvedWhirlwindSec);
-        const ww = 1 + fx.improvedWhirlwindPct / 100;
-        strike('whirlwind', weaponRoll(mh, d.attackPower) * ww, 'special');
-        if (oh) strike('whirlwind', weaponRoll(oh, d.attackPower) * ohMult * ww, 'special');
-        return true;
-      }
-      if (spec === 'arms' && o.slam && isReady('slam') && rage >= cost('slam')) {
-        rage -= cost('slam');
-        ready.set('slam', t + slamCd);
-        rec.entry('slam').casts++;
-        const cast = slamCast / haste;
-        gcdReady = t + Math.max(fx.improvedSlam ? 1 : rules.gcd, cast) + rules.latency;
-        // Sans Heurtoir amélioré, l'incantation retarde le prochain coup blanc.
-        if (!fx.improvedSlam) nextMh = Math.max(nextMh, t + cast + 0.01);
-        advance(cast);
-        if (t <= fightLength + EPS) strike('slam', weaponRoll(mh, d.attackPower) + s('slam').directMin!, 'special');
-        return true;
-      }
-      return false;
+        },
+      },
+      execute: {
+        when: () => !prot && o.execute && t >= executeStart && rage >= cost('execute'),
+        run: () => {
+          const extra = rage - cost('execute');
+          spend('execute');
+          rage = 0;
+          strike('execute', s('execute').directMin! + 15 * extra, 'special');
+          return true;
+        },
+      },
+      bloodthirst: {
+        when: () => spec === 'fury' && fx.bloodthirst && can('bloodthirst'),
+        run: () => {
+          spend('bloodthirst');
+          strike('bloodthirst', s('bloodthirst').directCoeff! * d.attackPower + s('bloodthirst').directMin!, 'special');
+          return true;
+        },
+      },
+      mortalStrike: {
+        when: () => spec !== 'fury' && fx.mortalStrike && can('mortalStrike'),
+        run: () => {
+          spend('mortalStrike');
+          strike('mortalStrike', weaponRoll(mh, d.attackPower) + s('mortalStrike').directMin!, 'special');
+          return true;
+        },
+      },
+      rend: {
+        when: () => spec === 'arms' && o.rend && !dots.has('rend') && can('rend'),
+        run: () => {
+          spend('rend');
+          if (rng() < specialMiss + dodge) rec.entry('rend').misses++;
+          else {
+            rec.entry('rend').hits++;
+            const r = s('rend');
+            dots.set('rend', { ticksLeft: r.dotTicks!, interval: r.dotDuration! / r.dotTicks!, next: t + 3, tick: (r.dotTotal! * (1 + fx.improvedRendPct / 100)) / r.dotTicks! });
+          }
+          return true;
+        },
+      },
+      overpower: {
+        when: () => spec === 'arms' && o.overpower && t < opUntil && can('overpower'),
+        run: () => {
+          spend('overpower');
+          opUntil = -1;
+          strike('overpower', weaponRoll(mh, d.attackPower) + s('overpower').directMin!, 'special', { miss: specialMiss, critBonus: fx.improvedOverpowerPct });
+          return true;
+        },
+      },
+      whirlwind: {
+        when: () => spec === 'fury' && o.whirlwind && can('whirlwind'),
+        run: () => {
+          spend('whirlwind');
+          ready.set('whirlwind', t + (s('whirlwind').cooldown ?? 10) - fx.improvedWhirlwindSec);
+          const ww = 1 + fx.improvedWhirlwindPct / 100;
+          strike('whirlwind', weaponRoll(mh, d.attackPower) * ww, 'special');
+          if (oh) strike('whirlwind', weaponRoll(oh, d.attackPower) * ohMult * ww, 'special');
+          return true;
+        },
+      },
+      slam: {
+        when: () => spec === 'arms' && o.slam && isReady('slam') && rage >= cost('slam'),
+        run: () => {
+          rage -= cost('slam');
+          ready.set('slam', t + slamCd);
+          rec.entry('slam').casts++;
+          const cast = slamCast / haste;
+          gcdReady = t + Math.max(fx.improvedSlam ? 1 : rules.gcd, cast) + rules.latency;
+          // Sans Heurtoir amélioré, l'incantation retarde le prochain coup blanc.
+          if (!fx.improvedSlam) nextMh = Math.max(nextMh, t + cast + 0.01);
+          advance(cast);
+          if (t <= fightLength + EPS) strike('slam', weaponRoll(mh, d.attackPower) + s('slam').directMin!, 'special');
+          return true;
+        },
+      },
     };
+    const act = makePriority(WARRIOR_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => rage, resourceMax: () => 100 });
 
     while (t < fightLength - EPS) {
       // Hors temps de recharge global : Rage sanguinaire, Rage berserker, Frappes téméraires, Souhait mortel, Témérité.

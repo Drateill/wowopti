@@ -1,5 +1,7 @@
 import { PALADIN_DATA, type PaladinOptions, type PaladinRules, type PaladinSeal, type PaladinSpec } from '../data/paladin/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { PALADIN_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -20,6 +22,7 @@ export interface PaladinSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -312,72 +315,94 @@ function simulateMelee(config: PaladinSimConfig): SimResult {
     };
 
     /** Choisit et lance la capacité prioritaire. Renvoie false si rien n'est possible maintenant. */
-    const act = (): boolean => {
-      const wanted: PaladinSeal = openCrusader ? 'crusader' : mainSeal;
-      if (seal !== wanted || t >= sealUntil - EPS) {
-        if (mana < sealCost(wanted)) return false;
-        spend(sealCost(wanted));
-        seal = wanted;
-        sealUntil = t + 30;
-        rec.entry(SEAL_SPELL[wanted]).casts++;
-        return true;
-      }
-      if (useShield && o.holyShield && fx.holyShieldTalent && isReady('holyShield') && mana >= instantCost(sp('holyShield'))) {
-        spend(instantCost(sp('holyShield')));
-        ready.set('holyShield', t + (sp('holyShield').cooldown ?? 10));
-        hsCharges = 4;
-        hsUntil = t + 10;
-        rec.entry('holyShield').casts++;
-        return true;
-      }
-      if ((o.judgement || openCrusader) && isReady('judgement') && mana >= judgementCost && !(seal === 'crusader' && crusaderOn && !openCrusader)) {
-        spend(judgementCost);
-        ready.set('judgement', t + judgementCd);
-        // Jugement sanctifié : une partie du coût du sceau est rendue.
-        if (rng() < fx.sanctifiedChance / 100) mana = Math.min(d.maxMana, mana + (sealCost(seal!) * fx.sanctifiedPct) / 100);
-        if (seal === 'crusader') {
-          crusaderOn = true;
-          openCrusader = false;
-          rec.entry('judgementOfTheCrusader').casts++;
-        } else {
-          const s = sp(JUDGEMENT_SPELL[seal!]);
-          spellRoll(s.id, s.directMin! + rng() * (s.directMax! - s.directMin!) + (s.directCoeff ?? 0) * holyPower(), true);
-        }
-        return true;
-      }
-      if (o.holyStrike && isReady('holyStrike') && mana >= instantCost(sp('holyStrike'))) {
-        spend(instantCost(sp('holyStrike')));
-        ready.set('holyStrike', t + holyStrikeCd);
-        holyStrike();
-        return true;
-      }
-      const how = sp('hammerOfWrath');
-      if (o.hammerOfWrath && t >= executeAt && isReady('hammerOfWrath') && mana >= conduit(how)) {
-        spend(conduit(how));
-        ready.set('hammerOfWrath', t + (how.cooldown ?? 6));
-        spellRoll(how.id, how.directMin! + rng() * (how.directMax! - how.directMin!) + (how.directCoeff ?? 0) * holyPower(), false);
-        gcdReady = t + Math.max(rules.gcd, howCast) + rules.latency;
-        return true;
-      }
-      const exo = sp('exorcism');
-      if (o.exorcism && o.undeadOrDemon && isReady('exorcism') && mana >= conduit(exo)) {
-        spend(conduit(exo));
-        ready.set('exorcism', t + (exo.cooldown ?? 15));
-        spellRoll(exo.id, exo.directMin! + rng() * (exo.directMax! - exo.directMin!) + (exo.directCoeff ?? 0) * holyPower(), false);
-        return true;
-      }
-      const cons = sp('consecration');
+    const wanted = (): PaladinSeal => (openCrusader ? 'crusader' : mainSeal);
+    const how = sp('hammerOfWrath');
+    const exo = sp('exorcism');
+    const cons = sp('consecration');
+    const steps: Record<string, StepImpl<boolean>> = {
+      seal: {
+        when: () => seal !== wanted() || t >= sealUntil - EPS,
+        run: () => {
+          if (mana < sealCost(wanted())) return false;
+          spend(sealCost(wanted()));
+          seal = wanted();
+          sealUntil = t + 30;
+          rec.entry(SEAL_SPELL[wanted()]).casts++;
+          return true;
+        },
+      },
+      holyShield: {
+        when: () => useShield && o.holyShield && fx.holyShieldTalent && isReady('holyShield') && mana >= instantCost(sp('holyShield')),
+        run: () => {
+          spend(instantCost(sp('holyShield')));
+          ready.set('holyShield', t + (sp('holyShield').cooldown ?? 10));
+          hsCharges = 4;
+          hsUntil = t + 10;
+          rec.entry('holyShield').casts++;
+          return true;
+        },
+      },
+      // Il faut un sceau actif pour le juger.
+      judgement: {
+        when: () => !!seal && t < sealUntil && (o.judgement || openCrusader) && isReady('judgement') && mana >= judgementCost && !(seal === 'crusader' && crusaderOn && !openCrusader),
+        run: () => {
+          spend(judgementCost);
+          ready.set('judgement', t + judgementCd);
+          // Jugement sanctifié : une partie du coût du sceau est rendue.
+          if (rng() < fx.sanctifiedChance / 100) mana = Math.min(d.maxMana, mana + (sealCost(seal!) * fx.sanctifiedPct) / 100);
+          if (seal === 'crusader') {
+            crusaderOn = true;
+            openCrusader = false;
+            rec.entry('judgementOfTheCrusader').casts++;
+          } else {
+            const s = sp(JUDGEMENT_SPELL[seal!]);
+            spellRoll(s.id, s.directMin! + rng() * (s.directMax! - s.directMin!) + (s.directCoeff ?? 0) * holyPower(), true);
+          }
+          return true;
+        },
+      },
+      holyStrike: {
+        when: () => o.holyStrike && isReady('holyStrike') && mana >= instantCost(sp('holyStrike')),
+        run: () => {
+          spend(instantCost(sp('holyStrike')));
+          ready.set('holyStrike', t + holyStrikeCd);
+          holyStrike();
+          return true;
+        },
+      },
+      hammerOfWrath: {
+        when: () => o.hammerOfWrath && t >= executeAt && isReady('hammerOfWrath') && mana >= conduit(how),
+        run: () => {
+          spend(conduit(how));
+          ready.set('hammerOfWrath', t + (how.cooldown ?? 6));
+          spellRoll(how.id, how.directMin! + rng() * (how.directMax! - how.directMin!) + (how.directCoeff ?? 0) * holyPower(), false);
+          gcdReady = t + Math.max(rules.gcd, howCast) + rules.latency;
+          return true;
+        },
+      },
+      exorcism: {
+        when: () => o.exorcism && o.undeadOrDemon && isReady('exorcism') && mana >= conduit(exo),
+        run: () => {
+          spend(conduit(exo));
+          ready.set('exorcism', t + (exo.cooldown ?? 15));
+          spellRoll(exo.id, exo.directMin! + rng() * (exo.directMax! - exo.directMin!) + (exo.directCoeff ?? 0) * holyPower(), false);
+          return true;
+        },
+      },
       // On garde de quoi relancer le sceau.
-      if (o.consecration && isReady('consecration') && mana >= conduit(cons) + sealCost(mainSeal)) {
-        spend(conduit(cons));
-        ready.set('consecration', t + (cons.cooldown ?? 8));
-        rec.entry('consecration').casts++;
-        const total = cons.dotTotal! + (cons.dotCoeff ?? 0) * holyPower();
-        for (let i = 1; i <= cons.dotTicks!; i++) consTicks.push({ at: t + (i * cons.dotDuration!) / cons.dotTicks!, base: total / cons.dotTicks! });
-        return true;
-      }
-      return false;
+      consecration: {
+        when: () => o.consecration && isReady('consecration') && mana >= conduit(cons) + sealCost(mainSeal),
+        run: () => {
+          spend(conduit(cons));
+          ready.set('consecration', t + (cons.cooldown ?? 8));
+          rec.entry('consecration').casts++;
+          const total = cons.dotTotal! + (cons.dotCoeff ?? 0) * holyPower();
+          for (let i = 1; i <= cons.dotTicks!; i++) consTicks.push({ at: t + (i * cons.dotDuration!) / cons.dotTicks!, base: total / cons.dotTicks! });
+          return true;
+        },
+      },
     };
+    const act = makePriority(PALADIN_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
     const bossSwing = () => {
       outcome.swings++;

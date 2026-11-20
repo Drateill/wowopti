@@ -1,6 +1,8 @@
 import { ROGUE_DATA, type RogueOptions, type RogueRules, type RogueSpec } from '../data/rogue/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { ROGUE_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -22,6 +24,7 @@ export interface RogueSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -315,36 +318,47 @@ export function simulateRogue(config: RogueSimConfig): SimResult {
       return true;
     };
 
-    const act = (): boolean => {
+    const finisherAt = Math.max(1, Math.min(5, o.finisherCp));
+    const steps: Record<string, StepImpl<boolean>> = {
       // Surin : main gauche, rend de l'énergie (L'éclat de l'acier) et des points de combo (Couteau de jet).
-      if (o.shank && oh && isReady('shank') && energy >= sp('shank').manaCost) {
-        spend(sp('shank').manaCost);
-        ready.set('shank', t + shankCd);
-        rec.entry('shank').casts++;
-        const r = strike('shank', weaponRoll(oh, d.attackPower) * sp('shank').directCoeff!, 'special', { canMiss: false });
-        gain(25 + fx.flashOfSteelEnergy);
-        if (fx.venom) venomUntil = t + 6;
-        if (r.dmg > 0) poison('oh');
-        if (fx.bootKnifeChance && rng() < fx.bootKnifeChance / 100) addCp(2);
-        return true;
-      }
-      if (o.sliceAndDice && t >= sndUntil - 1 && cp >= 1 && (cp >= 2 || t >= sndUntil) && energy >= sp('sliceAndDice').manaCost) {
-        spend(sp('sliceAndDice').manaCost);
-        rec.entry('sliceAndDice').casts++;
-        sndUntil = t + (9 + 3 * (cp - 1)) * (1 + fx.improvedSndPct / 100);
-        finish(cp);
-        return true;
-      }
-      if (o.bladeFlurry && fx.bladeFlurry && isReady('bladeFlurry') && energy >= 25) {
-        spend(25);
-        bfUntil = t + 15;
-        ready.set('bladeFlurry', t + 120);
-        rec.entry('bladeFlurry').casts++;
-        return true;
-      }
-      if (cp >= Math.max(1, Math.min(5, o.finisherCp))) {
-        const rup = sp('rupture');
-        if (o.rupture && !dots.has('rupture') && energy >= rup.manaCost) {
+      shank: {
+        when: () => o.shank && !!oh && isReady('shank') && energy >= sp('shank').manaCost,
+        run: () => {
+          spend(sp('shank').manaCost);
+          ready.set('shank', t + shankCd);
+          rec.entry('shank').casts++;
+          const r = strike('shank', weaponRoll(oh!, d.attackPower) * sp('shank').directCoeff!, 'special', { canMiss: false });
+          gain(25 + fx.flashOfSteelEnergy);
+          if (fx.venom) venomUntil = t + 6;
+          if (r.dmg > 0) poison('oh');
+          if (fx.bootKnifeChance && rng() < fx.bootKnifeChance / 100) addCp(2);
+          return true;
+        },
+      },
+      sliceAndDice: {
+        when: () => o.sliceAndDice && t >= sndUntil - 1 && cp >= 1 && (cp >= 2 || t >= sndUntil) && energy >= sp('sliceAndDice').manaCost,
+        run: () => {
+          spend(sp('sliceAndDice').manaCost);
+          rec.entry('sliceAndDice').casts++;
+          sndUntil = t + (9 + 3 * (cp - 1)) * (1 + fx.improvedSndPct / 100);
+          finish(cp);
+          return true;
+        },
+      },
+      bladeFlurry: {
+        when: () => o.bladeFlurry && !!fx.bladeFlurry && isReady('bladeFlurry') && energy >= 25,
+        run: () => {
+          spend(25);
+          bfUntil = t + 15;
+          ready.set('bladeFlurry', t + 120);
+          rec.entry('bladeFlurry').casts++;
+          return true;
+        },
+      },
+      rupture: {
+        when: () => cp >= finisherAt && o.rupture && !dots.has('rupture') && energy >= sp('rupture').manaCost,
+        run: () => {
+          const rup = sp('rupture');
           spend(rup.manaCost);
           rec.entry('rupture').casts++;
           if (rng() < specialMiss + dodge) rec.entry('rupture').misses++;
@@ -357,8 +371,11 @@ export function simulateRogue(config: RogueSimConfig): SimResult {
           }
           finish(cp);
           return true;
-        }
-        if (energy >= eviscerateCost) {
+        },
+      },
+      eviscerate: {
+        when: () => cp >= finisherAt && energy >= eviscerateCost,
+        run: () => {
           spend(eviscerateCost);
           const s = sp('eviscerate');
           rec.entry('eviscerate').casts++;
@@ -368,11 +385,13 @@ export function simulateRogue(config: RogueSimConfig): SimResult {
           strike('eviscerate', base * (1 + fx.coupDeGracePct / 100) * (1 + fx.aggressionPct / 100), 'special', { critBonus: cb });
           finish(cp);
           return true;
-        }
-        return false;
-      }
-      return useBuilder();
+        },
+      },
+      // Assez de points de combo mais pas assez d'énergie pour finir : on attend au lieu de générer.
+      pool: { when: () => cp >= finisherAt, run: () => false },
+      builder: { when: () => true, run: () => useBuilder() },
     };
+    const act = makePriority(ROGUE_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => energy, resourceMax: () => d.maxEnergy, combo: () => cp });
 
     while (t < fightLength - EPS) {
       if (o.adrenalineRush && fx.adrenalineRush && isReady('adrenalineRush')) {

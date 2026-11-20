@@ -1,6 +1,8 @@
 import { DRUID_DATA, type DruidOptions, type DruidRules, type DruidSpec } from '../data/druid/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { DRUID_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -20,6 +22,7 @@ export interface DruidSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -245,16 +248,19 @@ function simulateBalance(config: DruidSimConfig): SimResult {
       }
     };
 
+    const balanceFiller = () =>
+      o.filler === 'wrath' || (o.filler === 'eclipse' && fx.eclipseSec > 0 && (eclipseCharges === 0 || t >= eclipseUntil)) ? sp('wrath') : sp('starfire');
+    const balanceSteps: Record<string, StepImpl<SpellDef>> = {
+      moonfire: { when: () => o.moonfire && !dots.has('moonfire') && fightLength - t > 6, run: () => sp('moonfire') },
+      insectSwarm: { when: () => o.insectSwarm && fx.insectSwarm && !dots.has('insectSwarm') && fightLength - t > 6, run: () => sp('insectSwarm') },
+      filler: { when: () => true, run: balanceFiller },
+    };
+    const pickBalance = makePriority(DRUID_STEPS.balance, balanceSteps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const chooseBalance = (): SpellDef => pickBalance() ?? balanceFiller();
+
     while (t < fightLength - EPS) {
       mana += mm.cooldowns(t, mana, rng);
-      const remaining = fightLength - t;
-      const mf = sp('moonfire');
-      const is = sp('insectSwarm');
-      let s: SpellDef;
-      if (o.moonfire && !dots.has('moonfire') && remaining > 6) s = mf;
-      else if (o.insectSwarm && fx.insectSwarm && !dots.has('insectSwarm') && remaining > 6) s = is;
-      else if (o.filler === 'wrath' || (o.filler === 'eclipse' && fx.eclipseSec > 0 && (eclipseCharges === 0 || t >= eclipseUntil))) s = sp('wrath');
-      else s = sp('starfire');
+      const s = chooseBalance();
       const free = clearcast && s.id !== 'wrath';
       if (!free && mana < cost(s)) {
         if (oomAt === fightLength) oomAt = t;
@@ -581,10 +587,11 @@ function simulateFeral(config: DruidSimConfig): SimResult {
     };
     const canPay = (id: string) => clearcast || resource >= costOf(id);
 
-    const catAct = (): boolean => {
-      const remaining = fightLength - t;
-      if (cp >= 5) {
-        if (o.rip && !bleeds.has('rip') && remaining >= 10 && canPay('rip')) {
+    const catBuilder = () => (o.behind ? 'shred' : 'claw');
+    const catSteps: Record<string, StepImpl<boolean>> = {
+      rip: {
+        when: () => cp >= 5 && o.rip && !bleeds.has('rip') && fightLength - t >= 10 && canPay('rip'),
+        run: () => {
           pay('rip');
           const r = special('rip');
           if (r) {
@@ -594,8 +601,11 @@ function simulateFeral(config: DruidSimConfig): SimResult {
             cp = 0;
           }
           return true;
-        }
-        if (o.ferociousBite && canPay('ferociousBite')) {
+        },
+      },
+      ferociousBite: {
+        when: () => cp >= 5 && o.ferociousBite && canPay('ferociousBite'),
+        run: () => {
           const free = clearcast;
           pay('ferociousBite');
           const r = special('ferociousBite');
@@ -609,65 +619,81 @@ function simulateFeral(config: DruidSimConfig): SimResult {
             cp = 0;
           }
           return true;
-        }
-        if (o.rip || o.ferociousBite) return false; // on attend l'énergie pour le coup de grâce
-      }
-      if (o.rake && !bleeds.has('rake') && remaining >= 9 && canPay('rake')) {
-        pay('rake');
-        const r = special('rake');
-        if (r) {
-          const s = sp('rake');
-          record('rake', s.directMin! * abilityMult() * (1 + fx.savageFuryPct / 100) * Math.abs(r));
-          bleeds.set('rake', { ticksLeft: s.dotTicks!, next: t + s.dotDuration! / s.dotTicks!, interval: s.dotDuration! / s.dotTicks!, tick: (s.dotTotal! / s.dotTicks!) * physBuff * (1 + fx.savageFuryPct / 100) });
-          cp = Math.min(5, cp + 1 + (r < 0 && rng() < fx.bloodFrenzyCpChance / 100 ? 1 : 0));
-        }
-        return true;
-      }
-      const builder = o.behind ? 'shred' : 'claw';
-      if (canPay(builder)) {
-        pay(builder);
-        const r = special(builder);
-        if (r) {
-          const s = sp(builder);
-          const dmg = (whiteBase() * (s.directCoeff ?? 1) + s.directMin!) * abilityMult() * (1 + fx.savageFuryPct / 100) * armorMult * Math.abs(r);
-          record(builder, dmg);
-          cp = Math.min(5, cp + 1 + (r < 0 && rng() < fx.bloodFrenzyCpChance / 100 ? 1 : 0));
-        }
-        return true;
-      }
-      return false;
+        },
+      },
+      // Cinq points de combo sans assez d'énergie pour finir : on attend l'énergie pour le coup de grâce.
+      pool: { when: () => cp >= 5 && (o.rip || o.ferociousBite), run: () => false },
+      rake: {
+        when: () => o.rake && !bleeds.has('rake') && fightLength - t >= 9 && canPay('rake'),
+        run: () => {
+          pay('rake');
+          const r = special('rake');
+          if (r) {
+            const s = sp('rake');
+            record('rake', s.directMin! * abilityMult() * (1 + fx.savageFuryPct / 100) * Math.abs(r));
+            bleeds.set('rake', { ticksLeft: s.dotTicks!, next: t + s.dotDuration! / s.dotTicks!, interval: s.dotDuration! / s.dotTicks!, tick: (s.dotTotal! / s.dotTicks!) * physBuff * (1 + fx.savageFuryPct / 100) });
+            cp = Math.min(5, cp + 1 + (r < 0 && rng() < fx.bloodFrenzyCpChance / 100 ? 1 : 0));
+          }
+          return true;
+        },
+      },
+      builder: {
+        when: () => canPay(catBuilder()),
+        run: () => {
+          const builder = catBuilder();
+          pay(builder);
+          const r = special(builder);
+          if (r) {
+            const s = sp(builder);
+            const dmg = (whiteBase() * (s.directCoeff ?? 1) + s.directMin!) * abilityMult() * (1 + fx.savageFuryPct / 100) * armorMult * Math.abs(r);
+            record(builder, dmg);
+            cp = Math.min(5, cp + 1 + (r < 0 && rng() < fx.bloodFrenzyCpChance / 100 ? 1 : 0));
+          }
+          return true;
+        },
+      },
     };
+    const catAct = makePriority(DRUID_STEPS.cat, catSteps, config.priority, { time: () => t, fightLength, resource: () => resource, resourceMax: () => 100, combo: () => cp });
 
-    const bearAct = (): boolean => {
-      if (o.primalBite && fx.primalBite && t >= primalReady && canPay('primalBite')) {
-        pay('primalBite');
-        primalReady = t + (sp('primalBite').cooldown ?? 6);
-        const r = special('primalBite');
-        if (r) {
-          const s = sp('primalBite');
-          record('primalBite', (whiteBase() * (s.directCoeff ?? 1) + s.directMin!) * abilityMult() * armorMult * Math.abs(r), 2);
-        }
-        return true;
-      }
-      if (o.lacerate && fx.lacerate && (lacerateStacks < 5 || lacerateUntil - t < 4) && canPay('lacerate')) {
-        pay('lacerate');
-        const r = special('lacerate');
-        if (r) {
-          lacerateStacks = Math.min(5, (t < lacerateUntil ? lacerateStacks : 0) + 1);
-          lacerateUntil = t + sp('lacerate').dotDuration!;
-          if (nextLacerateTick === Infinity) nextLacerateTick = t + 3;
-          record('lacerate', 0, 1.5);
-        }
-        return true;
-      }
-      if (o.swipe && resource >= costOf('swipe') + o.maulRage) {
-        pay('swipe');
-        const r = special('swipe');
-        if (r) record('swipe', sp('swipe').directMin! * (1 + fx.feralInstinctPct / 100) * (1 + fx.savageFuryPct / 100) * abilityMult() * armorMult * Math.abs(r), 1.75);
-        return true;
-      }
-      return false;
+    const bearSteps: Record<string, StepImpl<boolean>> = {
+      primalBite: {
+        when: () => o.primalBite && fx.primalBite && t >= primalReady && canPay('primalBite'),
+        run: () => {
+          pay('primalBite');
+          primalReady = t + (sp('primalBite').cooldown ?? 6);
+          const r = special('primalBite');
+          if (r) {
+            const s = sp('primalBite');
+            record('primalBite', (whiteBase() * (s.directCoeff ?? 1) + s.directMin!) * abilityMult() * armorMult * Math.abs(r), 2);
+          }
+          return true;
+        },
+      },
+      lacerate: {
+        when: () => o.lacerate && fx.lacerate && (lacerateStacks < 5 || lacerateUntil - t < 4) && canPay('lacerate'),
+        run: () => {
+          pay('lacerate');
+          const r = special('lacerate');
+          if (r) {
+            lacerateStacks = Math.min(5, (t < lacerateUntil ? lacerateStacks : 0) + 1);
+            lacerateUntil = t + sp('lacerate').dotDuration!;
+            if (nextLacerateTick === Infinity) nextLacerateTick = t + 3;
+            record('lacerate', 0, 1.5);
+          }
+          return true;
+        },
+      },
+      swipe: {
+        when: () => o.swipe && resource >= costOf('swipe') + o.maulRage,
+        run: () => {
+          pay('swipe');
+          const r = special('swipe');
+          if (r) record('swipe', sp('swipe').directMin! * (1 + fx.feralInstinctPct / 100) * (1 + fx.savageFuryPct / 100) * abilityMult() * armorMult * Math.abs(r), 1.75);
+          return true;
+        },
+      },
     };
+    const bearAct = makePriority(DRUID_STEPS.bear, bearSteps, config.priority, { time: () => t, fightLength, resource: () => resource, resourceMax: () => 100 });
 
     const bossSwing = () => {
       outcome.swings++;

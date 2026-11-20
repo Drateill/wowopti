@@ -1,6 +1,8 @@
 import { SHAMAN_DATA, type ShamanOptions, type ShamanRules, type ShamanSpec } from '../data/shaman/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { SHAMAN_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -21,6 +23,7 @@ export interface ShamanSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -374,30 +377,34 @@ export function simulateShaman(config: ShamanSimConfig): SimResult {
       return true;
     };
 
-    const actDps = (): boolean => {
-      if (melee) {
-        if (o.stormstrike && fx.stormstrike && isReady('stormstrike') && mana >= baseCost(sp('stormstrike'))) {
+    const orUndef = (done: boolean) => (done ? true : undefined);
+    const steps: Record<string, StepImpl<boolean>> = {
+      stormstrike: {
+        when: () => melee && o.stormstrike && fx.stormstrike && isReady('stormstrike') && mana >= baseCost(sp('stormstrike')),
+        run: () => {
           pay(sp('stormstrike'));
           cast(sp('stormstrike'), 0);
           meleeHit('stormstrike', weaponRoll(ap), false);
           stormUntil = t + 12;
           if (fx.improvedStormstrikeRegen) improvedSsUntil = t + 15;
           return true;
-        }
-        if (o.maelstromBolt && maelstrom >= 5) {
+        },
+      },
+      maelstromBolt: {
+        when: () => melee && o.maelstromBolt && maelstrom >= 5,
+        run: () => {
           const stacks = maelstrom;
           maelstrom = 0;
           return lightning('lightningBolt', false, stacks);
-        }
-        if (shock()) return true;
-        if (totem()) return true;
-        return false;
-      }
-      if (o.chainLightning && isReady('chainLightning') && lightning('chainLightning', false)) return true;
-      if (shock()) return true;
-      if (totem()) return true;
-      return lightning('lightningBolt', false);
+        },
+      },
+      chainLightning: { when: () => !melee && o.chainLightning && isReady('chainLightning'), run: () => orUndef(lightning('chainLightning', false)) },
+      shock: { when: () => true, run: () => orUndef(shock()) },
+      searingTotem: { when: () => true, run: () => orUndef(totem()) },
+      lightningBolt: { when: () => !melee, run: () => lightning('lightningBolt', false) },
     };
+    const pick = makePriority(SHAMAN_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const actDps = (): boolean => pick() ?? false;
 
     // Soins
     const healCrit = (bonus = 0) => (d.spellCritPct + fx.tidalMasteryPct + bonus) / 100;

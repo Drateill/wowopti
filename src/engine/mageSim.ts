@@ -1,6 +1,8 @@
 import { FROSTFIRE, MAGE_DATA, type MageOptions, type MageRules, type MageSpec } from '../data/mage/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats } from '../data/types';
 import { createRng } from './rng';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { MAGE_STEPS } from './rotationSteps';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
 
@@ -19,6 +21,7 @@ export interface MageSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -257,29 +260,25 @@ export function simulateMage(config: MageSimConfig): SimResult {
       }
     };
 
-    const choose = (): SpellDef => {
-      const filler = sp(o.filler);
-      if (spec === 'frost') {
-        if (o.iceBarrier && fx.iceBarrier && t >= barrierUntil - 1 && isReady('iceBarrier')) return sp('iceBarrier');
-        if (o.iceLance && fx.iceLance && fofCharges > 0 && t < fofUntil && isReady('iceLance')) return sp('iceLance');
-        return filler;
-      }
-      if (spec === 'fire') {
-        if (o.scorch && fx.scorchChance && (scorchStacks < 5 || scorchUntil - t < 6)) return sp('scorch');
-        if (o.pyroblast && fx.pyroblast && heating >= 3 && t < heatingUntil) return sp('pyroblast');
-        if (o.fireBlast && isReady('fireBlast')) return sp('fireBlast');
-        return o.filler === 'frostbolt' ? sp('fireball') : filler;
-      }
-      // Arcanes
-      if (o.arcaneWrath && fx.arcaneWrath && isReady('arcaneWrath')) return sp('arcaneWrath');
-      if (barrage) return sp('arcaneMissiles');
-      if (fx.arcaneBlast) {
-        const stacks = t < abUntil ? abStacks : 0;
-        if (stacks < o.arcaneBlastStacks || mana > (o.arcaneBlastManaFloor / 100) * d.maxMana) return sp('arcaneBlast');
-        return sp('arcaneMissiles');
-      }
-      return filler;
+    const filler = () => (spec === 'fire' && o.filler === 'frostbolt' ? sp('fireball') : sp(o.filler));
+    const abStacksNow = () => (t < abUntil ? abStacks : 0);
+    const steps: Record<string, StepImpl<SpellDef>> = {
+      iceBarrier: { when: () => o.iceBarrier && !!fx.iceBarrier && t >= barrierUntil - 1 && isReady('iceBarrier'), run: () => sp('iceBarrier') },
+      iceLance: { when: () => o.iceLance && !!fx.iceLance && fofCharges > 0 && t < fofUntil && isReady('iceLance'), run: () => sp('iceLance') },
+      scorch: { when: () => o.scorch && !!fx.scorchChance && (scorchStacks < 5 || scorchUntil - t < 6), run: () => sp('scorch') },
+      pyroblast: { when: () => o.pyroblast && !!fx.pyroblast && heating >= 3 && t < heatingUntil, run: () => sp('pyroblast') },
+      fireBlast: { when: () => o.fireBlast && isReady('fireBlast'), run: () => sp('fireBlast') },
+      arcaneWrath: { when: () => o.arcaneWrath && !!fx.arcaneWrath && isReady('arcaneWrath'), run: () => sp('arcaneWrath') },
+      missileBarrage: { when: () => barrage, run: () => sp('arcaneMissiles') },
+      arcaneBlast: {
+        when: () => !!fx.arcaneBlast && (abStacksNow() < o.arcaneBlastStacks || mana > (o.arcaneBlastManaFloor / 100) * d.maxMana),
+        run: () => sp('arcaneBlast'),
+      },
+      arcaneMissiles: { when: () => !!fx.arcaneBlast, run: () => sp('arcaneMissiles') },
+      filler: { when: () => true, run: filler },
     };
+    const pick = makePriority(MAGE_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const choose = (): SpellDef => pick() ?? filler();
 
     while (t < fightLength - EPS) {
       // Hors temps de recharge global : temps forts, Évocation, potion.

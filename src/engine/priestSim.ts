@@ -1,6 +1,8 @@
 import { PRIEST_DATA, type PriestOptions, type PriestRules, type PriestSpec } from '../data/priest/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats } from '../data/types';
 import { createRng } from './rng';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { PRIEST_STEPS } from './rotationSteps';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
 
@@ -19,6 +21,7 @@ export interface PriestSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -214,14 +217,17 @@ function simulateShadow(config: PriestSimConfig): SimResult {
       }
     };
 
-    const choose = (): SpellDef | null => {
-      if (o.vampiricEmbrace && fx.vampiricEmbrace && t >= veUntil && isReady('vampiricEmbrace')) return sp('vampiricEmbrace');
-      if (!dots.has('shadowWordPain')) return sp('shadowWordPain');
-      if (o.devouringPlague && isReady('devouringPlague')) return sp('devouringPlague');
-      if (o.mindBlast && isReady('mindBlast')) return sp('mindBlast');
-      if (o.shadowWordDeath && isReady('shadowWordDeath')) return sp('shadowWordDeath');
-      return fx.mindFlay ? sp('mindFlay') : sp('smite');
+    const filler = () => (fx.mindFlay ? sp('mindFlay') : sp('smite'));
+    const steps: Record<string, StepImpl<SpellDef>> = {
+      vampiricEmbrace: { when: () => o.vampiricEmbrace && !!fx.vampiricEmbrace && t >= veUntil && isReady('vampiricEmbrace'), run: () => sp('vampiricEmbrace') },
+      shadowWordPain: { when: () => !dots.has('shadowWordPain'), run: () => sp('shadowWordPain') },
+      devouringPlague: { when: () => o.devouringPlague && isReady('devouringPlague'), run: () => sp('devouringPlague') },
+      mindBlast: { when: () => o.mindBlast && isReady('mindBlast'), run: () => sp('mindBlast') },
+      shadowWordDeath: { when: () => o.shadowWordDeath && isReady('shadowWordDeath'), run: () => sp('shadowWordDeath') },
+      filler: { when: () => true, run: filler },
     };
+    const pick = makePriority(PRIEST_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const choose = (): SpellDef => pick() ?? filler();
 
     while (t < fightLength - EPS) {
       if (o.powerInfusion && fx.powerInfusion && isReady('powerInfusion')) {

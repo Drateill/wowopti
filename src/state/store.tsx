@@ -19,6 +19,7 @@ import type { RogueSimConfig } from '../engine/rogueSim';
 import type { ShamanSimConfig } from '../engine/shamanSim';
 import type { WarriorSimConfig } from '../engine/warriorSim';
 import type { PaladinSimConfig } from '../engine/paladinSim';
+import type { PriorityList } from '../engine/priority';
 import type { StatWeight } from '../engine/simTypes';
 import { pointsInTree, type TalentPoints } from '../engine/talents';
 import type { RaidBuffs, RotationOptions, SimConfig } from '../engine/warlockSim';
@@ -79,9 +80,11 @@ export interface ProfileData {
   targets: number;
   /** Part du combat passée à se déplacer, en %. */
   movementPct: number;
+  /** Rotation personnalisée, par spécialisation (ordre, étapes désactivées, conditions). */
+  priority: Partial<Record<string, PriorityList>>;
 }
 
-export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'rog', 'war', 'sha', 'fightLength', 'targets', 'movementPct'];
+export const PROFILE_KEYS: (keyof ProfileData)[] = ['spec', 'talents', 'equipped', 'enchants', 'consumables', 'extraStats', 'rotation', 'buffs', 'pal', 'dru', 'mage', 'pri', 'hun', 'rog', 'war', 'sha', 'fightLength', 'targets', 'movementPct', 'priority'];
 
 export interface Profile {
   id: string;
@@ -223,6 +226,7 @@ export function defaultState(classId: ClassId): AppState {
     fightLength: 180,
     targets: 1,
     movementPct: 0,
+    priority: {},
     iterations: 2000,
     rules: cls.defaultRules,
     spells: cls.spells,
@@ -269,6 +273,7 @@ export function migrate(parsed: Partial<Omit<AppState, 'version'>> & { version?:
     rog: { ...base.rog, ...d.rog },
     war: { ...base.war, ...d.war },
     sha: { ...base.sha, ...d.sha },
+    priority: { ...d.priority },
   });
   return {
     ...base,
@@ -415,7 +420,7 @@ export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): A
   const { stats, mods, weapon, rangedWeapon, offHandWeapon, shield } = computeGear(state);
   const healer = CLASS_BY_ID[state.classId].specs.find((s) => s.id === state.spec)?.metric === 'hps';
   const fight = { targets: state.targets ?? 1, movementPct: state.movementPct ?? 0, healer };
-  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight };
+  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight, priority: state.priority?.[state.spec] };
   // Main gauche : l'arme portée ; si aucune main n'est équipée, le simulateur prend ses armes par défaut.
   const offHand = offHandWeapon ?? (state.equipped.offHand || state.equipped.mainHand ? null : undefined);
   if (state.classId === 'rogue') {

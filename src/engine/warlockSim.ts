@@ -2,6 +2,8 @@ import { emptyMods, type GameRules, type SimModifiers, type SpellDef, type Stats
 import { LIFE_TAP_BASE } from '../data/warlock/spells';
 import { TALENT_BY_KEY, talentValue } from '../data/warlock/talents';
 import { createRng } from './rng';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { WARLOCK_STEPS } from './rotationSteps';
 import type { SimResult, SpellBreakdown, StatWeight } from './simTypes';
 
 export type { SimResult, SpellBreakdown, StatWeight };
@@ -43,6 +45,8 @@ export interface SimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  /** Rotation personnalisée (ordre, étapes désactivées, conditions). */
+  priority?: PriorityList;
 }
 
 /** Sorts accélérés par Calvaire et améliorés par Pandémie. */
@@ -312,25 +316,26 @@ export function simulate(config: SimConfig): SimResult {
     const worthDot = (s: SpellDef) => remaining() >= (s.dotDuration ?? 0) / 3;
     const baneActive = () => dots.has('baneOfAgony') || doomAt > t;
 
-    const chooseSpell = (): SpellDef => {
-      const doom = get('baneOfDoom');
-      if (rotation.bane === 'doom' && !baneActive() && ready('baneOfDoom') && remaining() >= (doom.delayedAfter ?? 60)) return doom;
-      const agony = get('baneOfAgony');
-      if (rotation.bane !== 'none' && !baneActive() && worthDot(agony)) return agony;
-      const corr = get('corruption');
-      if (rotation.corruption && dotLeft('corruption') <= castTime(corr) && worthDot(corr)) return corr;
-      const siphon = get('siphonLife');
-      if (rotation.siphonLife && has('siphonLife') && !dots.has('siphonLife') && worthDot(siphon)) return siphon;
-      const imm = get('immolate');
-      const needImmolate = rotation.immolate || rotation.conflagrate || rotation.filler === 'incinerate';
-      if (needImmolate && dotLeft('immolate') <= castTime(imm) && worthDot(imm)) return imm;
-      if (rotation.conflagrate && has('conflagrate') && ready('conflagrate') && dots.has('immolate')) return get('conflagrate');
-      if (rotation.wrack && has('wrack') && dots.has('corruption') && (rotation.bane !== 'agony' || dots.has('baneOfAgony')) && remaining() >= 3)
-        return get('wrack');
-      if (shadowTrance) return get('shadowBolt');
-      if (rotation.filler === 'incinerate' && !has('incinerate')) return get('shadowBolt');
-      return get(rotation.filler);
+    const steps: Record<string, StepImpl<SpellDef>> = {
+      baneOfDoom: { when: () => rotation.bane === 'doom' && !baneActive() && ready('baneOfDoom') && remaining() >= (get('baneOfDoom').delayedAfter ?? 60), run: () => get('baneOfDoom') },
+      baneOfAgony: { when: () => rotation.bane !== 'none' && !baneActive() && worthDot(get('baneOfAgony')), run: () => get('baneOfAgony') },
+      corruption: { when: () => rotation.corruption && dotLeft('corruption') <= castTime(get('corruption')) && worthDot(get('corruption')), run: () => get('corruption') },
+      siphonLife: { when: () => rotation.siphonLife && has('siphonLife') && !dots.has('siphonLife') && worthDot(get('siphonLife')), run: () => get('siphonLife') },
+      immolate: {
+        when: () => (rotation.immolate || rotation.conflagrate || rotation.filler === 'incinerate') && dotLeft('immolate') <= castTime(get('immolate')) && worthDot(get('immolate')),
+        run: () => get('immolate'),
+      },
+      conflagrate: { when: () => rotation.conflagrate && has('conflagrate') && ready('conflagrate') && dots.has('immolate'), run: () => get('conflagrate') },
+      wrack: {
+        when: () => rotation.wrack && has('wrack') && dots.has('corruption') && (rotation.bane !== 'agony' || dots.has('baneOfAgony')) && remaining() >= 3,
+        run: () => get('wrack'),
+      },
+      shadowTrance: { when: () => shadowTrance, run: () => get('shadowBolt') },
+      filler: { when: () => true, run: () => filler() },
     };
+    const filler = () => (rotation.filler === 'incinerate' && !has('incinerate') ? get('shadowBolt') : get(rotation.filler));
+    const pick = makePriority(WARLOCK_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => derived.maxMana });
+    const chooseSpell = (): SpellDef => pick() ?? filler();
 
     const resolveDirect = (s: SpellDef) => {
       const tot = totals.get(s.id)!;

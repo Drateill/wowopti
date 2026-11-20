@@ -16,6 +16,7 @@ import { effectivePet, type RotationOptions } from '../engine/warlockSim';
 import { useI18n, type TKey } from '../i18n';
 import { buildConfig, computeGear, useStore } from '../state/store';
 import { Calibration } from './Calibration';
+import { RotationEditor } from './RotationEditor';
 import { Icon, NumberField, Progress } from './ui';
 
 const axis = { stroke: '#9a92a8', fontSize: 11 };
@@ -72,6 +73,7 @@ export function SimPanel() {
         </div>
         <p className="small muted">{t('fightTypeHelp')}</p>
         {cls.id === 'paladin' ? <PaladinOptionsPanel /> : cls.id === 'druid' ? <DruidOptionsPanel /> : cls.id === 'mage' ? <MageOptionsPanel /> : cls.id === 'priest' ? <PriestOptionsPanel /> : cls.id === 'hunter' ? <HunterOptionsPanel /> : cls.id === 'rogue' ? <RogueOptionsPanel /> : cls.id === 'warrior' ? <WarriorOptionsPanel /> : cls.id === 'shaman' ? <ShamanOptionsPanel /> : <WarlockOptions />}
+        <RotationEditor />
         <p className="small muted">{t('buffsElsewhere')}</p>
         <button className="btn" onClick={run} disabled={running}>{running ? t('simulating') : t('runSim')}</button>
         {error && <p className="bad small">{error}</p>}

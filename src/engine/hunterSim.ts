@@ -1,6 +1,8 @@
 import { HUNTER_DATA, type HunterOptions, type HunterRules, type HunterSpec } from '../data/hunter/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
+import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { HUNTER_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -24,6 +26,7 @@ export interface HunterSimConfig {
   fightLength: number;
   iterations: number;
   seed: number;
+  priority?: PriorityList;
 }
 
 const EPS = 1e-9;
@@ -306,21 +309,30 @@ export function simulateHunter(config: HunterSimConfig): SimResult {
       attack(s.id, dmg, 'ranged');
     };
 
-    /** Choisit et lance la prochaine technique sous temps de recharge global ; renvoie false s'il n'y a rien à faire. */
-    const act = (): boolean => {
-      const sting = sp('serpentSting');
-      if (o.serpentSting && !dots.has('serpentSting') && affordable(sting)) {
-        use(sting);
-        if (rng() >= miss) {
-          rec.entry('serpentSting').hits++;
-          const total = (sting.dotTotal! + (sting.dotCoeff ?? 0) * d.rangedAp) * (1 + fx.improvedStingsPct / 100);
-          dots.set('serpentSting', { ticksLeft: sting.dotTicks!, interval: sting.dotDuration! / sting.dotTicks!, next: t + sting.dotDuration! / sting.dotTicks!, tick: total / sting.dotTicks! });
-        } else rec.entry('serpentSting').misses++;
-        return true;
-      }
-      if (melee) {
-        const mb = sp('mongooseBite');
-        if (o.mongooseBite && t < mongooseUntil && isReady('mongooseBite') && affordable(mb)) {
+    // Choisit et lance la prochaine technique sous temps de recharge global ; renvoie un résultat faux s'il n'y a rien à faire.
+    const sting = sp('serpentSting');
+    const mb = sp('mongooseBite');
+    const sk = sp('striderKick');
+    const rs = sp('raptorStrike');
+    const hawk = sp('summonHawk');
+    const sniper = sp('sniperShot');
+    const arcane = sp('arcaneShot');
+    const steps: Record<string, StepImpl<boolean>> = {
+      serpentSting: {
+        when: () => o.serpentSting && !dots.has('serpentSting') && affordable(sting),
+        run: () => {
+          use(sting);
+          if (rng() >= miss) {
+            rec.entry('serpentSting').hits++;
+            const total = (sting.dotTotal! + (sting.dotCoeff ?? 0) * d.rangedAp) * (1 + fx.improvedStingsPct / 100);
+            dots.set('serpentSting', { ticksLeft: sting.dotTicks!, interval: sting.dotDuration! / sting.dotTicks!, next: t + sting.dotDuration! / sting.dotTicks!, tick: total / sting.dotTicks! });
+          } else rec.entry('serpentSting').misses++;
+          return true;
+        },
+      },
+      mongooseBite: {
+        when: () => melee && o.mongooseBite && t < mongooseUntil && isReady('mongooseBite') && affordable(mb),
+        run: () => {
           use(mb);
           mongooseUntil = -1;
           const dmg = attack('mongooseBite', weaponHit(mw, d.meleeAp, false) + mb.directMin!, 'special', 'physical', fx.savageStrikesPct);
@@ -329,42 +341,50 @@ export function simulateHunter(config: HunterSimConfig): SimResult {
             dots.set('laceratingStrikes', { ticksLeft: ticks, interval: 3, next: t + 3, tick: (dmg * fx.laceratingPct) / 100 / ticks / allMult });
           }
           return true;
-        }
-        const sk = sp('striderKick');
-        if (o.striderKick && fx.striderKick && isReady('striderKick') && affordable(sk)) {
+        },
+      },
+      striderKick: {
+        when: () => melee && o.striderKick && fx.striderKick && isReady('striderKick') && affordable(sk),
+        run: () => {
           use(sk);
           attack('striderKick', weaponHit(mw, d.meleeAp, false), 'special', 'physical', fx.savageStrikesPct);
           return true;
-        }
-        const rs = sp('raptorStrike');
-        if (o.raptorStrike && !raptorQueued && isReady('raptorStrike') && affordable(rs)) {
+        },
+      },
+      raptorStrike: {
+        when: () => melee && o.raptorStrike && !raptorQueued && isReady('raptorStrike') && affordable(rs),
+        run: () => {
           // Attaque du raptor : remplace le prochain coup blanc, sans temps de recharge global.
           mana -= cost(rs);
           lastSpend = t;
           ready.set('raptorStrike', t + (rs.cooldown ?? 6));
           raptorQueued = true;
           return false;
-        }
-        return false;
-      }
-      const hawk = sp('summonHawk');
-      if (o.summonHawk && fx.summonHawk && hawks.length < 2 && isReady('arcaneShot') && affordable(hawk)) {
-        use(hawk, 0);
-        ready.set('arcaneShot', t + (hawk.cooldown ?? 6));
-        hawks.push({ next: t + 0.5, end: t + 18 });
-        return true;
-      }
-      const sniper = sp('sniperShot');
-      if (o.sniperShot && fx.sniperShot && isReady('sniperShot') && affordable(sniper)) {
-        use(sniper);
-        castEnd = t + sniper.castTime / haste;
-        advance(sniper.castTime / haste);
-        if (t <= fightLength + EPS) shot(sniper);
-        return true;
-      }
-      if (o.sixSecondShot !== 'none' && isReady('sixSecond')) {
-        const s = sp(o.sixSecondShot);
-        if (affordable(s)) {
+        },
+      },
+      summonHawk: {
+        when: () => o.summonHawk && fx.summonHawk && hawks.length < 2 && isReady('arcaneShot') && affordable(hawk),
+        run: () => {
+          use(hawk, 0);
+          ready.set('arcaneShot', t + (hawk.cooldown ?? 6));
+          hawks.push({ next: t + 0.5, end: t + 18 });
+          return true;
+        },
+      },
+      sniperShot: {
+        when: () => o.sniperShot && fx.sniperShot && isReady('sniperShot') && affordable(sniper),
+        run: () => {
+          use(sniper);
+          castEnd = t + sniper.castTime / haste;
+          advance(sniper.castTime / haste);
+          if (t <= fightLength + EPS) shot(sniper);
+          return true;
+        },
+      },
+      sixSecondShot: {
+        when: () => o.sixSecondShot !== 'none' && isReady('sixSecond') && affordable(sp(o.sixSecondShot)),
+        run: () => {
+          const s = sp(o.sixSecondShot);
           use(s, 0);
           ready.set('sixSecond', t + (s.cooldown ?? 6));
           if (s.castTime > 0) {
@@ -374,17 +394,19 @@ export function simulateHunter(config: HunterSimConfig): SimResult {
           }
           shot(s);
           return true;
-        }
-      }
-      const arcane = sp('arcaneShot');
-      if (o.arcaneShot && isReady('arcaneShot') && affordable(arcane)) {
-        use(arcane, 0);
-        ready.set('arcaneShot', t + (arcane.cooldown ?? 6) - fx.improvedArcaneShotSec);
-        attack('arcaneShot', arcane.directMin! + (arcane.directCoeff ?? 0) * d.rangedAp, 'ranged', 'arcane');
-        return true;
-      }
-      return false;
+        },
+      },
+      arcaneShot: {
+        when: () => o.arcaneShot && isReady('arcaneShot') && affordable(arcane),
+        run: () => {
+          use(arcane, 0);
+          ready.set('arcaneShot', t + (arcane.cooldown ?? 6) - fx.improvedArcaneShotSec);
+          attack('arcaneShot', arcane.directMin! + (arcane.directCoeff ?? 0) * d.rangedAp, 'ranged', 'arcane');
+          return true;
+        },
+      },
     };
+    const act = makePriority(HUNTER_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
     while (t < fightLength - EPS) {
       // Hors temps de recharge global : Tir rapide, Courroux bestial, potion.
