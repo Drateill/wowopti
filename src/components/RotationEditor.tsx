@@ -1,9 +1,11 @@
+import { EXTRA_SPELL_CLASSES, extraSpellsFor, extraStepId, isExtraStep } from '../data/extraSpells';
 import { isCustomized, resolveOrder, type ConditionKind, type PriorityEntry, type StepCondition } from '../engine/priority';
 import { COOLDOWN_TALENT, cooldownKey, cooldownSteps, hasCombo, rotationResource, rotationSteps } from '../engine/rotationSteps';
 import { rank } from '../engine/talents';
 import { useI18n, type TKey } from '../i18n';
 import { useStore } from '../state/store';
 import { SpellName } from './SimPanel';
+import { Icon } from './ui';
 
 const DEFAULT_VALUE: Record<ConditionKind, number> = { targetHp: 20, elapsed: 30, remaining: 30, resourcePct: 50, resource: 50, combo: 5 };
 
@@ -45,8 +47,10 @@ export function RotationEditor() {
 /** Liste d'étapes : case à cocher, flèches d'ordre (si `orderable`) et conditions. */
 function StepList({ storeKey, defaults, orderable }: { storeKey: string; defaults: readonly string[]; orderable: boolean }) {
   const { state, set, cls } = useStore();
-  const { t } = useI18n();
+  const { t, L } = useI18n();
   const custom = state.priority?.[storeKey];
+  const extras = orderable && EXTRA_SPELL_CLASSES.has(cls.id) ? extraSpellsFor(cls) : [];
+  const extraById = new Map(extras.map((s) => [extraStepId(s.id), s]));
   const order = resolveOrder(defaults, custom);
   const modified = isCustomized(defaults, custom);
 
@@ -74,8 +78,26 @@ function StepList({ storeKey, defaults, orderable }: { storeKey: string; default
   const setCond = (i: number, c: number, patch: Partial<StepCondition>) =>
     update(i, { conditions: order[i].conditions.map((x, k) => (k === c ? { ...x, ...patch } : x)) });
 
-  const label = (id: string) =>
-    cls.data.spellMeta[id] ? <SpellName id={id} /> : <span className="spell-name">{t(`step_${id}` as TKey)}</span>;
+  /** Ajoute un sort juste avant le sort de remplissage (ou à la fin). */
+  const addSpell = (stepId: string) => {
+    const next = [...order];
+    const at = next.findIndex((e) => e.id === 'filler');
+    next.splice(at < 0 ? next.length : at, 0, { id: stepId, enabled: true, conditions: [] });
+    save(next);
+  };
+  const hasTalent = (key?: string) => !key || rank(state.talents, key) > 0;
+
+  const label = (id: string) => {
+    const extra = extraById.get(id);
+    if (extra)
+      return (
+        <span className="spell-name">
+          <Icon name={extra.icon} size={18} /> {L(extra.name)} {!hasTalent(extra.requiresTalent) && <span className="muted small">{t('talentRequired')}</span>}
+        </span>
+      );
+    if (isExtraStep(id)) return <span className="spell-name muted">{id}</span>;
+    return cls.data.spellMeta[id] ? <SpellName id={id} /> : <span className="spell-name">{t(`step_${id}` as TKey)}</span>;
+  };
 
   const List = orderable ? 'ol' : 'ul';
   return (
@@ -98,6 +120,11 @@ function StepList({ storeKey, defaults, orderable }: { storeKey: string; default
               >
                 {t('prioAddCond')}
               </button>
+              {isExtraStep(e.id) && (
+                <button className="btn secondary small" title={t('prioRemoveSpell')} aria-label={t('prioRemoveSpell')} onClick={() => save(order.filter((_, k) => k !== i))}>
+                  ×
+                </button>
+              )}
             </div>
             {e.conditions.map((c, k) => (
               <div className="prio-cond" key={k}>
@@ -131,6 +158,24 @@ function StepList({ storeKey, defaults, orderable }: { storeKey: string; default
           </li>
         ))}
       </List>
+      {extras.length > 0 && (
+        <label className="field">
+          {t('prioAddSpell')}
+          <select value="" onChange={(ev) => ev.target.value && addSpell(ev.target.value)}>
+            <option value="">—</option>
+            {extras
+              .filter((s) => !order.some((e) => e.id === extraStepId(s.id)))
+              .map((s) => (
+                <option key={s.id} value={extraStepId(s.id)} disabled={!hasTalent(s.requiresTalent)}>
+                  {L(s.name)}
+                  {s.aoe ? ` (${t('prioAoe')})` : ''}
+                  {!hasTalent(s.requiresTalent) ? ` ${t('talentRequired')}` : ''}
+                </option>
+              ))}
+          </select>
+          <span className="small muted">{t('prioAddSpellHelp')}</span>
+        </label>
+      )}
       {modified && (
         <button className="btn secondary small" onClick={() => save([])}>
           {t(orderable ? 'prioReset' : 'cdReset')}

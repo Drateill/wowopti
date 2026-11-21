@@ -1,8 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { CLASSES } from '../data/classes';
+import { CLASSES, CLASS_BY_ID } from '../data/classes';
+import { extraSpellsFor } from '../data/extraSpells';
 import { buildConfig, defaultState, specPresets, type AppState } from '../state/store';
 import { conditionsHold, isCustomized, makeCooldownGate, makePriority, resolveOrder, type PriorityList } from './priority';
 import { cooldownKey, rotationSteps } from './rotationSteps';
+
+/** Sort ajouté en tête, puis la rotation par défaut. */
+const withFirst = (id: string, classId: string, spec: string): PriorityList =>
+  [id, ...rotationSteps(classId, spec)].map((x) => ({ id: x, enabled: true, conditions: [] }));
 import { simulateAny } from './sim';
 
 const stateFor = (classId: (typeof CLASSES)[number]['id'], spec: string, priority?: PriorityList, cooldowns?: PriorityList): AppState => {
@@ -81,5 +86,33 @@ describe('liste de priorités', () => {
     const late = run([{ id: 'adrenalineRush', enabled: true, conditions: [{ kind: 'targetHp', op: '<', value: 10 }] }]);
     expect(casts(late)).toBe(1);
     expect(late.dps).not.toBe(base.dps);
+  });
+
+  it('les sorts du client complètent ceux du simulateur', () => {
+    const extras = extraSpellsFor(CLASS_BY_ID.warlock);
+    const rain = extras.find((x) => x.id === 'rainOfFire');
+    expect(rain).toMatchObject({ channel: true, aoe: true, school: 'fire', destruction: true });
+    expect(rain!.dotTicks).toBe(4);
+    expect(extras.some((x) => x.id === 'shadowBolt')).toBe(false); // déjà simulé
+    expect(extras.find((x) => x.id === 'shadowburn')?.requiresTalent).toBe('shadowburn');
+  });
+
+  it('un sort ajouté est lancé, et un sort de zone profite des cibles', () => {
+    const rainFirst = withFirst('spell:rainOfFire', 'warlock', 'destruction');
+    const run = (targets: number) => simulateAny(buildConfig({ ...stateFor('warlock', 'destruction', rainFirst), targets }));
+    const one = run(1).breakdown.find((b) => b.id === 'rainOfFire');
+    const five = run(5).breakdown.find((b) => b.id === 'rainOfFire');
+    expect(one?.casts).toBeGreaterThan(5);
+    expect(one?.ticks).toBeGreaterThan(0);
+    expect(five!.damage / one!.damage).toBeCloseTo(5, 5);
+  });
+
+  it('un sort ajouté qui demande un talent attend le talent', () => {
+    const list = withFirst('spell:shadowburn', 'warlock', 'destruction');
+    const casts = (talents: Record<string, number>) =>
+      simulateAny(buildConfig({ ...stateFor('warlock', 'destruction', list), talents })).breakdown.find((b) => b.id === 'shadowburn')?.casts ?? 0;
+    const base = CLASS_BY_ID.warlock.specs.find((x) => x.id === 'destruction')!.defaultTalents;
+    expect(casts({ ...base, shadowburn: 0 })).toBe(0);
+    expect(casts({ ...base, shadowburn: 1 })).toBeGreaterThan(0);
   });
 });

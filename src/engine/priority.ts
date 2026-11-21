@@ -71,7 +71,8 @@ export const conditionsHold = (conds: StepCondition[], ctx: PriorityContext) =>
  */
 export function resolveOrder(defaults: readonly string[], custom: PriorityList | undefined): PriorityEntry[] {
   const known = new Set(defaults);
-  const list = (custom ?? []).filter((e) => known.has(e.id));
+  // Les sorts ajoutés par l'utilisateur (« spell:… ») ne sont pas dans l'ordre par défaut : on les garde.
+  const list = (custom ?? []).filter((e) => known.has(e.id) || e.id.startsWith('spell:'));
   const seen = new Set(list.map((e) => e.id));
   const out = [...list];
   defaults.forEach((id, i) => {
@@ -86,7 +87,7 @@ export function resolveOrder(defaults: readonly string[], custom: PriorityList |
 /** Vrai si la liste change quelque chose par rapport à l'ordre par défaut. */
 export function isCustomized(defaults: readonly string[], custom: PriorityList | undefined): boolean {
   const order = resolveOrder(defaults, custom);
-  return order.some((e, i) => e.id !== defaults[i] || !e.enabled || e.conditions.length > 0);
+  return order.length !== defaults.length || order.some((e, i) => e.id !== defaults[i] || !e.enabled || e.conditions.length > 0);
 }
 
 /**
@@ -99,11 +100,14 @@ export function makePriority<R>(
   impls: Record<string, StepImpl<R>>,
   custom: PriorityList | undefined,
   ctx: PriorityContext,
+  /** Code des étapes ajoutées (sorts « spell:… ») ; une étape sans code est ignorée. */
+  extra?: (id: string) => StepImpl<R> | undefined,
 ): () => R | undefined {
   for (const id of defaults) if (!impls[id]) throw new Error(`étape de rotation sans code : ${id}`);
   const steps = resolveOrder(defaults, custom)
     .filter((e) => e.enabled)
-    .map((e) => ({ impl: impls[e.id], conds: e.conditions }));
+    .map((e) => ({ impl: impls[e.id] ?? extra?.(e.id), conds: e.conditions }))
+    .filter((s): s is { impl: StepImpl<R>; conds: StepCondition[] } => !!s.impl);
   return () => {
     for (const s of steps) {
       if (!s.impl.when() || (s.conds.length > 0 && !conditionsHold(s.conds, ctx))) continue;

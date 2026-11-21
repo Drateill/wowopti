@@ -16,8 +16,9 @@ export interface FightSettings {
 export const DEFAULT_FIGHT: FightSettings = { targets: 1, movementPct: 0 };
 
 /** Multiplicateur de dégâts d'un sort de zone selon le nombre de cibles. */
-export function aoeMultiplier(id: string, targets: number): number {
+export function aoeMultiplier(id: string, targets: number, spell?: SpellDef): number {
   const n = Math.max(1, Math.floor(targets));
+  if (spell?.aoe) return n;
   switch (id) {
     case 'chainLightning': {
       // 3 cibles, chaque rebond fait 30 % de moins.
@@ -62,7 +63,7 @@ function movementLoss(e: SpellBreakdown, spell: SpellDef | undefined, weaponBase
 /** Applique cibles et déplacements à un résultat mono-cible. */
 export function applyFight(
   res: SimResult,
-  config: { classId?: string; spec?: string; spells: SpellDef[]; fightLength: number; options?: unknown },
+  config: { classId?: string; spec?: string; spells: SpellDef[]; extraSpells?: SpellDef[]; fightLength: number; options?: unknown },
   fight: FightSettings | undefined,
   healer: boolean,
 ): SimResult {
@@ -71,11 +72,11 @@ export function applyFight(
   const moving = Math.max(0, Math.min(60, fight.movementPct || 0)) / 100;
   if (targets === 1 && moving === 0) return res;
 
-  const spells = new Map(config.spells.map((s) => [s.id, s]));
+  const spells = new Map([...config.spells, ...(config.extraSpells ?? [])].map((s) => [s.id, s]));
   const weaponBased = isWeaponBased(config.classId, config.spec);
   const breakdown = res.breakdown.map((e) => {
     const keep = 1 - moving * movementLoss(e, spells.get(e.id), weaponBased);
-    return { ...e, damage: e.damage * keep * aoeMultiplier(e.id, targets) };
+    return { ...e, damage: e.damage * keep * aoeMultiplier(e.id, targets, spells.get(e.id)) };
   });
 
   // Déluge de lames (voleur) : pendant qu'il est actif, chaque coup physique touche une 2e cible.

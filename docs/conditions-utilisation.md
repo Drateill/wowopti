@@ -41,3 +41,14 @@ Le fichier robots.txt de wowhead.com interdit aussi `/forever/search` (et `/sear
 | Icônes chargées depuis `wow.zamimg.com` | Faible à moyen : elles viennent de Blizzard, mais sont hébergées par ZAM | Icônes servies par l'API média de Blizzard (`/data/wow/media/item/...`), déjà utilisée à l'import |
 
 **Conclusion :** le relais de la recherche est supprimé et le téléchargement n'est plus automatique. Reste à régler : les talents et sorts déjà extraits de Wowhead et publiés dans l'app, et les infobulles lues sur `nether.wowhead.com`. Tant que Wowhead n'a pas donné son accord, il vaut mieux ne pas faire connaître le site plus largement.
+
+## wago.tools (tables du client WoW Forever)
+
+Vérifié le 21 novembre 2026. wago.tools publie les tables de données du client (produit `wowf`). Son fichier robots.txt et sa page `/llms.txt` autorisent explicitement le téléchargement automatique des exports CSV (`/db2/{table}/csv`) et des routes `/api/` ; seules les pages HTML du navigateur de tables sont interdites aux robots. Le site n'affiche pas de conditions d'utilisation à part. Les données elles-mêmes appartiennent à Blizzard.
+
+| Usage dans l'app | Risque | Remarque |
+|---|---|---|
+| `scripts/fetch-wago.mjs` (`npm run fetch-spells`) : sorts de dégâts de chaque classe (dégâts, coefficients, coût, durée…) écrits dans `src/data/generated/wago-spells.json`, lancé à la main | Faible : usage autorisé par wago.tools, une requête par table et par version | wago.tools cité dans le pied de page. Les corrections envoyées par le serveur (hotfixes) ne sont pas dans ces tables |
+
+**Piste :** les mêmes tables contiennent aussi les talents (Talent, TalentTab) et les sorts déjà repris de Wowhead. Les en tirer permettrait de ne plus dépendre de Wowhead pour les données du simulateur.
+

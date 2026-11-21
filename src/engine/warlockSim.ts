@@ -47,6 +47,8 @@ export interface SimConfig {
   seed: number;
   /** Rotation personnalisée (ordre, étapes désactivées, conditions). */
   priority?: PriorityList;
+  /** Sorts ajoutés à la rotation (tables du client), en plus des sorts de base. */
+  extraSpells?: SpellDef[];
 }
 
 /** Sorts accélérés par Calvaire et améliorés par Pandémie. */
@@ -200,14 +202,15 @@ export function simulate(config: SimConfig): SimResult {
   const { rules, rotation, fightLength } = config;
   const calc = makeCalculator(config);
   const { derived, fx, castTime, manaCost, critChance, critMult, power } = calc;
-  const spells = new Map(config.spells.map((s) => [s.id, s]));
+  const allSpells = [...config.spells, ...(config.extraSpells ?? [])];
+  const spells = new Map(allSpells.map((s) => [s.id, s]));
   const get = (id: string) => spells.get(id)!;
   const has = (key: string) => rank(config.talents, key) > 0;
   const hitChance = derived.chanceToHitPct / 100;
   const rng = createRng(config.seed);
 
   const totals = new Map<string, SpellBreakdown>();
-  for (const s of config.spells) totals.set(s.id, { id: s.id, damage: 0, casts: 0, hits: 0, crits: 0, misses: 0, ticks: 0 });
+  for (const s of allSpells) totals.set(s.id, { id: s.id, damage: 0, casts: 0, hits: 0, crits: 0, misses: 0, ticks: 0 });
   const bins = Math.ceil(fightLength / TIMELINE_STEP);
   const timeline = new Array<number>(bins).fill(0);
   const dpsList: number[] = [];
@@ -334,7 +337,19 @@ export function simulate(config: SimConfig): SimResult {
       filler: { when: () => true, run: () => filler() },
     };
     const filler = () => (rotation.filler === 'incinerate' && !has('incinerate') ? get('shadowBolt') : get(rotation.filler));
-    const pick = makePriority(WARLOCK_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => derived.maxMana });
+    /** Sort ajouté : prêt (talent, recharge) et, pour un DoT, absent ou sur le point d'expirer. */
+    const extraStep = (stepId: string): StepImpl<SpellDef> | undefined => {
+      const s = stepId.startsWith('spell:') ? spells.get(stepId.slice(6)) : undefined;
+      if (!s) return undefined;
+      return {
+        when: () =>
+          (!s.requiresTalent || has(s.requiresTalent)) &&
+          ready(s.id) &&
+          (s.channel || !s.dotTotal || (dotLeft(s.id) <= castTime(s) && worthDot(s))),
+        run: () => s,
+      };
+    };
+    const pick = makePriority(WARLOCK_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => derived.maxMana }, extraStep);
     const chooseSpell = (): SpellDef => pick() ?? filler();
 
     const resolveDirect = (s: SpellDef) => {

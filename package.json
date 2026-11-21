@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "fetch-data": "node scripts/fetch-forever.mjs",
+    "fetch-spells": "node scripts/fetch-wago.mjs",
     "build:server": "esbuild server/prod.ts --bundle --platform=node --target=node22 --format=esm --outfile=dist-server/server.mjs",
     "start": "node dist-server/server.mjs"
   },

@@ -8,6 +8,7 @@ import type { RogueBuilder, RogueOptions, RogueWeaponType } from '../data/rogue/
 import type { ShamanHealFiller, ShamanOptions, ShamanShock } from '../data/shaman/data';
 import type { WarriorOptions, WarriorWeaponType } from '../data/warrior/data';
 import type { PaladinOptions, PaladinSeal } from '../data/paladin/data';
+import { extraSpellsFor } from '../data/extraSpells';
 import { runSim } from '../engine/simClient';
 import type { SimResult } from '../engine/simTypes';
 import type { Pet } from '../engine/stats';
@@ -26,7 +27,8 @@ const PETS: Pet[] = ['none', 'imp', 'voidwalker', 'succubus', 'felhunter'];
 export function SpellName({ id }: { id: string }) {
   const { L } = useI18n();
   const { cls } = useStore();
-  const meta = cls.data.spellMeta[id];
+  // Sorts de base, sinon sorts ajoutés depuis les tables du client.
+  const meta = cls.data.spellMeta[id] ?? extraSpellsFor(cls).find((s) => s.id === id);
   return (
     <span className="spell-name">
       <Icon name={meta?.icon ?? ''} size={18} /> {meta ? L(meta.name) : id}

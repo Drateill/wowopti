@@ -94,6 +94,8 @@ export interface SpellDef {
   requiresTalent?: string;
   /** Sort lancé par le démon (pas de puissance des sorts ni de talents du démoniste). */
   pet?: boolean;
+  /** Sort de zone : touche toutes les cibles du combat. */
+  aoe?: boolean;
 }
 
 export interface TalentDef {

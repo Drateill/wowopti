@@ -1,0 +1,1666 @@
+{
+ "source": "wago.tools (client WoW Forever 1.60.1.71037)",
+ "build": "1.60.1.71037",
+ "fetchedAt": "2026-11-21",
+ "classes": {
+  "warlock": [
+   {
+    "id": "wrack",
+    "spellId": 1316697,
+    "name": {
+     "en": "Wrack",
+     "fr": "Calvaire"
+    },
+    "tree": 0,
+    "level": 40,
+    "school": "shadow",
+    "castTime": 6,
+    "manaCost": 200,
+    "channel": true,
+    "dotTotal": 361.2,
+    "dotDuration": 6,
+    "dotTicks": 6,
+    "dotCoeff": 1.201,
+    "icon": "ability_deathknight_hemorrhagicfever"
+   },
+   {
+    "id": "drainSoul",
+    "spellId": 11675,
+    "name": {
+     "en": "Drain Soul",
+     "fr": "Siphon d'âme"
+    },
+    "tree": 0,
+    "level": 52,
+    "school": "shadow",
+    "castTime": 15,
+    "manaCost": 290,
+    "channel": true,
+    "dotTotal": 420,
+    "dotDuration": 15,
+    "dotTicks": 5,
+    "dotCoeff": 0.5,
+    "icon": "spell_shadow_haunting"
+   },
+   {
+    "id": "drainLife",
+    "spellId": 11700,
+    "name": {
+     "en": "Drain Life",
+     "fr": "Drain de vie"
+    },
+    "tree": 0,
+    "level": 54,
+    "school": "shadow",
+    "castTime": 5,
+    "manaCost": 300,
+    "channel": true,
+    "dotTotal": 255,
+    "dotDuration": 5,
+    "dotTicks": 5,
+    "dotCoeff": 0.5,
+    "icon": "spell_shadow_lifedrain02"
+   },
+   {
+    "id": "baneOfAgony",
+    "spellId": 11713,
+    "name": {
+     "en": "Bane of Agony",
+     "fr": "Plaie d’agonie"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 215,
+    "dotTotal": 552,
+    "dotDuration": 24,
+    "dotTicks": 12,
+    "dotCoeff": 1.596,
+    "icon": "spell_shadow_curseofsargeras"
+   },
+   {
+    "id": "deathCoil",
+    "spellId": 17926,
+    "name": {
+     "en": "Death Coil",
+     "fr": "Voile mortel"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 600,
+    "cooldown": 120,
+    "directMin": 472,
+    "directMax": 472,
+    "directCoeff": 0.214,
+    "icon": "spell_shadow_deathcoil"
+   },
+   {
+    "id": "siphonLife",
+    "spellId": 18881,
+    "name": {
+     "en": "Siphon Life",
+     "fr": "Siphon de vie"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 365,
+    "dotTotal": 410,
+    "dotDuration": 30,
+    "dotTicks": 10,
+    "dotCoeff": 0.5,
+    "icon": "spell_shadow_requiem"
+   },
+   {
+    "id": "corruption",
+    "spellId": 25311,
+    "name": {
+     "en": "Corruption",
+     "fr": "Corruption"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "shadow",
+    "castTime": 2,
+    "manaCost": 340,
+    "dotTotal": 438,
+    "dotDuration": 18,
+    "dotTicks": 6,
+    "dotCoeff": 1.2,
+    "icon": "spell_shadow_abominationexplosion"
+   },
+   {
+    "id": "baneOfDoom",
+    "spellId": 603,
+    "name": {
+     "en": "Bane of Doom",
+     "fr": "Plaie funeste"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 300,
+    "cooldown": 60,
+    "dotTotal": 1742,
+    "dotDuration": 60,
+    "dotTicks": 1,
+    "dotCoeff": 4,
+    "icon": "spell_shadow_auraofdarkness"
+   },
+   {
+    "id": "hellfire",
+    "spellId": 11684,
+    "name": {
+     "en": "Hellfire",
+     "fr": "Flammes infernales"
+    },
+    "tree": 2,
+    "level": 54,
+    "school": "fire",
+    "castTime": 15,
+    "manaCost": 1300,
+    "channel": true,
+    "dotTotal": 3195,
+    "dotDuration": 15,
+    "dotTicks": 15,
+    "dotCoeff": 0.33,
+    "aoe": true,
+    "icon": "spell_fire_incinerate"
+   },
+   {
+    "id": "soulFire",
+    "spellId": 17924,
+    "name": {
+     "en": "Soul Fire",
+     "fr": "Feu de l'âme"
+    },
+    "tree": 2,
+    "level": 56,
+    "school": "fire",
+    "castTime": 6,
+    "manaCost": 335,
+    "cooldown": 60,
+    "directMin": 392.7,
+    "directMax": 492.1,
+    "directCoeff": 1,
+    "icon": "spell_fire_fireball02"
+   },
+   {
+    "id": "shadowburn",
+    "spellId": 18871,
+    "name": {
+     "en": "Shadowburn",
+     "fr": "Brûlure de l'ombre"
+    },
+    "tree": 2,
+    "level": 56,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 365,
+    "cooldown": 15,
+    "directMin": 261.7,
+    "directMax": 291.9,
+    "directCoeff": 0.429,
+    "icon": "spell_shadow_scourgebuild"
+   },
+   {
+    "id": "rainOfFire",
+    "spellId": 11678,
+    "name": {
+     "en": "Rain of Fire",
+     "fr": "Pluie de feu"
+    },
+    "tree": 2,
+    "level": 58,
+    "school": "fire",
+    "castTime": 8,
+    "manaCost": 1185,
+    "channel": true,
+    "dotTotal": 892,
+    "dotDuration": 8,
+    "dotTicks": 4,
+    "dotCoeff": 0.332,
+    "aoe": true,
+    "icon": "spell_shadow_rainoffire"
+   },
+   {
+    "id": "searingPain",
+    "spellId": 17923,
+    "name": {
+     "en": "Searing Pain",
+     "fr": "Douleur brûlante"
+    },
+    "tree": 2,
+    "level": 58,
+    "school": "fire",
+    "castTime": 1.5,
+    "manaCost": 168,
+    "directMin": 111.4,
+    "directMax": 131,
+    "directCoeff": 0.429,
+    "icon": "spell_fire_soulburn"
+   },
+   {
+    "id": "shadowBolt",
+    "spellId": 25307,
+    "name": {
+     "en": "Shadow Bolt",
+     "fr": "Trait de l'ombre"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "shadow",
+    "castTime": 3,
+    "manaCost": 380,
+    "directMin": 262.3,
+    "directMax": 292.7,
+    "directCoeff": 0.857,
+    "icon": "spell_shadow_shadowbolt"
+   },
+   {
+    "id": "immolate",
+    "spellId": 25309,
+    "name": {
+     "en": "Immolate",
+     "fr": "Immolation"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "fire",
+    "castTime": 2,
+    "manaCost": 380,
+    "directMin": 169.5,
+    "directMax": 169.5,
+    "directCoeff": 0.2,
+    "dotTotal": 275,
+    "dotDuration": 15,
+    "dotTicks": 5,
+    "dotCoeff": 0.65,
+    "icon": "spell_fire_immolation"
+   },
+   {
+    "id": "conflagrate",
+    "spellId": 18932,
+    "name": {
+     "en": "Conflagrate",
+     "fr": "Conflagration"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "fire",
+    "castTime": 0,
+    "manaCost": 255,
+    "cooldown": 10,
+    "directMin": 258,
+    "directMax": 321.6,
+    "directCoeff": 0.429,
+    "icon": "spell_fire_fireball"
+   },
+   {
+    "id": "incinerate",
+    "spellId": 1293813,
+    "name": {
+     "en": "Incinerate",
+     "fr": "Incinérer"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "fire",
+    "castTime": 2.5,
+    "manaCost": 325,
+    "directMin": 212.4,
+    "directMax": 246.8,
+    "directCoeff": 0.714,
+    "icon": "spell_fire_burnout"
+   }
+  ],
+  "paladin": [
+   {
+    "id": "judgementOfRighteousness",
+    "spellId": 20286,
+    "name": {
+     "en": "Judgement of Righteousness",
+     "fr": "Jugement de piété"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 185.4,
+    "directMax": 203.8,
+    "directCoeff": 0.429,
+    "icon": "ability_thunderbolt"
+   },
+   {
+    "id": "exorcism",
+    "spellId": 10314,
+    "name": {
+     "en": "Exorcism",
+     "fr": "Exorcisme"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 345,
+    "cooldown": 15,
+    "directMin": 489.9,
+    "directMax": 546.1,
+    "directCoeff": 0.429,
+    "icon": "spell_holy_excorcism_02"
+   },
+   {
+    "id": "holyWrath",
+    "spellId": 10318,
+    "name": {
+     "en": "Holy Wrath",
+     "fr": "Colère divine"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "holy",
+    "castTime": 2,
+    "manaCost": 805,
+    "cooldown": 60,
+    "directMin": 497,
+    "directMax": 584.2,
+    "directCoeff": 0.19,
+    "aoe": true,
+    "icon": "spell_holy_excorcism"
+   },
+   {
+    "id": "hammerOfWrath",
+    "spellId": 24239,
+    "name": {
+     "en": "Hammer of Wrath",
+     "fr": "Marteau de courroux"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "holy",
+    "castTime": 1,
+    "manaCost": 425,
+    "cooldown": 6,
+    "directMin": 488.3,
+    "directMax": 538.7,
+    "directCoeff": 0.429,
+    "icon": "ability_thunderclap"
+   },
+   {
+    "id": "consecration",
+    "spellId": 20924,
+    "name": {
+     "en": "Consecration",
+     "fr": "Consécration"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 565,
+    "cooldown": 8,
+    "dotTotal": 96,
+    "dotDuration": 8,
+    "dotTicks": 8,
+    "dotCoeff": 0,
+    "aoe": true,
+    "icon": "spell_holy_innerfire"
+   },
+   {
+    "id": "hammerOfTheRighteous",
+    "spellId": 407632,
+    "name": {
+     "en": "Hammer of the Righteous",
+     "fr": "Marteau du vertueux"
+    },
+    "tree": 1,
+    "level": 40,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 0,
+    "manaCostPct": 6,
+    "cooldown": 6,
+    "directMin": 1,
+    "directMax": 1,
+    "directCoeff": 0,
+    "icon": "ability_paladin_hammeroftherighteous"
+   },
+   {
+    "id": "judgementOfFury",
+    "spellId": 20414,
+    "name": {
+     "en": "Judgement of Fury",
+     "fr": "Jugement de fureur"
+    },
+    "tree": 1,
+    "level": 58,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 167.5,
+    "directMax": 182.8,
+    "directCoeff": 0.429,
+    "icon": "spell_holy_retributionaura"
+   },
+   {
+    "id": "eyeForAnEye",
+    "spellId": 25997,
+    "name": {
+     "en": "Eye for an Eye",
+     "fr": "Oeil pour oeil"
+    },
+    "tree": 2,
+    "level": 1,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 1,
+    "directMax": 1,
+    "directCoeff": 0,
+    "icon": "spell_holy_eyeforaneye"
+   }
+  ],
+  "druid": [
+   {
+    "id": "wrath",
+    "spellId": 9912,
+    "name": {
+     "en": "Wrath",
+     "fr": "Colère"
+    },
+    "tree": 0,
+    "level": 54,
+    "school": "nature",
+    "castTime": 2,
+    "manaCost": 120,
+    "directMin": 91.6,
+    "directMax": 102.4,
+    "directCoeff": 0.571,
+    "icon": "spell_nature_abolishmagic"
+   },
+   {
+    "id": "moonfire",
+    "spellId": 9835,
+    "name": {
+     "en": "Moonfire",
+     "fr": "Eclat lunaire"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "arcane",
+    "castTime": 0,
+    "manaCost": 375,
+    "directMin": 135.1,
+    "directMax": 157.9,
+    "directCoeff": 0.15,
+    "dotTotal": 240,
+    "dotDuration": 12,
+    "dotTicks": 4,
+    "dotCoeff": 0.52,
+    "icon": "spell_nature_starfall"
+   },
+   {
+    "id": "entanglingRoots",
+    "spellId": 9853,
+    "name": {
+     "en": "Entangling Roots",
+     "fr": "Sarments"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "nature",
+    "castTime": 1.5,
+    "manaCost": 125,
+    "dotTotal": 234,
+    "dotDuration": 27,
+    "dotTicks": 9,
+    "dotCoeff": 0.54,
+    "icon": "spell_nature_stranglevines"
+   },
+   {
+    "id": "starfire",
+    "spellId": 25298,
+    "name": {
+     "en": "Starfire",
+     "fr": "Feu stellaire"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "arcane",
+    "castTime": 3.5,
+    "manaCost": 340,
+    "directMin": 508.3,
+    "directMax": 598.5,
+    "directCoeff": 1,
+    "icon": "spell_arcane_starfire"
+   },
+   {
+    "id": "hurricane",
+    "spellId": 17402,
+    "name": {
+     "en": "Hurricane",
+     "fr": "Ouragan"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "nature",
+    "castTime": 10,
+    "manaCost": 1495,
+    "channel": true,
+    "dotTotal": 1338,
+    "dotDuration": 10,
+    "dotTicks": 10,
+    "dotCoeff": 0.3,
+    "aoe": true,
+    "icon": "spell_nature_cyclone"
+   },
+   {
+    "id": "insectSwarm",
+    "spellId": 24977,
+    "name": {
+     "en": "Insect Swarm",
+     "fr": "Essaim d'insectes"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "nature",
+    "castTime": 0,
+    "manaCost": 160,
+    "dotTotal": 186,
+    "dotDuration": 12,
+    "dotTicks": 6,
+    "dotCoeff": 0.948,
+    "icon": "spell_nature_insectswarm"
+   },
+   {
+    "id": "swipe",
+    "spellId": 9908,
+    "name": {
+     "en": "Swipe",
+     "fr": "Balayage"
+    },
+    "tree": 1,
+    "level": 54,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 83,
+    "directMax": 83,
+    "directCoeff": 1,
+    "icon": "inv_misc_monsterclaw_03"
+   },
+   {
+    "id": "rake",
+    "spellId": 9904,
+    "name": {
+     "en": "Rake",
+     "fr": "Griffure"
+    },
+    "tree": 1,
+    "level": 54,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 76,
+    "directMax": 76,
+    "directCoeff": 0,
+    "dotTotal": 126,
+    "dotDuration": 9,
+    "dotTicks": 3,
+    "dotCoeff": 0,
+    "icon": "ability_druid_disembowel"
+   },
+   {
+    "id": "lacerate",
+    "spellId": 1235827,
+    "name": {
+     "en": "Lacerate",
+     "fr": "Lacérer"
+    },
+    "tree": 1,
+    "level": 58,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "dotTotal": 75,
+    "dotDuration": 15,
+    "dotTicks": 5,
+    "dotCoeff": 0,
+    "icon": "ability_druid_lacerate"
+   },
+   {
+    "id": "rip",
+    "spellId": 9896,
+    "name": {
+     "en": "Rip",
+     "fr": "Déchirure"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "dotTotal": 114,
+    "dotDuration": 12,
+    "dotTicks": 6,
+    "dotCoeff": 0,
+    "icon": "ability_ghoulfrenzy"
+   },
+   {
+    "id": "ferociousBite",
+    "spellId": 31018,
+    "name": {
+     "en": "Ferocious Bite",
+     "fr": "Morsure féroce"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 64.7,
+    "directMax": 139.3,
+    "directCoeff": 1,
+    "icon": "ability_druid_ferociousbite"
+   }
+  ],
+  "mage": [
+   {
+    "id": "arcaneExplosion",
+    "spellId": 10202,
+    "name": {
+     "en": "Arcane Explosion",
+     "fr": "Explosion des arcanes"
+    },
+    "tree": 0,
+    "level": 54,
+    "school": "arcane",
+    "castTime": 0,
+    "manaCost": 390,
+    "directMin": 238.7,
+    "directMax": 258.3,
+    "directCoeff": 0.143,
+    "aoe": true,
+    "icon": "spell_nature_wispsplode"
+   },
+   {
+    "id": "arcaneMissiles",
+    "spellId": 25345,
+    "name": {
+     "en": "Arcane Missiles",
+     "fr": "Projectiles des arcanes"
+    },
+    "tree": 0,
+    "level": 56,
+    "school": "arcane",
+    "castTime": 5,
+    "manaCost": 655,
+    "channel": true,
+    "dotTotal": 1065,
+    "dotDuration": 5,
+    "dotTicks": 5,
+    "dotCoeff": 1.43,
+    "aoe": true,
+    "icon": "spell_nature_starfall"
+   },
+   {
+    "id": "arcaneBlast",
+    "spellId": 1239700,
+    "name": {
+     "en": "Arcane Blast",
+     "fr": "Déflagration des arcanes"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "arcane",
+    "castTime": 1.5,
+    "manaCost": 0,
+    "manaCostPct": 15,
+    "directMin": 230,
+    "directMax": 267.6,
+    "directCoeff": 0.429,
+    "icon": "spell_arcane_blast"
+   },
+   {
+    "id": "arcaneWrath",
+    "spellId": 1326082,
+    "name": {
+     "en": "Arcane Wrath",
+     "fr": "Colère des arcanes"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "arcane",
+    "castTime": 3.5,
+    "manaCost": 395,
+    "cooldown": 6,
+    "directMin": 432.7,
+    "directMax": 529.3,
+    "directCoeff": 1,
+    "icon": "ability_mage_netherwindpresence"
+   },
+   {
+    "id": "fireBlast",
+    "spellId": 10199,
+    "name": {
+     "en": "Fire Blast",
+     "fr": "Trait de feu"
+    },
+    "tree": 1,
+    "level": 54,
+    "school": "fire",
+    "castTime": 0,
+    "manaCost": 340,
+    "cooldown": 8,
+    "directMin": 415.4,
+    "directMax": 490.6,
+    "directCoeff": 0.429,
+    "icon": "spell_fire_fireball"
+   },
+   {
+    "id": "flamestrike",
+    "spellId": 10216,
+    "name": {
+     "en": "Flamestrike",
+     "fr": "Choc de flammes"
+    },
+    "tree": 1,
+    "level": 56,
+    "school": "fire",
+    "castTime": 3,
+    "manaCost": 990,
+    "directMin": 382.6,
+    "directMax": 468.4,
+    "directCoeff": 0.157,
+    "dotTotal": 332,
+    "dotDuration": 8,
+    "dotTicks": 4,
+    "dotCoeff": 0.128,
+    "aoe": true,
+    "icon": "spell_fire_selfdestruct"
+   },
+   {
+    "id": "scorch",
+    "spellId": 10207,
+    "name": {
+     "en": "Scorch",
+     "fr": "Brûlure"
+    },
+    "tree": 1,
+    "level": 58,
+    "school": "fire",
+    "castTime": 1.5,
+    "manaCost": 150,
+    "directMin": 169.5,
+    "directMax": 200.1,
+    "directCoeff": 0.429,
+    "icon": "spell_fire_soulburn"
+   },
+   {
+    "id": "fireball",
+    "spellId": 25306,
+    "name": {
+     "en": "Fireball",
+     "fr": "Boule de feu"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "fire",
+    "castTime": 3.5,
+    "manaCost": 410,
+    "directMin": 435.1,
+    "directMax": 554.9,
+    "directCoeff": 1,
+    "dotTotal": 60,
+    "dotDuration": 8,
+    "dotTicks": 4,
+    "dotCoeff": 0,
+    "icon": "spell_fire_flamebolt"
+   },
+   {
+    "id": "blastWave",
+    "spellId": 13021,
+    "name": {
+     "en": "Blast Wave",
+     "fr": "Vague explosive"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "fire",
+    "castTime": 0,
+    "manaCost": 545,
+    "cooldown": 45,
+    "directMin": 463.3,
+    "directMax": 545.5,
+    "directCoeff": 0.129,
+    "aoe": true,
+    "icon": "spell_holy_excorcism_02"
+   },
+   {
+    "id": "pyroblast",
+    "spellId": 18809,
+    "name": {
+     "en": "Pyroblast",
+     "fr": "Explosion pyrotechnique"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "fire",
+    "castTime": 6,
+    "manaCost": 440,
+    "directMin": 544.4,
+    "directMax": 676.8,
+    "directCoeff": 1,
+    "dotTotal": 212,
+    "dotDuration": 12,
+    "dotTicks": 4,
+    "dotCoeff": 0.6,
+    "icon": "spell_fire_fireball02"
+   },
+   {
+    "id": "frostfireBolt",
+    "spellId": 1237313,
+    "name": {
+     "en": "Frostfire Bolt",
+     "fr": "Éclair de givrefeu"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "fire",
+    "castTime": 3,
+    "manaCost": 370,
+    "directMin": 285.1,
+    "directMax": 332.5,
+    "directCoeff": 0.814,
+    "dotTotal": 57,
+    "dotDuration": 9,
+    "dotTicks": 3,
+    "dotCoeff": 0,
+    "icon": "ability_mage_frostfirebolt"
+   },
+   {
+    "id": "frostNova",
+    "spellId": 10230,
+    "name": {
+     "en": "Frost Nova",
+     "fr": "Nova de givre"
+    },
+    "tree": 2,
+    "level": 54,
+    "school": "frost",
+    "castTime": 0,
+    "manaCost": 145,
+    "cooldown": 25,
+    "directMin": 71.5,
+    "directMax": 79.5,
+    "directCoeff": 0.029,
+    "aoe": true,
+    "icon": "spell_frost_frostnova"
+   },
+   {
+    "id": "iceLance",
+    "spellId": 1240047,
+    "name": {
+     "en": "Ice Lance",
+     "fr": "Javelot de glace"
+    },
+    "tree": 2,
+    "level": 56,
+    "school": "frost",
+    "castTime": 0,
+    "manaCost": 160,
+    "cooldown": 8,
+    "directMin": 139.5,
+    "directMax": 164.9,
+    "directCoeff": 0,
+    "icon": "spell_frost_frostblast"
+   },
+   {
+    "id": "coneOfCold",
+    "spellId": 10161,
+    "name": {
+     "en": "Cone of Cold",
+     "fr": "Cône de froid"
+    },
+    "tree": 2,
+    "level": 58,
+    "school": "frost",
+    "castTime": 0,
+    "manaCost": 555,
+    "cooldown": 10,
+    "directMin": 332.6,
+    "directMax": 362.4,
+    "directCoeff": 0.129,
+    "aoe": true,
+    "icon": "spell_frost_glacier"
+   },
+   {
+    "id": "frostbolt",
+    "spellId": 25304,
+    "name": {
+     "en": "Frostbolt",
+     "fr": "Eclair de givre"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "frost",
+    "castTime": 3,
+    "manaCost": 290,
+    "directMin": 469.6,
+    "directMax": 506,
+    "directCoeff": 0.814,
+    "icon": "spell_frost_frostbolt02"
+   },
+   {
+    "id": "blizzard",
+    "spellId": 10187,
+    "name": {
+     "en": "Blizzard",
+     "fr": "Blizzard"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "frost",
+    "castTime": 8,
+    "manaCost": 1400,
+    "channel": true,
+    "dotTotal": 1184,
+    "dotDuration": 8,
+    "dotTicks": 8,
+    "dotCoeff": 0.336,
+    "aoe": true,
+    "icon": "spell_frost_icestorm"
+   }
+  ],
+  "hunter": [
+   {
+    "id": "summonHawk",
+    "spellId": 1293527,
+    "name": {
+     "en": "Summon Hawk",
+     "fr": "Invocation de faucon"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "physical",
+    "castTime": -1000,
+    "manaCost": 0,
+    "manaCostPct": 11,
+    "cooldown": 6,
+    "directMin": 108,
+    "directMax": 108,
+    "directCoeff": 0,
+    "icon": "ability_hunter_animalhandler"
+   },
+   {
+    "id": "volley",
+    "spellId": 14295,
+    "name": {
+     "en": "Volley",
+     "fr": "Salve"
+    },
+    "tree": 1,
+    "level": 58,
+    "school": "arcane",
+    "castTime": 6,
+    "manaCost": 490,
+    "channel": true,
+    "dotTotal": 672,
+    "dotDuration": 6,
+    "dotTicks": 6,
+    "dotCoeff": 0,
+    "aoe": true,
+    "icon": "ability_marksmanship"
+   },
+   {
+    "id": "serpentSting",
+    "spellId": 25295,
+    "name": {
+     "en": "Serpent Sting",
+     "fr": "Morsure de serpent"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "nature",
+    "castTime": -1000,
+    "manaCost": 250,
+    "dotTotal": 675,
+    "dotDuration": 15,
+    "dotTicks": 5,
+    "dotCoeff": 0,
+    "icon": "ability_hunter_quickshot"
+   },
+   {
+    "id": "arcaneShot",
+    "spellId": 14287,
+    "name": {
+     "en": "Arcane Shot",
+     "fr": "Tir des arcanes"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "arcane",
+    "castTime": -1000,
+    "manaCost": 0,
+    "manaCostPct": 11,
+    "cooldown": 6,
+    "directMin": 280,
+    "directMax": 280,
+    "directCoeff": 0,
+    "icon": "ability_impalingbolt"
+   },
+   {
+    "id": "wingClip",
+    "spellId": 14268,
+    "name": {
+     "en": "Wing Clip",
+     "fr": "Coupure d'ailes"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 80,
+    "directMin": 50,
+    "directMax": 50,
+    "directCoeff": 1,
+    "icon": "ability_rogue_trip"
+   },
+   {
+    "id": "lacerate",
+    "spellId": 1299332,
+    "name": {
+     "en": "Lacerate",
+     "fr": "Lacérer"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 95,
+    "dotTotal": 450.8,
+    "dotDuration": 21,
+    "dotTicks": 7,
+    "dotCoeff": 0,
+    "icon": "ability_gouge"
+   }
+  ],
+  "priest": [
+   {
+    "id": "starshards",
+    "spellId": 19305,
+    "name": {
+     "en": "Starshards",
+     "fr": "Eclats stellaires"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "arcane",
+    "castTime": 6,
+    "manaCost": 350,
+    "channel": true,
+    "cooldown": 30,
+    "dotTotal": 1800,
+    "dotDuration": 6,
+    "dotTicks": 6,
+    "dotCoeff": 1.002,
+    "icon": "spell_arcane_starfire"
+   },
+   {
+    "id": "smite",
+    "spellId": 10934,
+    "name": {
+     "en": "Smite",
+     "fr": "Châtiment"
+    },
+    "tree": 1,
+    "level": 54,
+    "school": "holy",
+    "castTime": 2.5,
+    "manaCost": 280,
+    "directMin": 166.6,
+    "directMax": 186.4,
+    "directCoeff": 0.714,
+    "icon": "spell_holy_holysmite"
+   },
+   {
+    "id": "holyFire",
+    "spellId": 15261,
+    "name": {
+     "en": "Holy Fire",
+     "fr": "Flammes sacrées"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "holy",
+    "castTime": 3.5,
+    "manaCost": 255,
+    "directMin": 194.3,
+    "directMax": 245.7,
+    "directCoeff": 0.75,
+    "dotTotal": 75,
+    "dotDuration": 10,
+    "dotTicks": 5,
+    "dotCoeff": 0.25,
+    "icon": "spell_holy_searinglight"
+   },
+   {
+    "id": "chastise",
+    "spellId": 1277335,
+    "name": {
+     "en": "Chastise",
+     "fr": "Châtiment"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 225,
+    "cooldown": 120,
+    "directMin": 271.7,
+    "directMax": 306.3,
+    "directCoeff": 0.143,
+    "icon": "spell_holy_chastise"
+   },
+   {
+    "id": "shadowWordDeath",
+    "spellId": 1309636,
+    "name": {
+     "en": "Shadow Word: Death",
+     "fr": "Mot de l’ombre : Mort"
+    },
+    "tree": 2,
+    "level": 56,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 340,
+    "cooldown": 18,
+    "directMin": 446.6,
+    "directMax": 474.4,
+    "directCoeff": 0.429,
+    "icon": "spell_shadow_demonicfortitude"
+   },
+   {
+    "id": "shadowWordPain",
+    "spellId": 10894,
+    "name": {
+     "en": "Shadow Word: Pain",
+     "fr": "Mot de l'ombre : Douleur"
+    },
+    "tree": 2,
+    "level": 58,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 470,
+    "dotTotal": 762,
+    "dotDuration": 18,
+    "dotTicks": 6,
+    "dotCoeff": 1.2,
+    "icon": "spell_shadow_shadowwordpain"
+   },
+   {
+    "id": "mindBlast",
+    "spellId": 10947,
+    "name": {
+     "en": "Mind Blast",
+     "fr": "Attaque mentale"
+    },
+    "tree": 2,
+    "level": 58,
+    "school": "shadow",
+    "castTime": 1.5,
+    "manaCost": 350,
+    "cooldown": 8,
+    "directMin": 484.5,
+    "directMax": 511.5,
+    "directCoeff": 0.429,
+    "icon": "spell_shadow_unholyfrenzy"
+   },
+   {
+    "id": "mindFlay",
+    "spellId": 18807,
+    "name": {
+     "en": "Mind Flay",
+     "fr": "Fouet mental"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "shadow",
+    "castTime": 3,
+    "manaCost": 205,
+    "channel": true,
+    "dotTotal": 390,
+    "dotDuration": 3,
+    "dotTicks": 3,
+    "dotCoeff": 0.501,
+    "icon": "spell_shadow_siphonmana"
+   },
+   {
+    "id": "devouringPlague",
+    "spellId": 19280,
+    "name": {
+     "en": "Devouring Plague",
+     "fr": "Peste dévorante"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 985,
+    "cooldown": 24,
+    "dotTotal": 848,
+    "dotDuration": 24,
+    "dotTicks": 8,
+    "dotCoeff": 0.8,
+    "icon": "spell_shadow_devouringplague"
+   },
+   {
+    "id": "shadowguard",
+    "spellId": 28382,
+    "name": {
+     "en": "Shadowguard",
+     "fr": "Garde de l'ombre"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "shadow",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 96,
+    "directMax": 96,
+    "directCoeff": 0.267,
+    "icon": "spell_nature_lightningshield"
+   }
+  ],
+  "rogue": [
+   {
+    "id": "garrote",
+    "spellId": 11290,
+    "name": {
+     "en": "Garrote",
+     "fr": "Garrot"
+    },
+    "tree": 0,
+    "level": 54,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "dotTotal": 552,
+    "dotDuration": 18,
+    "dotTicks": 6,
+    "dotCoeff": 0,
+    "icon": "ability_rogue_garrote"
+   },
+   {
+    "id": "eviscerate",
+    "spellId": 31016,
+    "name": {
+     "en": "Eviscerate",
+     "fr": "Eviscération"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 54,
+    "directMax": 162,
+    "directCoeff": 1,
+    "icon": "ability_rogue_eviscerate"
+   },
+   {
+    "id": "rupture",
+    "spellId": 11275,
+    "name": {
+     "en": "Rupture",
+     "fr": "Rupture"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "dotTotal": 105,
+    "dotDuration": 6,
+    "dotTicks": 3,
+    "dotCoeff": 0,
+    "icon": "ability_rogue_rupture"
+   },
+   {
+    "id": "kick",
+    "spellId": 1769,
+    "name": {
+     "en": "Kick",
+     "fr": "Coup de pied"
+    },
+    "tree": 1,
+    "level": 58,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 10,
+    "directMin": 80,
+    "directMax": 80,
+    "directCoeff": 1,
+    "icon": "ability_kick"
+   },
+   {
+    "id": "gouge",
+    "spellId": 11286,
+    "name": {
+     "en": "Gouge",
+     "fr": "Suriner"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 10,
+    "directMin": 75,
+    "directMax": 75,
+    "directCoeff": 1,
+    "icon": "ability_gouge"
+   }
+  ],
+  "warrior": [
+   {
+    "id": "victoryRush",
+    "spellId": 402927,
+    "name": {
+     "en": "Victory Rush",
+     "fr": "Ivresse de la victoire"
+    },
+    "tree": 0,
+    "level": 20,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 30,
+    "directMin": 1,
+    "directMax": 1,
+    "directCoeff": 0,
+    "icon": "ability_warrior_devastate"
+   },
+   {
+    "id": "hamstring",
+    "spellId": 7373,
+    "name": {
+     "en": "Hamstring",
+     "fr": "Brise-genou"
+    },
+    "tree": 0,
+    "level": 54,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 45,
+    "directMax": 45,
+    "directCoeff": 1,
+    "icon": "ability_shockwave"
+   },
+   {
+    "id": "mockingBlow",
+    "spellId": 20560,
+    "name": {
+     "en": "Mocking Blow",
+     "fr": "Coup railleur"
+    },
+    "tree": 0,
+    "level": 56,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 120,
+    "directMin": 93,
+    "directMax": 93,
+    "directCoeff": 1,
+    "icon": "ability_warrior_punishingblow"
+   },
+   {
+    "id": "thunderClap",
+    "spellId": 11581,
+    "name": {
+     "en": "Thunder Clap",
+     "fr": "Coup de tonnerre"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 6,
+    "directMin": 103,
+    "directMax": 103,
+    "directCoeff": 0,
+    "aoe": true,
+    "icon": "spell_nature_thunderclap"
+   },
+   {
+    "id": "rend",
+    "spellId": 11574,
+    "name": {
+     "en": "Rend",
+     "fr": "Pourfendre"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "dotTotal": 147,
+    "dotDuration": 21,
+    "dotTicks": 7,
+    "dotCoeff": 0,
+    "icon": "ability_gouge"
+   },
+   {
+    "id": "pummel",
+    "spellId": 6554,
+    "name": {
+     "en": "Pummel",
+     "fr": "Volée de coups"
+    },
+    "tree": 1,
+    "level": 58,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 10,
+    "directMin": 50,
+    "directMax": 50,
+    "directCoeff": 1,
+    "icon": "inv_gauntlets_04"
+   },
+   {
+    "id": "bloodthirst",
+    "spellId": 23894,
+    "name": {
+     "en": "Bloodthirst",
+     "fr": "Sanguinaire"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 6,
+    "directMin": 48,
+    "directMax": 48,
+    "directCoeff": 1,
+    "icon": "spell_nature_bloodlust"
+   },
+   {
+    "id": "shieldBash",
+    "spellId": 1672,
+    "name": {
+     "en": "Shield Bash",
+     "fr": "Coup de bouclier"
+    },
+    "tree": 2,
+    "level": 52,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 12,
+    "directMin": 45,
+    "directMax": 45,
+    "directCoeff": 0,
+    "icon": "ability_warrior_shieldbash"
+   },
+   {
+    "id": "revenge",
+    "spellId": 25288,
+    "name": {
+     "en": "Revenge",
+     "fr": "Vengeance"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 5,
+    "directMin": 137.7,
+    "directMax": 168.3,
+    "directCoeff": 1,
+    "icon": "ability_warrior_revenge"
+   },
+   {
+    "id": "shieldSlam",
+    "spellId": 23925,
+    "name": {
+     "en": "Shield Slam",
+     "fr": "Heurt de bouclier"
+    },
+    "tree": 2,
+    "level": 60,
+    "school": "physical",
+    "castTime": 0,
+    "manaCost": 0,
+    "cooldown": 6,
+    "directMin": 640,
+    "directMax": 670,
+    "directCoeff": 1,
+    "icon": "inv_shield_05"
+   }
+  ],
+  "shaman": [
+   {
+    "id": "lightningBolt",
+    "spellId": 408477,
+    "name": {
+     "en": "Lightning Bolt",
+     "fr": "Éclair"
+    },
+    "tree": 0,
+    "level": 56,
+    "school": "nature",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 171.5,
+    "directMax": 192,
+    "directCoeff": 0.357,
+    "icon": "spell_nature_lightning"
+   },
+   {
+    "id": "chainLightning",
+    "spellId": 408484,
+    "name": {
+     "en": "Chain Lightning",
+     "fr": "Chaîne d’éclairs"
+    },
+    "tree": 0,
+    "level": 56,
+    "school": "nature",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 248.1,
+    "directMax": 278.4,
+    "directCoeff": 0.357,
+    "icon": "spell_nature_chainlightning"
+   },
+   {
+    "id": "frostShock",
+    "spellId": 10473,
+    "name": {
+     "en": "Frost Shock",
+     "fr": "Horion de givre"
+    },
+    "tree": 0,
+    "level": 58,
+    "school": "frost",
+    "castTime": 0,
+    "manaCost": 430,
+    "cooldown": 6,
+    "directMin": 500.6,
+    "directMax": 529.4,
+    "directCoeff": 0.386,
+    "icon": "spell_frost_frostshock"
+   },
+   {
+    "id": "earthShock",
+    "spellId": 10414,
+    "name": {
+     "en": "Earth Shock",
+     "fr": "Horion de terre"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "nature",
+    "castTime": 0,
+    "manaCost": 450,
+    "cooldown": 6,
+    "directMin": 533.6,
+    "directMax": 562.4,
+    "directCoeff": 0.386,
+    "icon": "spell_nature_earthshock"
+   },
+   {
+    "id": "flameShock",
+    "spellId": 29228,
+    "name": {
+     "en": "Flame Shock",
+     "fr": "Horion de flammes"
+    },
+    "tree": 0,
+    "level": 60,
+    "school": "fire",
+    "castTime": 0,
+    "manaCost": 410,
+    "cooldown": 6,
+    "directMin": 318.6,
+    "directMax": 318.6,
+    "directCoeff": 0.214,
+    "dotTotal": 320,
+    "dotDuration": 12,
+    "dotTicks": 4,
+    "dotCoeff": 0.4,
+    "icon": "spell_fire_flameshock"
+   },
+   {
+    "id": "lightningShield",
+    "spellId": 26363,
+    "name": {
+     "en": "Lightning Shield",
+     "fr": "Bouclier de foudre"
+    },
+    "tree": 1,
+    "level": 56,
+    "school": "nature",
+    "castTime": 0,
+    "manaCost": 0,
+    "directMin": 178,
+    "directMax": 178,
+    "directCoeff": 0.267,
+    "icon": "spell_nature_lightning"
+   }
+  ]
+ }
+}
