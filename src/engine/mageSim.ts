@@ -1,7 +1,7 @@
 import { FROSTFIRE, MAGE_DATA, type MageOptions, type MageRules, type MageSpec } from '../data/mage/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats } from '../data/types';
 import { createRng } from './rng';
-import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { extraSpellSteps, makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
 import { MAGE_STEPS, cooldownSteps } from './rotationSteps';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -24,6 +24,8 @@ export interface MageSimConfig {
   priority?: PriorityList;
   /** Temps forts : désactivés ou soumis à des conditions. */
   cooldowns?: PriorityList;
+  /** Sorts ajoutés à la rotation (tables du client), en plus des sorts de base. */
+  extraSpells?: SpellDef[];
 }
 
 const EPS = 1e-9;
@@ -109,7 +111,7 @@ export function simulateMage(config: MageSimConfig): SimResult {
   const mods = config.mods ?? emptyMods();
   const fx = mageTalents(config.talents);
   const d = deriveMage(rules, config.gear, config.talents, mods);
-  const spells = new Map(config.spells.map((s) => [s.id, s]));
+  const spells = new Map([...config.spells, ...(config.extraSpells ?? [])].map((s) => [s.id, s]));
   const sp = (id: string) => spells.get(id)!;
   const rng = createRng(config.seed);
   const rec = createRecorder(fightLength);
@@ -279,7 +281,8 @@ export function simulateMage(config: MageSimConfig): SimResult {
       arcaneMissiles: { when: () => !!fx.arcaneBlast, run: () => sp('arcaneMissiles') },
       filler: { when: () => true, run: filler },
     };
-    const pick = makePriority(MAGE_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const extra = extraSpellSteps(spells, { hasTalent: (k) => rank(config.talents, k) > 0, ready: isReady, dotUp: (id) => dots.has(id) }, (s) => s);
+    const pick = makePriority(MAGE_STEPS[spec], steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana }, extra);
     const choose = (): SpellDef => pick() ?? filler();
     const cd = makeCooldownGate(cooldownSteps('mage', spec), config.cooldowns, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
@@ -337,9 +340,10 @@ export function simulateMage(config: MageSimConfig): SimResult {
         continue;
       }
 
-      if (s.id === 'arcaneMissiles') {
-        const fast = barrage;
-        barrage = false;
+      // Canalisés (Projectiles des arcanes, Blizzard…) : les dégâts tombent à chaque tick pendant la canalisation.
+      if (s.id === 'arcaneMissiles' || s.channel) {
+        const fast = s.id === 'arcaneMissiles' && barrage;
+        if (s.id === 'arcaneMissiles') barrage = false;
         const duration = (s.castTime * (fast ? 0.5 : 1)) / haste;
         if (rng() >= hitChance(s)) {
           e.misses++;

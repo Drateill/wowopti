@@ -9,7 +9,7 @@ import type { ShamanOptions, ShamanRules, ShamanSpec } from '../data/shaman/data
 import type { WarriorOptions, WarriorRules, WarriorSpec } from '../data/warrior/data';
 import type { DruidOptions, DruidRules, DruidSpec } from '../data/druid/data';
 import type { PaladinOptions, PaladinRules, PaladinSpec } from '../data/paladin/data';
-import { extraSpellsInRotation } from '../data/extraSpells';
+import { extraSpellsInRotation, supportsExtraSpells } from '../data/extraSpells';
 import { parseSetBonus, type ItemSet } from '../data/setBonus';
 import { emptyMods, emptyStats, mergeMods, type GameRules, type Lang, type Localized, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import type { DruidSimConfig } from '../engine/druidSim';
@@ -422,7 +422,10 @@ export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): A
   const { stats, mods, weapon, rangedWeapon, offHandWeapon, shield } = computeGear(state);
   const healer = CLASS_BY_ID[state.classId].specs.find((s) => s.id === state.spec)?.metric === 'hps';
   const fight = { targets: state.targets ?? 1, movementPct: state.movementPct ?? 0, healer };
-  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight, priority: state.priority?.[state.spec], cooldowns: state.priority?.[cooldownKey(state.spec)] };
+  const priority = state.priority?.[state.spec];
+  // Sorts ajoutés à la rotation (tables du client), pour les spécialisations dont le simulateur sait les lancer.
+  const extraSpells = supportsExtraSpells(state.classId, state.spec) ? extraSpellsInRotation(CLASS_BY_ID[state.classId], (priority ?? []).map((e) => e.id)) : undefined;
+  const common = { spells: state.spells, gear: stats, mods, talents: state.talents, fightLength: state.fightLength, iterations: state.iterations, seed: 12345, fight, priority, cooldowns: state.priority?.[cooldownKey(state.spec)], extraSpells };
   // Main gauche : l'arme portée ; si aucune main n'est équipée, le simulateur prend ses armes par défaut.
   const offHand = offHandWeapon ?? (state.equipped.offHand || state.equipped.mainHand ? null : undefined);
   if (state.classId === 'rogue') {
@@ -470,7 +473,6 @@ export function buildConfig(state: AppState, overrides: ConfigOverrides = {}): A
   return {
     ...common,
     classId: 'warlock',
-    extraSpells: extraSpellsInRotation(CLASS_BY_ID.warlock, (common.priority ?? []).map((e) => e.id)),
     rules: state.rules as unknown as GameRules,
     rotation: state.rotation,
     buffs: state.buffs,

@@ -1,7 +1,7 @@
 import { PRIEST_DATA, type PriestOptions, type PriestRules, type PriestSpec } from '../data/priest/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats } from '../data/types';
 import { createRng } from './rng';
-import { makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
+import { extraSpellSteps, makeCooldownGate, makePriority, type PriorityList, type StepImpl } from './priority';
 import { PRIEST_STEPS, cooldownSteps } from './rotationSteps';
 import { createRecorder, type SimResult } from './simTypes';
 import { rank, type TalentPoints } from './talents';
@@ -24,6 +24,8 @@ export interface PriestSimConfig {
   priority?: PriorityList;
   /** Temps forts : désactivés ou soumis à des conditions. */
   cooldowns?: PriorityList;
+  /** Sorts ajoutés à la rotation (tables du client), en plus des sorts de base. */
+  extraSpells?: SpellDef[];
 }
 
 const EPS = 1e-9;
@@ -140,7 +142,7 @@ function simulateShadow(config: PriestSimConfig): SimResult {
   const mods = config.mods ?? emptyMods();
   const fx = priestTalents(config.talents);
   const d = derivePriest(rules, config.gear, config.talents, mods);
-  const spells = new Map(config.spells.map((s) => [s.id, s]));
+  const spells = new Map([...config.spells, ...(config.extraSpells ?? [])].map((s) => [s.id, s]));
   const sp = (id: string) => spells.get(id)!;
   const rng = createRng(config.seed);
   const rec = createRecorder(fightLength);
@@ -228,7 +230,8 @@ function simulateShadow(config: PriestSimConfig): SimResult {
       shadowWordDeath: { when: () => o.shadowWordDeath && isReady('shadowWordDeath'), run: () => sp('shadowWordDeath') },
       filler: { when: () => true, run: filler },
     };
-    const pick = makePriority(PRIEST_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const extra = extraSpellSteps(spells, { hasTalent: (k) => rank(config.talents, k) > 0, ready: isReady, dotUp: (id) => dots.has(id) }, (s) => s);
+    const pick = makePriority(PRIEST_STEPS, steps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana }, extra);
     const choose = (): SpellDef => pick() ?? filler();
     const cd = makeCooldownGate(cooldownSteps('priest', 'shadow'), config.cooldowns, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
 
@@ -263,7 +266,8 @@ function simulateShadow(config: PriestSimConfig): SimResult {
         continue;
       }
 
-      if (s.id === 'mindFlay') {
+      // Canalisés (Fouet mental, Éclats stellaires…) : dégâts à chaque tick pendant la canalisation.
+      if (s.id === 'mindFlay' || s.channel) {
         const duration = s.castTime / haste;
         if (rng() >= hitChance(s)) {
           e.misses++;
@@ -276,7 +280,7 @@ function simulateShadow(config: PriestSimConfig): SimResult {
         for (let i = 0; i < s.dotTicks!; i++) {
           advance(duration / s.dotTicks!);
           if (t > fightLength + EPS) break;
-          let amount = base * (1 + fx.improvedMindFlayPct / 100) ** i * mult(s);
+          let amount = base * (s.id === 'mindFlay' ? (1 + fx.improvedMindFlayPct / 100) ** i : 1) * mult(s);
           e.ticks++;
           if (rules.dotsCanCrit && rng() < critChance(s)) {
             amount *= critMult(s);

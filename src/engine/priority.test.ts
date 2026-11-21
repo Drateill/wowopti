@@ -115,4 +115,22 @@ describe('liste de priorités', () => {
     expect(casts({ ...base, shadowburn: 0 })).toBe(0);
     expect(casts({ ...base, shadowburn: 1 })).toBeGreaterThan(0);
   });
+
+  it.each([
+    ['mage', 'frost', 'blizzard'],
+    ['mage', 'fire', 'flamestrike'],
+    ['priest', 'shadow', 'starshards'],
+    ['priest', 'shadow', 'holyFire'],
+    ['druid', 'balance', 'hurricane'],
+  ] as const)('%s %s : le sort ajouté %s est lancé', (classId, spec, spell) => {
+    const list = withFirst(`spell:${spell}`, classId, spec);
+    const run = (targets: number) => simulateAny(buildConfig({ ...stateFor(classId, spec, list), targets })).breakdown.find((b) => b.id === spell);
+    const one = run(1);
+    expect(one?.casts, spell).toBeGreaterThan(0);
+    expect(one!.damage).toBeGreaterThan(0);
+    const def = extraSpellsFor(CLASS_BY_ID[classId]).find((x) => x.id === spell)!;
+    if (def.channel) expect(one!.ticks).toBeGreaterThan(0);
+    if (def.aoe) expect(run(4)!.damage / one!.damage).toBeCloseTo(4, 5);
+  });
 });
+

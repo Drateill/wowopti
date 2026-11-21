@@ -321,23 +321,6 @@
   ],
   "paladin": [
    {
-    "id": "judgementOfRighteousness",
-    "spellId": 20286,
-    "name": {
-     "en": "Judgement of Righteousness",
-     "fr": "Jugement de piété"
-    },
-    "tree": 0,
-    "level": 58,
-    "school": "holy",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 185.4,
-    "directMax": 203.8,
-    "directCoeff": 0.429,
-    "icon": "ability_thunderbolt"
-   },
-   {
     "id": "exorcism",
     "spellId": 10314,
     "name": {
@@ -430,40 +413,6 @@
     "directMax": 1,
     "directCoeff": 0,
     "icon": "ability_paladin_hammeroftherighteous"
-   },
-   {
-    "id": "judgementOfFury",
-    "spellId": 20414,
-    "name": {
-     "en": "Judgement of Fury",
-     "fr": "Jugement de fureur"
-    },
-    "tree": 1,
-    "level": 58,
-    "school": "holy",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 167.5,
-    "directMax": 182.8,
-    "directCoeff": 0.429,
-    "icon": "spell_holy_retributionaura"
-   },
-   {
-    "id": "eyeForAnEye",
-    "spellId": 25997,
-    "name": {
-     "en": "Eye for an Eye",
-     "fr": "Oeil pour oeil"
-    },
-    "tree": 2,
-    "level": 1,
-    "school": "holy",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 1,
-    "directMax": 1,
-    "directCoeff": 0,
-    "icon": "spell_holy_eyeforaneye"
    }
   ],
   "druid": [
@@ -1130,6 +1079,24 @@
     "icon": "spell_holy_holysmite"
    },
    {
+    "id": "holyNova",
+    "spellId": 27801,
+    "name": {
+     "en": "Holy Nova",
+     "fr": "Nova sacrée"
+    },
+    "tree": 1,
+    "level": 60,
+    "school": "holy",
+    "castTime": 0,
+    "manaCost": 750,
+    "directMin": 180.3,
+    "directMax": 208.1,
+    "directCoeff": 0.107,
+    "aoe": true,
+    "icon": "spell_holy_holynova"
+   },
+   {
     "id": "holyFire",
     "spellId": 15261,
     "name": {
@@ -1259,23 +1226,6 @@
     "dotTicks": 8,
     "dotCoeff": 0.8,
     "icon": "spell_shadow_devouringplague"
-   },
-   {
-    "id": "shadowguard",
-    "spellId": 28382,
-    "name": {
-     "en": "Shadowguard",
-     "fr": "Garde de l'ombre"
-    },
-    "tree": 2,
-    "level": 60,
-    "school": "shadow",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 96,
-    "directMax": 96,
-    "directCoeff": 0.267,
-    "icon": "spell_nature_lightningshield"
    }
   ],
   "rogue": [
@@ -1554,36 +1504,37 @@
   "shaman": [
    {
     "id": "lightningBolt",
-    "spellId": 408477,
+    "spellId": 15208,
     "name": {
      "en": "Lightning Bolt",
-     "fr": "Éclair"
+     "fr": "Eclair"
     },
     "tree": 0,
     "level": 56,
     "school": "nature",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 171.5,
-    "directMax": 192,
-    "directCoeff": 0.357,
+    "castTime": 2.5,
+    "manaCost": 220,
+    "directMin": 343.8,
+    "directMax": 383.2,
+    "directCoeff": 0.714,
     "icon": "spell_nature_lightning"
    },
    {
     "id": "chainLightning",
-    "spellId": 408484,
+    "spellId": 10605,
     "name": {
      "en": "Chain Lightning",
-     "fr": "Chaîne d’éclairs"
+     "fr": "Chaîne d'éclairs"
     },
     "tree": 0,
     "level": 56,
     "school": "nature",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 248.1,
-    "directMax": 278.4,
-    "directCoeff": 0.357,
+    "castTime": 2.5,
+    "manaCost": 495,
+    "cooldown": 6,
+    "directMin": 497.2,
+    "directMax": 555.7,
+    "directCoeff": 0.714,
     "icon": "spell_nature_chainlightning"
    },
    {
@@ -1643,23 +1594,6 @@
     "dotTicks": 4,
     "dotCoeff": 0.4,
     "icon": "spell_fire_flameshock"
-   },
-   {
-    "id": "lightningShield",
-    "spellId": 26363,
-    "name": {
-     "en": "Lightning Shield",
-     "fr": "Bouclier de foudre"
-    },
-    "tree": 1,
-    "level": 56,
-    "school": "nature",
-    "castTime": 0,
-    "manaCost": 0,
-    "directMin": 178,
-    "directMax": 178,
-    "directCoeff": 0.267,
-    "icon": "spell_nature_lightning"
    }
   ]
  }

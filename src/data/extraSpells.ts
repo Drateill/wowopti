@@ -39,8 +39,9 @@ export const EXTRA_PREFIX = 'spell:';
 export const extraStepId = (spellId: string) => `${EXTRA_PREFIX}${spellId}`;
 export const isExtraStep = (stepId: string) => stepId.startsWith(EXTRA_PREFIX);
 
-/** Classes dont le simulateur sait lancer un sort ajouté. */
-export const EXTRA_SPELL_CLASSES = new Set(['warlock']);
+/** Spécialisations dont le simulateur sait lancer un sort ajouté (lanceurs de sorts). */
+const EXTRA_SPELL_SPECS = new Set(['warlock:*', 'mage:*', 'priest:shadow', 'druid:balance']);
+export const supportsExtraSpells = (classId: string, spec: string) => EXTRA_SPELL_SPECS.has(`${classId}:*`) || EXTRA_SPELL_SPECS.has(`${classId}:${spec}`);
 
 export const WAGO_SOURCE = { source: WAGO.source, build: WAGO.build, fetchedAt: WAGO.fetchedAt };
 

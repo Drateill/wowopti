@@ -1,4 +1,4 @@
-import { EXTRA_SPELL_CLASSES, extraSpellsFor, extraStepId, isExtraStep } from '../data/extraSpells';
+import { extraSpellsFor, extraStepId, isExtraStep, supportsExtraSpells } from '../data/extraSpells';
 import { isCustomized, resolveOrder, type ConditionKind, type PriorityEntry, type StepCondition } from '../engine/priority';
 import { COOLDOWN_TALENT, cooldownKey, cooldownSteps, hasCombo, rotationResource, rotationSteps } from '../engine/rotationSteps';
 import { rank } from '../engine/talents';
@@ -49,7 +49,7 @@ function StepList({ storeKey, defaults, orderable }: { storeKey: string; default
   const { state, set, cls } = useStore();
   const { t, L } = useI18n();
   const custom = state.priority?.[storeKey];
-  const extras = orderable && EXTRA_SPELL_CLASSES.has(cls.id) ? extraSpellsFor(cls) : [];
+  const extras = orderable && supportsExtraSpells(cls.id, state.spec) ? extraSpellsFor(cls) : [];
   const extraById = new Map(extras.map((s) => [extraStepId(s.id), s]));
   const order = resolveOrder(defaults, custom);
   const modified = isCustomized(defaults, custom);

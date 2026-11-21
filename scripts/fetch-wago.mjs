@@ -134,6 +134,7 @@ async function main() {
   const cdOf = by(cooldowns, 'SpellID');
   const powerOf = new Map();
   for (const p of power) if (!powerOf.has(p.SpellID) && (p.PowerType === '0' || p.PowerType === '')) powerOf.set(p.SpellID, p);
+  const anyPower = new Set(power.map((p) => p.SpellID));
   const effectsOf = new Map();
   for (const e of effects) {
     if (!effectsOf.has(e.SpellID)) effectsOf.set(e.SpellID, []);
@@ -174,7 +175,13 @@ async function main() {
       // Niveau 0 : capacités spéciales de Forever (runes, formes) dont on ne sait pas qui les possède.
       if (l.base < 1 || l.base > PLAYER_LEVEL) continue;
       const cur = ranks.get(name);
-      if (!cur || l.base > cur.level || (l.base === cur.level && Number(s.Spell) > Number(cur.id))) ranks.set(name, { id: s.Spell, level: l.base, tree });
+      // Au même niveau, on préfère le sort qui a un coût (le sort lancé, pas un effet déclenché du même nom).
+      const better =
+        !cur ||
+        l.base > cur.level ||
+        (l.base === cur.level && (anyPower.has(s.Spell) ? 1 : 0) - (anyPower.has(cur.id) ? 1 : 0) > 0) ||
+        (l.base === cur.level && anyPower.has(s.Spell) === anyPower.has(cur.id) && Number(s.Spell) > Number(cur.id));
+      if (better) ranks.set(name, { id: s.Spell, level: l.base, tree });
     }
 
     // Sorts déclenchés par un autre sort de la liste (« Effet Flammes infernales ») : comptés dans leur sort parent.
@@ -246,6 +253,8 @@ async function main() {
         }
       }
       if (!def.directMax && !def.dotTotal) continue; // pas un sort de dégâts
+      // Effet déclenché (Bouclier de foudre, Garde de l'ombre) : instantané, sans coût ni temps de recharge.
+      if (!anyPower.has(id) && !def.castTime && !def.cooldown) continue;
       if (aoe) def.aoe = true;
       spells.push(def);
     }

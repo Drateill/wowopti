@@ -1,7 +1,7 @@
 import { DRUID_DATA, type DruidOptions, type DruidRules, type DruidSpec } from '../data/druid/data';
 import { emptyMods, type SimModifiers, type SpellDef, type Stats, type WeaponInfo } from '../data/types';
 import { armorReduction } from './paladinSim';
-import { makePriority, type PriorityList, type StepImpl } from './priority';
+import { extraSpellSteps, makePriority, type PriorityList, type StepImpl } from './priority';
 import { DRUID_STEPS } from './rotationSteps';
 import { createRng } from './rng';
 import { createRecorder, type SimResult } from './simTypes';
@@ -23,6 +23,8 @@ export interface DruidSimConfig {
   iterations: number;
   seed: number;
   priority?: PriorityList;
+  /** Sorts ajoutés à la rotation (tables du client), en plus des sorts de base. */
+  extraSpells?: SpellDef[];
 }
 
 const EPS = 1e-9;
@@ -193,7 +195,7 @@ function simulateBalance(config: DruidSimConfig): SimResult {
   const mods = config.mods ?? emptyMods();
   const fx = druidTalents(config.talents);
   const d = deriveDruid(rules, config.gear, config.talents, 'balance', mods, o.moonkin);
-  const spells = new Map(config.spells.map((s) => [s.id, s]));
+  const spells = new Map([...config.spells, ...(config.extraSpells ?? [])].map((s) => [s.id, s]));
   const sp = (id: string) => spells.get(id)!;
   const rng = createRng(config.seed);
   const rec = createRecorder(fightLength);
@@ -255,7 +257,9 @@ function simulateBalance(config: DruidSimConfig): SimResult {
       insectSwarm: { when: () => o.insectSwarm && fx.insectSwarm && !dots.has('insectSwarm') && fightLength - t > 6, run: () => sp('insectSwarm') },
       filler: { when: () => true, run: balanceFiller },
     };
-    const pickBalance = makePriority(DRUID_STEPS.balance, balanceSteps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana });
+    const cdReady = new Map<string, number>();
+    const extra = extraSpellSteps(spells, { hasTalent: (k) => rank(config.talents, k) > 0, ready: (id) => (cdReady.get(id) ?? 0) <= t + EPS, dotUp: (id) => dots.has(id) }, (s) => s);
+    const pickBalance = makePriority(DRUID_STEPS.balance, balanceSteps, config.priority, { time: () => t, fightLength, resource: () => mana, resourceMax: () => d.maxMana }, extra);
     const chooseBalance = (): SpellDef => pickBalance() ?? balanceFiller();
 
     while (t < fightLength - EPS) {
@@ -270,6 +274,27 @@ function simulateBalance(config: DruidSimConfig): SimResult {
       if (free) clearcast = false;
       else mana -= cost(s);
       mm.spend(t);
+      // Canalisé (Ouragan…) : dégâts à chaque tick pendant la canalisation.
+      if (s.channel && s.dotTotal) {
+        const e = rec.entry(s.id);
+        e.casts++;
+        if (s.cooldown) cdReady.set(s.id, t + s.cooldown);
+        const duration = s.castTime / haste;
+        if (rng() >= hit) {
+          e.misses++;
+          advance(Math.max(1, rules.gcd / haste) + rules.latency);
+          continue;
+        }
+        e.hits++;
+        const tick = ((s.dotTotal + (s.dotCoeff ?? 0) * d.spellPower) / s.dotTicks!) * schoolMult(s);
+        for (let i = 0; i < s.dotTicks! && t < fightLength - EPS; i++) {
+          advance(duration / s.dotTicks!);
+          e.ticks++;
+          rec.add(s.id, tick, t);
+        }
+        advance(rules.latency);
+        continue;
+      }
       const grace = t < graceUntil ? 1 - fx.naturesGracePct / 100 : 1;
       let cast = s.castTime;
       if (s.id === 'wrath') cast -= fx.improvedWrathSec;
@@ -286,6 +311,7 @@ function simulateBalance(config: DruidSimConfig): SimResult {
       if (t > fightLength + EPS) break;
       const e = rec.entry(s.id);
       e.casts++;
+      if (s.cooldown) cdReady.set(s.id, t - time - rules.latency + s.cooldown);
       if (t >= omenReady && rng() < omenChance) {
         clearcast = true;
         omenReady = t + 10;

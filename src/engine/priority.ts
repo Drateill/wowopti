@@ -1,3 +1,5 @@
+import type { SpellDef } from '../data/types';
+
 // Liste de priorités personnalisable, commune à tous les simulateurs.
 //
 // Chaque simulateur décrit ses étapes dans l'ordre par défaut (une étape = une technique ou un choix,
@@ -130,5 +132,28 @@ export function makeCooldownGate(defaults: readonly string[], custom: PriorityLi
     const e = rules.get(id);
     if (!e) return true;
     return e.enabled && (e.conditions.length === 0 || conditionsHold(e.conditions, ctx));
+  };
+}
+
+/** Ce que le simulateur sait d'un sort ajouté, pour décider s'il peut le lancer. */
+export interface ExtraSpellState {
+  hasTalent: (key: string) => boolean;
+  ready: (spellId: string) => boolean;
+  /** Le DoT du sort est encore actif sur la cible. */
+  dotUp: (spellId: string) => boolean;
+}
+
+/**
+ * Code des étapes « spell:… » d'une rotation : le sort est lancé si son talent est pris, s'il est prêt et,
+ * pour un DoT (hors canalisé), s'il n'est pas déjà sur la cible.
+ */
+export function extraSpellSteps<R>(spells: Map<string, SpellDef>, st: ExtraSpellState, run: (s: SpellDef) => R): (stepId: string) => StepImpl<R> | undefined {
+  return (stepId) => {
+    const s = stepId.startsWith('spell:') ? spells.get(stepId.slice(6)) : undefined;
+    if (!s) return undefined;
+    return {
+      when: () => (!s.requiresTalent || st.hasTalent(s.requiresTalent)) && st.ready(s.id) && (s.channel || !s.dotTotal || !st.dotUp(s.id)),
+      run: () => run(s),
+    };
   };
 }
