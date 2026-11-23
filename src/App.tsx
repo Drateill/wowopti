@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BuffsPanel } from './components/BuffsPanel';
 import { GearPanel } from './components/GearPanel';
+import { OptimizeTab } from './components/OptimizeTab';
 import { ProfilesPanel } from './components/ProfilesPanel';
 import { SettingsPanel } from './components/SettingsPanel';
 import { SimPanel } from './components/SimPanel';
@@ -20,6 +21,7 @@ const TABS: [string, TKey][] = [
   ['gear', 'tabGear'],
   ['buffs', 'tabBuffs'],
   ['sim', 'tabSim'],
+  ['optimize', 'tabOptimize'],
   ['weights', 'tabWeights'],
   ['profiles', 'tabProfiles'],
   ['settings', 'tabSettings'],
@@ -88,6 +90,16 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+
+  // Un composant peut demander un autre onglet (raccourci « Optimisation » de l'onglet Simulation).
+  useEffect(() => {
+    const go = (e: Event) => {
+      setTab((e as CustomEvent<string>).detail);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    window.addEventListener('wowopti:tab', go);
+    return () => window.removeEventListener('wowopti:tab', go);
+  }, []);
 
   const sheet = useMemo(() => characterSheet(state), [state]);
   const points = cls.trees.map((_, i) => pointsInTree(state.talents, cls.talents, i)).join('/');
@@ -175,6 +187,7 @@ export default function App() {
         {tab === 'buffs' && <BuffsPanel />}
         {tab === 'profiles' && <ProfilesPanel />}
         {tab === 'sim' && <SimPanel />}
+        {tab === 'optimize' && <OptimizeTab />}
         {tab === 'weights' && <WeightsPanel />}
         {tab === 'settings' && <SettingsPanel />}
       </TabErrorBoundary>

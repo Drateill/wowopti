@@ -177,3 +177,6 @@ a.plain:hover { text-decoration: underline; }
 .optimizer h4 { margin: 0 0 4px; }
 .prio-list li.changed .prio-label { color: var(--accent, #b08cff); font-weight: 600; }
 .cond-chip { margin-left: 6px; padding: 1px 6px; border: 1px solid var(--border); border-radius: 999px; white-space: nowrap; }
+.scenario-table input[type='number'] { width: 64px; }
+.scenario-table input:not([type]) { width: 110px; }
+tr.selected td { background: var(--panel-2); }

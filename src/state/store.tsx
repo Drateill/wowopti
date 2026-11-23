@@ -21,6 +21,7 @@ import type { ShamanSimConfig } from '../engine/shamanSim';
 import type { WarriorSimConfig } from '../engine/warriorSim';
 import type { PaladinSimConfig } from '../engine/paladinSim';
 import type { PriorityList } from '../engine/priority';
+import type { OptPrefs } from './optimize';
 import { cooldownKey } from '../engine/rotationSteps';
 import type { StatWeight } from '../engine/simTypes';
 import { pointsInTree, type TalentPoints } from '../engine/talents';
@@ -109,6 +110,8 @@ export interface AppState extends ProfileData {
   weights: StatWeight[] | null;
   /** Dernier personnage importé depuis Blizzard (pour le mettre à jour d'un clic). */
   character?: { slug: string; name: string };
+  /** Réglages de l'onglet Optimisation. */
+  opt?: OptPrefs;
 }
 
 const browserLang = (): Lang => {
