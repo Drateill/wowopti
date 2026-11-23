@@ -171,3 +171,9 @@ a.plain:hover { text-decoration: underline; }
 .prio-cond { display: flex; align-items: center; gap: 6px; margin: 4px 0 0 24px; flex-wrap: wrap; }
 .prio-cond input[type='number'] { width: 72px; }
 .prio-cond select { max-width: 100%; }
+
+/* Optimiseur de rotation */
+.optimizer { margin: 8px 0 12px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); }
+.optimizer h4 { margin: 0 0 4px; }
+.prio-list li.changed .prio-label { color: var(--accent, #b08cff); font-weight: 600; }
+.cond-chip { margin-left: 6px; padding: 1px 6px; border: 1px solid var(--border); border-radius: 999px; white-space: nowrap; }

@@ -1,7 +1,7 @@
 {
  "source": "wago.tools (client WoW Forever 1.60.1.71037)",
  "build": "1.60.1.71037",
- "fetchedAt": "2026-11-21",
+ "fetchedAt": "2026-11-23",
  "classes": {
   "warlock": [
    {
@@ -170,6 +170,7 @@
     "dotTicks": 15,
     "dotCoeff": 0.33,
     "aoe": true,
+    "selfDamage": true,
     "icon": "spell_fire_incinerate"
    },
    {

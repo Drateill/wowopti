@@ -256,6 +256,8 @@ async function main() {
       // Effet déclenché (Bouclier de foudre, Garde de l'ombre) : instantané, sans coût ni temps de recharge.
       if (!anyPower.has(id) && !def.castTime && !def.cooldown) continue;
       if (aoe) def.aoe = true;
+      // Dégâts aussi infligés au lanceur (Flammes infernales) : non simulés, l'optimiseur ne propose pas ce sort.
+      if (effs.some((e) => Number(e.EffectAura) === A_PERIODIC_DAMAGE && Number(e.ImplicitTarget_0) === 1)) def.selfDamage = true;
       spells.push(def);
     }
     spells.sort((a, b) => a.tree - b.tree || a.level - b.level);

@@ -4,6 +4,7 @@ import { COOLDOWN_TALENT, cooldownKey, cooldownSteps, hasCombo, rotationResource
 import { rank } from '../engine/talents';
 import { useI18n, type TKey } from '../i18n';
 import { useStore } from '../state/store';
+import { OptimizerPanel } from './OptimizerPanel';
 import { SpellName } from './SimPanel';
 import { Icon } from './ui';
 
@@ -27,6 +28,7 @@ export function RotationEditor() {
       <summary>
         {t('prioTitle')} {modified && <span className="warn small">({t('prioModified')})</span>}
       </summary>
+      {steps.length > 0 && <OptimizerPanel />}
       {steps.length > 0 && (
         <>
           <p className="small muted">{t('prioHelp')}</p>
@@ -169,6 +171,7 @@ function StepList({ storeKey, defaults, orderable }: { storeKey: string; default
                 <option key={s.id} value={extraStepId(s.id)} disabled={!hasTalent(s.requiresTalent)}>
                   {L(s.name)}
                   {s.aoe ? ` (${t('prioAoe')})` : ''}
+                  {s.selfDamage ? ` (${t('prioSelfDamage')})` : ''}
                   {!hasTalent(s.requiresTalent) ? ` ${t('talentRequired')}` : ''}
                 </option>
               ))}

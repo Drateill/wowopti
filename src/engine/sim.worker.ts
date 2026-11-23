@@ -5,7 +5,9 @@ import { simulateAny, statWeightsAny } from './sim';
 export type WorkerRequest =
   | { id: number; kind: 'sim'; config: AnySimConfig }
   | { id: number; kind: 'weights'; config: AnySimConfig }
-  | { id: number; kind: 'compare'; configs: AnySimConfig[] };
+  | { id: number; kind: 'compare'; configs: AnySimConfig[] }
+  /** DPS seul (optimiseur de rotation) : réponse légère. */
+  | { id: number; kind: 'dps'; configs: AnySimConfig[] };
 
 self.onmessage = (e: MessageEvent<WorkerRequest>) => {
   const req = e.data;
@@ -14,6 +16,12 @@ self.onmessage = (e: MessageEvent<WorkerRequest>) => {
       self.postMessage({ id: req.id, ok: true, result: simulateAny(req.config) });
     } else if (req.kind === 'weights') {
       const result = statWeightsAny(req.config, (done, total) => self.postMessage({ id: req.id, progress: done / total }));
+      self.postMessage({ id: req.id, ok: true, result });
+    } else if (req.kind === 'dps') {
+      const result = req.configs.map((c) => {
+        const r = simulateAny(c);
+        return { dps: r.dps, stdev: r.stdev, iterations: r.iterations };
+      });
       self.postMessage({ id: req.id, ok: true, result });
     } else {
       const results = req.configs.map((c, i) => {

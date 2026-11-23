@@ -26,12 +26,15 @@ interface WagoSpell {
   dotTicks?: number;
   dotCoeff?: number;
   aoe?: boolean;
+  selfDamage?: boolean;
 }
 
 export interface ExtraSpell extends SpellDef {
   name: Localized;
   icon: string;
   spellId: number;
+  /** Le sort blesse aussi le lanceur (non simulé). */
+  selfDamage?: boolean;
 }
 
 /** Préfixe des étapes de rotation qui lancent un sort ajouté. */
